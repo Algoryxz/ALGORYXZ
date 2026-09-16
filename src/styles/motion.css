@@ -1,0 +1,45 @@
+/**
+ * ALGORYXZ MOTION PRIMITIVES
+ * Owner: Deeptiman (Art Direction) & Smarak (Engineering)
+ * Includes mandatory prefers-reduced-motion reset
+ */
+
+:root {
+  --ease-out-smooth: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
+
+  --duration-fast: 150ms;
+  --duration-normal: 250ms;
+  --duration-deliberate: 400ms;
+
+  --transition-interactive: all var(--duration-fast) var(--ease-out-smooth);
+  --transition-surface: background-color var(--duration-normal) ease, border-color var(--duration-normal) ease;
+}
+
+/* Base keyframe animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn var(--duration-deliberate) var(--ease-out-smooth) forwards;
+}
+
+/* MANDATORY ACCESSIBILITY REDUCED-MOTION OVERRIDE */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

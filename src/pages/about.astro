@@ -1,0 +1,206 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="About the Studio & Founders"
+  description="Meet the three founders behind Algoryxz: Smarak, Deeptiman, and Akriti. A modern digital studio based in Bhubaneswar, Odisha."
+>
+  <section class="section">
+    <div class="container">
+      <header class="page-header">
+        <span class="section-eyebrow">Studio Origin & Philosophy</span>
+        <h1 class="page-title">Taste, Engineering Rigor & Founder Directness</h1>
+        <p class="page-lead">
+          Algoryxz was founded in Bhubaneswar, Odisha, by three engineering and design partners who believed digital development shouldn't be caught between slow, bloated agencies and fragile DIY templates.
+        </p>
+      </header>
+
+      <div class="philosophy-grid">
+        <div class="philosophy-item">
+          <span class="philo-num">01</span>
+          <h3>Internal AI Rigor</h3>
+          <p>
+            We use AI coding agents as our engine room to eliminate boilerplate and automate CI/CD pipelines. But AI is not what we sell. We sell finished, audited accountability.
+          </p>
+        </div>
+
+        <div class="philosophy-item">
+          <span class="philo-num">02</span>
+          <h3>Founder Direct Access</h3>
+          <p>
+            When you collaborate with Algoryxz, you work directly with Smarak, Deeptiman, and Akriti. No account executives, no junior contractor relay chains, no communication lag.
+          </p>
+        </div>
+
+        <div class="philosophy-item">
+          <span class="philo-num">03</span>
+          <h3>Edge Performance</h3>
+          <p>
+            We deploy globally on Cloudflare Pages. Our websites load in milliseconds, have zero unnecessary client runtime overhead, and eliminate recurring hosting markups.
+          </p>
+        </div>
+      </div>
+
+      <div class="founders-section-about">
+        <h2 class="founders-heading">The Founders</h2>
+        <div class="founders-cards-stack">
+          <div class="founder-card-about">
+            <div class="founder-meta">
+              <span class="badge badge-internal">Architecture</span>
+              <span class="founder-location">Bhubaneswar, Odisha</span>
+            </div>
+            <h3 class="founder-name">Smarak</h3>
+            <p class="founder-title">Co-Founder, Engineering & Systems</p>
+            <p class="founder-text">
+              Specializes in distributed systems, modern edge architecture, TypeScript, and AI agent integration. Smarak oversees all technical feasibility, backend systems, database schemas, and production deployment pipelines.
+            </p>
+          </div>
+
+          <div class="founder-card-about">
+            <div class="founder-meta">
+              <span class="badge badge-concept">Art Direction</span>
+              <span class="founder-location">Bhubaneswar, Odisha</span>
+            </div>
+            <h3 class="founder-name">Deeptiman</h3>
+            <p class="founder-title">Co-Founder, Creative & Design Direction</p>
+            <p class="founder-text">
+              Directs visual identity, typography hierarchies, motion choreography, and layout aesthetics. Deeptiman ensures that every release feels bespoke, intentional, and editorial rather than template-assembled.
+            </p>
+          </div>
+
+          <div class="founder-card-about">
+            <div class="founder-meta">
+              <span class="badge badge-client">Operations</span>
+              <span class="founder-location">Bhubaneswar, Odisha</span>
+            </div>
+            <h3 class="founder-name">Akriti</h3>
+            <p class="founder-title">Co-Founder, Operations, Delivery & QA</p>
+            <p class="founder-text">
+              Oversees delivery schedules, client onboarding, content readiness, and physical real-device quality assurance. Akriti serves as the final gatekeeper before custom domains cut over to production.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .page-header {
+    margin-bottom: var(--space-16);
+    max-width: 820px;
+  }
+
+  .section-eyebrow {
+    display: block;
+    font-size: var(--font-size-xs);
+    font-family: var(--font-family-mono);
+    color: var(--color-accent-primary);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: var(--space-2);
+  }
+
+  .page-title {
+    margin-bottom: var(--space-4);
+  }
+
+  .page-lead {
+    font-size: var(--font-size-lg);
+    color: var(--color-text-secondary);
+  }
+
+  .philosophy-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-8);
+    margin-bottom: var(--space-20);
+    padding-bottom: var(--space-16);
+    border-bottom: 1px solid var(--color-border-hairline);
+  }
+
+  .philosophy-item {
+    background-color: var(--color-bg-surface);
+    border: 1px solid var(--color-border-hairline);
+    padding: var(--space-8);
+    border-radius: var(--radius-sm);
+  }
+
+  .philo-num {
+    display: block;
+    font-family: var(--font-family-mono);
+    font-size: var(--font-size-sm);
+    color: var(--color-accent-primary);
+    margin-bottom: var(--space-3);
+  }
+
+  .philosophy-item h3 {
+    font-size: var(--font-size-xl);
+    margin-bottom: var(--space-3);
+  }
+
+  .philosophy-item p {
+    font-size: var(--font-size-sm);
+    color: var(--color-text-secondary);
+    line-height: var(--line-height-relaxed);
+  }
+
+  .founders-heading {
+    font-size: var(--font-size-2xl);
+    margin-bottom: var(--space-8);
+  }
+
+  .founders-cards-stack {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-8);
+  }
+
+  .founder-card-about {
+    background-color: var(--color-bg-surface);
+    border: 1px solid var(--color-border-hairline);
+    padding: var(--space-8);
+    border-radius: var(--radius-sm);
+  }
+
+  .founder-meta {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    margin-bottom: var(--space-3);
+  }
+
+  .founder-location {
+    font-size: var(--font-size-xs);
+    color: var(--color-text-muted);
+  }
+
+  .founder-name {
+    font-size: var(--font-size-2xl);
+    margin-bottom: 2px;
+  }
+
+  .founder-title {
+    font-size: var(--font-size-sm);
+    font-family: var(--font-family-mono);
+    color: var(--color-accent-primary);
+    margin-bottom: var(--space-4);
+  }
+
+  .founder-text {
+    font-size: var(--font-size-sm);
+    color: var(--color-text-secondary);
+    line-height: var(--line-height-relaxed);
+  }
+
+  @media (min-width: 768px) {
+    .philosophy-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    .founders-cards-stack {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+</style>

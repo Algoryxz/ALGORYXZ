@@ -1,0 +1,728 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { getAllProjects } from '../data/projects';
+
+const projects = getAllProjects();
+---
+
+<BaseLayout title="Digital Studio — Engineering & Design">
+  <!-- SECTION 1: HERO -->
+  <section class="hero-section section" aria-labelledby="hero-heading">
+    <div class="container">
+      <div class="hero-meta">
+        <span class="studio-status-indicator" aria-hidden="true"></span>
+        <span class="studio-status-text">Bhubaneswar, India &bull; Accepting Select Projects</span>
+      </div>
+      <h1 id="hero-heading" class="hero-title">
+        A small, founder-led digital studio with engineering depth.
+      </h1>
+      <p class="hero-subtitle">
+        We build bespoke digital experiences for milestone celebrations, high-conversion commercial storefronts, and custom systems. Delivered in days, backed by engineering rigor.
+      </p>
+      <div class="hero-actions">
+        <a href="/contact" class="btn btn-primary">Start a Project</a>
+        <a href="/work" class="btn btn-secondary">Explore Our Work</a>
+      </div>
+      <div class="hero-evidence-bar">
+        <div class="evidence-item">
+          <span class="evidence-label">Operating Model</span>
+          <span class="evidence-val">Founder Direct</span>
+        </div>
+        <div class="evidence-item">
+          <span class="evidence-label">Turnaround</span>
+          <span class="evidence-val">3–14 Days</span>
+        </div>
+        <div class="evidence-item">
+          <span class="evidence-label">Infrastructure</span>
+          <span class="evidence-val">Cloudflare Edge</span>
+        </div>
+        <div class="evidence-item">
+          <span class="evidence-label">Asset Rule</span>
+          <span class="evidence-val">100% Client Owned</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 2: AUDIENCE SELF-SELECTION -->
+  <section class="audience-section section" aria-labelledby="audience-heading">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-eyebrow">Choose Your Path</span>
+        <h2 id="audience-heading" class="section-title">What are you creating?</h2>
+      </div>
+
+      <div class="audience-grid">
+        <a href="/services#celebrations" class="audience-path">
+          <div class="path-index">01</div>
+          <h3 class="path-title">For someone special</h3>
+          <p class="path-desc">
+            Milestone celebrations, multi-day wedding portals, proposals, and curated personal events. Interactive, emotion-first, and mobile-optimized.
+          </p>
+          <div class="path-footer">
+            <span class="path-action">Explore Celebrations &rarr;</span>
+          </div>
+        </a>
+
+        <a href="/services#business" class="audience-path">
+          <div class="path-index">02</div>
+          <h3 class="path-title">For my business</h3>
+          <p class="path-desc">
+            Bespoke commercial web storefronts for cafés, salons, gyms, clinics, and creators. Instant loading, clear services, and direct WhatsApp booking.
+          </p>
+          <div class="path-footer">
+            <span class="path-action">Explore Business & Brand &rarr;</span>
+          </div>
+        </a>
+
+        <a href="/services#custom" class="audience-path">
+          <div class="path-index">03</div>
+          <h3 class="path-title">Something custom</h3>
+          <p class="path-desc">
+            Bespoke booking engines, authenticated customer portals, databases, and custom business logic tailored to your exact operational workflow.
+          </p>
+          <div class="path-footer">
+            <span class="path-action">Explore Custom Systems &rarr;</span>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 3: SELECTED WORK -->
+  <section class="work-section section" aria-labelledby="work-heading">
+    <div class="container">
+      <div class="section-header section-header-split">
+        <div>
+          <span class="section-eyebrow">Portfolio Index</span>
+          <h2 id="work-heading" class="section-title">Selected Work</h2>
+        </div>
+        <a href="/work" class="btn btn-secondary">View All Work ({projects.length})</a>
+      </div>
+
+      <div class="projects-list">
+        {projects.map((proj) => (
+          <article class="project-entry">
+            <div class="project-media-col">
+              <img
+                src={proj.heroAsset}
+                alt={`Visual representation of ${proj.title}`}
+                loading="lazy"
+                class="project-preview-img"
+              />
+            </div>
+            <div class="project-content-col">
+              <div class="project-tags-row">
+                <span class="project-num">/{proj.number}</span>
+                <span class:list={['badge', `badge-${proj.status.toLowerCase().replace('_', '-')}`]}>
+                  {proj.status.replace('_', ' ')}
+                </span>
+                <span class="project-category">{proj.category}</span>
+              </div>
+              <h3 class="project-title">
+                <a href={`/work/${proj.slug}`}>{proj.title}</a>
+              </h3>
+              <p class="project-desc">{proj.shortDescription}</p>
+              <div class="project-actions">
+                <a href={`/work/${proj.slug}`} class="project-link">
+                  View Case Study &rarr;
+                </a>
+                {proj.liveUrl && (
+                  <a href={proj.liveUrl} target="_blank" rel="noopener noreferrer" class="project-ext-link">
+                    Live Demo &nearr;
+                  </a>
+                )}
+              </div>
+            </div>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 4: WHAT WE MAKE -->
+  <section class="lanes-section section" aria-labelledby="lanes-heading">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-eyebrow">Studio Capabilities</span>
+        <h2 id="lanes-heading" class="section-title">What We Make</h2>
+      </div>
+
+      <div class="lanes-table-wrapper">
+        <div class="lane-row">
+          <div class="lane-name">
+            <h3>Celebrations</h3>
+            <span class="lane-badge">Wedge Experience</span>
+          </div>
+          <div class="lane-detail">
+            <p>Weddings, proposals, milestone birthdays, family reunions, and interactive digital invitations.</p>
+            <ul class="lane-features">
+              <li>Multi-day itinerary & event schedule</li>
+              <li>Per-event guest RSVP tracking</li>
+              <li>Photo & media galleries (zero egress fees)</li>
+              <li>Turnaround in 3 to 7 days</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="lane-row">
+          <div class="lane-name">
+            <h3>Business & Brand</h3>
+            <span class="lane-badge">Commercial Engine</span>
+          </div>
+          <div class="lane-detail">
+            <p>Cafés, salons, boutique gyms, clinics, independent creators, and local service brands.</p>
+            <ul class="lane-features">
+              <li>Instant-loading digital menu & service catalogs</li>
+              <li>Google Maps routing & WhatsApp booking triggers</li>
+              <li>SEO foundation & Local Business structured data</li>
+              <li>Optional monthly Care plan maintenance</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="lane-row">
+          <div class="lane-name">
+            <h3>Custom Systems</h3>
+            <span class="lane-badge">Advanced Architecture</span>
+          </div>
+          <div class="lane-detail">
+            <p>Bespoke operational workflows, authenticated client portals, and custom relational backends.</p>
+            <ul class="lane-features">
+              <li>Custom multi-step booking & checkout workflows</li>
+              <li>Razorpay & UPI payment gateway integrations</li>
+              <li>Edge databases (Cloudflare D1 & Neon Postgres)</li>
+              <li>Milestone-governed delivery cycles</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 5: PROCESS -->
+  <section class="process-section section" aria-labelledby="process-heading">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-eyebrow">Methodology</span>
+        <h2 id="process-heading" class="section-title">How We Build</h2>
+      </div>
+
+      <div class="process-timeline">
+        <div class="process-step">
+          <span class="step-num">01</span>
+          <h3 class="step-title">Discovery & Scope Lock</h3>
+          <p class="step-desc">
+            We review your requirements, determine the project class, and agree on a clear, fixed-price SOW. Work begins only after deposit clearance.
+          </p>
+        </div>
+
+        <div class="process-step">
+          <span class="step-num">02</span>
+          <h3 class="step-title">Art Direction & Design Gate</h3>
+          <p class="step-desc">
+            Deeptiman leads visual identity, typography, and layout. No code is implemented until visual direction is signed off.
+          </p>
+        </div>
+
+        <div class="process-step">
+          <span class="step-num">03</span>
+          <h3 class="step-title">Edge Engineering & 2-Revision Standard</h3>
+          <p class="step-desc">
+            Smarak architects the static-first build on Cloudflare. Two consolidated feedback rounds guarantee focused polish without scope drift.
+          </p>
+        </div>
+
+        <div class="process-step">
+          <span class="step-num">04</span>
+          <h3 class="step-title">Real-Device QA & Launch</h3>
+          <p class="step-desc">
+            Akriti runs our physical mobile device QA gate. Once verified and final payment is cleared, we cut over DNS to your custom domain.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 6: FOUNDERS -->
+  <section class="founders-section section" aria-labelledby="founders-heading">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-eyebrow">Leadership</span>
+        <h2 id="founders-heading" class="section-title">The Founders</h2>
+      </div>
+
+      <div class="founders-grid">
+        <div class="founder-card">
+          <div class="founder-role-tag">Engineering & Systems</div>
+          <h3 class="founder-name">Smarak</h3>
+          <p class="founder-location">Bhubaneswar, Odisha</p>
+          <p class="founder-bio">
+            Leads software architecture, edge infrastructure, Cloudflare pipelines, and AI agent tooling. Enforces code rigor and technical feasibility.
+          </p>
+        </div>
+
+        <div class="founder-card">
+          <div class="founder-role-tag">Design & Creative</div>
+          <h3 class="founder-name">Deeptiman</h3>
+          <p class="founder-location">Bhubaneswar, Odisha</p>
+          <p class="founder-bio">
+            Directs visual identity, typography, layout choreography, and motion standards. Governs brand aesthetics and UI acceptance.
+          </p>
+        </div>
+
+        <div class="founder-card">
+          <div class="founder-role-tag">Operations, Delivery & QA</div>
+          <h3 class="founder-name">Akriti</h3>
+          <p class="founder-location">Bhubaneswar, Odisha</p>
+          <p class="founder-bio">
+            Manages project timelines, SOW compliance, content intake, and rigorous physical mobile device testing before every public release.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 7: FINAL CTA -->
+  <section class="cta-section section" aria-labelledby="cta-heading">
+    <div class="container cta-container">
+      <span class="section-eyebrow">Ready to start?</span>
+      <h2 id="cta-heading" class="cta-title">Let’s build something lasting together.</h2>
+      <p class="cta-desc">
+        No sales reps, no agency junior chains. Speak directly with the founders who will architect, design, and deliver your project.
+      </p>
+      <div class="cta-buttons">
+        <a href="/contact" class="btn btn-primary">Start a Project</a>
+        <a href="/services" class="btn btn-secondary">Explore Packages & Pricing</a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .hero-section {
+    padding-top: var(--space-20);
+    padding-bottom: var(--space-20);
+  }
+
+  .hero-meta {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    padding: var(--space-1) var(--space-3);
+    background-color: var(--color-bg-surface);
+    border: 1px solid var(--color-border-hairline);
+    border-radius: var(--radius-pill);
+    font-size: var(--font-size-xs);
+    color: var(--color-text-secondary);
+    margin-bottom: var(--space-6);
+  }
+
+  .studio-status-indicator {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: #10b981;
+  }
+
+  .hero-title {
+    max-width: 900px;
+    margin-bottom: var(--space-6);
+  }
+
+  .hero-subtitle {
+    max-width: 680px;
+    font-size: var(--font-size-lg);
+    line-height: var(--line-height-relaxed);
+    margin-bottom: var(--space-8);
+  }
+
+  .hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-4);
+    margin-bottom: var(--space-16);
+  }
+
+  .hero-evidence-bar {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-4);
+    padding-top: var(--space-8);
+    border-top: 1px solid var(--color-border-hairline);
+  }
+
+  .evidence-item {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .evidence-label {
+    font-size: var(--font-size-xs);
+    color: var(--color-text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .evidence-val {
+    font-size: var(--font-size-sm);
+    color: var(--color-text-primary);
+    font-weight: var(--font-weight-medium);
+  }
+
+  /* Section Header Utilities */
+  .section-header {
+    margin-bottom: var(--space-12);
+  }
+
+  .section-header-split {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-4);
+  }
+
+  @media (min-width: 768px) {
+    .section-header-split {
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: flex-end;
+    }
+  }
+
+  .section-eyebrow {
+    display: block;
+    font-size: var(--font-size-xs);
+    font-family: var(--font-family-mono);
+    color: var(--color-accent-primary);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: var(--space-2);
+  }
+
+  .section-title {
+    max-width: 700px;
+  }
+
+  /* Audience Self-Selection */
+  .audience-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-6);
+  }
+
+  .audience-path {
+    display: flex;
+    flex-direction: column;
+    padding: var(--space-8);
+    background-color: var(--color-bg-surface);
+    border: 1px solid var(--color-border-subtle);
+    border-radius: var(--radius-sm);
+    transition: var(--transition-interactive);
+  }
+
+  .audience-path:hover {
+    border-color: var(--color-border-strong);
+    background-color: var(--color-bg-surface-elevated);
+    transform: translateY(-2px);
+  }
+
+  .path-index {
+    font-family: var(--font-family-mono);
+    font-size: var(--font-size-xs);
+    color: var(--color-text-muted);
+    margin-bottom: var(--space-4);
+  }
+
+  .path-title {
+    font-size: var(--font-size-xl);
+    margin-bottom: var(--space-3);
+  }
+
+  .path-desc {
+    font-size: var(--font-size-sm);
+    color: var(--color-text-secondary);
+    margin-bottom: var(--space-6);
+    flex: 1;
+  }
+
+  .path-action {
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-medium);
+    color: var(--color-accent-primary);
+  }
+
+  /* Selected Work */
+  .projects-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-12);
+  }
+
+  .project-entry {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-6);
+    padding-bottom: var(--space-12);
+    border-bottom: 1px solid var(--color-border-hairline);
+  }
+
+  .project-media-col {
+    background-color: var(--color-bg-surface);
+    border: 1px solid var(--color-border-hairline);
+    border-radius: var(--radius-sm);
+    overflow: hidden;
+    aspect-ratio: 16 / 9;
+  }
+
+  .project-preview-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .project-content-col {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .project-tags-row {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    margin-bottom: var(--space-3);
+  }
+
+  .project-num {
+    font-family: var(--font-family-mono);
+    font-size: var(--font-size-sm);
+    color: var(--color-text-muted);
+  }
+
+  .project-category {
+    font-size: var(--font-size-xs);
+    color: var(--color-text-secondary);
+  }
+
+  .project-title {
+    font-size: var(--font-size-2xl);
+    margin-bottom: var(--space-3);
+  }
+
+  .project-title a:hover {
+    color: var(--color-accent-primary);
+  }
+
+  .project-desc {
+    font-size: var(--font-size-base);
+    color: var(--color-text-secondary);
+    margin-bottom: var(--space-6);
+  }
+
+  .project-actions {
+    display: flex;
+    align-items: center;
+    gap: var(--space-6);
+  }
+
+  .project-link {
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-medium);
+    color: var(--color-text-primary);
+  }
+
+  .project-link:hover {
+    color: var(--color-accent-primary);
+  }
+
+  .project-ext-link {
+    font-size: var(--font-size-sm);
+    color: var(--color-text-muted);
+  }
+
+  .project-ext-link:hover {
+    color: var(--color-text-primary);
+  }
+
+  /* What We Make Lanes */
+  .lanes-table-wrapper {
+    display: flex;
+    flex-direction: column;
+    border-top: 1px solid var(--color-border-subtle);
+  }
+
+  .lane-row {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-4);
+    padding: var(--space-8) 0;
+    border-bottom: 1px solid var(--color-border-hairline);
+  }
+
+  .lane-name {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+  }
+
+  .lane-badge {
+    font-size: var(--font-size-xs);
+    font-family: var(--font-family-mono);
+    color: var(--color-accent-primary);
+  }
+
+  .lane-detail p {
+    margin-bottom: var(--space-4);
+  }
+
+  .lane-features {
+    list-style: none;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-2);
+  }
+
+  .lane-features li {
+    font-size: var(--font-size-sm);
+    color: var(--color-text-secondary);
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+  }
+
+  .lane-features li::before {
+    content: "•";
+    color: var(--color-accent-primary);
+  }
+
+  /* Process Timeline */
+  .process-timeline {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-8);
+  }
+
+  .process-step {
+    border-top: 1px solid var(--color-border-hairline);
+    padding-top: var(--space-4);
+  }
+
+  .step-num {
+    display: block;
+    font-family: var(--font-family-mono);
+    font-size: var(--font-size-sm);
+    color: var(--color-text-muted);
+    margin-bottom: var(--space-2);
+  }
+
+  .step-title {
+    font-size: var(--font-size-lg);
+    margin-bottom: var(--space-2);
+  }
+
+  .step-desc {
+    font-size: var(--font-size-sm);
+    color: var(--color-text-secondary);
+  }
+
+  /* Founders */
+  .founders-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-6);
+  }
+
+  .founder-card {
+    background-color: var(--color-bg-surface);
+    border: 1px solid var(--color-border-hairline);
+    padding: var(--space-6);
+    border-radius: var(--radius-sm);
+  }
+
+  .founder-role-tag {
+    font-size: var(--font-size-xs);
+    font-family: var(--font-family-mono);
+    color: var(--color-accent-primary);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: var(--space-2);
+  }
+
+  .founder-name {
+    font-size: var(--font-size-xl);
+    margin-bottom: 2px;
+  }
+
+  .founder-location {
+    font-size: var(--font-size-xs);
+    color: var(--color-text-muted);
+    margin-bottom: var(--space-4);
+  }
+
+  .founder-bio {
+    font-size: var(--font-size-sm);
+    color: var(--color-text-secondary);
+    line-height: var(--line-height-relaxed);
+  }
+
+  /* Final CTA */
+  .cta-container {
+    text-align: center;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .cta-title {
+    margin-top: var(--space-2);
+    margin-bottom: var(--space-4);
+  }
+
+  .cta-desc {
+    font-size: var(--font-size-base);
+    color: var(--color-text-secondary);
+    margin-bottom: var(--space-8);
+  }
+
+  .cta-buttons {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: var(--space-4);
+  }
+
+  /* Responsive Media Queries */
+  @media (min-width: 768px) {
+    .hero-evidence-bar {
+      grid-template-columns: repeat(4, 1fr);
+    }
+
+    .audience-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    .project-entry {
+      grid-template-columns: 1.2fr 1fr;
+      align-items: center;
+    }
+
+    .lane-row {
+      grid-template-columns: 240px 1fr;
+      gap: var(--space-8);
+    }
+
+    .lane-features {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .process-timeline {
+      grid-template-columns: repeat(4, 1fr);
+    }
+
+    .founders-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+</style>

@@ -1,0 +1,239 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="Our Process & Methodology"
+  description="How Algoryxz delivers agency-grade digital experiences in days with clear boundaries, fixed scopes, and zero hostage assets."
+>
+  <section class="section">
+    <div class="container">
+      <header class="page-header">
+        <span class="section-eyebrow">Methodology & Rigor</span>
+        <h1 class="page-title">How We Work</h1>
+        <p class="page-lead">
+          We combine internal AI agent acceleration with strict human founder gates. Transparent stages, fixed scope, and zero ambiguity.
+        </p>
+      </header>
+
+      <div class="process-steps-vertical">
+        <!-- STAGE 1 -->
+        <div class="stage-item">
+          <div class="stage-marker">01</div>
+          <div class="stage-content">
+            <span class="stage-owner">Akriti & Client Owner</span>
+            <h2 class="stage-title">Qualification, Discovery & SOW</h2>
+            <p class="stage-desc">
+              We define the exact business problem, score the project complexity, and deliver a fixed-scope Statement of Work (SOW). No hidden fees, no open-ended billing.
+            </p>
+            <div class="stage-rules">
+              <span class="rule-tag">Exit Condition: Deposit cleared in studio account</span>
+              <span class="rule-tag">Scope locked to 2 revision rounds</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- STAGE 2 -->
+        <div class="stage-item">
+          <div class="stage-marker">02</div>
+          <div class="stage-content">
+            <span class="stage-owner">Deeptiman (Design Sign-off Gate)</span>
+            <h2 class="stage-title">Art Direction & Design Gate</h2>
+            <p class="stage-desc">
+              Deeptiman shapes the visual identity, typography system, component states, and motion choreography. We present an interactive layout preview for your approval.
+            </p>
+            <div class="stage-rules">
+              <span class="rule-tag">Exit Condition: Deeptiman sign-off + Client milestone approval</span>
+              <span class="rule-tag">Zero code starts until design is locked</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- STAGE 3 -->
+        <div class="stage-item">
+          <div class="stage-marker">03</div>
+          <div class="stage-content">
+            <span class="stage-owner">Smarak (Engineering Architecture)</span>
+            <h2 class="stage-title">Edge Build & 2-Revision Standard</h2>
+            <p class="stage-desc">
+              We construct the application using static-first architecture on Cloudflare Pages. Interactive preview URLs let you inspect live builds on real staging URLs.
+            </p>
+            <div class="stage-rules">
+              <span class="rule-tag">The 2-Revision Standard: Batched feedback only</span>
+              <span class="rule-tag">Free 30-day bug fix guarantee</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- STAGE 4 -->
+        <div class="stage-item">
+          <div class="stage-marker">04</div>
+          <div class="stage-content">
+            <span class="stage-owner">Akriti (Physical Device QA Gate)</span>
+            <h2 class="stage-title">Real-Device Mobile QA</h2>
+            <p class="stage-desc">
+              Synthetic desktop browser resize is not enough. Akriti runs our comprehensive QA checklist on physical Android and iOS devices, testing touch targets, keyboard insets, and slow 4G network performance.
+            </p>
+            <div class="stage-rules">
+              <span class="rule-tag">Exit Condition: Physical device sign-off</span>
+              <span class="rule-tag">Zero critical bugs or layout breaks</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- STAGE 5 -->
+        <div class="stage-item">
+          <div class="stage-marker">05</div>
+          <div class="stage-content">
+            <span class="stage-owner">Smarak & Client Owner</span>
+            <h2 class="stage-title">Final Balance, DNS Cutover & Handover</h2>
+            <p class="stage-desc">
+              Once staging is approved and final balance clears, we cut over DNS to your custom domain with automated SSL. We deliver an encrypted handover packet via Bitwarden Send.
+            </p>
+            <div class="stage-rules">
+              <span class="rule-tag">Client is always the 100% legal domain registrant</span>
+              <span class="rule-tag">Zero assets held hostage</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="guarantees-grid">
+        <div class="guarantee-box">
+          <h3>The 2-Revision Rule</h3>
+          <p>
+            Every fixed-price project includes two consolidated revision rounds submitted in batched lists. This keeps velocity high and eliminates endless micro-tweaks.
+          </p>
+        </div>
+        <div class="guarantee-box">
+          <h3>Asset Independence</h3>
+          <p>
+            You own your code, your domain, and your media. If you ever leave our Care plan, we hand over all source code and DNS records unconditionally within 5 business days.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .page-header {
+    margin-bottom: var(--space-16);
+    max-width: 800px;
+  }
+
+  .section-eyebrow {
+    display: block;
+    font-size: var(--font-size-xs);
+    font-family: var(--font-family-mono);
+    color: var(--color-accent-primary);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: var(--space-2);
+  }
+
+  .page-title {
+    margin-bottom: var(--space-4);
+  }
+
+  .page-lead {
+    font-size: var(--font-size-lg);
+    color: var(--color-text-secondary);
+  }
+
+  .process-steps-vertical {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-12);
+    margin-bottom: var(--space-20);
+  }
+
+  .stage-item {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-4);
+    padding-bottom: var(--space-12);
+    border-bottom: 1px solid var(--color-border-hairline);
+  }
+
+  .stage-marker {
+    font-family: var(--font-family-mono);
+    font-size: var(--font-size-3xl);
+    font-weight: var(--font-weight-bold);
+    color: var(--color-accent-primary);
+  }
+
+  .stage-owner {
+    display: block;
+    font-size: var(--font-size-xs);
+    font-family: var(--font-family-mono);
+    color: var(--color-text-muted);
+    text-transform: uppercase;
+    margin-bottom: var(--space-2);
+  }
+
+  .stage-title {
+    font-size: var(--font-size-2xl);
+    margin-bottom: var(--space-3);
+  }
+
+  .stage-desc {
+    font-size: var(--font-size-base);
+    color: var(--color-text-secondary);
+    line-height: var(--line-height-relaxed);
+    margin-bottom: var(--space-6);
+    max-width: 720px;
+  }
+
+  .stage-rules {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-3);
+  }
+
+  .rule-tag {
+    font-size: var(--font-size-xs);
+    font-family: var(--font-family-mono);
+    background-color: var(--color-bg-surface);
+    color: var(--color-text-secondary);
+    padding: var(--space-1) var(--space-3);
+    border-radius: var(--radius-sm);
+    border: 1px solid var(--color-border-hairline);
+  }
+
+  .guarantees-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-6);
+    padding-top: var(--space-12);
+    border-top: 1px solid var(--color-border-subtle);
+  }
+
+  .guarantee-box {
+    background-color: var(--color-bg-surface);
+    border: 1px solid var(--color-border-hairline);
+    padding: var(--space-8);
+    border-radius: var(--radius-sm);
+  }
+
+  .guarantee-box h3 {
+    font-size: var(--font-size-lg);
+    margin-bottom: var(--space-3);
+  }
+
+  .guarantee-box p {
+    font-size: var(--font-size-sm);
+    color: var(--color-text-secondary);
+  }
+
+  @media (min-width: 768px) {
+    .stage-item {
+      grid-template-columns: 80px 1fr;
+      gap: var(--space-8);
+    }
+
+    .guarantees-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+</style>

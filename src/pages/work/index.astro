@@ -1,0 +1,188 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getAllProjects } from '../../data/projects';
+
+const projects = getAllProjects();
+---
+
+<BaseLayout
+  title="Selected Work & Studio Catalog"
+  description="Explore Algoryxz's portfolio of bespoke digital systems, milestone celebration experiences, and commercial storefronts."
+>
+  <section class="section">
+    <div class="container">
+      <div class="page-header">
+        <span class="section-eyebrow">Studio Catalog</span>
+        <h1 class="page-title">Selected Work</h1>
+        <p class="page-lead">
+          Every project we build is engineered for extreme edge performance, bespoke art direction, and client autonomy.
+        </p>
+      </div>
+
+      <div class="work-catalog">
+        {projects.map((proj) => (
+          <article class="work-card">
+            <div class="work-media">
+              <img
+                src={proj.heroAsset}
+                alt={`Hero visual for ${proj.title}`}
+                loading="lazy"
+              />
+            </div>
+            <div class="work-body">
+              <div class="work-meta">
+                <span class="work-num">/{proj.number}</span>
+                <span class:list={['badge', `badge-${proj.status.toLowerCase().replace('_', '-')}`]}>
+                  {proj.status.replace('_', ' ')}
+                </span>
+                <span class="work-year">{proj.year}</span>
+              </div>
+              <h2 class="work-title">
+                <a href={`/work/${proj.slug}`}>{proj.title}</a>
+              </h2>
+              <p class="work-desc">{proj.shortDescription}</p>
+              <div class="work-tags">
+                {proj.tags.map((tag) => (
+                  <span class="tag-pill">{tag}</span>
+                ))}
+              </div>
+              <div class="work-action">
+                <a href={`/work/${proj.slug}`} class="btn btn-secondary">
+                  Case Study &rarr;
+                </a>
+                {proj.liveUrl && (
+                  <a href={proj.liveUrl} target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
+                    Live Demo &nearr;
+                  </a>
+                )}
+              </div>
+            </div>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .page-header {
+    margin-bottom: var(--space-16);
+    max-width: 760px;
+  }
+
+  .section-eyebrow {
+    display: block;
+    font-size: var(--font-size-xs);
+    font-family: var(--font-family-mono);
+    color: var(--color-accent-primary);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: var(--space-2);
+  }
+
+  .page-title {
+    margin-bottom: var(--space-4);
+  }
+
+  .page-lead {
+    font-size: var(--font-size-lg);
+    color: var(--color-text-secondary);
+  }
+
+  .work-catalog {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-12);
+  }
+
+  .work-card {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-6);
+    padding-bottom: var(--space-12);
+    border-bottom: 1px solid var(--color-border-hairline);
+  }
+
+  .work-media {
+    background-color: var(--color-bg-surface);
+    border: 1px solid var(--color-border-hairline);
+    border-radius: var(--radius-sm);
+    overflow: hidden;
+    aspect-ratio: 16 / 9;
+  }
+
+  .work-media img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .work-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .work-meta {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    margin-bottom: var(--space-3);
+  }
+
+  .work-num {
+    font-family: var(--font-family-mono);
+    font-size: var(--font-size-sm);
+    color: var(--color-text-muted);
+  }
+
+  .work-year {
+    font-size: var(--font-size-xs);
+    color: var(--color-text-muted);
+  }
+
+  .work-title {
+    font-size: var(--font-size-2xl);
+    margin-bottom: var(--space-3);
+  }
+
+  .work-title a:hover {
+    color: var(--color-accent-primary);
+  }
+
+  .work-desc {
+    font-size: var(--font-size-base);
+    color: var(--color-text-secondary);
+    margin-bottom: var(--space-4);
+  }
+
+  .work-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2);
+    margin-bottom: var(--space-6);
+  }
+
+  .tag-pill {
+    font-size: var(--font-size-xs);
+    font-family: var(--font-family-mono);
+    background-color: var(--color-bg-surface);
+    color: var(--color-text-secondary);
+    padding: 2px 8px;
+    border-radius: var(--radius-sm);
+    border: 1px solid var(--color-border-hairline);
+  }
+
+  .work-action {
+    display: flex;
+    gap: var(--space-4);
+  }
+
+  @media (min-width: 768px) {
+    .work-card {
+      grid-template-columns: 1.2fr 1fr;
+      gap: var(--space-8);
+      align-items: center;
+    }
+  }
+</style>
