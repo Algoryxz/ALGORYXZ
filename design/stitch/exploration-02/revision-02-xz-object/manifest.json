@@ -1,0 +1,52 @@
+[
+  {
+    "id": "R02-D01-arrival",
+    "title": "R02-D01: OBJECT / ARRIVAL",
+    "screenId": "282571897fdf40dcb839c370fed01997",
+    "width": "2560",
+    "height": "2048",
+    "image": "C:\\Users\\smara\\Desktop\\Algoryxz\\design\\stitch\\exploration-02\\revision-02-xz-object\\R02-D01-arrival.png",
+    "html": "C:\\Users\\smara\\Desktop\\Algoryxz\\design\\stitch\\exploration-02\\revision-02-xz-object\\R02-D01-arrival.html",
+    "hasScreenshot": true
+  },
+  {
+    "id": "R02-D02-opening",
+    "title": "R02-D02: OBJECT / OPENING",
+    "screenId": "3d20377b113a42d0a8eeb947b6d00b38",
+    "width": "2560",
+    "height": "2048",
+    "image": "C:\\Users\\smara\\Desktop\\Algoryxz\\design\\stitch\\exploration-02\\revision-02-xz-object\\R02-D02-opening.png",
+    "html": "C:\\Users\\smara\\Desktop\\Algoryxz\\design\\stitch\\exploration-02\\revision-02-xz-object\\R02-D02-opening.html",
+    "hasScreenshot": true
+  },
+  {
+    "id": "R02-D03-archive",
+    "title": "R02-D03: OBJECT / ARCHIVE",
+    "screenId": "3624305cf7c14a32bcc015ddeb83aae1",
+    "width": "2560",
+    "height": "2048",
+    "image": "C:\\Users\\smara\\Desktop\\Algoryxz\\design\\stitch\\exploration-02\\revision-02-xz-object\\R02-D03-archive.png",
+    "html": "C:\\Users\\smara\\Desktop\\Algoryxz\\design\\stitch\\exploration-02\\revision-02-xz-object\\R02-D03-archive.html",
+    "hasScreenshot": true
+  },
+  {
+    "id": "R02-D04-threshold",
+    "title": "R02-D04: OBJECT / CLIENT-WORLD THRESHOLD",
+    "screenId": "883f90a276ec45f5a459a7620dd359f4",
+    "width": "100%",
+    "height": "100%",
+    "image": "C:\\Users\\smara\\Desktop\\Algoryxz\\design\\stitch\\exploration-02\\revision-02-xz-object\\R02-D04-threshold.png",
+    "html": "C:\\Users\\smara\\Desktop\\Algoryxz\\design\\stitch\\exploration-02\\revision-02-xz-object\\R02-D04-threshold.html",
+    "hasScreenshot": false
+  },
+  {
+    "id": "R02-D05-client-world",
+    "title": "R02-D05: CLIENT WORLD / ENTERED",
+    "screenId": "1691da7fc51d4ec4a45200ed7e60fd58",
+    "width": "2560",
+    "height": "2048",
+    "image": "C:\\Users\\smara\\Desktop\\Algoryxz\\design\\stitch\\exploration-02\\revision-02-xz-object\\R02-D05-client-world.png",
+    "html": "C:\\Users\\smara\\Desktop\\Algoryxz\\design\\stitch\\exploration-02\\revision-02-xz-object\\R02-D05-client-world.html",
+    "hasScreenshot": true
+  }
+]

@@ -1,0 +1,774 @@
+<!DOCTYPE html>
+
+<html class="dark h-full" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
+<title>ALGORYXZ / 000 — KEYFRAME M02: MOBILE ARCHIVE</title>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&amp;family=JetBrains+Mono:wght@300;400;500&amp;family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "surface-container-high": "#292a2d",
+            "on-tertiary": "#5a1c00",
+            "on-surface": "#e3e2e6",
+            "on-error-container": "#ffdad6",
+            "inverse-surface": "#e3e2e6",
+            "secondary-fixed-dim": "#d7c4a5",
+            "outline": "#a38c80",
+            "tertiary-container": "#d67851",
+            "on-surface-variant": "#dbc1b4",
+            "background": "#121316",
+            "on-secondary-fixed": "#241a06",
+            "on-secondary-fixed-variant": "#52452d",
+            "on-primary-fixed": "#321200",
+            "primary-fixed": "#ffdbc9",
+            "inverse-primary": "#994703",
+            "on-tertiary-fixed-variant": "#79310f",
+            "on-background": "#e3e2e6",
+            "tertiary-fixed": "#ffdbce",
+            "surface-dim": "#121316",
+            "on-error": "#690005",
+            "on-secondary": "#3a2f19",
+            "surface-container-highest": "#343538",
+            "outline-variant": "#554339",
+            "on-secondary-container": "#c5b395",
+            "secondary-container": "#52452d",
+            "surface-container": "#1f1f23",
+            "primary-container": "#d97736",
+            "surface-tint": "#ffb68c",
+            "on-tertiary-container": "#4f1800",
+            "surface-variant": "#343538",
+            "primary-fixed-dim": "#ffb68c",
+            "on-primary-container": "#491d00",
+            "inverse-on-surface": "#303034",
+            "tertiary": "#ffb599",
+            "on-tertiary-fixed": "#370e00",
+            "tertiary-fixed-dim": "#ffb599",
+            "secondary-fixed": "#f4e0c0",
+            "secondary": "#d7c4a5",
+            "on-primary-fixed-variant": "#753400",
+            "error": "#ffb4ab",
+            "surface-container-lowest": "#0d0e11",
+            "surface-bright": "#38393c",
+            "surface-container-low": "#1b1b1f",
+            "on-primary": "#532200",
+            "error-container": "#93000a",
+            "surface": "#121316",
+            "primary": "#ffb68c"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.125rem",
+            "lg": "0.25rem",
+            "xl": "0.5rem",
+            "full": "0.75rem"
+          },
+          "spacing": {
+            "space-lg": "1.75rem",
+            "margin-tablet": "2rem",
+            "space-xl": "3rem",
+            "gutter-mobile": "1rem",
+            "space-xs": "0.25rem",
+            "gutter-tablet": "1.25rem",
+            "margin-mobile": "1.25rem",
+            "space-sm": "0.5rem",
+            "space-md": "1rem",
+            "gutter": "1.5rem",
+            "margin": "4rem"
+          },
+          "fontFamily": {
+            "label-mono-sm": ["JetBrains Mono"],
+            "headline-lg-mobile": ["Playfair Display"],
+            "headline-lg": ["Playfair Display"],
+            "body-md": ["Hanken Grotesk"],
+            "display-xl-mobile": ["Playfair Display"],
+            "headline-md": ["Playfair Display"],
+            "body-sm": ["Hanken Grotesk"],
+            "headline-md-mobile": ["Playfair Display"],
+            "headline-sm": ["Playfair Display"],
+            "label-mono": ["JetBrains Mono"],
+            "display-xl": ["Playfair Display"],
+            "body-lg": ["Hanken Grotesk"],
+            "label-md": ["Hanken Grotesk"]
+          },
+          "fontSize": {
+            "label-mono-sm": ["10px", { "lineHeight": "14px", "letterSpacing": "0.1em", "fontWeight": "400" }],
+            "headline-lg-mobile": ["36px", { "lineHeight": "42px", "letterSpacing": "-0.01em", "fontWeight": "400" }],
+            "headline-lg": ["56px", { "lineHeight": "64px", "letterSpacing": "-0.02em", "fontWeight": "400" }],
+            "body-md": ["15px", { "lineHeight": "24px", "letterSpacing": "0em", "fontWeight": "400" }],
+            "display-xl-mobile": ["48px", { "lineHeight": "54px", "letterSpacing": "-0.02em", "fontWeight": "400" }],
+            "headline-md": ["36px", { "lineHeight": "44px", "letterSpacing": "-0.01em", "fontWeight": "500" }],
+            "body-sm": ["13px", { "lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "400" }],
+            "headline-md-mobile": ["28px", { "lineHeight": "34px", "letterSpacing": "0em", "fontWeight": "500" }],
+            "headline-sm": ["24px", { "lineHeight": "32px", "letterSpacing": "0em", "fontWeight": "500" }],
+            "label-mono": ["11px", { "lineHeight": "16px", "letterSpacing": "0.08em", "fontWeight": "400" }],
+            "display-xl": ["84px", { "lineHeight": "92px", "letterSpacing": "-0.03em", "fontWeight": "400" }],
+            "body-lg": ["18px", { "lineHeight": "28px", "letterSpacing": "-0.01em", "fontWeight": "400" }],
+            "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.06em", "fontWeight": "600" }]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 20;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+    
+    /* Subtle editorial film grain & glowing atmosphere */
+    .grain-overlay {
+      background-image: radial-gradient(rgba(217, 119, 54, 0.04) 1px, transparent 0);
+      background-size: 24px 24px;
+    }
+
+    .terracotta-glow {
+      box-shadow: 0 12px 36px -8px rgba(217, 119, 54, 0.35);
+    }
+
+    .card-shadow {
+      box-shadow: 0 20px 40px -15px rgba(13, 14, 17, 0.85), 0 0 0 1px rgba(232, 213, 181, 0.12);
+    }
+  </style>
+</head>
+<body class="bg-surface-container-lowest text-on-surface h-full w-full flex items-center justify-center p-0 select-none overflow-hidden antialiased font-body-sm">
+<!-- Mobile Viewport Shell (Strict 390x844 Frame) -->
+<main class="relative w-[390px] h-[844px] bg-surface overflow-hidden flex flex-col justify-between shadow-2xl border border-outline-variant/30 rounded-none sm:rounded-[40px]">
+<!-- Interactive Three.js Kinetic Deck (Full Bleed Behind Overlays) -->
+<div class="absolute inset-0 z-0 pointer-events-auto">
+<!-- STITCH_THREEJS_START:ANIMATION_40 class="absolute inset-0 w-full h-full bg-transparent" -->
+<div class="absolute inset-0 w-full h-full bg-transparent" style="display:block;">
+<script src="https://ajax.googleapis.com/ajax/libs/threejs/r125/three.min.js"></script>
+<div id="threejs-container-ANIMATION_40" style="width:100%;height:100%"></div>
+<script>
+(function() {
+  const container = document.getElementById('threejs-container-ANIMATION_40');
+  const devicePixelRatio = window.devicePixelRatio || 1;
+  // Three.js Interactive Mobile Scene: ALGORYXZ / 000 — Keyframe M02: Mobile Spatial Archive Deck
+// Specifically tailored for single viewport portrait mobile (390x844).
+// A vertical spatial card deck with physical tectonic plates:
+// 1. Top Peeking Plate: ALGORYXZ / 000 — INTERNAL (Studio OS & Core Architecture)
+// 2. Center Dominant Active Plate: ALGORYXZ / 001 — CELEBRATION / DIGITAL HEIRLOOM (The Monsoon Vows / Warm Candlelight Chiaroscuro)
+// 3. Bottom Peeking Plate: ALGORYXZ / 002 — CONCEPT / INDEPENDENT BRAND (Verve & Vapor / Roastery)
+// Natural thumb-drag vertical inertia, 3D tilt, brass chamfered hairlines, and warm atmospheric ember drift.
+
+const container = document.getElementById('threejs-container-M02') || document.body;
+const width = container.clientWidth || window.innerWidth;
+const height = container.clientHeight || window.innerHeight;
+
+const scene = new THREE.Scene();
+scene.fog = new THREE.FogExp2(0x0e0e11, 0.038);
+
+// Camera calibrated for 390x844 portrait aspect ratio
+const camera = new THREE.PerspectiveCamera(50, width / height, 0.1, 100);
+camera.position.set(0, 0.05, 6.2);
+
+const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true, powerPreference: "high-performance" });
+renderer.setSize(width, height);
+renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+renderer.toneMapping = THREE.ACESFilmicToneMapping;
+renderer.toneMappingExposure = 1.35;
+renderer.shadowMap.enabled = true;
+renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+container.appendChild(renderer.domElement);
+
+// Lighting: Warm chiaroscuro raking studio lights in amber and champagne
+const ambientLight = new THREE.AmbientLight(0x18181c, 1.5);
+scene.add(ambientLight);
+
+// Key Amber Spotlight focused on center plate /001
+const amberKey = new THREE.SpotLight(0xd97736, 16.0, 18, Math.PI / 3.6, 0.6);
+amberKey.position.set(-3.2, 3.8, 4.5);
+amberKey.target.position.set(0, 0.1, 0);
+scene.add(amberKey);
+scene.add(amberKey.target);
+
+// Soft Champagne Rim Light from lower right
+const champagneRim = new THREE.DirectionalLight(0xf5d09b, 4.2);
+champagneRim.position.set(4.0, -2.5, 3.0);
+scene.add(champagneRim);
+
+// Deep Slate Fill Light
+const coolFill = new THREE.DirectionalLight(0x222630, 1.8);
+coolFill.position.set(0, -4, -3);
+scene.add(coolFill);
+
+// Master Deck Group
+const deckGroup = new THREE.Group();
+deckGroup.position.set(0, 0.05, 0);
+scene.add(deckGroup);
+
+// Materials
+const basaltMat = new THREE.MeshStandardMaterial({
+  color: 0x121316,
+  roughness: 0.65,
+  metalness: 0.25,
+});
+
+const darkCorePlate = new THREE.MeshStandardMaterial({
+  color: 0x090a0d,
+  roughness: 0.82,
+  metalness: 0.18,
+});
+
+const polishedBronze = new THREE.MeshStandardMaterial({
+  color: 0xd97736,
+  roughness: 0.22,
+  metalness: 0.92,
+  emissive: 0x4a1e05,
+  emissiveIntensity: 0.35
+});
+
+const champagneTrim = new THREE.MeshStandardMaterial({
+  color: 0xf3d29f,
+  roughness: 0.16,
+  metalness: 0.95,
+});
+
+const wireAmber = new THREE.LineBasicMaterial({
+  color: 0xd97736,
+  transparent: true,
+  opacity: 0.75,
+});
+
+const wireFaint = new THREE.LineBasicMaterial({
+  color: 0xecd1a4,
+  transparent: true,
+  opacity: 0.3,
+});
+
+// Texture Generator for Mobile Deck Plates
+function createMobilePlateTexture(indexStr, tagStr, titleStr, subtitleStr, type) {
+  const canvas = document.createElement('canvas');
+  canvas.width = 720;
+  canvas.height = 920;
+  const ctx = canvas.getContext('2d');
+
+  // Background
+  if (type === 'heirloom') {
+    // Warm chiaroscuro gradient for 001
+    const bgGrad = ctx.createRadialGradient(360, 360, 40, 360, 460, 560);
+    bgGrad.addColorStop(0, '#36180c');
+    bgGrad.addColorStop(0.5, '#1e100a');
+    bgGrad.addColorStop(1, '#0c0806');
+    ctx.fillStyle = bgGrad;
+  } else {
+    // Slate obsidian for 000 & 002
+    const bgGrad = ctx.createLinearGradient(0, 0, 720, 920);
+    bgGrad.addColorStop(0, '#16171b');
+    bgGrad.addColorStop(0.6, '#101114');
+    bgGrad.addColorStop(1, '#090a0c');
+    ctx.fillStyle = bgGrad;
+  }
+  ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+  // Subtle architectural gridlines
+  ctx.strokeStyle = type === 'heirloom' ? 'rgba(217, 119, 54, 0.12)' : 'rgba(255, 255, 255, 0.05)';
+  ctx.lineWidth = 1;
+  for (let x = 0; x < canvas.width; x += 45) {
+    ctx.beginPath(); ctx.moveTo(x, 0); ctx.lineTo(x, canvas.height); ctx.stroke();
+  }
+  for (let y = 0; y < canvas.height; y += 45) {
+    ctx.beginPath(); ctx.moveTo(0, y); ctx.lineTo(canvas.width, y); ctx.stroke();
+  }
+
+  // Header band
+  ctx.fillStyle = type === 'heirloom' ? 'rgba(217, 119, 54, 0.22)' : 'rgba(26, 27, 32, 0.85)';
+  ctx.fillRect(36, 36, canvas.width - 72, 48);
+  ctx.strokeStyle = type === 'heirloom' ? 'rgba(217, 119, 54, 0.45)' : 'rgba(255, 255, 255, 0.12)';
+  ctx.strokeRect(36, 36, canvas.width - 72, 48);
+
+  ctx.fillStyle = type === 'heirloom' ? '#ff9a3c' : '#8e9099';
+  ctx.font = 'bold 16px "Courier New", monospace';
+  ctx.fillText(indexStr, 54, 66);
+
+  ctx.fillStyle = '#ecd1a4';
+  ctx.font = '14px "Courier New", monospace';
+  ctx.fillText(tagStr, canvas.width - 240, 66);
+
+  // Center Content Area / Hero Preview Frame
+  const fX = 36;
+  const fY = 104;
+  const fW = canvas.width - 72;
+  const fH = 500;
+
+  ctx.fillStyle = type === 'heirloom' ? 'rgba(38, 18, 10, 0.7)' : 'rgba(18, 19, 23, 0.7)';
+  ctx.fillRect(fX, fY, fW, fH);
+  ctx.strokeStyle = type === 'heirloom' ? 'rgba(243, 210, 159, 0.3)' : 'rgba(255, 255, 255, 0.08)';
+  ctx.strokeRect(fX, fY, fW, fH);
+
+  // Inner Monogram & Typography
+  if (type === 'heirloom') {
+    // Glowing candlelight monogram motif
+    ctx.strokeStyle = 'rgba(217, 119, 54, 0.5)';
+    ctx.lineWidth = 2;
+    ctx.beginPath();
+    ctx.arc(360, 260, 90, 0, Math.PI * 2);
+    ctx.stroke();
+
+    ctx.fillStyle = '#fcebd2';
+    ctx.font = 'italic 400 90px "Playfair Display", Georgia, serif';
+    ctx.textAlign = 'center';
+    ctx.fillText('01', 360, 292);
+
+    ctx.fillStyle = '#ffffff';
+    ctx.font = '400 46px "Playfair Display", Georgia, serif';
+    ctx.fillText(titleStr, 360, 440);
+
+    ctx.fillStyle = '#e8a36e';
+    ctx.font = 'bold 16px "Courier New", monospace';
+    ctx.fillText(subtitleStr, 360, 485);
+
+    // Audio / Kept moments indicator
+    ctx.fillStyle = '#f5d09b';
+    ctx.font = '13px "Courier New", monospace';
+    ctx.fillText('42 PRIVATE AUDIO MEMOIRS  ·  RAINFALL ARCHIVE', 360, 540);
+  } else if (type === 'internal') {
+    ctx.fillStyle = '#d97736';
+    ctx.font = 'bold 64px "Courier New", monospace';
+    ctx.textAlign = 'center';
+    ctx.fillText('/000', 360, 280);
+
+    ctx.fillStyle = '#ffffff';
+    ctx.font = '500 38px "Space Grotesk", sans-serif';
+    ctx.fillText(titleStr, 360, 380);
+
+    ctx.fillStyle = '#8e9099';
+    ctx.font = '16px "Courier New", monospace';
+    ctx.fillText(subtitleStr, 360, 430);
+  } else {
+    // Roastery 002
+    ctx.fillStyle = '#d97736';
+    ctx.font = 'bold 64px "Courier New", monospace';
+    ctx.textAlign = 'center';
+    ctx.fillText('/002', 360, 280);
+
+    ctx.fillStyle = '#ffffff';
+    ctx.font = '500 38px "Playfair Display", serif';
+    ctx.fillText(titleStr, 360, 380);
+
+    ctx.fillStyle = '#a0a2aa';
+    ctx.font = '16px "Courier New", monospace';
+    ctx.fillText(subtitleStr, 360, 430);
+  }
+
+  // Bottom action bar
+  ctx.textAlign = 'left';
+  ctx.fillStyle = type === 'heirloom' ? '#d97736' : 'rgba(255, 255, 255, 0.05)';
+  ctx.fillRect(fX, canvas.height - 180, fW, 80);
+  ctx.strokeStyle = type === 'heirloom' ? '#f5d09b' : 'rgba(255, 255, 255, 0.15)';
+  ctx.strokeRect(fX, canvas.height - 180, fW, 80);
+
+  ctx.fillStyle = type === 'heirloom' ? '#ffffff' : '#8e9099';
+  ctx.font = 'bold 20px "Space Grotesk", sans-serif';
+  ctx.textAlign = 'center';
+  const ctaText = type === 'heirloom' ? 'TAP TO ENTER WORLD /001 →' : 'ACCESS ARCHIVE DOSSIER →';
+  ctx.fillText(ctaText, 360, canvas.height - 130);
+
+  const texture = new THREE.CanvasTexture(canvas);
+  texture.anisotropy = 8;
+  return texture;
+}
+
+// ----------------------------------------------------
+// CARD DECK CREATOR
+// ----------------------------------------------------
+const deckCards = [];
+
+function createDeckCard(opts) {
+  const cardGroup = new THREE.Group();
+
+  const w = 3.35;
+  const h = 4.45;
+  const d = 0.14;
+
+  const geo = new THREE.BoxGeometry(w, h, d);
+  const frontMat = new THREE.MeshStandardMaterial({
+    map: opts.texture,
+    roughness: opts.isCenter ? 0.28 : 0.6,
+    metalness: opts.isCenter ? 0.35 : 0.15,
+    emissive: opts.isCenter ? 0x3d1706 : 0x000000,
+    emissiveIntensity: opts.isCenter ? 0.35 : 0
+  });
+
+  const mats = [
+    polishedBronze, polishedBronze, polishedBronze, polishedBronze, frontMat, basaltMat
+  ];
+  const mesh = new THREE.Mesh(geo, mats);
+  mesh.castShadow = true;
+  mesh.receiveShadow = true;
+  cardGroup.add(mesh);
+
+  // Outer wireframe edge
+  const edges = new THREE.LineSegments(new THREE.EdgesGeometry(geo), opts.isCenter ? wireAmber : wireFaint);
+  cardGroup.add(edges);
+
+  // Top brass cantilever spine
+  const topFin = new THREE.Mesh(new THREE.BoxGeometry(w * 1.02, 0.04, d * 1.5), opts.isCenter ? champagneTrim : polishedBronze);
+  topFin.position.set(0, h * 0.5 + 0.02, 0);
+  cardGroup.add(topFin);
+
+  // Bottom counter bracket
+  const botFin = new THREE.Mesh(new THREE.BoxGeometry(w * 1.02, 0.04, d * 1.5), polishedBronze);
+  botFin.position.set(0, -h * 0.5 - 0.02, 0);
+  cardGroup.add(botFin);
+
+  cardGroup.position.set(opts.x, opts.y, opts.z);
+  cardGroup.rotation.set(opts.rotX, opts.rotY, opts.rotZ);
+
+  deckGroup.add(cardGroup);
+  deckCards.push({
+    group: cardGroup,
+    baseY: opts.y,
+    baseZ: opts.z,
+    baseRotX: opts.rotX,
+    baseRotY: opts.rotY,
+    isCenter: opts.isCenter
+  });
+
+  return cardGroup;
+}
+
+// 1. TOP PEEKING PLATE: ALGORYXZ / 000 (Internal Studio Platform)
+const tex000 = createMobilePlateTexture(
+  'ALGORYXZ / 000', 'INTERNAL SPEC',
+  'Algoryxz Studio OS', 'Pure CSS & Archival Engine', 'internal'
+);
+createDeckCard({
+  texture: tex000,
+  x: 0,
+  y: 3.45,
+  z: -1.2,
+  rotX: -0.28,
+  rotY: 0.04,
+  rotZ: -0.015,
+  isCenter: false
+});
+
+// 2. CENTER DOMINANT ACTIVE PLATE: ALGORYXZ / 001 (The Monsoon Vows)
+const tex001 = createMobilePlateTexture(
+  'ALGORYXZ / 001', 'CONCEPT // CELEBRATION',
+  'The Monsoon Vows', 'CELEBRATION / DIGITAL HEIRLOOM', 'heirloom'
+);
+const centerCard = createDeckCard({
+  texture: tex001,
+  x: 0,
+  y: 0.05,
+  z: 0.45,
+  rotX: 0.04,
+  rotY: -0.05,
+  rotZ: 0.01,
+  isCenter: true
+});
+
+// Warm Candlelight Halo behind Active Plate 001
+const haloGeo = new THREE.PlaneGeometry(5.0, 6.2);
+const haloMat = new THREE.MeshBasicMaterial({
+  color: 0xd97736,
+  transparent: true,
+  opacity: 0.16,
+  blending: THREE.AdditiveBlending
+});
+const halo = new THREE.Mesh(haloGeo, haloMat);
+halo.position.set(0, 0.05, -0.12);
+centerCard.add(halo);
+
+// 3. BOTTOM PEEKING PLATE: ALGORYXZ / 002 (Verve & Vapor / Roastery)
+const tex002 = createMobilePlateTexture(
+  'ALGORYXZ / 002', 'CONCEPT // BRAND',
+  'Verve & Vapor', 'SPECIALTY ROASTERY & COMMERCE', 'brand'
+);
+createDeckCard({
+  texture: tex002,
+  x: 0,
+  y: -3.45,
+  z: -1.2,
+  rotX: 0.28,
+  rotY: -0.04,
+  rotZ: 0.015,
+  isCenter: false
+});
+
+// Ambient Floating Amber & Champagne Micro-Embers
+const emberCount = 140;
+const emberGeo = new THREE.BufferGeometry();
+const emberPos = new Float32Array(emberCount * 3);
+const emberSpeeds = new Float32Array(emberCount);
+
+for (let i = 0; i < emberCount; i++) {
+  emberPos[i * 3] = (Math.random() - 0.5) * 6.5;
+  emberPos[i * 3 + 1] = (Math.random() - 0.5) * 8.5;
+  emberPos[i * 3 + 2] = (Math.random() - 0.5) * 4.0;
+  emberSpeeds[i] = 0.2 + Math.random() * 0.8;
+}
+emberGeo.setAttribute('position', new THREE.BufferAttribute(emberPos, 3));
+
+const emberMat = new THREE.PointsMaterial({
+  color: 0xd97736,
+  size: 0.045,
+  transparent: true,
+  opacity: 0.75,
+  blending: THREE.AdditiveBlending
+});
+const embers = new THREE.Points(emberGeo, emberMat);
+scene.add(embers);
+
+// Perspective Floor Grid
+const floorGrid = new THREE.GridHelper(16, 20, 0xd97736, 0x161820);
+floorGrid.position.y = -3.2;
+floorGrid.material.opacity = 0.18;
+floorGrid.material.transparent = true;
+scene.add(floorGrid);
+
+// =========================================================================
+// TOUCH INTERACTION & VERTICAL SWIPE INERTIA
+// =========================================================================
+let isTouching = false;
+let startTouch = { x: 0, y: 0 };
+let targetRotX = 0.04;
+let targetRotY = -0.05;
+let currentRotX = 0.04;
+let currentRotY = -0.05;
+let targetScrollY = 0;
+let currentScrollY = 0;
+
+const onTouchStart = (e) => {
+  if (e.target.closest('button, a')) return;
+  isTouching = true;
+  const t = e.touches ? e.touches[0] : e;
+  startTouch = { x: t.clientX, y: t.clientY };
+};
+
+const onTouchMove = (e) => {
+  if (!isTouching) return;
+  const t = e.touches ? e.touches[0] : e;
+  const dx = t.clientX - startTouch.x;
+  const dy = t.clientY - startTouch.y;
+
+  targetRotY += dx * 0.006;
+  targetRotX += dy * 0.005;
+  targetScrollY += dy * 0.008;
+
+  // Elastic resistance clamping
+  targetScrollY = Math.max(-0.6, Math.min(0.6, targetScrollY));
+
+  startTouch = { x: t.clientX, y: t.clientY };
+};
+
+const onTouchEnd = () => {
+  isTouching = false;
+  // Snap back with gentle spring
+  targetScrollY = 0;
+  targetRotX = 0.04;
+  targetRotY = -0.05;
+};
+
+window.addEventListener('touchstart', onTouchStart, { passive: true });
+window.addEventListener('touchmove', onTouchMove, { passive: true });
+window.addEventListener('touchend', onTouchEnd);
+
+// Mouse fallback for desktop testing
+window.addEventListener('mousedown', onTouchStart);
+window.addEventListener('mousemove', (e) => { if (isTouching) onTouchMove(e); });
+window.addEventListener('mouseup', onTouchEnd);
+
+const onResize = () => {
+  const w = container.clientWidth || window.innerWidth;
+  const h = container.clientHeight || window.innerHeight;
+  camera.aspect = w / h;
+  camera.updateProjectionMatrix();
+  renderer.setSize(w, h);
+};
+window.addEventListener('resize', onResize);
+
+// Kinetic Render Loop
+let clock = new THREE.Clock();
+
+function animate() {
+  requestAnimationFrame(animate);
+  const t = clock.getElapsedTime();
+
+  // Floating breathing oscillation
+  currentScrollY += (targetScrollY - currentScrollY) * 0.08;
+  currentRotX += (targetRotX - currentRotX) * 0.06;
+  currentRotY += (targetRotY - currentRotY) * 0.06;
+
+  deckGroup.position.y = 0.05 + currentScrollY + Math.sin(t * 0.85) * 0.04;
+  deckGroup.rotation.x = currentRotX;
+  deckGroup.rotation.y = currentRotY;
+
+  // Center plate subtle pulse
+  haloMat.opacity = 0.16 + Math.sin(t * 1.8) * 0.05;
+  amberKey.intensity = 16.0 + Math.sin(t * 2.2) * 2.5;
+
+  // Drift embers
+  const pos = embers.geometry.attributes.position.array;
+  for (let i = 0; i < emberCount; i++) {
+    pos[i * 3 + 1] += emberSpeeds[i] * 0.006;
+    if (pos[i * 3 + 1] > 4.2) {
+      pos[i * 3 + 1] = -4.2;
+    }
+  }
+  embers.geometry.attributes.position.needsUpdate = true;
+
+  renderer.render(scene, camera);
+}
+animate();
+
+})();
+</script>
+</div>
+<!-- STITCH_THREEJS_END:ANIMATION_40 -->
+<!-- Atmospheric Sable & Terracotta Ambient Vignette -->
+<div class="absolute inset-0 pointer-events-none bg-gradient-to-b from-surface-container-lowest/80 via-transparent to-surface-container-lowest/95"></div>
+<div class="absolute inset-0 pointer-events-none grain-overlay opacity-60"></div>
+</div>
+<!-- 1. TOP APP BAR (Shared Component Execution / Mobile Destination Anchor) -->
+<header class="relative z-30 flex justify-between items-center w-full px-5 py-4 bg-surface/80 dark:bg-surface/80 backdrop-blur-md border-b border-outline-variant/20">
+<!-- Left: Logo & Root Indicator -->
+<div class="flex items-center gap-1.5">
+<span class="font-headline-sm text-headline-sm tracking-tighter text-on-surface">ALGORY<span class="text-primary font-headline-sm">XZ</span></span>
+<span class="font-label-mono-sm text-label-mono-sm text-outline tracking-wider">/ 000</span>
+</div>
+<!-- Center Pill: Spatial Archive Status -->
+<div class="flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-surface-container-high/60 border border-outline-variant/40 backdrop-blur-sm">
+<span class="relative flex h-1.5 w-1.5">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary-container opacity-75"></span>
+<span class="relative inline-flex rounded-full h-1.5 w-1.5 bg-primary-container"></span>
+</span>
+<span class="font-label-mono-sm text-label-mono-sm text-secondary-fixed text-[9px] tracking-widest uppercase">M02 // SPATIAL</span>
+</div>
+<!-- Right: Action Button -->
+<button class="flex items-center gap-1 px-2.5 py-1 rounded border border-outline-variant/40 bg-surface-container-low/80 hover:text-primary transition-colors text-on-surface-variant">
+<span class="font-label-mono-sm text-label-mono-sm text-[10px] tracking-wider text-secondary">INDEX / 02</span>
+<span class="material-symbols-outlined text-[14px]">grain</span>
+</button>
+</header>
+<!-- CENTER DOCK: Spatial Stack Structure (390px Viewport Core) -->
+<div class="relative z-20 flex-1 flex flex-col justify-between px-4 py-2 pointer-events-none">
+<!-- 2. Upper Peeking Card Context (Plate /000) -->
+<div class="w-full flex flex-col items-center pointer-events-auto cursor-pointer group">
+<div class="w-11/12 py-1.5 px-3 rounded-t-lg bg-surface-container-low/70 border-t border-x border-outline-variant/25 backdrop-blur-md flex items-center justify-between text-outline text-[9px] font-label-mono-sm tracking-widest transition-all duration-300 group-hover:border-primary/40 group-hover:text-primary">
+<span class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[12px]">north</span>
+            SWIPE DOWN: /000 STUDIO OS
+          </span>
+<span class="text-[9px] opacity-60">ARCHIVE</span>
+</div>
+</div>
+<!-- 3. Center Active Dominant Card: /001 The Monsoon Vows -->
+<article class="w-full bg-surface-container/95 backdrop-blur-xl rounded-xl border border-outline-variant/40 p-4 card-shadow pointer-events-auto flex flex-col gap-3 relative overflow-hidden transition-transform duration-300">
+<!-- Subtle Top Hairline Accent & Micro Meta -->
+<div class="flex items-center justify-between border-b border-outline-variant/20 pb-2">
+<div class="flex items-center gap-2">
+<span class="px-1.5 py-0.5 rounded bg-surface-container-highest border border-outline-variant/30 text-secondary text-[9px] font-label-mono-sm tracking-wider">
+              PLATE 001
+            </span>
+<span class="text-outline text-[9px] font-label-mono-sm uppercase tracking-wider">CONCEPT HEIRLOOM</span>
+</div>
+<div class="flex items-center gap-1 text-primary-fixed-dim text-[10px] font-label-mono-sm">
+<span class="material-symbols-outlined text-[12px] text-primary" style="font-variation-settings: 'FILL' 1;">cyclone</span>
+<span>RESTRICTED</span>
+</div>
+</div>
+<!-- Specimen Preview Visual (Monsoon Rain Window Wedding Specimen) -->
+<div class="relative w-full h-44 rounded-lg overflow-hidden border border-outline-variant/30 group">
+<img alt="The Monsoon Vows" class="w-full h-full object-cover object-center transform group-hover:scale-105 transition-transform duration-700 ease-out" src="https://lh3.googleusercontent.com/aida/AEtjO1UOJQOo9t53Jx9bI5KYE3noksJoRXJlgNsLokMnHklo52SH3bX06XgpVeiymjokBJY7W3rAuvBShxGVFh8EnufNHizfkHoZeztevtRK2fjM0ApwiLjJBSZoKSppts7PtbZSknxDCocq20D3P7AqV_nNYQ7oQtHrXbeqzyaPlWbqWS9IhegaC_tzxOyvz2u_bMPhPrn5aGmKaAUpAG34U6ePxuR-7O8KIVtcaIMHqJjynxBd6T-v_qfFaNYl"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest/90 via-surface-container-lowest/20 to-transparent"></div>
+<!-- Audio Waveform / Archival Tag Overlay -->
+<div class="absolute bottom-2.5 left-2.5 right-2.5 flex items-center justify-between px-2.5 py-1.5 rounded bg-surface-container-lowest/80 border border-outline-variant/30 backdrop-blur-md">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[15px] animate-pulse">graphic_eq</span>
+<span class="font-label-mono-sm text-[9px] text-on-surface tracking-wider">03:42 // TEMPLE RAIN EXCHANGE</span>
+</div>
+<span class="font-label-mono-sm text-[9px] text-outline">NFC-01</span>
+</div>
+</div>
+<!-- Title & Editorial Narrative -->
+<div class="space-y-1">
+<div class="flex items-baseline justify-between">
+<h1 class="font-headline-md-mobile text-headline-md-mobile text-on-surface font-headline-md leading-tight">
+              The Monsoon Vows
+            </h1>
+<span class="font-label-mono-sm text-outline-variant text-[10px]">VER. 2.4</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-2 leading-relaxed font-light">
+            An intimate digital heirloom holding private audio vows, wet-earth soundscapes, and timeless chiaroscuro keepsakes.
+          </p>
+</div>
+<!-- Tactile Archival Badges -->
+<div class="flex flex-wrap gap-1.5 pt-0.5">
+<span class="px-2 py-0.5 rounded-[2px] bg-surface-container-low border border-outline-variant/30 text-secondary-fixed text-[9px] font-label-mono-sm flex items-center gap-1">
+<span class="material-symbols-outlined text-[10px] text-primary">mic</span>
+            Analog Voice
+          </span>
+<span class="px-2 py-0.5 rounded-[2px] bg-surface-container-low border border-outline-variant/30 text-secondary-fixed text-[9px] font-label-mono-sm flex items-center gap-1">
+<span class="material-symbols-outlined text-[10px] text-primary">lock</span>
+            Offline Vault
+          </span>
+<span class="px-2 py-0.5 rounded-[2px] bg-surface-container-low border border-outline-variant/30 text-secondary-fixed text-[9px] font-label-mono-sm flex items-center gap-1">
+<span class="material-symbols-outlined text-[10px] text-primary">nfc</span>
+            NFC Keyed
+          </span>
+</div>
+<!-- 4. Primary Touch Action: Ergonomic Thumb Action Button -->
+<button class="w-full mt-1.5 py-3 px-4 rounded-lg bg-gradient-to-r from-primary-container to-tertiary-container hover:from-primary-container/90 hover:to-tertiary-container/90 active:scale-[0.98] transition-all duration-200 text-surface-container-lowest font-label-md text-label-md tracking-wider flex items-center justify-between terracotta-glow font-bold">
+<span class="flex items-center gap-2 tracking-widest text-[11px]">
+<span class="material-symbols-outlined text-[16px]">touch_app</span>
+            ENTER WORLD /001
+          </span>
+<span class="flex items-center gap-1">
+<span class="font-label-mono-sm text-[10px] opacity-80">EXPLORE</span>
+<span class="material-symbols-outlined text-[18px]">north_east</span>
+</span>
+</button>
+</article>
+<!-- 5. Lower Peeking Card Context (Plate /002) -->
+<div class="w-full flex flex-col items-center pointer-events-auto cursor-pointer group">
+<div class="w-11/12 py-1.5 px-3 rounded-b-lg bg-surface-container-low/70 border-b border-x border-outline-variant/25 backdrop-blur-md flex items-center justify-between text-outline text-[9px] font-label-mono-sm tracking-widest transition-all duration-300 group-hover:border-primary/40 group-hover:text-primary">
+<span class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[12px]">south</span>
+            SWIPE UP: /002 VERVE &amp; VAPOR
+          </span>
+<span class="text-[9px] opacity-60">ROASTERY</span>
+</div>
+</div>
+</div>
+<!-- 6. BOTTOM BAR / ERGONOMIC STATUS FOOTER (Fixed bottom-0, 390px) -->
+<footer class="relative z-30 w-full px-5 py-3.5 bg-surface-container-lowest/90 backdrop-blur-lg border-t border-outline-variant/20 flex items-center justify-between text-outline font-label-mono-sm text-[10px]">
+<!-- Left: Geo & Timezone Coordinates -->
+<div class="flex items-center gap-1.5 text-on-surface-variant">
+<span class="material-symbols-outlined text-[12px] text-primary">location_on</span>
+<span class="tracking-widest">ODISHA, IN [IST]</span>
+</div>
+<!-- Center: Stack Pagination Nodes -->
+<div class="flex items-center gap-1.5 bg-surface-container-high/50 px-2.5 py-1 rounded-full border border-outline-variant/20">
+<span class="text-[8px] text-outline tracking-tight">000</span>
+<span class="h-1 w-1 rounded-full bg-outline-variant"></span>
+<div class="flex items-center gap-1 text-primary font-bold">
+<span class="h-1.5 w-1.5 rounded-full bg-primary animate-pulse"></span>
+<span class="text-[9px] text-primary-fixed">001</span>
+</div>
+<span class="h-1 w-1 rounded-full bg-outline-variant"></span>
+<span class="text-[8px] text-outline tracking-tight">002</span>
+</div>
+<!-- Right: Touch Gesture Prompt -->
+<div class="flex items-center gap-1 text-secondary hover:text-primary transition-colors cursor-pointer">
+<span class="material-symbols-outlined text-[13px]">swipe_vertical</span>
+<span class="tracking-wider text-[9px]">ORBIT / DRAG</span>
+</div>
+</footer>
+</main>
+</body></html>

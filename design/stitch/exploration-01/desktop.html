@@ -1,0 +1,973 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>ALGORYXZ — Independent Digital Studio &amp; Research Lab</title>
+<!-- Typography: Space Grotesk, Hanken Grotesk, JetBrains Mono -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:ital,wght@0,300;0,400;0,500;0,600;1,400&amp;family=JetBrains+Mono:wght@400;500;600;700&amp;family=Space+Grotesk:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS v3 -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "surface-container-lowest": "#0e0e0f",
+            "surface-container": "#201f20",
+            "on-tertiary-fixed-variant": "#3e4c00",
+            "surface-bright": "#3a393a",
+            "on-primary-fixed-variant": "#8a1c00",
+            "on-secondary-fixed": "#1b1c19",
+            "inverse-surface": "#e5e2e3",
+            "tertiary-fixed": "#d0f05d",
+            "on-tertiary-container": "#242d00",
+            "surface-dim": "#131314",
+            "primary-container": "#ff562d",
+            "on-surface": "#e5e2e3",
+            "tertiary": "#b4d343",
+            "on-error-container": "#ffdad6",
+            "tertiary-fixed-dim": "#b4d343",
+            "on-primary-fixed": "#3d0700",
+            "surface": "#131314",
+            "background": "#131314",
+            "secondary": "#c8c6c2",
+            "outline": "#ae887f",
+            "surface-container-highest": "#353436",
+            "primary-fixed": "#ffdad2",
+            "on-primary": "#621100",
+            "secondary-container": "#474743",
+            "outline-variant": "#5e3f38",
+            "error-container": "#93000a",
+            "secondary-fixed-dim": "#c8c6c2",
+            "surface-container-high": "#2a2a2b",
+            "on-primary-container": "#560d00",
+            "on-error": "#690005",
+            "on-secondary-container": "#b6b5b0",
+            "surface-tint": "#ffb4a2",
+            "on-background": "#e5e2e3",
+            "on-tertiary-fixed": "#171e00",
+            "surface-container-low": "#1c1b1c",
+            "primary-fixed-dim": "#ffb4a2",
+            "on-secondary-fixed-variant": "#474743",
+            "tertiary-container": "#809b00",
+            "on-tertiary": "#2a3500",
+            "inverse-primary": "#b52700",
+            "on-surface-variant": "#e8bdb3",
+            "on-secondary": "#30312d",
+            "secondary-fixed": "#e4e2dd",
+            "primary": "#ffb4a2",
+            "surface-variant": "#353436",
+            "inverse-on-surface": "#313031",
+            "error": "#ffb4ab"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "margin-lg": "5rem",
+            "margin": "1.5rem",
+            "space-sm": "0.5rem",
+            "space-2xl": "8rem",
+            "margin-md": "3rem",
+            "gutter": "1.5rem",
+            "space-xs": "0.25rem",
+            "space-lg": "2rem",
+            "space-xl": "4rem",
+            "space-md": "1rem",
+            "gutter-lg": "3rem"
+          },
+          "fontFamily": {
+            "body-md": ["Hanken Grotesk"],
+            "body-lg": ["Hanken Grotesk"],
+            "headline-lg-mobile": ["Space Grotesk"],
+            "headline-lg": ["Space Grotesk"],
+            "body-sm": ["Hanken Grotesk"],
+            "headline-md": ["Space Grotesk"],
+            "headline-sm": ["Space Grotesk"],
+            "label-code": ["JetBrains Mono"],
+            "display-xl-mobile": ["Space Grotesk"],
+            "caption": ["Hanken Grotesk"],
+            "display-xl": ["Space Grotesk"],
+            "label-index": ["JetBrains Mono"]
+          },
+          "fontSize": {
+            "body-md": ["15px", { "lineHeight": "24px", "letterSpacing": "0em", "fontWeight": "400" }],
+            "body-lg": ["17px", { "lineHeight": "28px", "letterSpacing": "-0.01em", "fontWeight": "400" }],
+            "headline-lg-mobile": ["28px", { "lineHeight": "32px", "letterSpacing": "-0.02em", "fontWeight": "500" }],
+            "headline-lg": ["40px", { "lineHeight": "44px", "letterSpacing": "-0.03em", "fontWeight": "500" }],
+            "body-sm": ["13px", { "lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "400" }],
+            "headline-md": ["24px", { "lineHeight": "30px", "letterSpacing": "-0.02em", "fontWeight": "500" }],
+            "headline-sm": ["18px", { "lineHeight": "24px", "letterSpacing": "-0.01em", "fontWeight": "500" }],
+            "label-code": ["12px", { "lineHeight": "16px", "letterSpacing": "0.04em", "fontWeight": "500" }],
+            "display-xl-mobile": ["44px", { "lineHeight": "48px", "letterSpacing": "-0.03em", "fontWeight": "600" }],
+            "caption": ["11px", { "lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "400" }],
+            "display-xl": ["72px", { "lineHeight": "76px", "letterSpacing": "-0.04em", "fontWeight": "600" }],
+            "label-index": ["10px", { "lineHeight": "12px", "letterSpacing": "0.12em", "fontWeight": "600" }]
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    /* Architectural hairline grid lines & typography treatments */
+    .ledger-border-b { border-bottom: 1px solid #242326; }
+    .ledger-border-t { border-top: 1px solid #242326; }
+    .ledger-border-l { border-left: 1px solid #242326; }
+    .ledger-border-r { border-right: 1px solid #242326; }
+    .ledger-border-all { border: 1px solid #242326; }
+    
+    /* Strict offset drop shadow rule */
+    .hard-shadow { box-shadow: 4px 4px 0px #000000; }
+    .hard-shadow-sm { box-shadow: 2px 2px 0px #000000; }
+
+    /* Custom Selection */
+    ::selection {
+      background-color: #ff562d;
+      color: #0e0e0f;
+    }
+  </style>
+</head>
+<body class="bg-background text-on-surface font-body-md antialiased selection:bg-primary-container selection:text-surface-container-lowest">
+<!-- ========================================================================= -->
+<!-- 00. TOP TECHNICAL STATUS LEDGER (Index Header Bar)                        -->
+<!-- ========================================================================= -->
+<div class="w-full bg-surface-container-lowest text-secondary font-label-index text-label-index ledger-border-b px-margin-md py-1.5 flex justify-between items-center tracking-widest uppercase">
+<div class="flex items-center gap-4">
+<span class="inline-flex items-center gap-1.5 text-primary">
+<span class="w-1.5 h-1.5 rounded-full bg-primary-container animate-pulse"></span>
+        DISPATCH // LIVE
+      </span>
+<span class="hidden md:inline text-secondary/40">|</span>
+<span class="hidden md:inline">SYSTEM: ALGORYXZ PROTOCOL v1.0.4</span>
+<span class="hidden md:inline text-secondary/40">|</span>
+<span class="hidden lg:inline text-secondary/60">ODISHA, IN [20.2961° N, 85.8245° E]</span>
+</div>
+<div class="flex items-center gap-6">
+<span class="text-secondary/70">Q2/Q3 COMMISSIONS: [ 2 SEATS OPEN ]</span>
+<span class="text-on-surface font-label-code text-label-code" id="live-utc">UTC+05:30 IST</span>
+</div>
+</div>
+<!-- ========================================================================= -->
+<!-- 01. SHARED COMPONENT: TopNavBar                                           -->
+<!-- ========================================================================= -->
+<!-- Using JSON: TopNavBar attributes & styling -->
+<header class="sticky top-0 z-50 bg-surface dark:bg-surface border-b border-outline-variant dark:border-outline-variant flex justify-between items-center w-full px-margin-md py-4">
+<!-- Brand Anchor & Wordmark -->
+<div class="flex items-center gap-4">
+<a class="text-headline-sm font-headline-sm tracking-tight font-medium text-on-surface dark:text-on-surface uppercase flex items-center group" href="#">
+<span>ALGORY</span><span class="text-primary-container group-hover:text-primary transition-colors">XZ</span>
+</a>
+<span class="hidden sm:inline-block font-label-index text-label-index text-secondary/50 border-l border-outline-variant/40 pl-3 py-0.5">
+        STUDIO // ODISHA, IN [IST]
+      </span>
+</div>
+<!-- Navigation Links -->
+<nav class="hidden md:flex items-center gap-8 font-label-code text-label-code">
+<!-- Active link rule execution from JSON: Work is primary anchor -->
+<a class="text-primary dark:text-primary border-b-2 border-primary dark:border-primary pb-1 transition-all duration-150 ease-in-out" href="#work">Work</a>
+<a class="text-secondary dark:text-secondary hover:text-on-surface dark:hover:text-on-surface transition-colors" href="#what-we-make">What We Make</a>
+<a class="text-secondary dark:text-secondary hover:text-on-surface dark:hover:text-on-surface transition-colors" href="#process">Process</a>
+<a class="text-secondary dark:text-secondary hover:text-on-surface dark:hover:text-on-surface transition-colors" href="#founders">Founders</a>
+</nav>
+<!-- Trailing Actions -->
+<div class="flex items-center gap-3">
+<span class="font-label-code text-label-code text-secondary/50 hidden lg:inline">[ 001 ]</span>
+<a class="bg-secondary-fixed text-surface font-label-code text-label-code font-bold uppercase px-4 py-2 hover:bg-primary-container hover:text-on-primary-container transition-colors hard-shadow-sm flex items-center gap-1.5" href="#contact">
+<span>Start a Project</span>
+<span class="material-symbols-outlined text-[14px]">arrow_outward</span>
+</a>
+</div>
+</header>
+<main class="w-full">
+<!-- ========================================================================= -->
+<!-- 02. HERO SECTION: Publication Ledger Layout                               -->
+<!-- ========================================================================= -->
+<section class="w-full ledger-border-b bg-surface pt-space-xl pb-space-2xl px-margin-md relative overflow-hidden">
+<!-- Technical Ledger Grid Lines -->
+<div class="max-w-[1360px] mx-auto">
+<!-- Top Manifesto Row -->
+<div class="flex flex-wrap items-center justify-between gap-4 pb-space-lg ledger-border-b mb-space-lg">
+<div class="flex items-center gap-3">
+<span class="font-label-index text-label-index bg-surface-container px-2.5 py-1 border border-[#242326] text-on-surface uppercase tracking-wider">
+              [ INDEPENDENT STUDIO // EST. 2025 ]
+            </span>
+<span class="font-label-index text-label-index text-tertiary flex items-center gap-1.5 border border-tertiary-container/30 px-2.5 py-1 bg-[#101012]">
+<span class="w-1.5 h-1.5 bg-tertiary rounded-full animate-pulse"></span>
+              OPEN FOR SELECT COMMISSIONS (Q2/Q3)
+            </span>
+</div>
+<div class="font-label-code text-label-code text-secondary/60">
+            INDEX REF: 2025-ARCH-001 // BATCH-01
+          </div>
+</div>
+<!-- Main Editorial Statement: Asymmetric Grid (Cols 1-8 Statement, 9-12 Metadata) -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter-lg items-start pt-space-md pb-space-xl">
+<div class="lg:col-span-8 space-y-space-md">
+<div class="font-label-index text-label-index text-primary uppercase tracking-widest">
+              [ ARCHITECTURAL STATEMENT ]
+            </div>
+<h1 class="font-display-xl text-display-xl tracking-tight text-on-surface font-semibold max-w-4xl">
+              We make things for the internet.
+            </h1>
+<p class="font-body-lg text-body-lg text-secondary max-w-2xl pt-2 leading-relaxed">
+              Digital experiences for businesses with something to say, and people celebrating something that matters. No bloated templates, no corporate indifference.
+            </p>
+<!-- Actions Cluster -->
+<div class="pt-space-md flex flex-wrap items-center gap-4">
+<a class="bg-secondary-fixed text-surface font-label-code text-label-code font-bold uppercase px-6 py-3 hover:bg-primary-container hover:text-surface-container-lowest transition-colors hard-shadow flex items-center gap-2" href="#work">
+<span>Explore Selected Work</span>
+<span class="material-symbols-outlined text-[16px]">arrow_downward</span>
+</a>
+<a class="ledger-border-all bg-transparent text-secondary-fixed font-label-code text-label-code uppercase px-6 py-3 hover:border-secondary-fixed transition-colors flex items-center gap-2" href="#contact">
+<span>Initiate a Conversation</span>
+<span class="material-symbols-outlined text-[16px]">arrow_outward</span>
+</a>
+</div>
+</div>
+<!-- Col 9: Caesura, Cols 10-12 Studio Provenance Sheet -->
+<div class="lg:col-span-4 ledger-border-l border-[#242326] lg:pl-space-md space-y-6 pt-4 lg:pt-0">
+<div class="font-label-index text-label-index text-secondary/50 uppercase tracking-widest pb-2 border-b border-[#242326]">
+              PROVENANCE &amp; TECHNICAL REGISTRY
+            </div>
+<div class="space-y-4 font-label-code text-label-code">
+<div>
+<span class="text-secondary/40 block text-caption font-caption uppercase">Founding Hub</span>
+<span class="text-on-surface">Bhubaneswar, Odisha, IN</span>
+</div>
+<div>
+<span class="text-secondary/40 block text-caption font-caption uppercase">Jurisdiction</span>
+<span class="text-on-surface">Worldwide Execution / Remote First</span>
+</div>
+<div>
+<span class="text-secondary/40 block text-caption font-caption uppercase">Engineering Base</span>
+<span class="text-on-surface">Vanilla JS, Modern CSS, Clean Runtimes</span>
+</div>
+<div>
+<span class="text-secondary/40 block text-caption font-caption uppercase">Core Team</span>
+<span class="text-on-surface">3 Founders (Zero middle managers)</span>
+</div>
+<div class="pt-2">
+<div class="p-3 bg-surface-container-low border border-[#242326] text-caption font-caption text-secondary/80 leading-relaxed">
+                  "We believe high-taste digital publishing shouldn't be reserved for billion-dollar fashion houses or silicon-valley monopolies. We build for independents who give a damn."
+                </div>
+</div>
+</div>
+</div>
+</div>
+<!-- Studio Metadata Ticker Along Hairline Rule -->
+<div class="ledger-border-t border-[#242326] pt-4 grid grid-cols-1 md:grid-cols-3 gap-6 font-label-code text-label-code text-secondary/70">
+<div class="flex items-center gap-2">
+<span class="text-primary">[ LOC ]</span>
+<span>Bhubaneswar, Odisha → Worldwide</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="text-primary">[ STACK ]</span>
+<span>Crafted in Web Standards &amp; Bespoke Code</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="text-primary">[ COMM ]</span>
+<span>Direct Founder Collab — Zero Bureaucracy</span>
+</div>
+</div>
+</div>
+</section>
+<!-- ========================================================================= -->
+<!-- 03. AUDIENCE ROUTING: Architectural Ledger Index                           -->
+<!-- ========================================================================= -->
+<section class="w-full ledger-border-b bg-surface-container-lowest py-space-xl px-margin-md">
+<div class="max-w-[1360px] mx-auto">
+<div class="flex flex-col md:flex-row md:items-end justify-between pb-space-lg mb-space-lg border-b border-[#242326] gap-4">
+<div>
+<span class="font-label-index text-label-index text-primary uppercase tracking-widest block mb-2">// SPECIFICATION LEDGER</span>
+<h2 class="font-headline-lg text-headline-lg text-on-surface tracking-tight">Who is this studio for?</h2>
+</div>
+<p class="font-body-sm text-body-sm text-secondary/70 max-w-md">
+            Three tailored modes of collaboration. We align specifically with people, not corporate personas.
+          </p>
+</div>
+<!-- Three Horizontal Architectural Ledger Bands -->
+<div class="ledger-border-t border-[#242326] divide-y divide-[#242326]">
+<!-- Row 01: Business -->
+<div class="py-8 group hover:bg-[#141416] transition-colors px-4 -mx-4 grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
+<div class="lg:col-span-2 font-label-index text-label-index text-secondary/40 group-hover:text-primary transition-colors flex items-center gap-2">
+<span class="w-2 h-2 bg-primary-container"></span>
+              [ 01 / FOR MY BUSINESS ]
+            </div>
+<div class="lg:col-span-4">
+<h3 class="font-headline-md text-headline-md text-on-surface group-hover:text-primary-fixed transition-colors">
+                Boutique Brands, Cafés &amp; Independent Creatives
+              </h3>
+<p class="font-body-sm text-body-sm text-secondary pt-2">
+                Specialty roasteries, artisanal bakeries, architectural studios, and emerging startups who refuse generic website builders.
+              </p>
+</div>
+<div class="lg:col-span-4 font-caption text-caption text-secondary/70">
+<span class="font-label-code text-label-code text-on-surface block mb-1">KEY DELIVERABLES:</span>
+              Tactile brand presence, hyper-fast mobile speed, micro-interactions, custom menus, and conversion architecture built without bloated plugins.
+            </div>
+<div class="lg:col-span-2 text-right">
+<a class="inline-flex items-center gap-2 font-label-code text-label-code text-on-surface group-hover:text-primary transition-colors underline underline-offset-4" href="#work">
+<span>See Business Works</span>
+<span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</a>
+</div>
+</div>
+<!-- Row 02: Special Celebrations -->
+<div class="py-8 group hover:bg-[#141416] transition-colors px-4 -mx-4 grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
+<div class="lg:col-span-2 font-label-index text-label-index text-secondary/40 group-hover:text-primary transition-colors flex items-center gap-2">
+<span class="w-2 h-2 bg-tertiary"></span>
+              [ 02 / FOR SOMEONE SPECIAL ]
+            </div>
+<div class="lg:col-span-4">
+<h3 class="font-headline-md text-headline-md text-on-surface group-hover:text-primary-fixed transition-colors">
+                Digital Heirlooms, Weddings &amp; Lifelong Milestones
+              </h3>
+<p class="font-body-sm text-body-sm text-secondary pt-2">
+                Surprise proposals, interactive wedding archives, family retrospectives, and milestone memoirs built with intimate digital care.
+              </p>
+</div>
+<div class="lg:col-span-4 font-caption text-caption text-secondary/70">
+<span class="font-label-code text-label-code text-on-surface block mb-1">KEY DELIVERABLES:</span>
+              Password-vaulted stories, sound-reactive memories, guestbook archival repositories, and emotional pacing designed to endure decades.
+            </div>
+<div class="lg:col-span-2 text-right">
+<a class="inline-flex items-center gap-2 font-label-code text-label-code text-on-surface group-hover:text-primary transition-colors underline underline-offset-4" href="#work">
+<span>See Celebration Archives</span>
+<span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</a>
+</div>
+</div>
+<!-- Row 03: Custom Systems -->
+<div class="py-8 group hover:bg-[#141416] transition-colors px-4 -mx-4 grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
+<div class="lg:col-span-2 font-label-index text-label-index text-secondary/40 group-hover:text-primary transition-colors flex items-center gap-2">
+<span class="w-2 h-2 bg-surface-bright"></span>
+              [ 03 / CUSTOM SYSTEMS ]
+            </div>
+<div class="lg:col-span-4">
+<h3 class="font-headline-md text-headline-md text-on-surface group-hover:text-primary-fixed transition-colors">
+                Bespoke Web Applications &amp; Creative Tech
+              </h3>
+<p class="font-body-sm text-body-sm text-secondary pt-2">
+                Understated engineering capability for teams requiring high-performance tools, generative web instruments, or unusual internet experiments.
+              </p>
+</div>
+<div class="lg:col-span-4 font-caption text-caption text-secondary/70">
+<span class="font-label-code text-label-code text-on-surface block mb-1">KEY DELIVERABLES:</span>
+              Complex reactive states, canvas/WebGL experiments, internal client dashboards, and bespoke APIs crafted with architectural rigor.
+            </div>
+<div class="lg:col-span-2 text-right">
+<a class="inline-flex items-center gap-2 font-label-code text-label-code text-on-surface group-hover:text-primary transition-colors underline underline-offset-4" href="#contact">
+<span>Discuss Custom Architecture</span>
+<span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</a>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- ========================================================================= -->
+<!-- 04. SELECTED WORK: Archive Index (Studio Numbering System)                -->
+<!-- ========================================================================= -->
+<section class="w-full ledger-border-b bg-surface py-space-xl px-margin-md" id="work">
+<div class="max-w-[1360px] mx-auto">
+<!-- Section Header -->
+<div class="flex flex-wrap justify-between items-end pb-6 border-b border-[#242326] mb-12">
+<div>
+<span class="font-label-index text-label-index text-primary uppercase tracking-widest block mb-2">// ARCHIVE INDEX — SELECTED RELEASES</span>
+<h2 class="font-headline-lg text-headline-lg text-on-surface">Selected Studio Works</h2>
+</div>
+<div class="font-label-code text-label-code text-secondary flex items-center gap-3">
+<span>SHOWING [ 03 ENTRIES ]</span>
+<span class="text-secondary/40">/</span>
+<span class="text-on-surface">2024 — 2025</span>
+</div>
+</div>
+<!-- Works Grid: Asymmetric Architectural Editorial Units -->
+<div class="space-y-16">
+<!-- ENTRY 000: Studio Internal Platform -->
+<article class="ledger-border-all bg-surface-container-lowest p-6 lg:p-8 relative">
+<div class="flex flex-wrap justify-between items-center pb-4 border-b border-[#242326] mb-6 font-label-code text-label-code">
+<div class="flex items-center gap-3">
+<span class="text-primary font-bold">[ ALGORYXZ / 000 ]</span>
+<span class="text-secondary/60">CATALOG // NO. 000-INT</span>
+<span class="px-2 py-0.5 bg-surface-container border border-[#242326] text-caption font-caption text-on-surface">INTERNAL CORE</span>
+</div>
+<span class="text-secondary/60">DEPLOYED: 2025.Q1</span>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+<div class="lg:col-span-5 space-y-4">
+<h3 class="font-headline-md text-headline-md text-on-surface">Algoryxz Studio Platform &amp; Archival Engine</h3>
+<p class="font-body-md text-body-md text-secondary leading-relaxed">
+                  Our self-hosted research repository and publishing engine. Structured like a cold-war technical journal blended with Swiss typographic discipline. Zero frameworks, near-instant first paint, and complete mechanical transparency.
+                </p>
+<div class="pt-4 space-y-2 border-t border-[#242326] font-caption text-caption text-secondary/80">
+<div class="flex justify-between">
+<span class="text-secondary/50">SCOPE:</span>
+<span class="text-on-surface">Art Direction, Core Architecture, Monospace Typography</span>
+</div>
+<div class="flex justify-between">
+<span class="text-secondary/50">TECH:</span>
+<span class="text-on-surface">Semantic HTML, Pure CSS, Ledger JS</span>
+</div>
+<div class="flex justify-between">
+<span class="text-secondary/50">PERFORMANCE:</span>
+<span class="text-tertiary">100/100 Lighthouse Benchmark</span>
+</div>
+</div>
+<div class="pt-4">
+<a class="inline-flex items-center gap-2 font-label-code text-label-code text-secondary-fixed hover:text-primary transition-colors border border-[#242326] px-4 py-2 bg-surface" href="#founders">
+<span>Inspect Internal Architecture</span>
+<span class="material-symbols-outlined text-[14px]">terminal</span>
+</a>
+</div>
+</div>
+<div class="lg:col-span-7">
+<div class="ledger-border-all bg-surface-dim overflow-hidden relative group">
+<img class="w-full h-80 lg:h-96 object-cover grayscale contrast-125 group-hover:grayscale-0 transition-all duration-300" data-alt="Minimalist monochromatic screenshot of a modern digital publishing platform. Clean typography in Space Grotesk and JetBrains Mono with hairline borders, matte dark obsidian background, subtle vermilion accent details, and precise editorial layout with high structural tension." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCFh3P-O4NmtOV8FNSyPIMYX6V41ThYCaoj-45JWtvfxu0W1b0JzoYOS800yRnsOUJWXDNTKAIE89v2wZhI1e9bdFA3lpA-Axf2izyf2giefrEMM0nk7JCUf0_CS1n_3WfpXo4KLyy1TN45n24i6XnHC_ErEi1AGVTDDbM6mJOwpDQ9THhEfeCe5XLzlXNSkV33jQPtEjh_h1-aXBYRldXvi5kckKRGgP9OgzIuTjt0VvGtEfvMyMD6dud-Cjk4r6vFCiWQb0Le98ex"/>
+<div class="absolute bottom-3 right-3 bg-surface/90 border border-[#242326] px-3 py-1 font-label-index text-label-index text-secondary">
+                    FIG. 00 — SYSTEM VIEWPORT
+                  </div>
+</div>
+</div>
+</div>
+</article>
+<!-- ENTRY 001: Celebration Concept -->
+<article class="ledger-border-all bg-surface-container-lowest p-6 lg:p-8 relative">
+<div class="flex flex-wrap justify-between items-center pb-4 border-b border-[#242326] mb-6 font-label-code text-label-code">
+<div class="flex items-center gap-3">
+<span class="text-primary font-bold">[ ALGORYXZ / 001 ]</span>
+<span class="text-secondary/60">CATALOG // NO. 001-CLB</span>
+<span class="px-2 py-0.5 bg-surface-container border border-[#242326] text-caption font-caption text-primary">CELEBRATION ARCHIVE</span>
+</div>
+<span class="text-secondary/60">RELEASE: 2025.SPEC</span>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+<div class="lg:col-span-7 order-2 lg:order-1">
+<div class="ledger-border-all bg-surface-dim overflow-hidden relative group">
+<img class="w-full h-80 lg:h-96 object-cover grayscale contrast-125 group-hover:grayscale-0 transition-all duration-300" data-alt="An editorial interactive website mockup for an intimate wedding and proposal archive. Monochromatic black and white film photography with warm bone paper tones, subtle gold-red hairline rules, elegant title typography, and an interactive digital audio track waveform." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAiOznBAnXwkku7oGC1J5yxXBZR1o7qllQxlmF4E0vFaTmKfH44YGDvzKvFPaJbb50qiTgh3Zb4zTHtjCu9aKW9A_xdLDntECTmdW_KcOnr9xFyIRFSP-ARekCgUwooVEJpmlTVWVfTDkQqNHKo6EeAxyfMBfqDGrru_hLeptU8QTgkDPj54XVhhgpZYg7PI79W907cDqaouoax16UyDI_jnyHAtC1XepS2_2s7pctNICeojGqoDV67ugTUvqrZ7J-wKw0xh7tiizxV"/>
+<div class="absolute bottom-3 left-3 bg-surface/90 border border-[#242326] px-3 py-1 font-label-index text-label-index text-secondary">
+                    FIG. 01 — MEMOIR TIMELINE
+                  </div>
+</div>
+</div>
+<div class="lg:col-span-5 space-y-4 order-1 lg:order-2">
+<h3 class="font-headline-md text-headline-md text-on-surface">The Golden Hour: An Interactive Wedding &amp; Proposal Archive</h3>
+<p class="font-body-md text-body-md text-secondary leading-relaxed">
+                  A bespoke digital heirloom built for a couple commemorating an intimate mountaintop proposal in the Eastern Ghats. Features an audio-reactive ambient background score, encrypted family memory vault, guest message ledger, and tactile slide viewer.
+                </p>
+<div class="pt-4 space-y-2 border-t border-[#242326] font-caption text-caption text-secondary/80">
+<div class="flex justify-between">
+<span class="text-secondary/50">INTENT:</span>
+<span class="text-on-surface">Permanent Intimate Web Artifact</span>
+</div>
+<div class="flex justify-between">
+<span class="text-secondary/50">INTERACTION:</span>
+<span class="text-on-surface">Web Audio API, Timeline Gesture Navigation</span>
+</div>
+<div class="flex justify-between">
+<span class="text-secondary/50">LIFESPAN:</span>
+<span class="text-on-surface">Archived for 30+ Years on Decentralized Storage</span>
+</div>
+</div>
+<div class="pt-4">
+<a class="inline-flex items-center gap-2 font-label-code text-label-code text-secondary-fixed hover:text-primary transition-colors border border-[#242326] px-4 py-2 bg-surface" href="#contact">
+<span>Inquire About Heirloom Builds</span>
+<span class="material-symbols-outlined text-[14px]">favorite</span>
+</a>
+</div>
+</div>
+</div>
+</article>
+<!-- ENTRY 002: Business Concept -->
+<article class="ledger-border-all bg-surface-container-lowest p-6 lg:p-8 relative">
+<div class="flex flex-wrap justify-between items-center pb-4 border-b border-[#242326] mb-6 font-label-code text-label-code">
+<div class="flex items-center gap-3">
+<span class="text-primary font-bold">[ ALGORYXZ / 002 ]</span>
+<span class="text-secondary/60">CATALOG // NO. 002-BIZ</span>
+<span class="px-2 py-0.5 bg-surface-container border border-[#242326] text-caption font-caption text-tertiary">BUSINESS ARCHITECTURE</span>
+</div>
+<span class="text-secondary/60">RELEASE: 2025.COMM</span>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+<div class="lg:col-span-5 space-y-4">
+<h3 class="font-headline-md text-headline-md text-on-surface">Komorebi Roastery &amp; Bakehouse</h3>
+<p class="font-body-md text-body-md text-secondary leading-relaxed">
+                  Digital home for an artisanal micro-roastery. Built to evoke the tactile sensory experience of unbleached parchment, roast batch cards, and daily morning pastries. Features zero-lag live bean availability index and express mobile checkout.
+                </p>
+<div class="pt-4 space-y-2 border-t border-[#242326] font-caption text-caption text-secondary/80">
+<div class="flex justify-between">
+<span class="text-secondary/50">INDUSTRY:</span>
+<span class="text-on-surface">Specialty Hospitality &amp; Artisan Retail</span>
+</div>
+<div class="flex justify-between">
+<span class="text-secondary/50">SYSTEM:</span>
+<span class="text-on-surface">Headless Ordering, Live Roaster Status Sheet</span>
+</div>
+<div class="flex justify-between">
+<span class="text-secondary/50">RESULT:</span>
+<span class="text-on-surface">+34% Direct Bean Subscriptions vs Generic SaaS</span>
+</div>
+</div>
+<div class="pt-4">
+<a class="inline-flex items-center gap-2 font-label-code text-label-code text-secondary-fixed hover:text-primary transition-colors border border-[#242326] px-4 py-2 bg-surface" href="#contact">
+<span>Commission Similar Web Project</span>
+<span class="material-symbols-outlined text-[14px]">storefront</span>
+</a>
+</div>
+</div>
+<div class="lg:col-span-7">
+<div class="ledger-border-all bg-surface-dim overflow-hidden relative group">
+<img class="w-full h-80 lg:h-96 object-cover grayscale contrast-125 group-hover:grayscale-0 transition-all duration-300" data-alt="Editorial website interface for an independent artisanal coffee roastery. Dark graphite surfaces, crisp Japanese-Swiss typography, high-definition photograph of whole coffee beans on raw linen fabric, and a minimal daily roast schedule ledger." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCKIO17M5t0Uh89zkPUPWO2M8ckzGFF0Z9_DX4Hccz4yiPbD-XKaBi_rv9xCSgcdCsk59CZBfsuDgexEh8bILaLzdHJ6O42K8wZZkxbpiN-aLZeeLGF-_Ykbakqth8q3iQuJNv26UVeb2pVT6NWd7tYPQWiVxrU4_Hjd6Q78s4SJj-_t0D7NM6qWGtyg8lOdWFO-HeUNoHorcF8B3GBzBHWLhPUTEY8Y8VcfVe1sYXe_0TfGpmcTxrKLsrrsh4wpk9pJgiZEp1Hw8Ql"/>
+<div class="absolute bottom-3 right-3 bg-surface/90 border border-[#242326] px-3 py-1 font-label-index text-label-index text-secondary">
+                    FIG. 02 — ROAST REGISTER INTERFACE
+                  </div>
+</div>
+</div>
+</div>
+</article>
+</div>
+</div>
+</section>
+<!-- ========================================================================= -->
+<!-- 05. WHAT WE MAKE: Split Layout (Two Customer Worlds)                     -->
+<!-- ========================================================================= -->
+<section class="w-full ledger-border-b bg-surface-container-lowest py-space-xl px-margin-md" id="what-we-make">
+<div class="max-w-[1360px] mx-auto">
+<div class="pb-space-lg border-b border-[#242326] mb-12">
+<span class="font-label-index text-label-index text-primary uppercase tracking-widest block mb-2">// DUAL HORIZONS</span>
+<h2 class="font-headline-lg text-headline-lg text-on-surface">Two Worlds. One Uncompromising Standard.</h2>
+<p class="font-body-md text-body-md text-secondary max-w-2xl pt-2">
+            Most creative agencies only talk to B2B giants. We believe the most beautiful things made on the web belong to passionate independent businesses and real human lives.
+          </p>
+</div>
+<!-- Split Grid: World A vs World B -->
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+<!-- WORLD A: Business & Brand -->
+<div class="ledger-border-all bg-surface p-8 flex flex-col justify-between">
+<div class="space-y-6">
+<div class="flex items-center justify-between pb-4 border-b border-[#242326]">
+<span class="font-label-index text-label-index text-primary uppercase">[ WORLD A // COMMERCE &amp; CRAFT ]</span>
+<span class="font-label-code text-label-code text-secondary/50">SECTOR: INDIE BIZ</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-surface">Business &amp; Brand Architecture</h3>
+<p class="font-body-md text-body-md text-secondary leading-relaxed">
+                For the café owner who spends hours dialing in an espresso grind, the architect who agonizes over shadow joints, or the startup building real software. You should not have to settle for a bloated WordPress theme that looks like everyone else.
+              </p>
+<div class="space-y-3 pt-4 border-t border-[#242326]">
+<div class="font-label-code text-label-code text-on-surface">WHAT WE DELIVER:</div>
+<ul class="space-y-2 font-body-sm text-body-sm text-secondary/80">
+<li class="flex items-start gap-2">
+<span class="text-primary mt-0.5">▪</span>
+<span><strong>Unrivaled Speed:</strong> Clean markup, zero script bloat, instant mobile interactions.</span>
+</li>
+<li class="flex items-start gap-2">
+<span class="text-primary mt-0.5">▪</span>
+<span><strong>Typographic Dignity:</strong> Editorial layouts that make your brand feel established and iconic.</span>
+</li>
+<li class="flex items-start gap-2">
+<span class="text-primary mt-0.5">▪</span>
+<span><strong>Conversion Logic:</strong> Clear booking paths, tactile ordering, frictionless inquiry funnels.</span>
+</li>
+</ul>
+</div>
+</div>
+<div class="pt-8 mt-6 border-t border-[#242326] flex items-center justify-between">
+<span class="font-label-code text-label-code text-secondary/60">Turnaround: 2–3 Weeks</span>
+<a class="font-label-code text-label-code text-primary hover:underline flex items-center gap-1" href="#contact">
+<span>Start Business Brief</span>
+<span class="material-symbols-outlined text-[14px]">arrow_outward</span>
+</a>
+</div>
+</div>
+<!-- WORLD B: Celebrations & Heirlooms -->
+<div class="ledger-border-all bg-surface p-8 flex flex-col justify-between">
+<div class="space-y-6">
+<div class="flex items-center justify-between pb-4 border-b border-[#242326]">
+<span class="font-label-index text-label-index text-tertiary uppercase">[ WORLD B // HEIRLOOMS &amp; MEMOIRS ]</span>
+<span class="font-label-code text-label-code text-secondary/50">SECTOR: INDIVIDUALS</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-surface">Celebrations &amp; Living Heirlooms</h3>
+<p class="font-body-md text-body-md text-secondary leading-relaxed">
+                For weddings, surprise engagements, milestone anniversaries, and family archives. Paper invitations get discarded in weeks. A bespoke interactive website is a living digital time capsule that stays alive for generations.
+              </p>
+<div class="space-y-3 pt-4 border-t border-[#242326]">
+<div class="font-label-code text-label-code text-on-surface">WHAT WE DELIVER:</div>
+<ul class="space-y-2 font-body-sm text-body-sm text-secondary/80">
+<li class="flex items-start gap-2">
+<span class="text-tertiary mt-0.5">▪</span>
+<span><strong>Audio-Visual Storytelling:</strong> Soundtrack syncing, voice notes from friends, intimate pacing.</span>
+</li>
+<li class="flex items-start gap-2">
+<span class="text-tertiary mt-0.5">▪</span>
+<span><strong>Privacy &amp; Vaulting:</strong> Optional password-locked rooms, high-res photo downloads for close family.</span>
+</li>
+<li class="flex items-start gap-2">
+<span class="text-tertiary mt-0.5">▪</span>
+<span><strong>Permanent Custody:</strong> Static architecture that won't break when a software subscription expires.</span>
+</li>
+</ul>
+</div>
+</div>
+<div class="pt-8 mt-6 border-t border-[#242326] flex items-center justify-between">
+<span class="font-label-code text-label-code text-secondary/60">Turnaround: 10–14 Days</span>
+<a class="font-label-code text-label-code text-tertiary hover:underline flex items-center gap-1" href="#contact">
+<span>Start Heirloom Brief</span>
+<span class="material-symbols-outlined text-[14px]">arrow_outward</span>
+</a>
+</div>
+</div>
+</div>
+<!-- The Studio Advantage Note -->
+<div class="mt-8 p-6 bg-surface-dim ledger-border-all flex flex-col md:flex-row items-start md:items-center justify-between gap-4 font-label-code text-label-code">
+<div class="flex items-center gap-3">
+<span class="text-primary-container font-bold text-headline-sm">[ + ]</span>
+<span class="text-on-surface">Something outside these boxes? We build custom web apps, internal operational tools, and unusual internet artifacts.</span>
+</div>
+<a class="text-secondary hover:text-on-surface underline whitespace-nowrap" href="#contact">
+            Pitch an Unconventional Project →
+          </a>
+</div>
+</div>
+</section>
+<!-- ========================================================================= -->
+<!-- 06. PROCESS: 5-Phase Methodology Ledger                                   -->
+<!-- ========================================================================= -->
+<section class="w-full ledger-border-b bg-surface py-space-xl px-margin-md" id="process">
+<div class="max-w-[1360px] mx-auto">
+<div class="pb-space-lg border-b border-[#242326] mb-12 flex flex-wrap justify-between items-end gap-4">
+<div>
+<span class="font-label-index text-label-index text-primary uppercase tracking-widest block mb-2">// EXECUTION PROTOCOL</span>
+<h2 class="font-headline-lg text-headline-lg text-on-surface">Our 5-Phase Methodology</h2>
+</div>
+<div class="font-label-code text-label-code text-secondary/70">
+            TIME TO SHIP: TYPICALLY 2 TO 4 WEEKS TOTAL
+          </div>
+</div>
+<!-- 5 Step Architecture Ledger Table -->
+<div class="grid grid-cols-1 md:grid-cols-5 divide-y md:divide-y-0 md:divide-x divide-[#242326] ledger-border-all bg-surface-container-lowest">
+<!-- Step 01 -->
+<div class="p-6 space-y-4 group hover:bg-[#141416] transition-colors">
+<div class="font-label-index text-label-index text-primary group-hover:text-primary-container">
+              PHASE // 01
+            </div>
+<div class="font-headline-sm text-headline-sm text-on-surface">
+              DISCOVER
+            </div>
+<p class="font-caption text-caption text-secondary/80 leading-relaxed">
+              Raw, candid conversation. We uncover the emotional core of your project, target audience, and must-have mechanics. No 40-page questionnaire decks.
+            </p>
+<div class="pt-4 border-t border-[#242326] font-label-index text-label-index text-secondary/50">
+              EST: DAYS 1–3
+            </div>
+</div>
+<!-- Step 02 -->
+<div class="p-6 space-y-4 group hover:bg-[#141416] transition-colors">
+<div class="font-label-index text-label-index text-primary group-hover:text-primary-container">
+              PHASE // 02
+            </div>
+<div class="font-headline-sm text-headline-sm text-on-surface">
+              DESIGN
+            </div>
+<p class="font-caption text-caption text-secondary/80 leading-relaxed">
+              Deeptiman shapes bespoke art direction, typographic rhythm, and tactile micro-interactions. You review a living interactive prototype, not dead PDFs.
+            </p>
+<div class="pt-4 border-t border-[#242326] font-label-index text-label-index text-secondary/50">
+              EST: DAYS 4–9
+            </div>
+</div>
+<!-- Step 03 -->
+<div class="p-6 space-y-4 group hover:bg-[#141416] transition-colors">
+<div class="font-label-index text-label-index text-primary group-hover:text-primary-container">
+              PHASE // 03
+            </div>
+<div class="font-headline-sm text-headline-sm text-on-surface">
+              BUILD
+            </div>
+<p class="font-caption text-caption text-secondary/80 leading-relaxed">
+              Smarak translates designs into clean, modern semantic code. Zero bloated dependencies, perfect viewport responsiveness, and high-performance state handling.
+            </p>
+<div class="pt-4 border-t border-[#242326] font-label-index text-label-index text-secondary/50">
+              EST: DAYS 10–18
+            </div>
+</div>
+<!-- Step 04 -->
+<div class="p-6 space-y-4 group hover:bg-[#141416] transition-colors">
+<div class="font-label-index text-label-index text-primary group-hover:text-primary-container">
+              PHASE // 04
+            </div>
+<div class="font-headline-sm text-headline-sm text-on-surface">
+              LAUNCH
+            </div>
+<p class="font-caption text-caption text-secondary/80 leading-relaxed">
+              Akriti runs multi-device QA passes, domain routing, DNS SSL verification, and global edge distribution. Zero broken links, zero stress on release day.
+            </p>
+<div class="pt-4 border-t border-[#242326] font-label-index text-label-index text-secondary/50">
+              EST: DAYS 19–21
+            </div>
+</div>
+<!-- Step 05 -->
+<div class="p-6 space-y-4 group hover:bg-[#141416] transition-colors">
+<div class="font-label-index text-label-index text-primary group-hover:text-primary-container">
+              PHASE // 05
+            </div>
+<div class="font-headline-sm text-headline-sm text-on-surface">
+              CARE
+            </div>
+<p class="font-caption text-caption text-secondary/80 leading-relaxed">
+              We don't vanish after deployment. Ongoing technical stewardship, archival backups, and direct WhatsApp / Telegram founder access for any updates.
+            </p>
+<div class="pt-4 border-t border-[#242326] font-label-index text-label-index text-secondary/50">
+              PERPETUAL STEWARDSHIP
+            </div>
+</div>
+</div>
+</div>
+</section>
+<!-- ========================================================================= -->
+<!-- 07. FOUNDERS & STUDIO IDENTITY: Grounded Indian Narrative                 -->
+<!-- ========================================================================= -->
+<section class="w-full ledger-border-b bg-surface py-space-xl px-margin-md" id="founders">
+<div class="max-w-[1360px] mx-auto">
+<!-- Section Header -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8 pb-space-lg border-b border-[#242326] mb-12 items-end">
+<div class="lg:col-span-8">
+<span class="font-label-index text-label-index text-primary uppercase tracking-widest block mb-2">// THE BUILDERS</span>
+<h2 class="font-headline-lg text-headline-lg text-on-surface tracking-tight">
+              Three young minds based in Odisha, India, crafting for the global internet.
+            </h2>
+</div>
+<div class="lg:col-span-4 font-body-sm text-body-sm text-secondary">
+            We are engineering and design students who turned our obsession with internet culture and software craft into a functioning studio. No middlemen. You speak directly with the people building your product.
+          </div>
+</div>
+<!-- 3 Founder Cards: Typographic & Editorial Profile Vitrines -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<!-- Founder 1: Smarak -->
+<div class="ledger-border-all bg-surface-container-lowest p-6 flex flex-col justify-between group hover:border-secondary-fixed transition-colors">
+<div>
+<div class="flex items-center justify-between font-label-index text-label-index pb-3 border-b border-[#242326] mb-4">
+<span class="text-primary">[ 01 // ARCHITECTURE ]</span>
+<span class="text-secondary/50">ODISHA, IN</span>
+</div>
+<div class="mb-4 overflow-hidden border border-[#242326]">
+<img class="w-full h-56 object-cover grayscale contrast-125 group-hover:contrast-100 transition-all" data-alt="Monochrome portrait photograph of Smarak, a young Indian engineering student and software architect in Bhubaneswar. Soft high-contrast lighting, thoughtful expression, wearing a minimal black collar shirt against an unpolished concrete studio wall." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC0YOU3WlSINElk4NZQYALA054McGP5cxoa97tGsw7m58H_uHhbPyh2EXZ7o7SGHFBlxhz3qscnC_60OgMqwX0ql8cPeZoXLjt5pkbwvys_C39gdbCnZmdEcsuIWTt6_yx_EG05jNK9FbuH2rASNDEqzAQybcAeYr5VCBIjeWjFv4fBA1xmXoOuXa5qGsd_2PtSyx7oXfgz-uTsWmsri0_-98n03q9urK7gum_3A1BKR3PhiqJKyWcneX6CtEBxrJs9u9My738159qW"/>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-surface">Smarak</h3>
+<div class="font-label-code text-label-code text-primary-container pb-3">Engineering &amp; Architecture</div>
+<p class="font-body-sm text-body-sm text-secondary leading-relaxed">
+                Obsessed with code performance, zero-runtime frameworks, reactive system design, and rock-solid hosting infrastructure. Ensures every interface responds with zero perceptible delay.
+              </p>
+</div>
+<div class="pt-6 mt-6 border-t border-[#242326] font-label-index text-label-index text-secondary/60 flex justify-between">
+<span>CORE FOCUS:</span>
+<span class="text-on-surface">System Architecture / Speed</span>
+</div>
+</div>
+<!-- Founder 2: Deeptiman -->
+<div class="ledger-border-all bg-surface-container-lowest p-6 flex flex-col justify-between group hover:border-secondary-fixed transition-colors">
+<div>
+<div class="flex items-center justify-between font-label-index text-label-index pb-3 border-b border-[#242326] mb-4">
+<span class="text-primary">[ 02 // CREATIVE ]</span>
+<span class="text-secondary/50">ODISHA, IN</span>
+</div>
+<div class="mb-4 overflow-hidden border border-[#242326]">
+<img class="w-full h-56 object-cover grayscale contrast-125 group-hover:contrast-100 transition-all" data-alt="Monochrome portrait photograph of Deeptiman, a young Indian creative director and graphic designer. High contrast studio lighting, focused gaze, minimalist aesthetic, wearing dark neutral clothing against a textured dark paper background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB0GjerT2YJK5KS7crjVLTwNjD9pvsHVt--N3hBb6L96VC8L3JgzCVXrIwvyjrn0lFzMVC8DKPk5jiDBgQaHATHXDIMoeN3vOIroBMLMEXXqOqWjFW55TgrSkSv-5B1sSYGbXseZSuDWKUgU9Joe9n6sdAG2_CJxi0ITvLrSlALOzJe7q4kwWCuY7dmWN5GjPst6opwcZZptecxbollJXkTevZCaIa1r4nOT3fi4cMAUQnueomxp9YYcKJ1ZeQfr-Q4JwDNizPiPhhX"/>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-surface">Deeptiman</h3>
+<div class="font-label-code text-label-code text-primary pb-3">Creative Direction &amp; Design</div>
+<p class="font-body-sm text-body-sm text-secondary leading-relaxed">
+                Brings high-taste Swiss and Dutch publication rigor into the digital realm. Obsesses over typography, spatial hierarchy, intentional white space, and memorable emotional interaction design.
+              </p>
+</div>
+<div class="pt-6 mt-6 border-t border-[#242326] font-label-index text-label-index text-secondary/60 flex justify-between">
+<span>CORE FOCUS:</span>
+<span class="text-on-surface">Art Direction / Typographic Taste</span>
+</div>
+</div>
+<!-- Founder 3: Akriti -->
+<div class="ledger-border-all bg-surface-container-lowest p-6 flex flex-col justify-between group hover:border-secondary-fixed transition-colors">
+<div>
+<div class="flex items-center justify-between font-label-index text-label-index pb-3 border-b border-[#242326] mb-4">
+<span class="text-primary">[ 03 // OPERATIONS ]</span>
+<span class="text-secondary/50">ODISHA, IN</span>
+</div>
+<div class="mb-4 overflow-hidden border border-[#242326]">
+<img class="w-full h-56 object-cover grayscale contrast-125 group-hover:contrast-100 transition-all" data-alt="Monochrome portrait photograph of Akriti, a young Indian female engineering student and operations director. Confident and warm expression, clean studio illumination, sharp black attire with minimal jewelry, set against a dark architectural concrete background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAc7g3X6nrK3kSF86A7KhMpiRM-tZ0MMyV2zwSeNV6XLJfcbbBcp__BUN8p9sKZ14zgowFLsCvTLIX4au0jyzyuvTNe3O7Mt7oLbtPOrV6uIY0NJoDya9QiJ9EWFSe61Mrme6YIVQlmKFDuip9aKiphKddsZ5hZEPw1MJAexsifIbQl5S2BE5p4w-jRIq3amG22zNOK089qUBd_KVsmhheJhyqsP3FQxmI5qRxhUf6ROi_krIAL_oXIPOgnvl9SoP6zK0Ej3XlOuK3k"/>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-surface">Akriti</h3>
+<div class="font-label-code text-label-code text-tertiary pb-3">Operations, Delivery &amp; QA</div>
+<p class="font-body-sm text-body-sm text-secondary leading-relaxed">
+                The relentless anchor of client delivery. Manages timelines, cross-browser QA testing, crystal-clear client updates, and ongoing customer care. Nothing leaves the studio without her rigorous approval.
+              </p>
+</div>
+<div class="pt-6 mt-6 border-t border-[#242326] font-label-index text-label-index text-secondary/60 flex justify-between">
+<span>CORE FOCUS:</span>
+<span class="text-on-surface">Delivery Precision / QA Verification</span>
+</div>
+</div>
+</div>
+<!-- Direct Philosophy Banner -->
+<div class="mt-12 p-8 ledger-border-all bg-surface-container-low border-l-4 border-l-primary-container">
+<div class="grid grid-cols-1 md:grid-cols-12 gap-6 items-center">
+<div class="md:col-span-8 space-y-2">
+<span class="font-label-index text-label-index text-primary uppercase">[ OUR COVENANT WITH CLIENTS ]</span>
+<h4 class="font-headline-sm text-headline-sm text-on-surface">
+                No junior handoffs. No game of telephone.
+              </h4>
+<p class="font-body-sm text-body-sm text-secondary">
+                When you hire Algoryxz, you get the three founders doing the actual work. We answer our own emails, write every line of CSS, and deploy every byte.
+              </p>
+</div>
+<div class="md:col-span-4 text-left md:text-right font-label-code text-label-code">
+<span class="text-secondary/60 block text-caption font-caption uppercase">Response Guarantee</span>
+<span class="text-on-surface font-semibold">&lt; 12 Hours via WhatsApp / Email</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- ========================================================================= -->
+<!-- 08. FINAL CTA & INQUIRY MODULE                                            -->
+<!-- ========================================================================= -->
+<section class="w-full ledger-border-b bg-surface-container-lowest py-space-xl px-margin-md relative" id="contact">
+<div class="max-w-[1360px] mx-auto">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+<!-- Left Column: The Invitation -->
+<div class="lg:col-span-6 space-y-6">
+<span class="font-label-index text-label-index text-primary uppercase tracking-widest block mb-2">// INITIATE COMMISSION</span>
+<h2 class="font-headline-lg text-headline-lg text-on-surface tracking-tight">
+              Have an idea? Let’s make it real.
+            </h2>
+<p class="font-body-lg text-body-lg text-secondary max-w-lg leading-relaxed">
+              Whether you are opening a boutique physical space, creating an unforgettable digital heirloom for someone you love, or seeking bespoke engineering—we are ready.
+            </p>
+<!-- Direct Contact Ledger -->
+<div class="pt-4 space-y-3 font-label-code text-label-code">
+<div class="p-3 ledger-border-all bg-surface flex items-center justify-between">
+<div>
+<span class="text-secondary/40 text-caption font-caption block">DIRECT FOUNDER DISPATCH</span>
+<span class="text-on-surface font-semibold">studio@algoryxz.com</span>
+</div>
+<button class="text-caption font-caption text-primary hover:underline uppercase" onclick="navigator.clipboard.writeText('studio@algoryxz.com'); alert('Founder email copied to clipboard.');">
+                  [ COPY ]
+                </button>
+</div>
+<div class="p-3 ledger-border-all bg-surface flex items-center justify-between">
+<div>
+<span class="text-secondary/40 text-caption font-caption block">STUDIO LOCATION</span>
+<span class="text-on-surface">Bhubaneswar, Odisha, India [IST]</span>
+</div>
+<span class="text-tertiary text-caption font-caption">[ ACTIVE LAB ]</span>
+</div>
+</div>
+</div>
+<!-- Right Column: Brief Architectural Form -->
+<div class="lg:col-span-6 ledger-border-all bg-surface p-8">
+<form class="space-y-6" onsubmit="event.preventDefault(); alert('Transmission logged. Smarak, Deeptiman, or Akriti will contact you within 12 hours.');">
+<div class="flex items-center justify-between pb-3 border-b border-[#242326] font-label-code text-label-code">
+<span class="text-on-surface uppercase font-bold">TRANSMISSION SPECIFICATION</span>
+<span class="text-primary">[ 001 // FAST COMM ]</span>
+</div>
+<div class="space-y-2">
+<label class="font-label-index text-label-index text-secondary uppercase block">Your Name / Organization</label>
+<input class="w-full bg-surface-dim border border-[#242326] focus:border-secondary-fixed focus:ring-0 text-on-surface font-body-sm text-body-sm px-4 py-2.5 outline-none transition-colors" placeholder="e.g. Maya Sen / Roastery 44" required="" type="text"/>
+</div>
+<div class="space-y-2">
+<label class="font-label-index text-label-index text-secondary uppercase block">Direct Contact (Email or WhatsApp)</label>
+<input class="w-full bg-surface-dim border border-[#242326] focus:border-secondary-fixed focus:ring-0 text-on-surface font-body-sm text-body-sm px-4 py-2.5 outline-none transition-colors" placeholder="e.g. maya@domain.com or +91 98765..." required="" type="text"/>
+</div>
+<div class="space-y-2">
+<label class="font-label-index text-label-index text-secondary uppercase block">Project Classification</label>
+<div class="grid grid-cols-2 gap-2 font-label-code text-label-code">
+<label class="flex items-center gap-2 p-2 border border-[#242326] bg-surface-dim cursor-pointer text-caption font-caption hover:border-secondary-fixed">
+<input checked="" class="text-primary-container focus:ring-0 bg-surface border-[#525059]" name="project_type" type="radio"/>
+<span>Business / Brand</span>
+</label>
+<label class="flex items-center gap-2 p-2 border border-[#242326] bg-surface-dim cursor-pointer text-caption font-caption hover:border-secondary-fixed">
+<input class="text-primary-container focus:ring-0 bg-surface border-[#525059]" name="project_type" type="radio"/>
+<span>Celebration Heirloom</span>
+</label>
+</div>
+</div>
+<div class="space-y-2">
+<label class="font-label-index text-label-index text-secondary uppercase block">Brief Synopsis / Scope</label>
+<textarea class="w-full bg-surface-dim border border-[#242326] focus:border-secondary-fixed focus:ring-0 text-on-surface font-body-sm text-body-sm px-4 py-2.5 outline-none transition-colors resize-none" placeholder="Tell us about the dream, timeline, and what matters most..." required="" rows="3"></textarea>
+</div>
+<button class="w-full bg-secondary-fixed text-surface font-label-code text-label-code font-bold uppercase py-3.5 hover:bg-primary-container hover:text-on-primary-container transition-colors hard-shadow flex items-center justify-center gap-2" type="submit">
+<span>Dispatch Brief Directly to Founders</span>
+<span class="material-symbols-outlined text-[16px]">send</span>
+</button>
+</form>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- ========================================================================= -->
+<!-- 09. SHARED COMPONENT: Footer                                              -->
+<!-- ========================================================================= -->
+<!-- Using JSON: Footer attributes & styling verbatim -->
+<footer class="w-full px-margin-md py-space-xl border-t border-outline-variant dark:border-outline-variant flex flex-col gap-space-lg bg-surface-container-lowest dark:bg-surface-container-lowest">
+<!-- Top Footer Ledger -->
+<div class="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-8 pb-space-lg border-b border-[#242326]">
+<div class="space-y-2">
+<a class="text-headline-sm font-headline-sm text-on-surface dark:text-on-surface uppercase tracking-tight" href="#">
+          ALGORYXZ
+        </a>
+<p class="font-body-sm text-body-sm text-secondary max-w-md">
+          Independent research lab and digital craft studio. Odisha, India to the worldwide internet.
+        </p>
+</div>
+<!-- Links from JSON -->
+<nav class="flex flex-wrap gap-x-6 gap-y-3 font-label-code text-label-code">
+<a class="text-secondary dark:text-secondary hover:text-on-surface dark:hover:text-on-surface" href="#work">Work</a>
+<a class="text-secondary dark:text-secondary hover:text-on-surface dark:hover:text-on-surface" href="#what-we-make">What We Make</a>
+<a class="text-secondary dark:text-secondary hover:text-on-surface dark:hover:text-on-surface" href="#process">Process</a>
+<a class="text-secondary dark:text-secondary hover:text-on-surface dark:hover:text-on-surface" href="#founders">Founders</a>
+<a class="text-secondary dark:text-secondary hover:text-on-surface dark:hover:text-on-surface" href="#">Colophon</a>
+<a class="text-secondary dark:text-secondary hover:text-on-surface dark:hover:text-on-surface" href="#">Privacy / Ledger</a>
+<a class="text-secondary dark:text-secondary hover:text-on-surface dark:hover:text-on-surface" href="#contact">Contact / Comms</a>
+</nav>
+</div>
+<!-- Bottom Colophon / Archival Tagline -->
+<div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 font-caption text-caption text-secondary/60">
+<div>
+        © 2025 ALGORYXZ INDEPENDENT RESEARCH LAB &amp; STUDIO. ALL RIGHTS RESERVED. ODISHA, INDIA [IST] / GLOBAL UTC+05:30. ARCHIVAL INDEX NO. 884-X.
+      </div>
+<div class="font-label-code text-label-code flex items-center gap-4 text-on-surface/70">
+<span class="inline-flex items-center gap-1.5">
+<span class="w-1.5 h-1.5 bg-primary rounded-full"></span>
+          STATION: BHUBANESWAR
+        </span>
+<span class="text-secondary/30">/</span>
+<span>LAT: 20.2961° N</span>
+</div>
+</div>
+</footer>
+<!-- Micro Interaction Script for Live IST Clock -->
+<script>
+    function updateIST() {
+      const el = document.getElementById('live-utc');
+      if (!el) return;
+      const now = new Date();
+      // UTC+5.5 for IST
+      const utc = now.getTime() + (now.getTimezoneOffset() * 60000);
+      const ist = new Date(utc + (3600000 * 5.5));
+      const hours = String(ist.getHours()).padStart(2, '0');
+      const minutes = String(ist.getMinutes()).padStart(2, '0');
+      const seconds = String(ist.getSeconds()).padStart(2, '0');
+      el.textContent = `${hours}:${minutes}:${seconds} IST [ODISHA]`;
+    }
+    setInterval(updateIST, 1000);
+    updateIST();
+  </script>
+</body></html>

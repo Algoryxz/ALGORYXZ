@@ -1,0 +1,361 @@
+{
+  "designSystem": {
+    "designSystem": {
+      "displayName": "Nocturne Heirloom",
+      "styleGuidelines": "## Brand & Style\nThis design system crafts an intimate, cinematic digital reliquary. Built for luxury wedding chronicles, private memoirs, and spoken vows, it treats the screen not as software, but as an illuminated room lit by single-wick beeswax candles and quiet rain. The aesthetic blends high-editorial art direction, tactile archival typography, and candlelight chiaroscuro.\n\nThe emotional signature is solemn reverence, profound tenderness, and timeless permanence. Key stylistic pillars include:\n- **Candlelight Chiaroscuro:** Deep espresso umber grounds absorb light, while warm ecru typography and amber highlights glow from within.\n- **Tactile Archival Materiality:** Micro-textures, deckled card boundaries, hairline dividing rules, and archival metadata indexing tags (reel stamps, audio timestamps, vow passages).\n- **Poetic Restraint:** Generous breathing room, asymmetric editorial portrait-framing, and whispering interactions that mimic leafing through handcrafted parchment.\n\n## Layout & Spacing\nThe layout follows an asymmetrical editorial grid inspired by fine-art photobooks and architectural monographs. \n\n- **Structure:** 12-column desktop grid with generous outer canvases (`margin: 3.5rem`), folding down to 6 columns on tablet and 4 columns on mobile.\n- **Rhythm:** Generous vertical breaks (`space-xl`) allow heavy photographic portraits and audio waveforms to exist with quiet gravity. Columns offset intentionally to avoid algorithmic rigidity.\n- **Reflow:** On mobile viewports, dual-column archival spreads stack linearly into a continuous scroll resembling a rolled scroll or unfolded letter, preserving full-width bleed for visual memories.\n\n## Elevation & Depth\nElevation eschews conventional artificial drop shadows in favor of **candlelight chiaroscuro and tonal warmth**:\n\n- **Tonal Stepping:** Surfaces layer from deep base obsidian (`#0e0b08`) to soft espresso (`#16110d`), rising to elevated reliquary cards (`#241a14`).\n- **Amber Luminescence:** Floating elements (active vows, floating audio dock, guestbook modals) cast an ultra-soft, diffused amber-tinted bloom (`box-shadow: 0 16px 48px -12px rgba(217, 119, 54, 0.12)`).\n- **Hairline Deckled Borders:** Surfaces are bordered by whisper-thin, translucent ecru edges (`border: 1px solid rgba(237, 216, 190, 0.08)`), lending the impression of deckled archival paper under raking light.\n\n## Components\n\n### Buttons\n- **Primary (\"Commit / Seal\"):** Deep espresso ground with an illuminated amber border (`1px solid #e89858`), warm ecru type, and an interior ambient amber sheen on hover.\n- **Ghost / Archival Action:** Transparent background with subtle ecru borders (`rgba(237, 216, 190, 0.2)`) and tracked monospaced labels (`label-md`). Hover brings a gentle gold wash (`rgba(232, 152, 88, 0.06)`).\n\n### Memory Cards & Portfolios\n- **Reliquary Card:** Surface `#1c1510` framed in a hairline ecru border. Features asymmetrical photo crops, archival stamp labels (`ARCHIVE ITEM 014 // THE FIRST DANCE`), and gold-foil-styled metadata markers.\n- **Vow Inscription Plaque:** Centered serif composition with generous interior padding (`space-lg`), flanked by hairline vertical rules.\n\n### Audio Memoirs & Audio Waveform Player\n- **Tactile Sound Capsule:** Embedded player featuring warm amber soundwave bars, reel-to-reel counter indicators (`03:42 / 12:08`), and soft terracotta play/pause triggers.\n- **Waveform:** Rendered in varying heights of candlelight amber (`#e89858`) against an espresso gutter (`#241a14`).\n\n### Form Elements & Guestbook Inputs\n- **Inputs:** Minimalist underline-only fields (`1px solid rgba(237, 216, 190, 0.2)`) on transparent backings. Focus state blooms into a luminous amber underline (`#e89858`) with ecru placeholder text fading gracefully into italic serif.\n- **Selection Checks:** Precise square checkboxes with delicate gold checkmarks, signaling deliberate, permanent vows rather than fleeting selections.\n\n### Archival Index Tags & Chips\n- **Chips:** Compact, dark espresso boxes wrapped in faint terracotta wireframes (`rgba(184, 117, 92, 0.3)`), housing all-caps monospaced indicators such as `RAVINES OF AMALFI • 19:42 HRS`.",
+      "theme": {
+        "bodyFont": "EB_GARAMOND",
+        "bodyFontFamily": "EB Garamond",
+        "colorMode": "DARK",
+        "colorVariant": "FIDELITY",
+        "customColor": "#e89858",
+        "designMd": "---\nname: Nocturne Heirloom\ncolors:\n  surface: '#17120e'\n  surface-dim: '#17120e'\n  surface-bright: '#3f3833'\n  surface-container-lowest: '#120d09'\n  surface-container-low: '#201b16'\n  surface-container: '#241f1a'\n  surface-container-high: '#2f2924'\n  surface-container-highest: '#3a342f'\n  on-surface: '#ece0d9'\n  on-surface-variant: '#d8c2b5'\n  inverse-surface: '#ece0d9'\n  inverse-on-surface: '#362f2a'\n  outline: '#a08d80'\n  outline-variant: '#534439'\n  surface-tint: '#ffb780'\n  primary: '#ffb780'\n  on-primary: '#4e2600'\n  primary-container: '#e89858'\n  on-primary-container: '#643200'\n  inverse-primary: '#8e4e14'\n  secondary: '#ffb59a'\n  on-secondary: '#52220f'\n  secondary-container: '#6e3823'\n  on-secondary-container: '#eea388'\n  tertiary: '#d8c3aa'\n  on-tertiary: '#3b2e1d'\n  tertiary-container: '#bba890'\n  on-tertiary-container: '#4a3d2a'\n  error: '#ffb4ab'\n  on-error: '#690005'\n  error-container: '#93000a'\n  on-error-container: '#ffdad6'\n  primary-fixed: '#ffdcc4'\n  primary-fixed-dim: '#ffb780'\n  on-primary-fixed: '#2f1400'\n  on-primary-fixed-variant: '#6f3800'\n  secondary-fixed: '#ffdbcf'\n  secondary-fixed-dim: '#ffb59a'\n  on-secondary-fixed: '#370e01'\n  on-secondary-fixed-variant: '#6e3823'\n  tertiary-fixed: '#f5dfc5'\n  tertiary-fixed-dim: '#d8c3aa'\n  on-tertiary-fixed: '#241a0a'\n  on-tertiary-fixed-variant: '#524531'\n  background: '#17120e'\n  on-background: '#ece0d9'\n  surface-variant: '#3a342f'\ntypography:\n  display-hero:\n    fontFamily: Playfair Display\n    fontSize: 64px\n    fontWeight: '400'\n    lineHeight: 72px\n    letterSpacing: -0.02em\n  display-hero-mobile:\n    fontFamily: Playfair Display\n    fontSize: 40px\n    fontWeight: '400'\n    lineHeight: 48px\n    letterSpacing: -0.01em\n  headline-lg:\n    fontFamily: Playfair Display\n    fontSize: 44px\n    fontWeight: '400'\n    lineHeight: 52px\n    letterSpacing: -0.015em\n  headline-lg-mobile:\n    fontFamily: Playfair Display\n    fontSize: 30px\n    fontWeight: '400'\n    lineHeight: 38px\n  headline-md:\n    fontFamily: Playfair Display\n    fontSize: 32px\n    fontWeight: '400'\n    lineHeight: 40px\n    letterSpacing: -0.01em\n  headline-sm:\n    fontFamily: Playfair Display\n    fontSize: 24px\n    fontWeight: '500'\n    lineHeight: 32px\n  vow-quote:\n    fontFamily: Playfair Display\n    fontSize: 26px\n    fontWeight: '400'\n    lineHeight: 38px\n    letterSpacing: 0.01em\n  body-lg:\n    fontFamily: EB Garamond\n    fontSize: 20px\n    fontWeight: '400'\n    lineHeight: 32px\n  body-md:\n    fontFamily: EB Garamond\n    fontSize: 18px\n    fontWeight: '400'\n    lineHeight: 28px\n  body-sm:\n    fontFamily: EB Garamond\n    fontSize: 16px\n    fontWeight: '400'\n    lineHeight: 24px\n  label-lg:\n    fontFamily: Space Mono\n    fontSize: 13px\n    fontWeight: '400'\n    lineHeight: 18px\n    letterSpacing: 0.08em\n  label-md:\n    fontFamily: Space Mono\n    fontSize: 11px\n    fontWeight: '400'\n    lineHeight: 16px\n    letterSpacing: 0.12em\n  label-sm:\n    fontFamily: Space Mono\n    fontSize: 10px\n    fontWeight: '400'\n    lineHeight: 14px\n    letterSpacing: 0.16em\nrounded:\n  sm: 0.125rem\n  DEFAULT: 0.25rem\n  md: 0.375rem\n  lg: 0.5rem\n  xl: 0.75rem\n  full: 9999px\nspacing:\n  gutter: 1.5rem\n  gutter-mobile: 1rem\n  margin: 3.5rem\n  margin-mobile: 1.25rem\n  space-xs: 0.375rem\n  space-sm: 0.75rem\n  space-md: 1.25rem\n  space-lg: 2.25rem\n  space-xl: 4rem\n---\n\n## Brand & Style\nThis design system crafts an intimate, cinematic digital reliquary. Built for luxury wedding chronicles, private memoirs, and spoken vows, it treats the screen not as software, but as an illuminated room lit by single-wick beeswax candles and quiet rain. The aesthetic blends high-editorial art direction, tactile archival typography, and candlelight chiaroscuro.\n\nThe emotional signature is solemn reverence, profound tenderness, and timeless permanence. Key stylistic pillars include:\n- **Candlelight Chiaroscuro:** Deep espresso umber grounds absorb light, while warm ecru typography and amber highlights glow from within.\n- **Tactile Archival Materiality:** Micro-textures, deckled card boundaries, hairline dividing rules, and archival metadata indexing tags (reel stamps, audio timestamps, vow passages).\n- **Poetic Restraint:** Generous breathing room, asymmetric editorial portrait-framing, and whispering interactions that mimic leafing through handcrafted parchment.\n\n## Colors\nThe color architecture rejects cold digital blacks in favor of deep, organic warmth. \n\n- **Primary (`#e89858`):** Radiant amber candlelight. Used for focal highlights, active playhead states, illuminated signatures, and interactive hover glows.\n- **Secondary (`#b8755c`):** Muted terracotta and pressed rose-gold. Serves emotional metadata, delicate accents, chapter rubrics, and intimate framing elements.\n- **Tertiary (`#edd8be`):** Champagne parchment and candlewax ecru. Used for high-contrast reading text, pristine titles, and delicate filigree lines.\n- **Neutral (`#16110d`):** Rich roasted espresso umber. Forms the foundational atmosphere, layered from deep base obsidian (`#0e0b08`) up to elevated card surfaces (`#241a14` and `#2f231b`).\n\nContrast compliance is preserved by using high-luminance ecru tones (`#fbf5eb` to `#edd8be`) against dark umber tiers, guaranteeing effortless readability in intimate lighting conditions.\n\n## Typography\nThe typography system harmonizes three distinct literary voices:\n\n1. **Title & Display (`Playfair Display`):** Dramatic, high-contrast serif with sweeping terminals. Carries wedding oaths, couple monograms, and chapter invocations with literary grace.\n2. **Editorial Memoir (`EB Garamond`):** Pure humanist rhythm. Sized generously with unhurried line-heights for vow transcripts, memory narratives, and guest letters.\n3. **Archival & Indexing (`Space Mono`):** Delicate, monospaced metadata denoting archival reel identifiers (`ARC // 001`), recording timestamps (`48kHz • 24-bit PCM`), geographic coordinates, and date seals.\n\nAll uppercase archival metadata entries are tracked out with deliberate air (`0.08em` to `0.16em`), evoking vintage museum index cards and vinyl record sleeves.\n\n## Layout & Spacing\nThe layout follows an asymmetrical editorial grid inspired by fine-art photobooks and architectural monographs. \n\n- **Structure:** 12-column desktop grid with generous outer canvases (`margin: 3.5rem`), folding down to 6 columns on tablet and 4 columns on mobile.\n- **Rhythm:** Generous vertical breaks (`space-xl`) allow heavy photographic portraits and audio waveforms to exist with quiet gravity. Columns offset intentionally to avoid algorithmic rigidity.\n- **Reflow:** On mobile viewports, dual-column archival spreads stack linearly into a continuous scroll resembling a rolled scroll or unfolded letter, preserving full-width bleed for visual memories.\n\n## Elevation & Depth\nElevation eschews conventional artificial drop shadows in favor of **candlelight chiaroscuro and tonal warmth**:\n\n- **Tonal Stepping:** Surfaces layer from deep base obsidian (`#0e0b08`) to soft espresso (`#16110d`), rising to elevated reliquary cards (`#241a14`).\n- **Amber Luminescence:** Floating elements (active vows, floating audio dock, guestbook modals) cast an ultra-soft, diffused amber-tinted bloom (`box-shadow: 0 16px 48px -12px rgba(217, 119, 54, 0.12)`).\n- **Hairline Deckled Borders:** Surfaces are bordered by whisper-thin, translucent ecru edges (`border: 1px solid rgba(237, 216, 190, 0.08)`), lending the impression of deckled archival paper under raking light.\n\n## Shapes\nShapes express the refined crispness of archival stationery and framed heirloom prints:\n\n- **Base Curvature:** Subtle, soft edges (`roundedness: 1` / `0.25rem`) evoke antique cards, wax-stamped envelopes, and bevel-cut passe-partout picture mats.\n- **Micro Contours:** Buttons, tags, and media chips maintain strict architectural discipline rather than modern rounded pills, reinforcing permanence over casual digital software tropes.\n\n## Components\n\n### Buttons\n- **Primary (\"Commit / Seal\"):** Deep espresso ground with an illuminated amber border (`1px solid #e89858`), warm ecru type, and an interior ambient amber sheen on hover.\n- **Ghost / Archival Action:** Transparent background with subtle ecru borders (`rgba(237, 216, 190, 0.2)`) and tracked monospaced labels (`label-md`). Hover brings a gentle gold wash (`rgba(232, 152, 88, 0.06)`).\n\n### Memory Cards & Portfolios\n- **Reliquary Card:** Surface `#1c1510` framed in a hairline ecru border. Features asymmetrical photo crops, archival stamp labels (`ARCHIVE ITEM 014 // THE FIRST DANCE`), and gold-foil-styled metadata markers.\n- **Vow Inscription Plaque:** Centered serif composition with generous interior padding (`space-lg`), flanked by hairline vertical rules.\n\n### Audio Memoirs & Audio Waveform Player\n- **Tactile Sound Capsule:** Embedded player featuring warm amber soundwave bars, reel-to-reel counter indicators (`03:42 / 12:08`), and soft terracotta play/pause triggers.\n- **Waveform:** Rendered in varying heights of candlelight amber (`#e89858`) against an espresso gutter (`#241a14`).\n\n### Form Elements & Guestbook Inputs\n- **Inputs:** Minimalist underline-only fields (`1px solid rgba(237, 216, 190, 0.2)`) on transparent backings. Focus state blooms into a luminous amber underline (`#e89858`) with ecru placeholder text fading gracefully into italic serif.\n- **Selection Checks:** Precise square checkboxes with delicate gold checkmarks, signaling deliberate, permanent vows rather than fleeting selections.\n\n### Archival Index Tags & Chips\n- **Chips:** Compact, dark espresso boxes wrapped in faint terracotta wireframes (`rgba(184, 117, 92, 0.3)`), housing all-caps monospaced indicators such as `RAVINES OF AMALFI • 19:42 HRS`.",
+        "font": "PLAYFAIR_DISPLAY",
+        "headlineFont": "PLAYFAIR_DISPLAY",
+        "headlineFontFamily": "Playfair Display",
+        "labelFont": "SPACE_MONO",
+        "labelFontFamily": "Space Mono",
+        "namedColors": {
+          "background": "#17120e",
+          "error": "#ffb4ab",
+          "error_container": "#93000a",
+          "inverse_on_surface": "#362f2a",
+          "inverse_primary": "#8e4e14",
+          "inverse_surface": "#ece0d9",
+          "on_background": "#ece0d9",
+          "on_error": "#690005",
+          "on_error_container": "#ffdad6",
+          "on_primary": "#4e2600",
+          "on_primary_container": "#643200",
+          "on_primary_fixed": "#2f1400",
+          "on_primary_fixed_variant": "#6f3800",
+          "on_secondary": "#52220f",
+          "on_secondary_container": "#eea388",
+          "on_secondary_fixed": "#370e01",
+          "on_secondary_fixed_variant": "#6e3823",
+          "on_surface": "#ece0d9",
+          "on_surface_variant": "#d8c2b5",
+          "on_tertiary": "#3b2e1d",
+          "on_tertiary_container": "#4a3d2a",
+          "on_tertiary_fixed": "#241a0a",
+          "on_tertiary_fixed_variant": "#524531",
+          "outline": "#a08d80",
+          "outline_variant": "#534439",
+          "primary": "#ffb780",
+          "primary_container": "#e89858",
+          "primary_fixed": "#ffdcc4",
+          "primary_fixed_dim": "#ffb780",
+          "secondary": "#ffb59a",
+          "secondary_container": "#6e3823",
+          "secondary_fixed": "#ffdbcf",
+          "secondary_fixed_dim": "#ffb59a",
+          "surface": "#17120e",
+          "surface_bright": "#3f3833",
+          "surface_container": "#241f1a",
+          "surface_container_high": "#2f2924",
+          "surface_container_highest": "#3a342f",
+          "surface_container_low": "#201b16",
+          "surface_container_lowest": "#120d09",
+          "surface_dim": "#17120e",
+          "surface_tint": "#ffb780",
+          "surface_variant": "#3a342f",
+          "tertiary": "#d8c3aa",
+          "tertiary_container": "#bba890",
+          "tertiary_fixed": "#f5dfc5",
+          "tertiary_fixed_dim": "#d8c3aa"
+        },
+        "overrideNeutralColor": "#16110d",
+        "overridePrimaryColor": "#e89858",
+        "overrideSecondaryColor": "#b8755c",
+        "overrideTertiaryColor": "#edd8be",
+        "roundness": "ROUND_FOUR",
+        "spacing": {
+          "gutter": "1.5rem",
+          "gutter-mobile": "1rem",
+          "margin": "3.5rem",
+          "margin-mobile": "1.25rem",
+          "space-lg": "2.25rem",
+          "space-md": "1.25rem",
+          "space-sm": "0.75rem",
+          "space-xl": "4rem",
+          "space-xs": "0.375rem"
+        },
+        "spacingScale": 2,
+        "typography": {
+          "body-lg": {
+            "fontFamily": "EB Garamond",
+            "fontSize": "20px",
+            "fontWeight": "400",
+            "lineHeight": "32px"
+          },
+          "body-md": {
+            "fontFamily": "EB Garamond",
+            "fontSize": "18px",
+            "fontWeight": "400",
+            "lineHeight": "28px"
+          },
+          "body-sm": {
+            "fontFamily": "EB Garamond",
+            "fontSize": "16px",
+            "fontWeight": "400",
+            "lineHeight": "24px"
+          },
+          "display-hero": {
+            "fontFamily": "Playfair Display",
+            "fontSize": "64px",
+            "fontWeight": "400",
+            "letterSpacing": "-0.02em",
+            "lineHeight": "72px"
+          },
+          "display-hero-mobile": {
+            "fontFamily": "Playfair Display",
+            "fontSize": "40px",
+            "fontWeight": "400",
+            "letterSpacing": "-0.01em",
+            "lineHeight": "48px"
+          },
+          "headline-lg": {
+            "fontFamily": "Playfair Display",
+            "fontSize": "44px",
+            "fontWeight": "400",
+            "letterSpacing": "-0.015em",
+            "lineHeight": "52px"
+          },
+          "headline-lg-mobile": {
+            "fontFamily": "Playfair Display",
+            "fontSize": "30px",
+            "fontWeight": "400",
+            "lineHeight": "38px"
+          },
+          "headline-md": {
+            "fontFamily": "Playfair Display",
+            "fontSize": "32px",
+            "fontWeight": "400",
+            "letterSpacing": "-0.01em",
+            "lineHeight": "40px"
+          },
+          "headline-sm": {
+            "fontFamily": "Playfair Display",
+            "fontSize": "24px",
+            "fontWeight": "500",
+            "lineHeight": "32px"
+          },
+          "label-lg": {
+            "fontFamily": "Space Mono",
+            "fontSize": "13px",
+            "fontWeight": "400",
+            "letterSpacing": "0.08em",
+            "lineHeight": "18px"
+          },
+          "label-md": {
+            "fontFamily": "Space Mono",
+            "fontSize": "11px",
+            "fontWeight": "400",
+            "letterSpacing": "0.12em",
+            "lineHeight": "16px"
+          },
+          "label-sm": {
+            "fontFamily": "Space Mono",
+            "fontSize": "10px",
+            "fontWeight": "400",
+            "letterSpacing": "0.16em",
+            "lineHeight": "14px"
+          },
+          "vow-quote": {
+            "fontFamily": "Playfair Display",
+            "fontSize": "26px",
+            "fontWeight": "400",
+            "letterSpacing": "0.01em",
+            "lineHeight": "38px"
+          }
+        }
+      }
+    },
+    "name": "assets/d6799cb0bcf445fda582779651dfec3b",
+    "version": "1"
+  },
+  "deviceType": "DESKTOP",
+  "generatedBy": "figaro_agent",
+  "height": "100%",
+  "htmlCode": {
+    "downloadUrl": "https://contribution.usercontent.google.com/download?c=CgthaWRhX2NvZGVmeBJ8Eh1hcHBfY29tcGFuaW9uX2dlbmVyYXRlZF9maWxlcxpbCiVodG1sXzhhYmU5NWIwNGE4YTQyNzE5ZmYzNTBhYWVjZDNiZjNjEgsSBxC_1eWs1BYYAZIBJAoKcHJvamVjdF9pZBIWQhQxMzQ1MTQyMjk5NzIyNjc0NDQ3NA&filename=&opi=96797242",
+    "mimeType": "text/html",
+    "name": "projects/13451422997226744474/files/1d0a82ddf3944909873eff2cb5a30230"
+  },
+  "id": "883f90a276ec45f5a459a7620dd359f4",
+  "name": "projects/13451422997226744474/screens/883f90a276ec45f5a459a7620dd359f4",
+  "prompt": "Create the single-viewport desktop (1440x900) experience for ALGORYXZ / 000 — KEYFRAME R02-D04: OBJECT / CLIENT-WORLD THRESHOLD.\n\nVISUAL CONCEPT & MOMENT:\nThe visitor has selected \"ALGORYXZ / 001\" (The Monsoon Vows).\nThe /001 fragment of the physical XZ architectural sculpture surges forward and tilts dramatically toward the viewer, beginning to consume the camera view.\nThis is the core philosophical moment:\n\"ALGORYXZ IS THE STRUCTURE. CLIENT IDENTITY BECOMES THE MATERIAL.\"\n\nTHE 50/50 METAMORPHOSIS:\n- Caught precisely at the threshold:\n  * Left half of the screen represents the deep, restrained ALGORYXZ structural universe: dark pencil-charcoal, cantilevered basalt pylon edges, hairline warm honey lines, and subtle structural archive indexing for /000.\n  * Right half and center foreground is consumed by the surging /001 CLIENT WORLD: rich warm medium-format memory photography {{DATA:IMAGE:IMAGE_37}}, tactile deckle-edge vellum paper, warm golden candlelight illumination (#e89858 / #f2b26c), flowing handwritten vows in Playfair Display italic, delicate acoustic sound waveforms, and amber ember particles.\n- Receding into deep atmospheric darkness in the background are fragments /000 and /002, while /001 expands beyond the viewport boundaries creating powerful visual tension making the viewer desperate to step into the next frame (Keyframe D05).\n\nTHREEJS INTEGRATION:\nYou MUST embed the 3D scene directly in the HTML background:\n<threejs-scene src=\"{{DATA:ANIMATION:ANIMATION_49}}\" class=\"absolute inset-0 w-full h-full bg-transparent pointer-events-auto\"></threejs-scene>\n\nLAYOUT & UI STRUCTURE (Strict 1440x900 Single Viewport, overflow-hidden):\n1. TOP DOCKED APP BAR:\n   - Left: ALGORYXZ wordmark with subtle warm contrast on 'XZ' + archive index `/ 000`\n   - Center: Minimal navigation (WORK, SERVICES, PROCESS, FOUNDERS, CONTACT) with subtle indicator\n   - Right: Origin notation `ODISHA, IN [IST]` + CTA button \"Enter Archive / 001 ↗\"\n\n2. LEFT STRUCTURAL FLANK (The Algoryxz Architectural Foundation):\n   - Anchored in dark slate/charcoal:\n   - Eyebrow: `METAMORPHOSIS // KEYFRAME R02-D04`\n   - Statement:\n     \"Algoryxz is the structure.\n     Client identity becomes the material.\"\n   - Subtitle: \"The sculptural object cleaves along its Z-axis. Neutral basalt and translucent resin give way to candlelight, handwriting, and human memory.\"\n   - Subtle status chip: `FRAGMENT / 001 SELECTED · IMMERSION 50%`\n\n3. CENTER-RIGHT FOREGROUND: THE EXPANDING HEIRLOOM WORLD\n   - An asymmetric, cinematic card/portal that bleeds off the right edge of the viewport, harmonized with the Three.js 3D plane:\n   - Features rich photograph {{DATA:IMAGE:IMAGE_37}} (the couple in warm rain and candlelight)\n   - Inscribed vow: \"Two lives spoken under heavy rains. I promise to listen for your footsteps in the courtyard and never let the wet embers of our devotion turn cold.\"\n   - Spoken memoir audio bar with living waveform, 03:42 // Rain Oath at Dusk\n   - Primary threshold action: \"CROSS INTO CELEBRATION ARCHIVE / 001 →\"\n\n4. BOTTOM STATUS BAR:\n   - Minimal docked footer:\n   - Left: `ALGORYXZ STUDIO · KEYFRAME R02-D04 · OBJECT / CLIENT-WORLD THRESHOLD`\n   - Center: `DRAG TO ROTATE OBJECT IN PERSPECTIVE · TRANSITION TO FULL IMMERSION`\n   - Right: `THE MONSOON VOWS · CELEBRATION HEIRLOOM`\n\nSTRICT RESTRAINTS:\n- ZERO decorative telemetry, NO \"WORLD CONTAMINATION 88%\", NO fake sci-fi coordinates, NO hacker grids. Pure cinematic editorial craft.\n- Single viewport: 1440x900, h-screen, overflow-hidden.\n- Colors from Nocturne Heirloom: #17120e dark surface, #e89858 warm amber/honey accent, #f5eee6 champagne text.",
+  "screenMetadata": {
+    "agentType": "PRO_AGENT",
+    "status": "COMPLETE"
+  },
+  "screenType": "DESIGN",
+  "theme": {
+    "bodyFont": "EB_GARAMOND",
+    "bodyFontFamily": "EB Garamond",
+    "colorMode": "DARK",
+    "colorVariant": "FIDELITY",
+    "customColor": "#e89858",
+    "font": "PLAYFAIR_DISPLAY",
+    "headlineFont": "PLAYFAIR_DISPLAY",
+    "headlineFontFamily": "Playfair Display",
+    "labelFont": "SPACE_MONO",
+    "labelFontFamily": "Space Mono",
+    "namedColors": {
+      "background": "#17120e",
+      "error": "#ffb4ab",
+      "error_container": "#93000a",
+      "inverse_on_surface": "#362f2a",
+      "inverse_primary": "#8e4e14",
+      "inverse_surface": "#ece0d9",
+      "on_background": "#ece0d9",
+      "on_error": "#690005",
+      "on_error_container": "#ffdad6",
+      "on_primary": "#4e2600",
+      "on_primary_container": "#643200",
+      "on_primary_fixed": "#2f1400",
+      "on_primary_fixed_variant": "#6f3800",
+      "on_secondary": "#52220f",
+      "on_secondary_container": "#eea388",
+      "on_secondary_fixed": "#370e01",
+      "on_secondary_fixed_variant": "#6e3823",
+      "on_surface": "#ece0d9",
+      "on_surface_variant": "#d8c2b5",
+      "on_tertiary": "#3b2e1d",
+      "on_tertiary_container": "#4a3d2a",
+      "on_tertiary_fixed": "#241a0a",
+      "on_tertiary_fixed_variant": "#524531",
+      "outline": "#a08d80",
+      "outline_variant": "#534439",
+      "primary": "#ffb780",
+      "primary_container": "#e89858",
+      "primary_fixed": "#ffdcc4",
+      "primary_fixed_dim": "#ffb780",
+      "secondary": "#ffb59a",
+      "secondary_container": "#6e3823",
+      "secondary_fixed": "#ffdbcf",
+      "secondary_fixed_dim": "#ffb59a",
+      "surface": "#17120e",
+      "surface_bright": "#3f3833",
+      "surface_container": "#241f1a",
+      "surface_container_high": "#2f2924",
+      "surface_container_highest": "#3a342f",
+      "surface_container_low": "#201b16",
+      "surface_container_lowest": "#120d09",
+      "surface_dim": "#17120e",
+      "surface_tint": "#ffb780",
+      "surface_variant": "#3a342f",
+      "tertiary": "#d8c3aa",
+      "tertiary_container": "#bba890",
+      "tertiary_fixed": "#f5dfc5",
+      "tertiary_fixed_dim": "#d8c3aa"
+    },
+    "overrideNeutralColor": "#16110d",
+    "overridePrimaryColor": "#e89858",
+    "overrideSecondaryColor": "#b8755c",
+    "overrideTertiaryColor": "#edd8be",
+    "roundness": "ROUND_FOUR",
+    "spacing": {
+      "gutter": "1.5rem",
+      "gutter-mobile": "1rem",
+      "margin": "3.5rem",
+      "margin-mobile": "1.25rem",
+      "space-lg": "2.25rem",
+      "space-md": "1.25rem",
+      "space-sm": "0.75rem",
+      "space-xl": "4rem",
+      "space-xs": "0.375rem"
+    },
+    "spacingScale": 2,
+    "typography": {
+      "body-lg": {
+        "fontFamily": "EB Garamond",
+        "fontSize": "20px",
+        "fontWeight": "400",
+        "lineHeight": "32px"
+      },
+      "body-md": {
+        "fontFamily": "EB Garamond",
+        "fontSize": "18px",
+        "fontWeight": "400",
+        "lineHeight": "28px"
+      },
+      "body-sm": {
+        "fontFamily": "EB Garamond",
+        "fontSize": "16px",
+        "fontWeight": "400",
+        "lineHeight": "24px"
+      },
+      "display-hero": {
+        "fontFamily": "Playfair Display",
+        "fontSize": "64px",
+        "fontWeight": "400",
+        "letterSpacing": "-0.02em",
+        "lineHeight": "72px"
+      },
+      "display-hero-mobile": {
+        "fontFamily": "Playfair Display",
+        "fontSize": "40px",
+        "fontWeight": "400",
+        "letterSpacing": "-0.01em",
+        "lineHeight": "48px"
+      },
+      "headline-lg": {
+        "fontFamily": "Playfair Display",
+        "fontSize": "44px",
+        "fontWeight": "400",
+        "letterSpacing": "-0.015em",
+        "lineHeight": "52px"
+      },
+      "headline-lg-mobile": {
+        "fontFamily": "Playfair Display",
+        "fontSize": "30px",
+        "fontWeight": "400",
+        "lineHeight": "38px"
+      },
+      "headline-md": {
+        "fontFamily": "Playfair Display",
+        "fontSize": "32px",
+        "fontWeight": "400",
+        "letterSpacing": "-0.01em",
+        "lineHeight": "40px"
+      },
+      "headline-sm": {
+        "fontFamily": "Playfair Display",
+        "fontSize": "24px",
+        "fontWeight": "500",
+        "lineHeight": "32px"
+      },
+      "label-lg": {
+        "fontFamily": "Space Mono",
+        "fontSize": "13px",
+        "fontWeight": "400",
+        "letterSpacing": "0.08em",
+        "lineHeight": "18px"
+      },
+      "label-md": {
+        "fontFamily": "Space Mono",
+        "fontSize": "11px",
+        "fontWeight": "400",
+        "letterSpacing": "0.12em",
+        "lineHeight": "16px"
+      },
+      "label-sm": {
+        "fontFamily": "Space Mono",
+        "fontSize": "10px",
+        "fontWeight": "400",
+        "letterSpacing": "0.16em",
+        "lineHeight": "14px"
+      },
+      "vow-quote": {
+        "fontFamily": "Playfair Display",
+        "fontSize": "26px",
+        "fontWeight": "400",
+        "letterSpacing": "0.01em",
+        "lineHeight": "38px"
+      }
+    }
+  },
+  "title": "ALGORYXZ — Keyframe R02-D04: Object / Client-World Threshold (1440x900)",
+  "width": "100%"
+}

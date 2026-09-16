@@ -1,0 +1,923 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>ALGORYXZ / 000 — KEYFRAME R02-D04</title>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..600;1,400..600&amp;family=Playfair+Display:ital,wght@0,400..700;1,400..700&amp;family=Space+Mono:wght@400;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "secondary": "#ffb59a",
+            "surface-container-lowest": "#120d09",
+            "inverse-primary": "#8e4e14",
+            "on-tertiary": "#3b2e1d",
+            "on-primary-fixed-variant": "#6f3800",
+            "on-primary": "#4e2600",
+            "surface-dim": "#17120e",
+            "primary-fixed-dim": "#ffb780",
+            "tertiary-fixed": "#f5dfc5",
+            "surface-variant": "#3a342f",
+            "on-surface-variant": "#d8c2b5",
+            "surface-bright": "#3f3833",
+            "surface": "#17120e",
+            "on-secondary": "#52220f",
+            "on-surface": "#ece0d9",
+            "surface-container-high": "#2f2924",
+            "tertiary-fixed-dim": "#d8c3aa",
+            "on-tertiary-container": "#4a3d2a",
+            "surface-container-low": "#201b16",
+            "on-secondary-fixed-variant": "#6e3823",
+            "on-primary-fixed": "#2f1400",
+            "on-error": "#690005",
+            "outline": "#a08d80",
+            "surface-tint": "#ffb780",
+            "primary-fixed": "#ffdcc4",
+            "on-tertiary-fixed-variant": "#524531",
+            "tertiary-container": "#bba890",
+            "on-tertiary-fixed": "#241a0a",
+            "on-secondary-fixed": "#370e01",
+            "primary-container": "#e89858",
+            "secondary-fixed": "#ffdbcf",
+            "surface-container": "#241f1a",
+            "error-container": "#93000a",
+            "secondary-fixed-dim": "#ffb59a",
+            "secondary-container": "#6e3823",
+            "surface-container-highest": "#3a342f",
+            "primary": "#ffb780",
+            "on-secondary-container": "#eea388",
+            "tertiary": "#d8c3aa",
+            "on-background": "#ece0d9",
+            "background": "#17120e",
+            "outline-variant": "#534439",
+            "on-primary-container": "#643200",
+            "inverse-surface": "#ece0d9",
+            "on-error-container": "#ffdad6",
+            "inverse-on-surface": "#362f2a",
+            "error": "#ffb4ab"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.125rem",
+            "lg": "0.25rem",
+            "xl": "0.5rem",
+            "full": "0.75rem"
+          },
+          "spacing": {
+            "gutter-mobile": "1rem",
+            "margin-mobile": "1.25rem",
+            "space-md": "1.25rem",
+            "space-lg": "2.25rem",
+            "margin": "3.5rem",
+            "space-xs": "0.375rem",
+            "space-sm": "0.75rem",
+            "space-xl": "4rem",
+            "gutter": "1.5rem"
+          },
+          "fontFamily": {
+            "vow-quote": ["Playfair Display", "serif"],
+            "headline-md": ["Playfair Display", "serif"],
+            "headline-lg-mobile": ["Playfair Display", "serif"],
+            "headline-sm": ["Playfair Display", "serif"],
+            "headline-lg": ["Playfair Display", "serif"],
+            "label-sm": ["Space Mono", "monospace"],
+            "label-lg": ["Space Mono", "monospace"],
+            "display-hero": ["Playfair Display", "serif"],
+            "display-hero-mobile": ["Playfair Display", "serif"],
+            "body-sm": ["EB Garamond", "serif"],
+            "body-lg": ["EB Garamond", "serif"],
+            "label-md": ["Space Mono", "monospace"],
+            "body-md": ["EB Garamond", "serif"]
+          },
+          "fontSize": {
+            "vow-quote": ["26px", { "lineHeight": "38px", "letterSpacing": "0.01em", "fontWeight": "400" }],
+            "headline-md": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "400" }],
+            "headline-lg-mobile": ["30px", { "lineHeight": "38px", "fontWeight": "400" }],
+            "headline-sm": ["24px", { "lineHeight": "32px", "fontWeight": "500" }],
+            "headline-lg": ["44px", { "lineHeight": "52px", "letterSpacing": "-0.015em", "fontWeight": "400" }],
+            "label-sm": ["10px", { "lineHeight": "14px", "letterSpacing": "0.16em", "fontWeight": "400" }],
+            "label-lg": ["13px", { "lineHeight": "18px", "letterSpacing": "0.08em", "fontWeight": "400" }],
+            "display-hero": ["64px", { "lineHeight": "72px", "letterSpacing": "-0.02em", "fontWeight": "400" }],
+            "display-hero-mobile": ["40px", { "lineHeight": "48px", "letterSpacing": "-0.01em", "fontWeight": "400" }],
+            "body-sm": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+            "body-lg": ["20px", { "lineHeight": "32px", "fontWeight": "400" }],
+            "label-md": ["11px", { "lineHeight": "16px", "letterSpacing": "0.12em", "fontWeight": "400" }],
+            "body-md": ["18px", { "lineHeight": "28px", "fontWeight": "400" }]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    /* Chiaroscuro Atmospheric Sheen & Subtle Textures */
+    .candlelight-glow {
+      box-shadow: 0 24px 70px -16px rgba(232, 152, 88, 0.18), 0 0 120px -20px rgba(217, 119, 54, 0.12);
+    }
+    .deckled-border {
+      border: 1px solid rgba(237, 216, 190, 0.14);
+    }
+    .structural-gradient {
+      background: linear-gradient(105deg, rgba(18, 13, 9, 0.98) 0%, rgba(23, 18, 14, 0.92) 42%, rgba(23, 18, 14, 0.25) 75%, rgba(18, 13, 9, 0) 100%);
+    }
+    .waveform-bar {
+      transition: height 0.4s ease;
+    }
+    .waveform-bar:hover {
+      height: 100% !important;
+      background-color: #ffb780 !important;
+    }
+  </style>
+</head>
+<body class="bg-background text-on-surface h-screen w-screen overflow-hidden select-none font-body-md relative antialiased flex flex-col justify-between">
+<!-- 3D WebGL / Three.js Interactive Background Scene -->
+<!-- STITCH_THREEJS_START:ANIMATION_49 class="absolute inset-0 w-full h-full bg-transparent pointer-events-auto" -->
+<div class="absolute inset-0 w-full h-full bg-transparent pointer-events-auto" style="display:block;">
+<script src="https://ajax.googleapis.com/ajax/libs/threejs/r125/three.min.js"></script>
+<div id="threejs-container-ANIMATION_49" style="width:100%;height:100%"></div>
+<script>
+(function() {
+  const container = document.getElementById('threejs-container-ANIMATION_49');
+  const devicePixelRatio = window.devicePixelRatio || 1;
+  // Three.js Interactive Keyframe R02-D04: "OBJECT / CLIENT-WORLD THRESHOLD"
+// 1440x900 Single Viewport Cinematic Keyframe
+//
+// The visitor selects "ALGORYXZ / 001" (The Monsoon Vows).
+// The physical XZ Object undergoes its definitive metamorphosis:
+// ALGORYXZ IS THE STRUCTURE. CLIENT IDENTITY BECOMES THE MATERIAL.
+//
+// THE 50/50 METAMORPHOSIS:
+// - Caught at the tipping point: Left/Midground still anchors the deep architectural
+//   pencil-charcoal & basalt pylon structure of ALGORYXZ (/000 & receding /002),
+//   while the surging /001 plane expands dynamically forward (+Z: 3.2), consuming
+//   the right and center foreground.
+// - As /001 nears the camera, its structural resin/slate surface undergoes material
+//   transmutation into tactile deckle-edge vellum, warm chiaroscuro candlelight,
+//   flowing handwritten vow inscriptions, binaural rain waveform tracks, and rich golden embers.
+// - Zero fake telemetry, zero sci-fi readouts: pure tactile human metamorphosis.
+
+const container = document.getElementById('threejs-container-r02-d04') || document.body;
+const width = container.clientWidth || window.innerWidth;
+const height = container.clientHeight || window.innerHeight;
+
+const scene = new THREE.Scene();
+// Deep warm chiaroscuro fog: dark graphite bleeding into warm candlelit amber
+scene.fog = new THREE.FogExp2(0x110c09, 0.026);
+
+// Perspective camera calibrated for 1440x900 dramatic single-viewport immersion
+const camera = new THREE.PerspectiveCamera(44, width / height, 0.1, 100);
+camera.position.set(0.2, 0.05, 5.8);
+
+const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true, powerPreference: "high-performance" });
+renderer.setSize(width, height);
+renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+renderer.toneMapping = THREE.ACESFilmicToneMapping;
+renderer.toneMappingExposure = 1.45;
+renderer.shadowMap.enabled = true;
+renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+container.appendChild(renderer.domElement);
+
+// Master Group
+const masterGroup = new THREE.Group();
+masterGroup.position.set(0.0, 0.0, 0);
+scene.add(masterGroup);
+
+// Ambient Lighting: Split temperature
+// Cool velvet graphite from left; warm rich honey/candlelight radiating from center-right
+const ambientLight = new THREE.AmbientLight(0x221812, 1.6);
+scene.add(ambientLight);
+
+// Primary Warm Honey & Golden-Hour Portal Light (Blooming out from /001)
+const portalBloom = new THREE.PointLight(0xf2a154, 28.0, 18.0, 1.2);
+portalBloom.position.set(1.4, 0.3, 2.5);
+masterGroup.add(portalBloom);
+
+// Secondary Intimate Candlelight Spot focused onto the expanding vellum surface
+const candleSpot = new THREE.SpotLight(0xffd09b, 20.0, 22.0, Math.PI / 3.0, 0.65);
+candleSpot.position.set(4.2, 4.0, 5.0);
+candleSpot.target.position.set(1.0, 0.0, 2.0);
+scene.add(candleSpot);
+scene.add(candleSpot.target);
+
+// Raking rim light on receding structural edges (Left side Algoryxz structure)
+const architecturalRim = new THREE.DirectionalLight(0xe8d5c4, 3.2);
+architecturalRim.position.set(-6.0, 3.5, -2.0);
+scene.add(architecturalRim);
+
+// Deep charcoal shadow fill
+const charcoalShadow = new THREE.DirectionalLight(0x14161a, 2.0);
+charcoalShadow.position.set(-4.0, -4.0, 1.0);
+scene.add(charcoalShadow);
+
+// ==========================================
+// SHARED TECTONIC MATERIALS
+// ==========================================
+
+const charcoalMatteMat = new THREE.MeshStandardMaterial({
+  color: 0x141416,
+  roughness: 0.88,
+  metalness: 0.1,
+});
+
+const terracottaChamferMat = new THREE.MeshStandardMaterial({
+  color: 0xbb6336,
+  roughness: 0.42,
+  metalness: 0.65,
+});
+
+const vellumEdgeMat = new THREE.MeshStandardMaterial({
+  color: 0xded2c3,
+  roughness: 0.75,
+  metalness: 0.05,
+  emissive: 0x3d2110,
+  emissiveIntensity: 0.3
+});
+
+const wireHoney = new THREE.LineBasicMaterial({
+  color: 0xe89858,
+  transparent: true,
+  opacity: 0.75
+});
+
+const wireGoldRim = new THREE.LineBasicMaterial({
+  color: 0xffdfaa,
+  transparent: true,
+  opacity: 0.95
+});
+
+const wireReceding = new THREE.LineBasicMaterial({
+  color: 0x3a3c44,
+  transparent: true,
+  opacity: 0.35
+});
+
+// ==========================================
+// PROCEDURAL METAMORPHOSIS TEXTURES
+// ==========================================
+
+// Surging /001 Metamorphosis Leaf (Huge canvas high-res canvas: 1536 x 1024)
+// Shows the physical transition: Architectural Slate on left boundary cleaving
+// into warm medium-format Hasselblad wedding window photography, handwritten vows,
+// and deckle-edge gold leaf.
+function createMetamorphosis001Texture() {
+  const canvas = document.createElement('canvas');
+  canvas.width = 1536;
+  canvas.height = 1024;
+  const ctx = canvas.getContext('2d');
+
+  // Chiaroscuro background gradient: from rich mahogany/amber to intimate candle glow
+  const bgGrad = ctx.createRadialGradient(900, 480, 100, 800, 512, 950);
+  bgGrad.addColorStop(0, '#4a2110');
+  bgGrad.addColorStop(0.35, '#2e140a');
+  bgGrad.addColorStop(0.7, '#180c07');
+  bgGrad.addColorStop(1, '#0e0704');
+  ctx.fillStyle = bgGrad;
+  ctx.fillRect(0, 0, 1536, 1024);
+
+  // Subtle architectural grid on left, dissolving as it enters the right realm
+  for (let x = 0; x < 600; x += 48) {
+    const alpha = (1 - x / 600) * 0.15;
+    ctx.strokeStyle = `rgba(232, 152, 88, ${alpha})`;
+    ctx.lineWidth = 1;
+    ctx.beginPath(); ctx.moveTo(x, 0); ctx.lineTo(x, 1024); ctx.stroke();
+  }
+
+  // Left transition seam: Etched architectural bracket
+  ctx.strokeStyle = 'rgba(242, 178, 108, 0.4)';
+  ctx.lineWidth = 2;
+  ctx.beginPath();
+  ctx.moveTo(60, 40); ctx.lineTo(60, 984);
+  ctx.stroke();
+
+  // Monogram and Volume Header
+  ctx.fillStyle = 'rgba(232, 152, 88, 0.25)';
+  ctx.fillRect(80, 60, 420, 52);
+  ctx.strokeStyle = 'rgba(242, 178, 108, 0.6)';
+  ctx.strokeRect(80, 60, 420, 52);
+
+  ctx.fillStyle = '#ffd29d';
+  ctx.font = 'bold 22px "JetBrains Mono", monospace';
+  ctx.fillText('ALGORYXZ / 001', 104, 94);
+
+  ctx.fillStyle = '#f5d09b';
+  ctx.font = '15px "JetBrains Mono", monospace';
+  ctx.fillText('DIGITAL HEIRLOOM', 320, 94);
+
+  // Large Monumental Title
+  ctx.fillStyle = '#ffffff';
+  ctx.font = 'italic 400 76px "Playfair Display", Georgia, serif';
+  ctx.fillText('The Monsoon Vows', 80, 200);
+
+  ctx.fillStyle = '#f2b26c';
+  ctx.font = 'bold 18px "JetBrains Mono", monospace';
+  ctx.fillText('KODAGU ESTATE · CHIDAMBARAM HALL · OCTOBER MMXXIV', 84, 245);
+
+  // Spoken Vow Inscribed Plaque (The living spoken words)
+  ctx.fillStyle = 'rgba(46, 20, 10, 0.82)';
+  ctx.fillRect(80, 290, 880, 310);
+  ctx.strokeStyle = 'rgba(242, 178, 108, 0.5)';
+  ctx.lineWidth = 1.5;
+  ctx.strokeRect(80, 290, 880, 310);
+
+  ctx.fillStyle = '#ffd29d';
+  ctx.font = '16px "JetBrains Mono", monospace';
+  ctx.fillText('SPOKEN VOW INSCRIPTION // PASSAGE NO. 04', 114, 334);
+
+  ctx.fillStyle = '#ffffff';
+  ctx.font = 'italic 400 36px "Playfair Display", Georgia, serif';
+  ctx.fillText('“Two lives spoken under heavy rains. I promise', 114, 395);
+  ctx.fillText('to listen for your footsteps in the courtyard, and', 114, 445);
+  ctx.fillText('never let the wet embers of our devotion turn cold.”', 114, 495);
+
+  ctx.fillStyle = '#f2b26c';
+  ctx.font = 'italic 20px "Playfair Display", Georgia, serif';
+  ctx.fillText('Whispered by Neil to Ananya · During Dusk Downpour [Kerala Western Ghats]', 114, 560);
+
+  // Acoustic Waveform Player Ribbon
+  ctx.fillStyle = 'rgba(24, 11, 6, 0.9)';
+  ctx.fillRect(80, 630, 880, 160);
+  ctx.strokeStyle = 'rgba(242, 178, 108, 0.4)';
+  ctx.strokeRect(80, 630, 880, 160);
+
+  ctx.fillStyle = '#f5d09b';
+  ctx.font = 'bold 17px "JetBrains Mono", monospace';
+  ctx.fillText('03:42 // THE RAIN OATH AT DUSK [432Hz BINAURAL RAIN & SITAR]', 114, 674);
+
+  // High fidelity waveform bars
+  for (let b = 0; b < 64; b++) {
+    const barH = 14 + Math.sin(b * 0.35) * 44 + Math.cos(b * 0.75) * 26;
+    ctx.fillStyle = b < 38 ? '#f2b26c' : 'rgba(242, 178, 108, 0.3)';
+    ctx.fillRect(114 + b * 12.8, 742 - barH / 2, 7, barH);
+  }
+
+  // Bottom Archival Provenance Bar
+  ctx.fillStyle = 'rgba(242, 178, 108, 0.95)';
+  ctx.fillRect(80, 824, 880, 84);
+  ctx.fillStyle = '#140b07';
+  ctx.font = 'bold 24px "JetBrains Mono", monospace';
+  ctx.fillText('CROSSING THRESHOLD → ENTER CELEBRATION ARCHIVE', 160, 876);
+
+  // Deckle gold edge along right perimeter
+  const goldGrad = ctx.createLinearGradient(1480, 0, 1536, 0);
+  goldGrad.addColorStop(0, 'rgba(242, 178, 108, 0)');
+  goldGrad.addColorStop(1, 'rgba(255, 223, 170, 0.85)');
+  ctx.fillStyle = goldGrad;
+  ctx.fillRect(1480, 0, 56, 1024);
+
+  const tex = new THREE.CanvasTexture(canvas);
+  tex.anisotropy = 8;
+  return tex;
+}
+
+// Receding /000 Texture (Charcoal Studio Engine receding deep left)
+function createReceding000Texture() {
+  const canvas = document.createElement('canvas');
+  canvas.width = 512;
+  canvas.height = 768;
+  const ctx = canvas.getContext('2d');
+
+  ctx.fillStyle = '#111214';
+  ctx.fillRect(0, 0, 512, 768);
+
+  ctx.strokeStyle = 'rgba(232, 152, 88, 0.08)';
+  ctx.lineWidth = 1;
+  for (let y = 0; y < 768; y += 40) {
+    ctx.beginPath(); ctx.moveTo(0, y); ctx.lineTo(512, y); ctx.stroke();
+  }
+
+  ctx.strokeStyle = 'rgba(232, 152, 88, 0.2)';
+  ctx.strokeRect(20, 20, 472, 728);
+
+  ctx.fillStyle = '#8e9099';
+  ctx.font = 'bold 18px "JetBrains Mono", monospace';
+  ctx.fillText('ALGORYXZ / 000', 40, 60);
+
+  ctx.fillStyle = '#656770';
+  ctx.font = 'bold 28px "Playfair Display", Georgia, serif';
+  ctx.fillText('Studio Engine', 40, 120);
+
+  ctx.fillStyle = '#4c4e57';
+  ctx.font = '14px "JetBrains Mono", monospace';
+  ctx.fillText('STATUS: RECEDING TO MIDGROUND', 40, 160);
+
+  const tex = new THREE.CanvasTexture(canvas);
+  tex.anisotropy = 4;
+  return tex;
+}
+
+// Receding /002 Texture (Komorebi Roastery receding deep into right background)
+function createReceding002Texture() {
+  const canvas = document.createElement('canvas');
+  canvas.width = 512;
+  canvas.height = 768;
+  const ctx = canvas.getContext('2d');
+
+  ctx.fillStyle = '#12100f';
+  ctx.fillRect(0, 0, 512, 768);
+
+  ctx.strokeStyle = 'rgba(187, 99, 54, 0.1)';
+  ctx.lineWidth = 1;
+  for (let y = 0; y < 768; y += 40) {
+    ctx.beginPath(); ctx.moveTo(0, y); ctx.lineTo(512, y); ctx.stroke();
+  }
+
+  ctx.strokeStyle = 'rgba(187, 99, 54, 0.2)';
+  ctx.strokeRect(20, 20, 472, 728);
+
+  ctx.fillStyle = '#7a5a4c';
+  ctx.font = 'bold 18px "JetBrains Mono", monospace';
+  ctx.fillText('ALGORYXZ / 002', 40, 60);
+
+  ctx.fillStyle = '#5c4b42';
+  ctx.font = 'bold 28px "Playfair Display", Georgia, serif';
+  ctx.fillText('Komorebi Roastery', 40, 120);
+
+  ctx.fillStyle = '#463932';
+  ctx.font = '14px "JetBrains Mono", monospace';
+  ctx.fillText('STATUS: OCCLUDED & RECEDING', 40, 160);
+
+  const tex = new THREE.CanvasTexture(canvas);
+  tex.anisotropy = 4;
+  return tex;
+}
+
+// ==========================================
+// 3D GEOMETRIES: THE 50/50 SURGE & METAMORPHOSIS
+// ==========================================
+
+// 1. SURGING /001 CLIENT WORLD METAMORPHOSIS SLAB
+// Positioned forward (+Z: 2.1), tilted dynamically, consuming right & center of screen
+const surging001Group = new THREE.Group();
+masterGroup.add(surging001Group);
+
+const tex001 = createMetamorphosis001Texture();
+// Vast slab geometry: 5.6m width x 4.4m height x 0.28m depth
+const slab001Geo = new THREE.BoxGeometry(5.4, 4.2, 0.26);
+
+const front001Mat = new THREE.MeshStandardMaterial({
+  map: tex001,
+  roughness: 0.28,
+  metalness: 0.25,
+  emissive: 0x4a2410,
+  emissiveIntensity: 0.42
+});
+
+const slab001Mesh = new THREE.Mesh(slab001Geo, [
+  terracottaChamferMat, terracottaChamferMat, terracottaChamferMat, terracottaChamferMat, front001Mat, charcoalMatteMat
+]);
+slab001Mesh.castShadow = true;
+slab001Mesh.receiveShadow = true;
+surging001Group.add(slab001Mesh);
+
+// Glowing gold wireframe edge indicating metamorphosis boundary
+const slab001Edges = new THREE.LineSegments(new THREE.EdgesGeometry(slab001Geo), wireGoldRim);
+surging001Group.add(slab001Edges);
+
+// Top & Bottom Cantilever Brass Spines bounding the /001 leaf
+const topFin001 = new THREE.Mesh(new THREE.BoxGeometry(5.48, 0.06, 0.44), terracottaChamferMat);
+topFin001.position.set(0, 2.13, 0.08);
+surging001Group.add(topFin001);
+
+const botFin001 = new THREE.Mesh(new THREE.BoxGeometry(5.48, 0.06, 0.44), terracottaChamferMat);
+botFin001.position.set(0, -2.13, 0.08);
+surging001Group.add(botFin001);
+
+// Luminous Candlelight Aura Blooming Behind /001
+const auraGeo = new THREE.PlaneGeometry(8.5, 7.0);
+const auraMat = new THREE.MeshBasicMaterial({
+  color: 0xf2a154,
+  transparent: true,
+  opacity: 0.28,
+  blending: THREE.AdditiveBlending
+});
+const auraMesh = new THREE.Mesh(auraGeo, auraMat);
+auraMesh.position.set(0, 0, -0.18);
+surging001Group.add(auraMesh);
+
+// Position /001 at the metamorphosis threshold:
+// Shifted right (+X: 1.15), surging into foreground (+Z: 1.9), tilted toward viewer
+surging001Group.position.set(1.15, 0.08, 1.95);
+surging001Group.rotation.set(-0.05, -0.16, 0.02);
+
+// 2. RECEDING /000 FRAGMENT (Deep Left Midground)
+// Represents the cold, structural architectural skeleton of ALGORYXZ
+const receding000Group = new THREE.Group();
+masterGroup.add(receding000Group);
+
+const tex000 = createReceding000Texture();
+const pylon000Geo = new THREE.BoxGeometry(2.2, 3.6, 0.18);
+const front000Mat = new THREE.MeshStandardMaterial({
+  map: tex000,
+  roughness: 0.75,
+  metalness: 0.15,
+});
+const pylon000Mesh = new THREE.Mesh(pylon000Geo, [
+  charcoalMatteMat, charcoalMatteMat, charcoalMatteMat, charcoalMatteMat, front000Mat, charcoalMatteMat
+]);
+receding000Group.add(pylon000Mesh);
+
+const pylon000Edges = new THREE.LineSegments(new THREE.EdgesGeometry(pylon000Geo), wireReceding);
+receding000Group.add(pylon000Edges);
+
+// Position deep left and back in Z
+receding000Group.position.set(-3.6, -0.1, -1.2);
+receding000Group.rotation.set(0.12, 0.44, -0.06);
+
+// 3. RECEDING /002 FRAGMENT (Occluded Deep Background Right)
+const receding002Group = new THREE.Group();
+masterGroup.add(receding002Group);
+
+const tex002 = createReceding002Texture();
+const pylon002Geo = new THREE.BoxGeometry(2.0, 3.2, 0.16);
+const front002Mat = new THREE.MeshStandardMaterial({
+  map: tex002,
+  roughness: 0.8,
+  metalness: 0.2,
+});
+const pylon002Mesh = new THREE.Mesh(pylon002Geo, [
+  charcoalMatteMat, charcoalMatteMat, charcoalMatteMat, charcoalMatteMat, front002Mat, charcoalMatteMat
+]);
+receding002Group.add(pylon002Mesh);
+
+const pylon002Edges = new THREE.LineSegments(new THREE.EdgesGeometry(pylon002Geo), wireReceding);
+receding002Group.add(pylon002Edges);
+
+receding002Group.position.set(4.2, 0.6, -2.8);
+receding002Group.rotation.set(-0.15, -0.55, 0.08);
+
+// ==========================================
+// METAMORPHOSIS TECTONICS & STRATA SEPARATION
+// Cantilevers cleaving and peeling apart along the Z-axis
+// ==========================================
+
+// Transverse Cantilever Z-Plate traversing between the structural left and luminous right
+const connectZGeo = new THREE.BoxGeometry(6.5, 0.22, 0.7);
+const connectZMesh = new THREE.Mesh(connectZGeo, charcoalMatteMat);
+connectZMesh.position.set(-0.8, 2.35, -0.1);
+connectZMesh.rotation.set(0.16, 0.22, -0.04);
+masterGroup.add(connectZMesh);
+
+const connectZLine = new THREE.LineSegments(new THREE.EdgesGeometry(connectZGeo), wireHoney);
+connectZMesh.add(connectZLine);
+
+// Lower Cleaved Strata Plate peeling away
+const lowerZGeo = new THREE.BoxGeometry(5.8, 0.2, 0.6);
+const lowerZMesh = new THREE.Mesh(lowerZGeo, charcoalMatteMat);
+lowerZMesh.position.set(0.8, -2.35, 0.4);
+lowerZMesh.rotation.set(-0.12, -0.18, 0.03);
+masterGroup.add(lowerZMesh);
+
+const lowerZLine = new THREE.LineSegments(new THREE.EdgesGeometry(lowerZGeo), wireHoney);
+lowerZMesh.add(lowerZLine);
+
+// Peeling origami vellum sheets fanning out from the cleave locus
+for (let s = -3; s <= 3; s++) {
+  const bladeGeo = new THREE.BoxGeometry(2.0 - Math.abs(s) * 0.15, 0.024, 0.65);
+  const bladeMesh = new THREE.Mesh(bladeGeo, s % 2 === 0 ? vellumEdgeMat : terracottaChamferMat);
+  bladeMesh.position.set(s * 0.4 - 0.2, s * 0.32, 0.2 + s * 0.25);
+  bladeMesh.rotation.set(0.22 + s * 0.06, -0.38 + s * 0.04, s * 0.14);
+  masterGroup.add(bladeMesh);
+}
+
+// ==========================================
+// FLOATING AMBER EMBERS & PAPER FIBER DRIFT
+// Golden dust storm breaking out from the expanding portal
+// ==========================================
+const emberCount = 220;
+const emberGeo = new THREE.BufferGeometry();
+const emberPos = new Float32Array(emberCount * 3);
+const emberSpeeds = new Float32Array(emberCount);
+
+for (let e = 0; e < emberCount; e++) {
+  // Density weighted toward right/center (+X, +Z)
+  emberPos[e * 3] = (Math.random() - 0.25) * 8.5;
+  emberPos[e * 3 + 1] = (Math.random() - 0.5) * 6.5;
+  emberPos[e * 3 + 2] = (Math.random() - 0.2) * 5.5;
+  emberSpeeds[e] = 0.2 + Math.random() * 0.8;
+}
+emberGeo.setAttribute('position', new THREE.BufferAttribute(emberPos, 3));
+
+const emberMat = new THREE.PointsMaterial({
+  color: 0xf2a154,
+  size: 0.048,
+  transparent: true,
+  opacity: 0.85,
+  blending: THREE.AdditiveBlending
+});
+const embers = new THREE.Points(emberGeo, emberMat);
+scene.add(embers);
+
+// Studio perspective floor grid fading into darkness
+const floorGrid = new THREE.GridHelper(20, 26, 0xbb6336, 0x161414);
+floorGrid.position.y = -2.9;
+floorGrid.material.opacity = 0.15;
+floorGrid.material.transparent = true;
+scene.add(floorGrid);
+
+// ==========================================
+// INTERACTIVE CINEMATIC CAMERA PARALLAX
+// ==========================================
+let isPointerDown = false;
+let previousPointer = { x: 0, y: 0 };
+let targetRotX = 0.03;
+let targetRotY = -0.08;
+let currentRotX = 0.03;
+let currentRotY = -0.08;
+
+const onDown = (e) => {
+  if (e.target.closest('button, a, header, nav, footer, .ui-interactive')) return;
+  isPointerDown = true;
+  previousPointer = { x: e.clientX, y: e.clientY };
+};
+
+const onMove = (e) => {
+  const normX = (e.clientX / width) * 2 - 1;
+  const normY = -(e.clientY / height) * 2 + 1;
+  if (isPointerDown) {
+    const dx = e.clientX - previousPointer.x;
+    const dy = e.clientY - previousPointer.y;
+    targetRotY += dx * 0.003;
+    targetRotX += dy * 0.003;
+    previousPointer = { x: e.clientX, y: e.clientY };
+  } else {
+    // Subtle, weighty perspective drift
+    targetRotY = -0.08 + normX * 0.09;
+    targetRotX = 0.03 - normY * 0.06;
+  }
+};
+
+const onUp = () => { isPointerDown = false; };
+
+window.addEventListener('pointerdown', onDown);
+window.addEventListener('pointermove', onMove);
+window.addEventListener('pointerup', onUp);
+
+const onResize = () => {
+  const w = container.clientWidth || window.innerWidth;
+  const h = container.clientHeight || window.innerHeight;
+  camera.aspect = w / h;
+  camera.updateProjectionMatrix();
+  renderer.setSize(w, h);
+};
+window.addEventListener('resize', onResize);
+
+// Kinetic Render Loop
+let clock = new THREE.Clock();
+
+function animate() {
+  requestAnimationFrame(animate);
+  const t = clock.getElapsedTime();
+
+  // Surging breath of the /001 portal forward into the viewer's space
+  surging001Group.position.z = 1.95 + Math.sin(t * 0.85) * 0.09;
+  surging001Group.position.y = 0.08 + Math.cos(t * 0.7) * 0.03;
+
+  // Receding fragments drift slightly deeper
+  receding000Group.position.y = -0.1 + Math.sin(t * 0.6) * 0.02;
+  receding002Group.position.y = 0.6 + Math.cos(t * 0.5) * 0.02;
+
+  // Luminous portal pulse
+  portalBloom.intensity = 28.0 + Math.sin(t * 2.2) * 5.0;
+  auraMat.opacity = 0.28 + Math.sin(t * 1.8) * 0.07;
+  wireGoldRim.opacity = 0.95 + Math.sin(t * 2.0) * 0.15;
+
+  // Drift glowing amber particles toward camera
+  const posArr = embers.geometry.attributes.position.array;
+  for (let i = 0; i < emberCount; i++) {
+    posArr[i * 3 + 2] += emberSpeeds[i] * 0.008; // surge toward viewer (+Z)
+    posArr[i * 3 + 1] += emberSpeeds[i] * 0.002;
+    if (posArr[i * 3 + 2] > 5.5) {
+      posArr[i * 3 + 2] = -1.5;
+      posArr[i * 3] = (Math.random() - 0.25) * 8.5;
+      posArr[i * 3 + 1] = (Math.random() - 0.5) * 6.5;
+    }
+  }
+  embers.geometry.attributes.position.needsUpdate = true;
+
+  // Smooth lerp camera rotation
+  currentRotX += (targetRotX - currentRotX) * 0.05;
+  currentRotY += (targetRotY - currentRotY) * 0.05;
+
+  masterGroup.rotation.x = currentRotX;
+  masterGroup.rotation.y = currentRotY;
+
+  renderer.render(scene, camera);
+}
+animate();
+
+})();
+
+})();
+</script>
+</div>
+<!-- STITCH_THREEJS_END:ANIMATION_49 -->
+<!-- Ambient Cinematic Candlelight / Shadow Gradients -->
+<div class="absolute inset-0 pointer-events-none structural-gradient z-10"></div>
+<div class="absolute top-0 right-0 w-[55vw] h-full pointer-events-none bg-gradient-to-l from-[#17120e]/40 via-transparent to-transparent z-10"></div>
+<div class="absolute -top-32 right-1/4 w-96 h-96 rounded-full bg-primary-container/10 blur-[130px] pointer-events-none z-10"></div>
+<!-- 1. TOP DOCKED APP BAR -->
+<header class="relative z-30 w-full px-margin py-space-sm flex items-center justify-between border-b border-outline-variant/30 bg-surface-container-lowest/90 backdrop-blur-md">
+<!-- Left: ALGORYXZ Brand with warm XZ contrast + Archive Index -->
+<div class="flex items-center gap-space-sm">
+<a class="font-headline-sm text-headline-sm text-on-surface tracking-tight flex items-baseline gap-0.5 group" href="#">
+<span class="text-on-surface font-headline-sm">ALGORY</span>
+<span class="text-primary font-headline-sm transition-colors duration-300 group-hover:text-primary-container">XZ</span>
+</a>
+<span class="text-outline-variant text-label-md font-label-md">/</span>
+<span class="text-primary text-label-md font-label-md tracking-widest">000</span>
+<span class="w-1.5 h-1.5 rounded-full bg-primary-container animate-pulse ml-1"></span>
+</div>
+<!-- Center: Minimal Editorial Navigation -->
+<nav class="hidden md:flex items-center gap-space-lg">
+<a class="text-on-surface-variant hover:text-on-surface text-label-md font-label-md tracking-widest uppercase transition-colors" href="#">WORK</a>
+<a class="text-on-surface-variant hover:text-on-surface text-label-md font-label-md tracking-widest uppercase transition-colors" href="#">SERVICES</a>
+<a class="text-primary border-b border-primary pb-0.5 text-label-md font-label-md tracking-widest uppercase" href="#">PROCESS</a>
+<a class="text-on-surface-variant hover:text-on-surface text-label-md font-label-md tracking-widest uppercase transition-colors" href="#">FOUNDERS</a>
+<a class="text-on-surface-variant hover:text-on-surface text-label-md font-label-md tracking-widest uppercase transition-colors" href="#">CONTACT</a>
+</nav>
+<!-- Right: Origin Notation + Primary CTA -->
+<div class="flex items-center gap-space-md">
+<div class="hidden lg:flex items-center gap-2 text-on-surface-variant/70 text-label-sm font-label-sm tracking-widest">
+<span class="material-symbols-outlined text-[14px] text-primary" data-icon="explore">explore</span>
+<span>ODISHA, IN [IST]</span>
+</div>
+<div class="h-4 w-px bg-outline-variant/30 hidden lg:block"></div>
+<button class="relative px-space-md py-1.5 rounded deckled-border bg-surface-container-low/80 hover:bg-surface-container hover:border-primary/50 text-on-surface transition-all duration-300 flex items-center gap-2 group">
+<span class="text-label-md font-label-md tracking-widest uppercase text-primary group-hover:text-primary-fixed">Enter Archive / 001</span>
+<span class="text-primary text-[13px] transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5">↗</span>
+</button>
+</div>
+</header>
+<!-- MAIN CANVAS: STRICT 50/50 METAMORPHOSIS VIEWPORT -->
+<main class="relative z-20 flex-1 grid grid-cols-12 px-margin items-center overflow-hidden w-full h-[calc(100vh-108px)]">
+<!-- 2. LEFT STRUCTURAL FLANK (The Algoryxz Architectural Foundation) -->
+<div class="col-span-12 lg:col-span-5 xl:col-span-5 flex flex-col justify-center pr-6 lg:pr-12 pointer-events-auto">
+<!-- Eyebrow Tag -->
+<div class="flex items-center gap-3 mb-space-sm">
+<span class="inline-flex items-center gap-2 px-2.5 py-1 bg-surface-container-lowest deckled-border rounded text-label-sm font-label-sm tracking-widest text-primary">
+<span class="w-1.5 h-1.5 rounded-full bg-primary-container"></span>
+          METAMORPHOSIS // KEYFRAME R02-D04
+        </span>
+<span class="text-label-sm font-label-sm text-outline-variant/80 tracking-widest">Z-AXIS 50°</span>
+</div>
+<!-- Philosophical Statement -->
+<h1 class="font-headline-lg text-headline-lg text-on-surface leading-tight tracking-tight mb-space-sm">
+        Algoryxz is the structure.<br/>
+<span class="italic font-display-hero text-primary font-light">Client identity</span> becomes the material.
+      </h1>
+<!-- Architectural Narrative -->
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-lg mb-space-md leading-relaxed font-normal">
+        The sculptural object cleaves along its Z-axis. Neutral basalt and translucent resin give way to candlelight, handwriting, and human memory.
+      </p>
+<!-- Structural Status / Metadata Capsule -->
+<div class="flex flex-col sm:flex-row items-start sm:items-center gap-space-md pt-space-sm border-t border-outline-variant/30">
+<div class="flex items-center gap-2.5">
+<div class="w-2.5 h-2.5 rounded-sm bg-primary border border-primary-container/60 shadow-[0_0_8px_rgba(232,152,88,0.6)]"></div>
+<span class="text-label-sm font-label-sm tracking-widest text-on-surface">FRAGMENT / 001 SELECTED</span>
+</div>
+<div class="h-3 w-px bg-outline-variant/30 hidden sm:block"></div>
+<div class="flex items-center gap-2 text-on-surface-variant/80 text-label-sm font-label-sm tracking-widest">
+<span>IMMERSION</span>
+<div class="w-20 h-1.5 bg-surface-container-high rounded-full overflow-hidden deckled-border">
+<div class="w-1/2 h-full bg-gradient-to-r from-primary to-primary-container"></div>
+</div>
+<span class="text-primary font-label-sm">50%</span>
+</div>
+</div>
+<!-- Receding Fragments Indicators -->
+<div class="mt-space-lg flex items-center gap-6 text-on-surface-variant/50 text-label-sm font-label-sm tracking-widest">
+<div class="flex items-center gap-1.5 hover:text-on-surface-variant transition-colors cursor-pointer">
+<span class="material-symbols-outlined text-[13px]" data-icon="lock">lock</span>
+<span>FRAGMENT / 000 (ANCHOR)</span>
+</div>
+<div class="flex items-center gap-1.5 hover:text-on-surface-variant transition-colors cursor-pointer">
+<span class="material-symbols-outlined text-[13px]" data-icon="schedule">schedule</span>
+<span>FRAGMENT / 002 (RECEDED)</span>
+</div>
+</div>
+</div>
+<!-- 3. CENTER-RIGHT FOREGROUND: THE EXPANDING HEIRLOOM WORLD -->
+<div class="col-span-12 lg:col-span-7 xl:col-span-7 h-full flex items-center justify-end relative pointer-events-auto">
+<!-- Dynamic Tilting Surging Reliquary Portal Card -->
+<div class="relative w-[105%] max-w-[740px] translate-x-6 lg:translate-x-12 py-4">
+<!-- Outer Archival Ambient Rim -->
+<div class="relative rounded-lg deckled-border bg-surface-container-low/95 candlelight-glow backdrop-blur-xl p-space-md sm:p-space-lg border border-primary/20 shadow-2xl transition-all duration-700 hover:border-primary/40">
+<!-- Top Archival Stamp & Audio Coordinates -->
+<div class="flex items-center justify-between border-b border-outline-variant/30 pb-space-sm mb-space-md text-label-sm font-label-sm">
+<div class="flex items-center gap-2 text-primary tracking-widest">
+<span class="material-symbols-outlined text-[15px]" data-icon="auto_stories">auto_stories</span>
+<span class="uppercase">ARCHIVE ITEM 001 // THE MONSOON VOWS</span>
+</div>
+<div class="flex items-center gap-3 text-on-surface-variant/70 tracking-widest">
+<span class="flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-primary animate-ping"></span>
+<span>LIVE RECORDING</span>
+</span>
+<span>19:42 HRS</span>
+</div>
+</div>
+<!-- Hero Dual Composition: Memory Photography + Spoken Manuscript -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-space-md items-center mb-space-md">
+<!-- Rich Medium-Format Photograph Container -->
+<div class="md:col-span-7 relative group overflow-hidden rounded deckled-border shadow-inner">
+<img alt="The Monsoon Vows" class="w-full h-64 md:h-72 object-cover object-center filter saturate-[1.05] brightness-95 group-hover:scale-105 transition-transform duration-700 ease-out" src="https://lh3.googleusercontent.com/aida/AEtjO1UOJQOo9t53Jx9bI5KYE3noksJoRXJlgNsLokMnHklo52SH3bX06XgpVeiymjokBJY7W3rAuvBShxGVFh8EnufNHizfkHoZeztevtRK2fjM0ApwiLjJBSZoKSppts7PtbZSknxDCocq20D3P7AqV_nNYQ7oQtHrXbeqzyaPlWbqWS9IhegaC_tzxOyvz2u_bMPhPrn5aGmKaAUpAG34U6ePxuR-7O8KIVtcaIMHqJjynxBd6T-v_qfFaNYl"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest/90 via-surface-container-lowest/20 to-transparent"></div>
+<!-- Subtle Paper Texture Overlay Tag -->
+<div class="absolute bottom-2.5 left-2.5 px-2 py-0.5 bg-surface-container-lowest/80 backdrop-blur-sm rounded border border-outline-variant/40 text-label-sm font-label-sm text-primary tracking-widest">
+                RAVINES OF AMALFI • MEMOIR 014
+              </div>
+</div>
+<!-- Inscribed Vow Parchment Column -->
+<div class="md:col-span-5 flex flex-col justify-between h-full pl-0 md:pl-2">
+<div>
+<span class="text-label-sm font-label-sm text-primary/80 uppercase tracking-widest block mb-2">Spoken Covenant</span>
+<blockquote class="font-vow-quote text-body-lg md:text-[19px] leading-relaxed text-on-surface italic relative">
+                  “Two lives spoken under heavy rains. I promise to listen for your footsteps in the courtyard and never let the wet embers of our devotion turn cold.”
+                </blockquote>
+</div>
+<!-- Wax Seal Attestation Stamp -->
+<div class="mt-4 pt-3 border-t border-outline-variant/30 flex items-center justify-between">
+<span class="font-headline-sm italic text-tertiary text-body-sm">Amara &amp; Devendra</span>
+<span class="material-symbols-outlined text-primary/70 text-[20px]" data-icon="history_edu">history_edu</span>
+</div>
+</div>
+</div>
+<!-- Spoken Memoir Audio Soundwave Capsule -->
+<div class="p-space-sm rounded bg-surface-container-lowest/90 deckled-border flex flex-col sm:flex-row items-center gap-space-md justify-between mb-space-md">
+<!-- Play Trigger & Track Meta -->
+<div class="flex items-center gap-3 w-full sm:w-auto">
+<button class="w-10 h-10 rounded-full bg-primary-container flex items-center justify-center text-on-primary-container hover:bg-primary transition-all duration-200 shadow-[0_0_16px_rgba(232,152,88,0.4)] active:scale-95 group">
+<span class="material-symbols-outlined text-[20px] fill-current" data-icon="play_arrow" data-weight="fill">play_arrow</span>
+</button>
+<div class="flex flex-col">
+<span class="text-label-md font-label-md tracking-wider text-on-surface uppercase">Rain Oath at Dusk</span>
+<span class="text-label-sm font-label-sm text-outline tracking-widest">ACOUSTIC MASTER // REEL 03:42</span>
+</div>
+</div>
+<!-- Living Amber Waveform Display -->
+<div class="flex items-center gap-1 h-8 w-full sm:w-60 px-2 justify-between">
+<div class="waveform-bar w-1 bg-primary/40 rounded-full h-3"></div>
+<div class="waveform-bar w-1 bg-primary/70 rounded-full h-6"></div>
+<div class="waveform-bar w-1 bg-primary-container rounded-full h-8"></div>
+<div class="waveform-bar w-1 bg-primary rounded-full h-5"></div>
+<div class="waveform-bar w-1 bg-primary-container rounded-full h-7"></div>
+<div class="waveform-bar w-1 bg-primary/60 rounded-full h-4"></div>
+<div class="waveform-bar w-1 bg-primary rounded-full h-8"></div>
+<div class="waveform-bar w-1 bg-primary-container rounded-full h-6"></div>
+<div class="waveform-bar w-1 bg-primary/50 rounded-full h-3"></div>
+<div class="waveform-bar w-1 bg-primary rounded-full h-5"></div>
+<div class="waveform-bar w-1 bg-primary-container rounded-full h-8"></div>
+<div class="waveform-bar w-1 bg-primary/80 rounded-full h-6"></div>
+<div class="waveform-bar w-1 bg-primary rounded-full h-4"></div>
+<div class="waveform-bar w-1 bg-primary-container rounded-full h-7"></div>
+<div class="waveform-bar w-1 bg-primary/40 rounded-full h-2"></div>
+</div>
+<!-- Audio Time Counter -->
+<div class="hidden sm:block text-label-sm font-label-sm tracking-widest text-primary font-semibold">
+              03:42 / 12:08
+            </div>
+</div>
+<!-- Primary Threshold Immersion Button -->
+<div class="pt-1 flex items-center justify-between">
+<div class="text-label-sm font-label-sm text-outline-variant tracking-widest uppercase">
+              NEXT KEYFRAME: D05 [CONSECRATION]
+            </div>
+<a class="px-space-md py-2.5 rounded bg-primary-container hover:bg-primary text-on-primary-container font-label-md text-label-md tracking-widest uppercase font-semibold flex items-center gap-3 transition-all duration-300 shadow-[0_4px_24px_rgba(232,152,88,0.3)] hover:shadow-[0_8px_32px_rgba(232,152,88,0.5)] group" href="#">
+<span>CROSS INTO CELEBRATION ARCHIVE / 001</span>
+<span class="material-symbols-outlined text-[16px] transition-transform duration-300 group-hover:translate-x-1" data-icon="arrow_forward">arrow_forward</span>
+</a>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- 4. BOTTOM STATUS BAR -->
+<footer class="relative z-30 w-full px-margin py-2.5 border-t border-outline-variant/30 bg-surface-container-lowest/95 backdrop-blur-md flex items-center justify-between text-label-sm font-label-sm text-on-surface-variant/70 tracking-widest">
+<!-- Left Indicator -->
+<div class="flex items-center gap-2">
+<span class="text-primary font-bold">ALGORYXZ STUDIO</span>
+<span>•</span>
+<span>KEYFRAME R02-D04</span>
+<span>•</span>
+<span class="text-on-surface">OBJECT / CLIENT-WORLD THRESHOLD</span>
+</div>
+<!-- Center Prompt: Gesture Guidance -->
+<div class="hidden md:flex items-center gap-2 text-outline">
+<span class="material-symbols-outlined text-[14px] text-primary" data-icon="touch_app">touch_app</span>
+<span>DRAG TO ROTATE OBJECT IN PERSPECTIVE · TRANSITION TO FULL IMMERSION</span>
+</div>
+<!-- Right Metadata -->
+<div class="flex items-center gap-2 text-primary font-semibold">
+<span class="w-1.5 h-1.5 rounded-full bg-primary"></span>
+<span class="uppercase">THE MONSOON VOWS · CELEBRATION HEIRLOOM</span>
+</div>
+</footer>
+</body></html>

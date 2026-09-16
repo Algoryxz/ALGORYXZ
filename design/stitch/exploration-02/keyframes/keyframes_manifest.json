@@ -1,0 +1,112 @@
+[
+  {
+    "id": "D01-arrival",
+    "title": "D01 — ARRIVAL: The Spatial Monolith",
+    "deviceType": "DESKTOP",
+    "screenId": "697ae91b69744e9bac26215fee9ae40c",
+    "width": "2560",
+    "height": "2048",
+    "image": "C:\\Users\\smara\\Desktop\\Algoryxz\\design\\stitch\\exploration-02\\keyframes\\desktop\\D01-arrival.png",
+    "html": "C:\\Users\\smara\\Desktop\\Algoryxz\\design\\stitch\\exploration-02\\keyframes\\desktop\\D01-arrival.html"
+  },
+  {
+    "id": "D02-deconstruction",
+    "title": "D02 — DECONSTRUCTION: Monolith Unfolding",
+    "deviceType": "DESKTOP",
+    "screenId": "c4c3f5b6d03044d8aabea8138b4dc254",
+    "width": "2560",
+    "height": "2048",
+    "image": "C:\\Users\\smara\\Desktop\\Algoryxz\\design\\stitch\\exploration-02\\keyframes\\desktop\\D02-deconstruction.png",
+    "html": "C:\\Users\\smara\\Desktop\\Algoryxz\\design\\stitch\\exploration-02\\keyframes\\desktop\\D02-deconstruction.html"
+  },
+  {
+    "id": "D03-archive",
+    "title": "D03 — ARCHIVE: Spatial Project Discovery",
+    "deviceType": "DESKTOP",
+    "screenId": "89e5c4e469ad44ac9e395cbab28fb242",
+    "width": "2560",
+    "height": "2048",
+    "image": "C:\\Users\\smara\\Desktop\\Algoryxz\\design\\stitch\\exploration-02\\keyframes\\desktop\\D03-archive.png",
+    "html": "C:\\Users\\smara\\Desktop\\Algoryxz\\design\\stitch\\exploration-02\\keyframes\\desktop\\D03-archive.html"
+  },
+  {
+    "id": "D04-project-focus",
+    "title": "D04 — PROJECT FOCUS: Transitioning to 001",
+    "deviceType": "DESKTOP",
+    "screenId": "f4d6adf5caea473197209e1638585788",
+    "width": "2560",
+    "height": "2048",
+    "image": "C:\\Users\\smara\\Desktop\\Algoryxz\\design\\stitch\\exploration-02\\keyframes\\desktop\\D04-project-focus.png",
+    "html": "C:\\Users\\smara\\Desktop\\Algoryxz\\design\\stitch\\exploration-02\\keyframes\\desktop\\D04-project-focus.html"
+  },
+  {
+    "id": "D05-project-world",
+    "title": "D05 — PROJECT WORLD: Inside Celebration 001",
+    "deviceType": "DESKTOP",
+    "screenId": "26372fc3a3ce4644902a0c118fd9f14b",
+    "width": "2560",
+    "height": "2048",
+    "image": "C:\\Users\\smara\\Desktop\\Algoryxz\\design\\stitch\\exploration-02\\keyframes\\desktop\\D05-project-world.png",
+    "html": "C:\\Users\\smara\\Desktop\\Algoryxz\\design\\stitch\\exploration-02\\keyframes\\desktop\\D05-project-world.html"
+  },
+  {
+    "id": "D06-two-worlds",
+    "title": "D06 — TWO WORLDS: Spatial Dichotomy",
+    "deviceType": "DESKTOP",
+    "screenId": "e943107b83d941ecb51207b82e81ab57",
+    "width": "100%",
+    "height": "100%",
+    "image": "C:\\Users\\smara\\Desktop\\Algoryxz\\design\\stitch\\exploration-02\\keyframes\\desktop\\D06-two-worlds.png",
+    "html": "C:\\Users\\smara\\Desktop\\Algoryxz\\design\\stitch\\exploration-02\\keyframes\\desktop\\D06-two-worlds.html"
+  },
+  {
+    "id": "D07-process-object",
+    "title": "D07 — PROCESS OBJECT: The Kinetic Continuum",
+    "deviceType": "DESKTOP",
+    "screenId": "4c3bc83e51ec4ea7ac3e9a77794ce470",
+    "width": "2560",
+    "height": "2048",
+    "image": "C:\\Users\\smara\\Desktop\\Algoryxz\\design\\stitch\\exploration-02\\keyframes\\desktop\\D07-process-object.png",
+    "html": "C:\\Users\\smara\\Desktop\\Algoryxz\\design\\stitch\\exploration-02\\keyframes\\desktop\\D07-process-object.html"
+  },
+  {
+    "id": "D08-founders",
+    "title": "D08 — FOUNDERS / HUMANITY: Three Builders",
+    "deviceType": "DESKTOP",
+    "screenId": "298e9328551c4dfb925f13abe99e5a9a",
+    "width": "2560",
+    "height": "2048",
+    "image": "C:\\Users\\smara\\Desktop\\Algoryxz\\design\\stitch\\exploration-02\\keyframes\\desktop\\D08-founders.png",
+    "html": "C:\\Users\\smara\\Desktop\\Algoryxz\\design\\stitch\\exploration-02\\keyframes\\desktop\\D08-founders.html"
+  },
+  {
+    "id": "M01-arrival",
+    "title": "M01 — MOBILE ARRIVAL: Vertical Spatial Monolith",
+    "deviceType": "MOBILE",
+    "screenId": "6df8a87c3b5a42c9af374b0fec74e0b3",
+    "width": "780",
+    "height": "1768",
+    "image": "C:\\Users\\smara\\Desktop\\Algoryxz\\design\\stitch\\exploration-02\\keyframes\\mobile\\M01-arrival.png",
+    "html": "C:\\Users\\smara\\Desktop\\Algoryxz\\design\\stitch\\exploration-02\\keyframes\\mobile\\M01-arrival.html"
+  },
+  {
+    "id": "M02-archive",
+    "title": "M02 — MOBILE ARCHIVE: Vertical Spatial Stack",
+    "deviceType": "MOBILE",
+    "screenId": "7bea3446dfb4490c92939fd809564f24",
+    "width": "100%",
+    "height": "100%",
+    "image": "C:\\Users\\smara\\Desktop\\Algoryxz\\design\\stitch\\exploration-02\\keyframes\\mobile\\M02-archive.png",
+    "html": "C:\\Users\\smara\\Desktop\\Algoryxz\\design\\stitch\\exploration-02\\keyframes\\mobile\\M02-archive.html"
+  },
+  {
+    "id": "M03-project-world",
+    "title": "M03 — MOBILE PROJECT WORLD: Inside 001 on Touch",
+    "deviceType": "MOBILE",
+    "screenId": "9cbb373da3804ce4a7d9223bd90151aa",
+    "width": "780",
+    "height": "1768",
+    "image": "C:\\Users\\smara\\Desktop\\Algoryxz\\design\\stitch\\exploration-02\\keyframes\\mobile\\M03-project-world.png",
+    "html": "C:\\Users\\smara\\Desktop\\Algoryxz\\design\\stitch\\exploration-02\\keyframes\\mobile\\M03-project-world.html"
+  }
+]

@@ -1,0 +1,379 @@
+{
+  "designSystem": {
+    "designSystem": {
+      "displayName": "Sable & Ecru",
+      "styleGuidelines": "## Brand & Style\n\nThis design system fuses haute couture editorial curation with kinetic digital interactions. Crafted for an intimate, bespoke digital flagship, it evokes quiet grandeur, intellectual permanence, and contemporary kinetic grace. The visual atmosphere balances the tactile weight of an archival art catalog with the precision and agility of modern digital experiences.\n\nThe aesthetic philosophy centers on **Atmospheric Editorial Luxury**:\n- **Tension of Scales:** Extreme contrasts between monumental, high-character serif typography and razor-sharp, whisper-quiet geometric sans and archival monospace annotations.\n- **Materiality & Restraint:** A deep, carbon-mineral backdrop that lets bone-white ecru letterforms and warm terracotta-amber accents breathe without synthetic glare.\n- **Deliberate Movement:** Interactive elements employ deliberate, weighted transitions—fluid easings that feel physical rather than instantaneous, honoring craftsmanship over raw utility.\n\n## Layout & Spacing\n\nThe layout is built upon an asymmetrical 12-column architectural grid with generous exterior margins that emulate the wide borders of fine-art folios.\n\n- **Desktop (1200px+):** 12 columns with `4rem` outer canvas padding. Negative space is intentional and generous, allowing hero imagery and headline lockups to breathe.\n- **Tablet (768px - 1199px):** 8 columns with `2rem` outer margin and `1.25rem` gutters. Multi-column editorial modules collapse gracefully to bipartite formats.\n- **Mobile (<768px):** 4 columns with `1.25rem` outer margin and `1rem` gutters. Editorial typography shifts to tailored mobile-scale tokens, and dense layouts collapse into continuous vertical scrolls anchored by subtle horizontal hairline divides.\n\nSpacing follows an organic 8-step base rhythm. Component groupings prioritize breathing room over density, ensuring the user experiences an unhurried, gallery-grade journey.\n\n## Elevation & Depth\n\nRather than relying on heavy shadows or artificial light-source metaphors, visual depth is achieved through **Tonal Mineral Layering** and **Low-Contrast Hairlines**:\n\n- **Surface Stratification:**\n  - *Base Layer (`#0D0E11`):* The infinite sable canvas.\n  - *Mid Layer (`#15171C`):* Modest elevation for cards, modular trays, and persistent toolbars.\n  - *Top Layer (`#1D2026`):* Interactive sheets, dropdowns, and flyout navigation.\n- **Ghost Borders:** Elements are bounded by crisp 1px borders tinted in Champagne Gold or Ecru with ultra-low opacity (`rgba(232, 213, 181, 0.12)`), providing precise structural bounding without visual heaviness.\n- **Atmospheric Glow:** Diffuse, colored ambient glows replace traditional drop shadows. Focused elements cast an ethereal halo: `0 16px 40px -12px rgba(217, 119, 54, 0.18)`.\n- **Frosted Translucency:** Floating headers and backdrop scrims implement a dark glass treatment with `backdrop-filter: blur(16px)` and 75% opacity base color to maintain spatial continuity.\n\n## Components\n\n### Buttons & CTAs\n- **Primary CTA:** Solid Terracotta Amber (`#D97736`) with dark mineral typography (`#0D0E11`), weighted in medium geometric sans. Hover triggers an inward luminescence and a kinetic +2px micro-lift.\n- **Secondary CTA:** Sable mineral background with a 1px Champagne border (`rgba(232, 213, 181, 0.3)`) and Bone Ecru text. Hover scales border opacity to 100% with a champagne gold text glow.\n- **Editorial Link Action:** Monospaced label flanked by a directional glyph (`->`), underlaid with an offset 1px rule that sweeps outward from the center on hover.\n\n### Inputs & Form Fields\n- Minimalist open-bottom or ghost-well inputs. The well utilizes `#15171C` bounded by a 1px border of `rgba(245, 242, 235, 0.15)`.\n- On focus: The hairline border shifts seamlessly to Terracotta Amber with an ambient terracotta aura (`0 0 0 1px #D97736`). Placeholders use `label-mono` in muted ecru.\n\n### Cards & Artifact Modules\n- Surfaces stay grounded in `#15171C`. Image viewports maintain an intentional 4:5 or 16:9 ratio with subtle internal borders.\n- Hover states initiate an image scale of 1.02x paired with metadata shifting upward to reveal contextual archival details.\n\n### Badges & Monospace Chips\n- Minimalist height (24px max), encased in `0.25rem` radius with 1px hairlines.\n- Displays catalogue numbers, statuses, and collection taxonomies via `label-mono-sm` in champagne gold or ecru.\n\n### Checkboxes & Selection Controls\n- Rectilinear 16px squares with `2px` corners. Checked state fills with terracotta amber and features a crisp sable check icon. Radio items employ concentric rings with a champagne gold nucleus.\n\n### Lists & Archival Tables\n- Frameless, separated strictly by horizontal hairline borders (`rgba(245, 242, 235, 0.08)`).\n- Table headers use `label-mono` in subdued champagne gold; row hovers illuminate subtly with a soft `#1D2026` wash and a leading terracotta indicator notch.",
+      "theme": {
+        "bodyFont": "HANKEN_GROTESK",
+        "bodyFontFamily": "Hanken Grotesk",
+        "colorMode": "DARK",
+        "colorVariant": "FIDELITY",
+        "customColor": "#d97736",
+        "designMd": "---\nname: Sable & Ecru\ncolors:\n  surface: '#121316'\n  surface-dim: '#121316'\n  surface-bright: '#38393c'\n  surface-container-lowest: '#0d0e11'\n  surface-container-low: '#1b1b1f'\n  surface-container: '#1f1f23'\n  surface-container-high: '#292a2d'\n  surface-container-highest: '#343538'\n  on-surface: '#e3e2e6'\n  on-surface-variant: '#dbc1b4'\n  inverse-surface: '#e3e2e6'\n  inverse-on-surface: '#303034'\n  outline: '#a38c80'\n  outline-variant: '#554339'\n  surface-tint: '#ffb68c'\n  primary: '#ffb68c'\n  on-primary: '#532200'\n  primary-container: '#d97736'\n  on-primary-container: '#491d00'\n  inverse-primary: '#994703'\n  secondary: '#d7c4a5'\n  on-secondary: '#3a2f19'\n  secondary-container: '#52452d'\n  on-secondary-container: '#c5b395'\n  tertiary: '#ffb599'\n  on-tertiary: '#5a1c00'\n  tertiary-container: '#d67851'\n  on-tertiary-container: '#4f1800'\n  error: '#ffb4ab'\n  on-error: '#690005'\n  error-container: '#93000a'\n  on-error-container: '#ffdad6'\n  primary-fixed: '#ffdbc9'\n  primary-fixed-dim: '#ffb68c'\n  on-primary-fixed: '#321200'\n  on-primary-fixed-variant: '#753400'\n  secondary-fixed: '#f4e0c0'\n  secondary-fixed-dim: '#d7c4a5'\n  on-secondary-fixed: '#241a06'\n  on-secondary-fixed-variant: '#52452d'\n  tertiary-fixed: '#ffdbce'\n  tertiary-fixed-dim: '#ffb599'\n  on-tertiary-fixed: '#370e00'\n  on-tertiary-fixed-variant: '#79310f'\n  background: '#121316'\n  on-background: '#e3e2e6'\n  surface-variant: '#343538'\ntypography:\n  display-xl:\n    fontFamily: Playfair Display\n    fontSize: 84px\n    fontWeight: '400'\n    lineHeight: 92px\n    letterSpacing: -0.03em\n  display-xl-mobile:\n    fontFamily: Playfair Display\n    fontSize: 48px\n    fontWeight: '400'\n    lineHeight: 54px\n    letterSpacing: -0.02em\n  headline-lg:\n    fontFamily: Playfair Display\n    fontSize: 56px\n    fontWeight: '400'\n    lineHeight: 64px\n    letterSpacing: -0.02em\n  headline-lg-mobile:\n    fontFamily: Playfair Display\n    fontSize: 36px\n    fontWeight: '400'\n    lineHeight: 42px\n    letterSpacing: -0.01em\n  headline-md:\n    fontFamily: Playfair Display\n    fontSize: 36px\n    fontWeight: '500'\n    lineHeight: 44px\n    letterSpacing: -0.01em\n  headline-md-mobile:\n    fontFamily: Playfair Display\n    fontSize: 28px\n    fontWeight: '500'\n    lineHeight: 34px\n    letterSpacing: 0em\n  headline-sm:\n    fontFamily: Playfair Display\n    fontSize: 24px\n    fontWeight: '500'\n    lineHeight: 32px\n    letterSpacing: 0em\n  body-lg:\n    fontFamily: Hanken Grotesk\n    fontSize: 18px\n    fontWeight: '400'\n    lineHeight: 28px\n    letterSpacing: -0.01em\n  body-md:\n    fontFamily: Hanken Grotesk\n    fontSize: 15px\n    fontWeight: '400'\n    lineHeight: 24px\n    letterSpacing: 0em\n  body-sm:\n    fontFamily: Hanken Grotesk\n    fontSize: 13px\n    fontWeight: '400'\n    lineHeight: 20px\n    letterSpacing: 0.01em\n  label-md:\n    fontFamily: Hanken Grotesk\n    fontSize: 12px\n    fontWeight: '600'\n    lineHeight: 16px\n    letterSpacing: 0.06em\n  label-mono:\n    fontFamily: JetBrains Mono\n    fontSize: 11px\n    fontWeight: '400'\n    lineHeight: 16px\n    letterSpacing: 0.08em\n  label-mono-sm:\n    fontFamily: JetBrains Mono\n    fontSize: 10px\n    fontWeight: '400'\n    lineHeight: 14px\n    letterSpacing: 0.1em\nrounded:\n  sm: 0.125rem\n  DEFAULT: 0.25rem\n  md: 0.375rem\n  lg: 0.5rem\n  xl: 0.75rem\n  full: 9999px\nspacing:\n  gutter: 1.5rem\n  gutter-tablet: 1.25rem\n  gutter-mobile: 1rem\n  margin: 4rem\n  margin-tablet: 2rem\n  margin-mobile: 1.25rem\n  space-xs: 0.25rem\n  space-sm: 0.5rem\n  space-md: 1rem\n  space-lg: 1.75rem\n  space-xl: 3rem\n---\n\n## Brand & Style\n\nThis design system fuses haute couture editorial curation with kinetic digital interactions. Crafted for an intimate, bespoke digital flagship, it evokes quiet grandeur, intellectual permanence, and contemporary kinetic grace. The visual atmosphere balances the tactile weight of an archival art catalog with the precision and agility of modern digital experiences.\n\nThe aesthetic philosophy centers on **Atmospheric Editorial Luxury**:\n- **Tension of Scales:** Extreme contrasts between monumental, high-character serif typography and razor-sharp, whisper-quiet geometric sans and archival monospace annotations.\n- **Materiality & Restraint:** A deep, carbon-mineral backdrop that lets bone-white ecru letterforms and warm terracotta-amber accents breathe without synthetic glare.\n- **Deliberate Movement:** Interactive elements employ deliberate, weighted transitions—fluid easings that feel physical rather than instantaneous, honoring craftsmanship over raw utility.\n\n## Colors\n\nThe palette establishes an intimate, nocturnal atmosphere punctuated by warm earth and metallic highlights.\n\n- **Canvas & Neutral Foundation (`#0D0E11`):** A velvety sable black with subtle mineral undertones, avoiding the sterility of true `#000000`. Layered surfaces scale subtly upwards into slate soot (`#15171C`) and smoked obsidian (`#1D2026`).\n- **Primary Text & High Contrast (`#F5F2EB`):** Warm bone ecru replaces clinical pure white, imparting paper-like warmth to reading layers and primary displays.\n- **Primary Accent (`#D97736`):** Saturated terracotta amber providing energy, tactile focus, and deliberate interaction cues.\n- **Secondary Accent (`#E8D5B5`):** Champagne gold, employed for refined borders, delicate badges, and metadata callouts.\n- **Tertiary Tone (`#8C3F1D`):** Deep burnt umber used for subtle structural emphasis, active states, and decorative depth.\n\nColor is applied with editorial discipline: the sable background dominates 85% of the viewport, ecru governs typography and structural delineations, while terracotta amber and champagne gold are reserved strictly for intent and focus.\n\n## Typography\n\nThe typography system relies on a sharp three-way dialectic:\n1. **Playfair Display (Display & Headlines):** Exudes literary weight, high-contrast transitional strokes, and classical editorial romance. Use italic variations sparingly for emotional inflection.\n2. **Hanken Grotesk (Body & Structural UI):** Contemporary, neutral, and unpretentious; guarantees hyper-legibility across dense blocks of narrative text and operational interfaces.\n3. **JetBrains Mono (Metadata & Technical Footnotes):** Archival and precise. Used for indexes, catalogue numbering, technical stamps, and kinetic timestamps, grounding the luxury serif in digital reality.\n\nDisplay titles should maintain tight tracking to emphasize editorial composition, while all monospaced and mini-caps labels utilize expanded letter-spacing for archival clarity.\n\n## Layout & Spacing\n\nThe layout is built upon an asymmetrical 12-column architectural grid with generous exterior margins that emulate the wide borders of fine-art folios.\n\n- **Desktop (1200px+):** 12 columns with `4rem` outer canvas padding. Negative space is intentional and generous, allowing hero imagery and headline lockups to breathe.\n- **Tablet (768px - 1199px):** 8 columns with `2rem` outer margin and `1.25rem` gutters. Multi-column editorial modules collapse gracefully to bipartite formats.\n- **Mobile (<768px):** 4 columns with `1.25rem` outer margin and `1rem` gutters. Editorial typography shifts to tailored mobile-scale tokens, and dense layouts collapse into continuous vertical scrolls anchored by subtle horizontal hairline divides.\n\nSpacing follows an organic 8-step base rhythm. Component groupings prioritize breathing room over density, ensuring the user experiences an unhurried, gallery-grade journey.\n\n## Elevation & Depth\n\nRather than relying on heavy shadows or artificial light-source metaphors, visual depth is achieved through **Tonal Mineral Layering** and **Low-Contrast Hairlines**:\n\n- **Surface Stratification:**\n  - *Base Layer (`#0D0E11`):* The infinite sable canvas.\n  - *Mid Layer (`#15171C`):* Modest elevation for cards, modular trays, and persistent toolbars.\n  - *Top Layer (`#1D2026`):* Interactive sheets, dropdowns, and flyout navigation.\n- **Ghost Borders:** Elements are bounded by crisp 1px borders tinted in Champagne Gold or Ecru with ultra-low opacity (`rgba(232, 213, 181, 0.12)`), providing precise structural bounding without visual heaviness.\n- **Atmospheric Glow:** Diffuse, colored ambient glows replace traditional drop shadows. Focused elements cast an ethereal halo: `0 16px 40px -12px rgba(217, 119, 54, 0.18)`.\n- **Frosted Translucency:** Floating headers and backdrop scrims implement a dark glass treatment with `backdrop-filter: blur(16px)` and 75% opacity base color to maintain spatial continuity.\n\n## Shapes\n\nThe geometric signature is architectural, sharp, and disciplined. A soft roundedness (`0.25rem` base) softens harsh corners without sliding into casual or playful aesthetics:\n\n- **Base Radius (`0.25rem` / 4px):** Applied to form controls, action buttons, tooltips, and badges. Imparts a hand-cut, stone-carved sensation.\n- **Contained Modules (`0.5rem` / 8px):** Reserved for media containers, framed artifacts, and structural dialogs.\n- **Geometric Strictness:** Segmented navigation, vertical dividers, and linear rules retain pure `0px` cuts to preserve editorial tension against the curvature of serif letterforms.\n\n## Components\n\n### Buttons & CTAs\n- **Primary CTA:** Solid Terracotta Amber (`#D97736`) with dark mineral typography (`#0D0E11`), weighted in medium geometric sans. Hover triggers an inward luminescence and a kinetic +2px micro-lift.\n- **Secondary CTA:** Sable mineral background with a 1px Champagne border (`rgba(232, 213, 181, 0.3)`) and Bone Ecru text. Hover scales border opacity to 100% with a champagne gold text glow.\n- **Editorial Link Action:** Monospaced label flanked by a directional glyph (`->`), underlaid with an offset 1px rule that sweeps outward from the center on hover.\n\n### Inputs & Form Fields\n- Minimalist open-bottom or ghost-well inputs. The well utilizes `#15171C` bounded by a 1px border of `rgba(245, 242, 235, 0.15)`.\n- On focus: The hairline border shifts seamlessly to Terracotta Amber with an ambient terracotta aura (`0 0 0 1px #D97736`). Placeholders use `label-mono` in muted ecru.\n\n### Cards & Artifact Modules\n- Surfaces stay grounded in `#15171C`. Image viewports maintain an intentional 4:5 or 16:9 ratio with subtle internal borders.\n- Hover states initiate an image scale of 1.02x paired with metadata shifting upward to reveal contextual archival details.\n\n### Badges & Monospace Chips\n- Minimalist height (24px max), encased in `0.25rem` radius with 1px hairlines.\n- Displays catalogue numbers, statuses, and collection taxonomies via `label-mono-sm` in champagne gold or ecru.\n\n### Checkboxes & Selection Controls\n- Rectilinear 16px squares with `2px` corners. Checked state fills with terracotta amber and features a crisp sable check icon. Radio items employ concentric rings with a champagne gold nucleus.\n\n### Lists & Archival Tables\n- Frameless, separated strictly by horizontal hairline borders (`rgba(245, 242, 235, 0.08)`).\n- Table headers use `label-mono` in subdued champagne gold; row hovers illuminate subtly with a soft `#1D2026` wash and a leading terracotta indicator notch.",
+        "font": "PLAYFAIR_DISPLAY",
+        "headlineFont": "PLAYFAIR_DISPLAY",
+        "headlineFontFamily": "Playfair Display",
+        "labelFont": "JETBRAINS_MONO",
+        "labelFontFamily": "JetBrains Mono",
+        "namedColors": {
+          "background": "#121316",
+          "error": "#ffb4ab",
+          "error_container": "#93000a",
+          "inverse_on_surface": "#303034",
+          "inverse_primary": "#994703",
+          "inverse_surface": "#e3e2e6",
+          "on_background": "#e3e2e6",
+          "on_error": "#690005",
+          "on_error_container": "#ffdad6",
+          "on_primary": "#532200",
+          "on_primary_container": "#491d00",
+          "on_primary_fixed": "#321200",
+          "on_primary_fixed_variant": "#753400",
+          "on_secondary": "#3a2f19",
+          "on_secondary_container": "#c5b395",
+          "on_secondary_fixed": "#241a06",
+          "on_secondary_fixed_variant": "#52452d",
+          "on_surface": "#e3e2e6",
+          "on_surface_variant": "#dbc1b4",
+          "on_tertiary": "#5a1c00",
+          "on_tertiary_container": "#4f1800",
+          "on_tertiary_fixed": "#370e00",
+          "on_tertiary_fixed_variant": "#79310f",
+          "outline": "#a38c80",
+          "outline_variant": "#554339",
+          "primary": "#ffb68c",
+          "primary_container": "#d97736",
+          "primary_fixed": "#ffdbc9",
+          "primary_fixed_dim": "#ffb68c",
+          "secondary": "#d7c4a5",
+          "secondary_container": "#52452d",
+          "secondary_fixed": "#f4e0c0",
+          "secondary_fixed_dim": "#d7c4a5",
+          "surface": "#121316",
+          "surface_bright": "#38393c",
+          "surface_container": "#1f1f23",
+          "surface_container_high": "#292a2d",
+          "surface_container_highest": "#343538",
+          "surface_container_low": "#1b1b1f",
+          "surface_container_lowest": "#0d0e11",
+          "surface_dim": "#121316",
+          "surface_tint": "#ffb68c",
+          "surface_variant": "#343538",
+          "tertiary": "#ffb599",
+          "tertiary_container": "#d67851",
+          "tertiary_fixed": "#ffdbce",
+          "tertiary_fixed_dim": "#ffb599"
+        },
+        "overrideNeutralColor": "#0d0e11",
+        "overridePrimaryColor": "#d97736",
+        "overrideSecondaryColor": "#e8d5b5",
+        "overrideTertiaryColor": "#8c3f1d",
+        "roundness": "ROUND_FOUR",
+        "spacing": {
+          "gutter": "1.5rem",
+          "gutter-mobile": "1rem",
+          "gutter-tablet": "1.25rem",
+          "margin": "4rem",
+          "margin-mobile": "1.25rem",
+          "margin-tablet": "2rem",
+          "space-lg": "1.75rem",
+          "space-md": "1rem",
+          "space-sm": "0.5rem",
+          "space-xl": "3rem",
+          "space-xs": "0.25rem"
+        },
+        "spacingScale": 2,
+        "typography": {
+          "body-lg": {
+            "fontFamily": "Hanken Grotesk",
+            "fontSize": "18px",
+            "fontWeight": "400",
+            "letterSpacing": "-0.01em",
+            "lineHeight": "28px"
+          },
+          "body-md": {
+            "fontFamily": "Hanken Grotesk",
+            "fontSize": "15px",
+            "fontWeight": "400",
+            "letterSpacing": "0em",
+            "lineHeight": "24px"
+          },
+          "body-sm": {
+            "fontFamily": "Hanken Grotesk",
+            "fontSize": "13px",
+            "fontWeight": "400",
+            "letterSpacing": "0.01em",
+            "lineHeight": "20px"
+          },
+          "display-xl": {
+            "fontFamily": "Playfair Display",
+            "fontSize": "84px",
+            "fontWeight": "400",
+            "letterSpacing": "-0.03em",
+            "lineHeight": "92px"
+          },
+          "display-xl-mobile": {
+            "fontFamily": "Playfair Display",
+            "fontSize": "48px",
+            "fontWeight": "400",
+            "letterSpacing": "-0.02em",
+            "lineHeight": "54px"
+          },
+          "headline-lg": {
+            "fontFamily": "Playfair Display",
+            "fontSize": "56px",
+            "fontWeight": "400",
+            "letterSpacing": "-0.02em",
+            "lineHeight": "64px"
+          },
+          "headline-lg-mobile": {
+            "fontFamily": "Playfair Display",
+            "fontSize": "36px",
+            "fontWeight": "400",
+            "letterSpacing": "-0.01em",
+            "lineHeight": "42px"
+          },
+          "headline-md": {
+            "fontFamily": "Playfair Display",
+            "fontSize": "36px",
+            "fontWeight": "500",
+            "letterSpacing": "-0.01em",
+            "lineHeight": "44px"
+          },
+          "headline-md-mobile": {
+            "fontFamily": "Playfair Display",
+            "fontSize": "28px",
+            "fontWeight": "500",
+            "letterSpacing": "0em",
+            "lineHeight": "34px"
+          },
+          "headline-sm": {
+            "fontFamily": "Playfair Display",
+            "fontSize": "24px",
+            "fontWeight": "500",
+            "letterSpacing": "0em",
+            "lineHeight": "32px"
+          },
+          "label-md": {
+            "fontFamily": "Hanken Grotesk",
+            "fontSize": "12px",
+            "fontWeight": "600",
+            "letterSpacing": "0.06em",
+            "lineHeight": "16px"
+          },
+          "label-mono": {
+            "fontFamily": "JetBrains Mono",
+            "fontSize": "11px",
+            "fontWeight": "400",
+            "letterSpacing": "0.08em",
+            "lineHeight": "16px"
+          },
+          "label-mono-sm": {
+            "fontFamily": "JetBrains Mono",
+            "fontSize": "10px",
+            "fontWeight": "400",
+            "letterSpacing": "0.1em",
+            "lineHeight": "14px"
+          }
+        }
+      }
+    },
+    "name": "assets/29277ad87b394b3891b391799eaae8ac",
+    "version": "1"
+  },
+  "deviceType": "DESKTOP",
+  "generatedBy": "figaro_agent",
+  "height": "2048",
+  "htmlCode": {
+    "downloadUrl": "https://contribution.usercontent.google.com/download?c=CgthaWRhX2NvZGVmeBJ8Eh1hcHBfY29tcGFuaW9uX2dlbmVyYXRlZF9maWxlcxpbCiVodG1sXzgzMWNkNWI2OWEyNTQzNDNhYmMwN2Q0OTkxZmE1ZWU3EgsSBxC_1eWs1BYYAZIBJAoKcHJvamVjdF9pZBIWQhQxMzQ1MTQyMjk5NzIyNjc0NDQ3NA&filename=&opi=96797242",
+    "mimeType": "text/html",
+    "name": "projects/13451422997226744474/files/a349ea8f6cbc4dc58324bf05da59b47e"
+  },
+  "id": "89e5c4e469ad44ac9e395cbab28fb242",
+  "name": "projects/13451422997226744474/screens/89e5c4e469ad44ac9e395cbab28fb242",
+  "prompt": "A single cinematic viewport keyframe screen (1440x900 aspect ratio, zero page scrolling, overflow hidden) for 'ALGORYXZ / 000 — Keyframe D03: Archive (Single Viewport)'.\n\nEmbed the Three.js 3D dimensional scene {{DATA:ANIMATION:ANIMATION_25}} as the full viewport spatial background:\n<threejs-scene src=\"{{DATA:ANIMATION:ANIMATION_25}}\" class=\"absolute inset-0 w-full h-full bg-transparent\"></threejs-scene>\n\nEXPERIENCE MOMENT:\nThe hero monolith has fully resolved into spatial project discovery. The deconstructed plates have aligned into a dimensional gallery floating in space.\n\nSTRICT ARCHITECTURAL HUD OVERLAY & METADATA (SINGLE VIEWPORT 1440x900):\n- TOP BAR:\n  * Floating glass pill nav: 'ALGORYXZ / 000', links: 'Archive' (active with amber underline), 'Atelier', 'Foundry', 'Colophon'.\n  * Right: status indicator with amber dot: '• SPATIAL ARCHIVE // KEYFRAME D03', 'Inquire ↗' button.\n- SUB-HEADER METRICS:\n  * Left: '■ 000 // STUDIO ARCHIVE // ODISHA, IN' and geographic coordinates '20.2961° N, 85.8245° E · IST [UTC+05:30]'.\n  * Right: 'SYS.STATE // SPATIAL DISCOVERY [D03]' and 'SLABS: 03 ALIGNED · OCCLUSION: PARALLAX'.\n\nSPATIAL HUD TARGETING & LABELS (floating over the 3 slabs in perspective):\n1. Over Left Foreground Slab:\n   * Subtle pill badge: 'PLATE / 000' | 'INTERNAL'\n   * 'Algoryxz Studio OS & Archival Engine'\n   * 'Z: +1.10m · TILT: +24°'\n2. Over Center Dominant Slab (Interactive Focal Affordance):\n   * Glowing amber pointer crosshair badge:\n     '[ CLICK TO ENTER WORLD /001 ]'\n     'ALGORYXZ / 001 — THE MONSOON VOWS'\n     'Celebration & Living Memory Archive · Kerala Heirloom'\n     'Z: +0.30m · FOCAL DEPTH: 100%'\n3. Over Right Midground Slab:\n   * Subtle pill badge: 'PLATE / 002' | 'CONCEPT'\n   * 'Verve & Vapor Specialty Roastery'\n   * 'Z: -0.85m · TILT: -25°'\n\nBOTTOM VIEWPORT BAR:\n- Headline lockup: 'WE MAKE... ...FOR THE INTERNET.' with 'ARCHIVE EXHIBITION // 03 ENTRIES'\n- Descriptor: 'The architectural plates align into an interactive spatial gallery. Three living archives engineered for permanence.'\n- Project selector switcher tabs:\n  * '/000 STUDIO ENGINE'\n  * '/001 MONSOON VOWS [ACTIVE FOCUS]' (highlighted in warm amber with glowing border)\n  * '/002 VERVE & VAPOR'\n- Footer baseline status:\n  * Left: 'KEYFRAME D03' badge, 'SPATIAL RESOLUTION: 100vh', '• INTERACTIVE SLAB CAMERA ENGAGED'\n  * Right: 'DRAG TO ORBIT PERSPECTIVE ✋' and 'ENTER IMMERSIVE VIEW ↗'\n\nAesthetic: Warm chiaroscuro, sable & ecru palette (#121316 background, #d97736 warm amber accents, #ecd1a4 champagne gold hairline borders), pure single viewport 1440x900 framing with zero scrollbar.",
+  "screenMetadata": {
+    "agentType": "PRO_AGENT",
+    "status": "COMPLETE"
+  },
+  "screenType": "DESIGN",
+  "screenshot": {
+    "downloadUrl": "https://lh3.googleusercontent.com/aida/AEtjO1UFlAG3s89B_VLZeEo45ca-CB6y9kNwKgqiBshgU6tNAWBqzCwaBfjODkftAE5zRInTKdP1cPjvqsFX0vOs3joIEYTzjtWjjOCnb2s_SVv0QoyDynOwa1AuZfjDIlhpbxsdacJMl_8puWEpsgiUTu0hl8Vo8wpQ8hxxQ1QkzBTD0ITH5PdAcS8RZg9ViKUNTAFyJAzxW05O5YahWzp8lo4eZw0f84RgTTnA6R10UQo3nuYjzhiMh0JuZkA",
+    "name": "projects/13451422997226744474/files/553ba6aab20e4b35805dd963f9cd0560"
+  },
+  "theme": {
+    "bodyFont": "HANKEN_GROTESK",
+    "bodyFontFamily": "Hanken Grotesk",
+    "colorMode": "DARK",
+    "colorVariant": "FIDELITY",
+    "customColor": "#d97736",
+    "font": "PLAYFAIR_DISPLAY",
+    "headlineFont": "PLAYFAIR_DISPLAY",
+    "headlineFontFamily": "Playfair Display",
+    "labelFont": "JETBRAINS_MONO",
+    "labelFontFamily": "JetBrains Mono",
+    "namedColors": {
+      "background": "#121316",
+      "error": "#ffb4ab",
+      "error_container": "#93000a",
+      "inverse_on_surface": "#303034",
+      "inverse_primary": "#994703",
+      "inverse_surface": "#e3e2e6",
+      "on_background": "#e3e2e6",
+      "on_error": "#690005",
+      "on_error_container": "#ffdad6",
+      "on_primary": "#532200",
+      "on_primary_container": "#491d00",
+      "on_primary_fixed": "#321200",
+      "on_primary_fixed_variant": "#753400",
+      "on_secondary": "#3a2f19",
+      "on_secondary_container": "#c5b395",
+      "on_secondary_fixed": "#241a06",
+      "on_secondary_fixed_variant": "#52452d",
+      "on_surface": "#e3e2e6",
+      "on_surface_variant": "#dbc1b4",
+      "on_tertiary": "#5a1c00",
+      "on_tertiary_container": "#4f1800",
+      "on_tertiary_fixed": "#370e00",
+      "on_tertiary_fixed_variant": "#79310f",
+      "outline": "#a38c80",
+      "outline_variant": "#554339",
+      "primary": "#ffb68c",
+      "primary_container": "#d97736",
+      "primary_fixed": "#ffdbc9",
+      "primary_fixed_dim": "#ffb68c",
+      "secondary": "#d7c4a5",
+      "secondary_container": "#52452d",
+      "secondary_fixed": "#f4e0c0",
+      "secondary_fixed_dim": "#d7c4a5",
+      "surface": "#121316",
+      "surface_bright": "#38393c",
+      "surface_container": "#1f1f23",
+      "surface_container_high": "#292a2d",
+      "surface_container_highest": "#343538",
+      "surface_container_low": "#1b1b1f",
+      "surface_container_lowest": "#0d0e11",
+      "surface_dim": "#121316",
+      "surface_tint": "#ffb68c",
+      "surface_variant": "#343538",
+      "tertiary": "#ffb599",
+      "tertiary_container": "#d67851",
+      "tertiary_fixed": "#ffdbce",
+      "tertiary_fixed_dim": "#ffb599"
+    },
+    "overrideNeutralColor": "#0d0e11",
+    "overridePrimaryColor": "#d97736",
+    "overrideSecondaryColor": "#e8d5b5",
+    "overrideTertiaryColor": "#8c3f1d",
+    "roundness": "ROUND_FOUR",
+    "spacing": {
+      "gutter": "1.5rem",
+      "gutter-mobile": "1rem",
+      "gutter-tablet": "1.25rem",
+      "margin": "4rem",
+      "margin-mobile": "1.25rem",
+      "margin-tablet": "2rem",
+      "space-lg": "1.75rem",
+      "space-md": "1rem",
+      "space-sm": "0.5rem",
+      "space-xl": "3rem",
+      "space-xs": "0.25rem"
+    },
+    "spacingScale": 2,
+    "typography": {
+      "body-lg": {
+        "fontFamily": "Hanken Grotesk",
+        "fontSize": "18px",
+        "fontWeight": "400",
+        "letterSpacing": "-0.01em",
+        "lineHeight": "28px"
+      },
+      "body-md": {
+        "fontFamily": "Hanken Grotesk",
+        "fontSize": "15px",
+        "fontWeight": "400",
+        "letterSpacing": "0em",
+        "lineHeight": "24px"
+      },
+      "body-sm": {
+        "fontFamily": "Hanken Grotesk",
+        "fontSize": "13px",
+        "fontWeight": "400",
+        "letterSpacing": "0.01em",
+        "lineHeight": "20px"
+      },
+      "display-xl": {
+        "fontFamily": "Playfair Display",
+        "fontSize": "84px",
+        "fontWeight": "400",
+        "letterSpacing": "-0.03em",
+        "lineHeight": "92px"
+      },
+      "display-xl-mobile": {
+        "fontFamily": "Playfair Display",
+        "fontSize": "48px",
+        "fontWeight": "400",
+        "letterSpacing": "-0.02em",
+        "lineHeight": "54px"
+      },
+      "headline-lg": {
+        "fontFamily": "Playfair Display",
+        "fontSize": "56px",
+        "fontWeight": "400",
+        "letterSpacing": "-0.02em",
+        "lineHeight": "64px"
+      },
+      "headline-lg-mobile": {
+        "fontFamily": "Playfair Display",
+        "fontSize": "36px",
+        "fontWeight": "400",
+        "letterSpacing": "-0.01em",
+        "lineHeight": "42px"
+      },
+      "headline-md": {
+        "fontFamily": "Playfair Display",
+        "fontSize": "36px",
+        "fontWeight": "500",
+        "letterSpacing": "-0.01em",
+        "lineHeight": "44px"
+      },
+      "headline-md-mobile": {
+        "fontFamily": "Playfair Display",
+        "fontSize": "28px",
+        "fontWeight": "500",
+        "letterSpacing": "0em",
+        "lineHeight": "34px"
+      },
+      "headline-sm": {
+        "fontFamily": "Playfair Display",
+        "fontSize": "24px",
+        "fontWeight": "500",
+        "letterSpacing": "0em",
+        "lineHeight": "32px"
+      },
+      "label-md": {
+        "fontFamily": "Hanken Grotesk",
+        "fontSize": "12px",
+        "fontWeight": "600",
+        "letterSpacing": "0.06em",
+        "lineHeight": "16px"
+      },
+      "label-mono": {
+        "fontFamily": "JetBrains Mono",
+        "fontSize": "11px",
+        "fontWeight": "400",
+        "letterSpacing": "0.08em",
+        "lineHeight": "16px"
+      },
+      "label-mono-sm": {
+        "fontFamily": "JetBrains Mono",
+        "fontSize": "10px",
+        "fontWeight": "400",
+        "letterSpacing": "0.1em",
+        "lineHeight": "14px"
+      }
+    }
+  },
+  "title": "ALGORYXZ / 000 — Keyframe D03: Archive (Single Viewport)",
+  "width": "2560"
+}

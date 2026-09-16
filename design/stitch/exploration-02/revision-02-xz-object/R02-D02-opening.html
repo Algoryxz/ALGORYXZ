@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+
+<html class="dark h-full" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>ALGORYXZ — Keyframe R02-D02: Object / Opening (1440x900)</title>
+<!-- Google Fonts: Playfair Display, Space Grotesk, JetBrains Mono -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500&amp;family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&amp;family=Space+Grotesk:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script>
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "surface-base": "#0a0a0c",
+            "surface-subtle": "#121216",
+            "charcoal": "#161619",
+            "honey": "#e89858",
+            "honey-bright": "#f2b26c",
+            "honey-dim": "#a86432",
+            "terracotta": "#bb6336",
+            "vellum": "#ded1c1",
+            "opaline": "#f5eee6",
+            "wire": "#32333b",
+          },
+          fontFamily: {
+            sans: ['Space Grotesk', 'sans-serif'],
+            serif: ['Playfair Display', 'serif'],
+            mono: ['JetBrains Mono', 'monospace'],
+          }
+        }
+      }
+    };
+  </script>
+<style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html, body {
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      background: #0a0a0c;
+      color: #e5e5eb;
+    }
+
+    /* Architectural subtle point-grid background */
+    .bg-grid-matrix {
+      background-image: radial-gradient(rgba(232, 152, 88, 0.08) 1px, transparent 0);
+      background-size: 36px 36px;
+    }
+
+    /* Spatial text depth layering */
+    .spatial-layer-fore {
+      transform: translateZ(40px);
+      text-shadow: 0 20px 40px rgba(0,0,0,0.85);
+    }
+    
+    .spatial-layer-mid {
+      transform: translateZ(-20px);
+      opacity: 0.88;
+      filter: blur(0.35px);
+    }
+
+    /* Radial atmospheric lighting vignette */
+    .radial-vignette {
+      background: radial-gradient(circle at 60% 48%, rgba(232, 152, 88, 0.04) 0%, transparent 65%),
+                  radial-gradient(circle at 50% 50%, transparent 40%, rgba(10, 10, 12, 0.92) 100%);
+    }
+  </style>
+</head>
+<body class="bg-surface-base antialiased select-none font-sans overflow-hidden w-screen h-screen flex flex-col justify-between relative bg-grid-matrix">
+<!-- ================================================================= -->
+<!-- 1. FULL-BLEED THREE.JS INTERACTIVE 3D LAYER (THE UNFOLDING XZ)     -->
+<!-- ================================================================= -->
+<div class="absolute inset-0 w-full h-full z-0 pointer-events-auto">
+<!-- STITCH_THREEJS_START:ANIMATION_45 class="absolute inset-0 w-full h-full bg-transparent" -->
+<div class="absolute inset-0 w-full h-full bg-transparent" style="display:block;">
+<script src="https://ajax.googleapis.com/ajax/libs/threejs/r125/three.min.js"></script>
+<div id="threejs-container-ANIMATION_45" style="width:100%;height:100%"></div>
+<script>
+(function() {
+  const container = document.getElementById('threejs-container-ANIMATION_45');
+  const devicePixelRatio = window.devicePixelRatio || 1;
+  // Three.js Interactive Spatial Object: "THE XZ OBJECT — UNFOLDING / OPENING"
+// Keyframe R02-D02: Physical opening along the Z-axis.
+// Exact same visual universe as R02-D01: Matte pencil charcoal/slate, frosted translucent opaline resin,
+// warm vellum strata, warm honey/champagne raking chiaroscuro, and internal core luminescence.
+// Now unfolded: Forefront planes surge toward camera, midground facets rotate outward,
+// revealing etched internal numbering [/000], [/001], [/002] on exposed interior faces.
+
+const container = document.getElementById('threejs-container-xz-opening') || document.body;
+const width = container.clientWidth || window.innerWidth;
+const height = container.clientHeight || window.innerHeight;
+
+const scene = new THREE.Scene();
+scene.fog = new THREE.FogExp2(0x0a0a0c, 0.022);
+
+// Calibrated perspective camera for 1440x900 viewport
+const camera = new THREE.PerspectiveCamera(40, width / height, 0.1, 100);
+camera.position.set(0.15, 0.1, 6.8);
+
+const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true, powerPreference: "high-performance" });
+renderer.setSize(width, height);
+renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+renderer.toneMapping = THREE.ACESFilmicToneMapping;
+renderer.toneMappingExposure = 1.38;
+renderer.shadowMap.enabled = true;
+renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+container.appendChild(renderer.domElement);
+
+// Master Group
+const masterGroup = new THREE.Group();
+masterGroup.position.set(0.2, -0.05, 0);
+scene.add(masterGroup);
+
+// Lighting: Warm studio chiaroscuro (Honey / Champagne / Charcoal shadow)
+const ambientLight = new THREE.AmbientLight(0x181716, 1.3);
+scene.add(ambientLight);
+
+// Key warm honey/champagne raking light from top-right
+const honeySpot = new THREE.SpotLight(0xf2b26c, 18.0, 22, Math.PI / 3.4, 0.55);
+honeySpot.position.set(5.0, 5.2, 4.8);
+honeySpot.target.position.set(0, 0, 0);
+scene.add(honeySpot);
+scene.add(honeySpot.target);
+
+// Delicate opaline backlight rim
+const opalineRim = new THREE.DirectionalLight(0xe8d5c4, 5.0);
+opalineRim.position.set(-6.0, 3.0, -3.5);
+scene.add(opalineRim);
+
+// Deep velvet pencil-charcoal fill from bottom-left
+const charcoalFill = new THREE.DirectionalLight(0x1f2228, 2.4);
+charcoalFill.position.set(-4.0, -4.5, 3.0);
+scene.add(charcoalFill);
+
+// Internal honey glow point light exposed by the opening
+const coreHoneyLight = new THREE.PointLight(0xe89858, 16.0, 10.0);
+coreHoneyLight.position.set(0.1, 0.0, 0.4);
+masterGroup.add(coreHoneyLight);
+
+// Secondary internal amber point light inside deep chamber
+const innerDeepLight = new THREE.PointLight(0xffa658, 8.0, 7.0);
+innerDeepLight.position.set(-0.2, 0.2, -0.2);
+masterGroup.add(innerDeepLight);
+
+// ==========================================
+// MATERIALS Interplay (Exact continuity with R02-D01)
+// ==========================================
+
+const charcoalMatteMat = new THREE.MeshStandardMaterial({
+  color: 0x161619,
+  roughness: 0.82,
+  metalness: 0.12,
+});
+
+const opalineResinMat = new THREE.MeshPhysicalMaterial({
+  color: 0xf5eee6,
+  roughness: 0.28,
+  transmission: 0.72,
+  thickness: 1.4,
+  ior: 1.45,
+  opacity: 0.9,
+  transparent: true,
+  emissive: 0x3d2716,
+  emissiveIntensity: 0.28
+});
+
+const vellumPaperMat = new THREE.MeshStandardMaterial({
+  color: 0xded1c1,
+  roughness: 0.7,
+  metalness: 0.05,
+  emissive: 0x22170d,
+  emissiveIntensity: 0.2
+});
+
+const terracottaChamferMat = new THREE.MeshStandardMaterial({
+  color: 0xbb6336,
+  roughness: 0.45,
+  metalness: 0.55,
+});
+
+const wireCharcoal = new THREE.LineBasicMaterial({
+  color: 0x42434a,
+  transparent: true,
+  opacity: 0.65
+});
+
+const wireHoney = new THREE.LineBasicMaterial({
+  color: 0xe89858,
+  transparent: true,
+  opacity: 0.85
+});
+
+// Canvas Texture Generator for Etched Internal Numbering [/000], [/001], [/002]
+function createEtchedArchiveTexture(numberStr, labelStr) {
+  const canvas = document.createElement('canvas');
+  canvas.width = 512;
+  canvas.height = 512;
+  const ctx = canvas.getContext('2d');
+
+  // Background deep charcoal
+  ctx.fillStyle = '#161619';
+  ctx.fillRect(0, 0, 512, 512);
+
+  // Subtle architectural hairline grid
+  ctx.strokeStyle = 'rgba(232, 152, 88, 0.12)';
+  ctx.lineWidth = 1;
+  for (let x = 0; x < 512; x += 32) {
+    ctx.beginPath(); ctx.moveTo(x, 0); ctx.lineTo(x, 512); ctx.stroke();
+  }
+  for (let y = 0; y < 512; y += 32) {
+    ctx.beginPath(); ctx.moveTo(0, y); ctx.lineTo(512, y); ctx.stroke();
+  }
+
+  // Border chamfer
+  ctx.strokeStyle = 'rgba(232, 152, 88, 0.35)';
+  ctx.lineWidth = 2;
+  ctx.strokeRect(24, 24, 464, 464);
+
+  // Etched Archive Numbering
+  ctx.fillStyle = '#e89858';
+  ctx.font = 'bold 72px "JetBrains Mono", monospace';
+  ctx.textAlign = 'center';
+  ctx.textBaseline = 'middle';
+  ctx.fillText(numberStr, 256, 220);
+
+  // Subtle label
+  ctx.fillStyle = '#dcd4cb';
+  ctx.font = '22px "JetBrains Mono", monospace';
+  ctx.fillText(labelStr, 256, 310);
+
+  const tex = new THREE.CanvasTexture(canvas);
+  tex.anisotropy = 4;
+  return tex;
+}
+
+const tex000 = createEtchedArchiveTexture('[/000]', 'STUDIO ARCHIVE // CORE');
+const tex001 = createEtchedArchiveTexture('[/001]', 'THE MONSOON VOWS');
+const tex002 = createEtchedArchiveTexture('[/002]', 'INDEPENDENT BRAND');
+
+const etchedMat000 = new THREE.MeshStandardMaterial({
+  map: tex000,
+  roughness: 0.65,
+  metalness: 0.2,
+  emissive: 0x3d2010,
+  emissiveIntensity: 0.35
+});
+
+const etchedMat001 = new THREE.MeshStandardMaterial({
+  map: tex001,
+  roughness: 0.65,
+  metalness: 0.2,
+  emissive: 0x4a2512,
+  emissiveIntensity: 0.4
+});
+
+const etchedMat002 = new THREE.MeshStandardMaterial({
+  map: tex002,
+  roughness: 0.65,
+  metalness: 0.2,
+  emissive: 0x3d2010,
+  emissiveIntensity: 0.35
+});
+
+// ==========================================
+// THE UNFOLDING XZ SCULPTURE
+// Separation & rotation along Z-axis
+// ==========================================
+
+// 1. FOREFRONT CANOPY: Gliding forward (+Z: 1.45), tilted, casting deep shadows
+const foreGroup = new THREE.Group();
+foreGroup.position.set(0.35, 0.2, 1.45);
+foreGroup.rotation.set(-0.18, 0.28, Math.PI / 4.0);
+masterGroup.add(foreGroup);
+
+const pylonGeo = new THREE.BoxGeometry(0.72, 4.4, 0.24);
+const pylonMesh = new THREE.Mesh(pylonGeo, charcoalMatteMat);
+pylonMesh.castShadow = true;
+pylonMesh.receiveShadow = true;
+foreGroup.add(pylonMesh);
+
+const pylonEdges = new THREE.LineSegments(new THREE.EdgesGeometry(pylonGeo), wireHoney);
+pylonMesh.add(pylonEdges);
+
+// Internal exposed face of the forefront pylon carrying [/000]
+const plaqueGeo000 = new THREE.BoxGeometry(0.68, 1.2, 0.02);
+const plaqueMesh000 = new THREE.Mesh(plaqueGeo000, etchedMat000);
+plaqueMesh000.position.set(0, 0, -0.13); // on inner separated face
+plaqueMesh000.rotation.y = Math.PI;
+foreGroup.add(plaqueMesh000);
+
+// 2. MIDGROUND OUTWARD ROTATING LEAVES: Vellum & Terracotta Blades
+const midGroup = new THREE.Group();
+midGroup.position.set(-0.45, -0.1, -0.3);
+midGroup.rotation.set(0.24, -0.38, -Math.PI / 4.2);
+masterGroup.add(midGroup);
+
+const counterGeo = new THREE.BoxGeometry(0.65, 4.2, 0.22);
+const counterMesh = new THREE.Mesh(counterGeo, vellumPaperMat);
+counterMesh.castShadow = true;
+counterMesh.receiveShadow = true;
+midGroup.add(counterMesh);
+
+const counterEdges = new THREE.LineSegments(new THREE.EdgesGeometry(counterGeo), wireHoney);
+counterMesh.add(counterEdges);
+
+// Internal face carrying [/001]
+const plaqueGeo001 = new THREE.BoxGeometry(0.62, 1.2, 0.02);
+const plaqueMesh001 = new THREE.Mesh(plaqueGeo001, etchedMat001);
+plaqueMesh001.position.set(0, 0.1, 0.12);
+midGroup.add(plaqueMesh001);
+
+// 3. OPALINE RESIN PRISM WEDGE (Swung open sideways and forward)
+const opalineGeo = new THREE.ConeGeometry(1.25, 3.4, 4);
+const opalineMesh = new THREE.Mesh(opalineGeo, opalineResinMat);
+opalineMesh.position.set(-0.85, 0.65, 0.75);
+opalineMesh.rotation.set(0.55, 1.1, -Math.PI / 3.4);
+masterGroup.add(opalineMesh);
+
+const opalineWire = new THREE.LineSegments(new THREE.EdgesGeometry(opalineGeo), wireHoney);
+opalineMesh.add(opalineWire);
+
+// 4. TOP CANTILEVER Z-PLATE: Lifted +Y and tilted back
+const topZGeo = new THREE.BoxGeometry(3.6, 0.28, 0.85);
+const topZMesh = new THREE.Mesh(topZGeo, charcoalMatteMat);
+topZMesh.position.set(0.55, 2.2, -0.2);
+topZMesh.rotation.set(0.32, -0.28, 0.12);
+masterGroup.add(topZMesh);
+
+const topZTrim = new THREE.Mesh(new THREE.BoxGeometry(3.64, 0.03, 0.87), terracottaChamferMat);
+topZTrim.position.set(0.55, 2.36, -0.2);
+topZTrim.rotation.set(0.32, -0.28, 0.12);
+masterGroup.add(topZTrim);
+
+// 5. BOTTOM CANTILEVER Z-PLATE: Receding deeper (-Z: -0.95), depressed -Y
+const botZGeo = new THREE.BoxGeometry(3.4, 0.28, 0.75);
+const botZMesh = new THREE.Mesh(botZGeo, charcoalMatteMat);
+botZMesh.position.set(-0.75, -2.15, -0.95);
+botZMesh.rotation.set(-0.25, 0.32, -0.1);
+masterGroup.add(botZMesh);
+
+const botZTrim = new THREE.Mesh(new THREE.BoxGeometry(3.44, 0.03, 0.77), vellumPaperMat);
+botZTrim.position.set(-0.75, -2.31, -0.95);
+botZTrim.rotation.set(-0.25, 0.32, -0.1);
+masterGroup.add(botZTrim);
+
+// Inlaid [/002] on bottom plate face
+const plaqueGeo002 = new THREE.BoxGeometry(1.6, 0.02, 0.65);
+const plaqueMesh002 = new THREE.Mesh(plaqueGeo002, etchedMat002);
+plaqueMesh002.position.set(-0.75, -2.0, -0.95);
+plaqueMesh002.rotation.set(-0.25, 0.32, -0.1);
+masterGroup.add(plaqueMesh002);
+
+// 6. CENTRAL EXPOSED OCTAHEDRAL PRISM CORE & EXPANDING STRATA
+const prismGeo = new THREE.OctahedronGeometry(1.15, 0);
+const prismMesh = new THREE.Mesh(prismGeo, opalineResinMat);
+prismMesh.position.set(0.15, -0.05, 0.35);
+prismMesh.rotation.set(0.45, 0.5, 0.25);
+masterGroup.add(prismMesh);
+
+const prismEdge = new THREE.LineSegments(new THREE.EdgesGeometry(prismGeo), wireHoney);
+prismMesh.add(prismEdge);
+
+// Fanning Origami Blades (Expanding outward like an accordion of tactile paper/slate)
+const blades = [];
+for (let s = -3; s <= 3; s++) {
+  const bladeGeo = new THREE.BoxGeometry(1.9 - Math.abs(s) * 0.2, 0.028, 0.75);
+  const bladeMesh = new THREE.Mesh(bladeGeo, s % 2 === 0 ? vellumPaperMat : charcoalMatteMat);
+  bladeMesh.position.set(s * 0.32, s * 0.26 + 0.1, 0.4 + s * 0.22);
+  bladeMesh.rotation.set(0.28 + s * 0.12, -0.42 + s * 0.05, s * 0.16);
+  masterGroup.add(bladeMesh);
+  blades.push(bladeMesh);
+}
+
+// Glowing Core Sphere in Center (Luminous Honey Heart)
+const glowCoreGeo = new THREE.SphereGeometry(0.38, 24, 24);
+const glowCoreMat = new THREE.MeshBasicMaterial({
+  color: 0xffd29d,
+  transparent: true,
+  opacity: 0.9
+});
+const glowCore = new THREE.Mesh(glowCoreGeo, glowCoreMat);
+glowCore.position.set(0.15, -0.05, 0.35);
+masterGroup.add(glowCore);
+
+// Ambient Floating Fibers & Honey Dust Embers
+const fiberCount = 130;
+const fiberGeo = new THREE.BufferGeometry();
+const fiberPos = new Float32Array(fiberCount * 3);
+const fiberSpeeds = new Float32Array(fiberCount);
+
+for (let f = 0; f < fiberCount; f++) {
+  fiberPos[f * 3] = (Math.random() - 0.5) * 9.0;
+  fiberPos[f * 3 + 1] = (Math.random() - 0.5) * 7.0;
+  fiberPos[f * 3 + 2] = (Math.random() - 0.5) * 5.0;
+  fiberSpeeds[f] = 0.2 + Math.random() * 0.7;
+}
+fiberGeo.setAttribute('position', new THREE.BufferAttribute(fiberPos, 3));
+
+const fiberMat = new THREE.PointsMaterial({
+  color: 0xf2b26c,
+  size: 0.038,
+  transparent: true,
+  opacity: 0.65
+});
+const fibers = new THREE.Points(fiberGeo, fiberMat);
+scene.add(fibers);
+
+// ==========================================
+// INTERACTIVE DYNAMICS & CAMERA PARALLAX
+// ==========================================
+let isPointerDown = false;
+let previousPointer = { x: 0, y: 0 };
+let targetRotX = 0.1;
+let targetRotY = -0.22;
+let currentRotX = 0.1;
+let currentRotY = -0.22;
+
+const onDown = (e) => {
+  if (e.target.closest('button, a, header, nav')) return;
+  isPointerDown = true;
+  previousPointer = { x: e.clientX, y: e.clientY };
+};
+
+const onMove = (e) => {
+  const normX = (e.clientX / width) * 2 - 1;
+  const normY = -(e.clientY / height) * 2 + 1;
+  if (isPointerDown) {
+    const dx = e.clientX - previousPointer.x;
+    const dy = e.clientY - previousPointer.y;
+    targetRotY += dx * 0.004;
+    targetRotX += dy * 0.004;
+    previousPointer = { x: e.clientX, y: e.clientY };
+  } else {
+    // Parallax follow
+    targetRotY = -0.22 + normX * 0.14;
+    targetRotX = 0.1 - normY * 0.1;
+  }
+};
+
+const onUp = () => { isPointerDown = false; };
+
+window.addEventListener('pointerdown', onDown);
+window.addEventListener('pointermove', onMove);
+window.addEventListener('pointerup', onUp);
+
+const onResize = () => {
+  const w = container.clientWidth || window.innerWidth;
+  const h = container.clientHeight || window.innerHeight;
+  camera.aspect = w / h;
+  camera.updateProjectionMatrix();
+  renderer.setSize(w, h);
+};
+window.addEventListener('resize', onResize);
+
+// Kinetic Render Loop
+let clock = new THREE.Clock();
+
+function animate() {
+  requestAnimationFrame(animate);
+  const t = clock.getElapsedTime();
+
+  // Floating breathing oscillation
+  masterGroup.position.y = -0.05 + Math.sin(t * 0.75) * 0.05;
+  masterGroup.position.x = 0.2 + Math.cos(t * 0.6) * 0.03;
+
+  // Forefront plane breathing surge forward
+  foreGroup.position.z = 1.45 + Math.sin(t * 0.9) * 0.08;
+  midGroup.position.z = -0.3 - Math.sin(t * 0.8) * 0.06;
+
+  // Luminous core pulse
+  coreHoneyLight.intensity = 16.0 + Math.sin(t * 2.2) * 3.5;
+  glowCoreMat.opacity = 0.82 + Math.sin(t * 2.2) * 0.15;
+
+  // Blades subtle breathing expansion
+  blades.forEach((blade, idx) => {
+    blade.position.z = 0.4 + (idx - 3) * 0.22 + Math.sin(t * 1.1 + idx * 0.4) * 0.025;
+  });
+
+  // Drift ambient fibers
+  const posArr = fibers.geometry.attributes.position.array;
+  for (let i = 0; i < fiberCount; i++) {
+    posArr[i * 3 + 1] += fiberSpeeds[i] * 0.003;
+    if (posArr[i * 3 + 1] > 3.5) {
+      posArr[i * 3 + 1] = -3.5;
+    }
+  }
+  fibers.geometry.attributes.position.needsUpdate = true;
+
+  // Smooth lerp rotation
+  currentRotX += (targetRotX - currentRotX) * 0.05;
+  currentRotY += (targetRotY - currentRotY) * 0.05;
+
+  masterGroup.rotation.x = currentRotX;
+  masterGroup.rotation.y = currentRotY;
+
+  renderer.render(scene, camera);
+}
+animate();
+
+})();
+</script>
+</div>
+<!-- STITCH_THREEJS_END:ANIMATION_45 -->
+<!-- Atmosphere & Lighting Vignette -->
+<div class="absolute inset-0 pointer-events-none radial-vignette"></div>
+</div>
+<!-- ================================================================= -->
+<!-- 2. TOP MINIMAL PERSISTENT NAVIGATION (R02 Art Direction Continuity)-->
+<!-- ================================================================= -->
+<header class="relative z-30 flex items-center justify-between px-12 py-7 w-full pointer-events-auto">
+<!-- Brand / Origin Lockup -->
+<div class="flex items-center gap-3">
+<a class="flex items-center gap-1.5 group" href="#">
+<span class="font-sans font-bold text-lg tracking-tight text-white">ALGORY</span><span class="font-sans font-bold text-lg tracking-tight text-honey">XZ</span>
+</a>
+<span class="text-white/20 font-mono text-xs">/</span>
+<span class="text-white/40 font-mono text-xs tracking-wider">000</span>
+</div>
+<!-- Center Navigation Anchor Links -->
+<nav class="hidden md:flex items-center gap-9">
+<a class="font-mono text-xs uppercase tracking-widest text-honey transition-colors" href="#work">WORK</a>
+<a class="font-mono text-xs uppercase tracking-widest text-white/50 hover:text-white transition-colors" href="#services">SERVICES</a>
+<a class="font-mono text-xs uppercase tracking-widest text-white/50 hover:text-white transition-colors" href="#process">PROCESS</a>
+<a class="font-mono text-xs uppercase tracking-widest text-white/50 hover:text-white transition-colors" href="#founders">FOUNDERS</a>
+<a class="font-mono text-xs uppercase tracking-widest text-white/50 hover:text-white transition-colors" href="#contact">CONTACT</a>
+</nav>
+<!-- Right Provenance & Primary Action -->
+<div class="flex items-center gap-6">
+<span class="hidden lg:inline-block font-mono text-[11px] text-white/40 tracking-wider">
+        ODISHA, IN <span class="text-white/20">[IST]</span>
+</span>
+<a class="inline-flex items-center gap-2 px-5 py-2 rounded-full border border-white/15 bg-white/[0.03] hover:bg-white/[0.08] hover:border-honey/40 transition-all duration-300 text-xs font-mono text-white tracking-wider group" href="#start">
+<span>Start Something</span>
+<span class="text-honey transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform">↗</span>
+</a>
+</div>
+</header>
+<!-- ================================================================= -->
+<!-- 3. MAIN SPATIAL TYPOGRAPHY LOCKUP (SPLIT IN PERSPECTIVE DEPTH)    -->
+<!-- ================================================================= -->
+<main class="relative z-20 flex-1 w-full flex flex-col justify-end pb-24 px-12 pointer-events-none">
+<div class="max-w-7xl w-full mx-auto relative">
+<!-- Quote Whisper Interlay -->
+<div class="relative mb-3 max-w-xl">
+<p class="font-serif italic text-2xl md:text-3xl text-vellum/90 font-light leading-snug tracking-tight">
+          “For businesses with something to say, people celebrating something that matters, and ideas that don’t fit inside a template.”
+        </p>
+</div>
+<!-- Spatially Split Headline Lockup -->
+<div class="relative flex flex-col">
+<!-- FOREFRONT LAYER: Lifts forward on opening facet (translateZ, bright, crisp) -->
+<div class="spatial-layer-fore relative z-30">
+<h1 class="text-white font-extrabold text-7xl md:text-8xl lg:text-9xl tracking-tighter leading-none select-text">
+            WE MAKE
+          </h1>
+</div>
+<!-- MIDGROUND LAYER: Glides deeper into perspective with the rotating internal leaves -->
+<div class="spatial-layer-mid relative z-10 -mt-2 lg:-mt-4">
+<h2 class="text-white/40 font-extrabold text-7xl md:text-8xl lg:text-9xl tracking-tighter leading-none select-text flex items-baseline">
+<span>THINGS FOR</span>
+</h2>
+</div>
+<!-- DEEP BACKPLANE LAYER: Glides further back with warm accent terminal punctuation -->
+<div class="relative z-20 -mt-2 lg:-mt-4 flex flex-col lg:flex-row lg:items-end justify-between gap-6">
+<div>
+<h2 class="text-white/70 font-extrabold text-7xl md:text-8xl lg:text-9xl tracking-tighter leading-none select-text">
+              THE INTERNET<span class="text-honey">.</span>
+</h2>
+<div class="mt-4 flex items-center gap-3">
+<span class="font-mono text-[11px] uppercase tracking-widest text-white/40">
+                INDEPENDENT STUDIO &amp; CRAFT WORKSHOP // BHUBANESWAR, INDIA
+              </span>
+</div>
+</div>
+<!-- Dual Context Actions Docked Right -->
+<div class="pointer-events-auto flex items-center gap-4 pt-4 lg:pt-0">
+<a class="inline-flex items-center gap-2 px-6 py-3.5 rounded-full border border-white/20 bg-white/[0.04] hover:bg-white/[0.08] hover:border-white/35 transition-all text-xs font-mono uppercase tracking-widest text-white group" href="#work">
+<span>Explore Work</span>
+<span class="text-white/40 group-hover:text-white transform group-hover:translate-y-0.5 transition-transform">↓</span>
+</a>
+<a class="inline-flex items-center gap-2 px-6 py-3.5 rounded-full bg-honey hover:bg-honey-bright text-surface-base font-bold transition-all text-xs font-mono uppercase tracking-widest shadow-[0_0_30px_rgba(232,152,88,0.35)] group" href="#start">
+<span>Start Something</span>
+<span class="transform group-hover:translate-x-0.5 transition-transform">→</span>
+</a>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- ================================================================= -->
+<!-- 4. BOTTOM FOOTER BAR (Clean Editorial Origin & Quiet Presence)    -->
+<!-- ================================================================= -->
+<footer class="relative z-30 flex items-center justify-between px-12 py-5 border-t border-white/[0.07] bg-surface-base/80 backdrop-blur-md w-full font-mono text-[11px] text-white/40 pointer-events-auto">
+<!-- Left Specimen Meta -->
+<div class="flex items-center gap-3">
+<span class="text-white/70">ALGORYXZ STUDIO</span>
+<span class="text-white/20">·</span>
+<span class="text-honey/90">KEYFRAME R02-D02</span>
+<span class="text-white/20">·</span>
+<span>OBJECT / OPENING</span>
+</div>
+<!-- Center Interaction Cue (Understated, zero decorative telemetry) -->
+<div class="hidden sm:flex items-center gap-2 text-white/50">
+<span class="inline-block w-1.5 h-1.5 rounded-full bg-honey animate-pulse"></span>
+<span>DRAG TO ROTATE OBJECT IN PERSPECTIVE</span>
+</div>
+<!-- Right Humanity Pledge -->
+<div class="flex items-center gap-3 text-white/40">
+<span>THREE MAKERS</span>
+<span class="text-white/20">·</span>
+<span>ZERO TEMPLATES</span>
+</div>
+</footer>
+</body>
+</html>

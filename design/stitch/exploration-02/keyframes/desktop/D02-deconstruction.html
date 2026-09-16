@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>ALGORYXZ / 000 — Keyframe D02: Deconstruction</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=JetBrains+Mono:wght@300;400;500&amp;family=Playfair+Display:ital,wght@0,400;0,600;1,400&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet">
+<script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            'surface': '#121316',
+            'surface-container-lowest': '#0d0e11',
+            'surface-container-low': '#1b1b1f',
+            'surface-container': '#202126',
+            'surface-container-high': '#2b2c32',
+            'primary': '#d97736',
+            'primary-warm': '#ff8a3d',
+            'on-surface': '#f1f0f4',
+            'on-surface-variant': '#98969f',
+            'outline-variant': '#383942',
+            'accent-brass': '#d97736',
+            'accent-gold': '#ecd1a4'
+          },
+          fontFamily: {
+            sans: ['"Space Grotesk"', 'sans-serif'],
+            mono: ['"JetBrains Mono"', 'monospace'],
+            serif: ['"Playfair Display"', 'serif']
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    body {
+      background-color: #0d0e11;
+      color: #f1f0f4;
+      overflow: hidden;
+      user-select: none;
+    }
+    .perspective-stage {
+      perspective: 1400px;
+    }
+    .hud-border {
+      border: 1px solid rgba(217, 119, 54, 0.22);
+    }
+    .hud-hairline {
+      border-color: rgba(255, 255, 255, 0.08);
+    }
+    .glow-amber-subtle {
+      box-shadow: 0 0 45px -10px rgba(217, 119, 54, 0.28);
+    }
+    .text-glow-amber {
+      text-shadow: 0 0 24px rgba(217, 119, 54, 0.45);
+    }
+    @keyframes corePulse {
+      0%, 100% { opacity: 0.35; transform: scale(1); }
+      50% { opacity: 0.65; transform: scale(1.08); }
+    }
+    .animate-core-pulse {
+      animation: corePulse 4s ease-in-out infinite;
+    }
+    @keyframes driftUpSlow {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-6px); }
+    }
+    .animate-drift-slow {
+      animation: driftUpSlow 6s ease-in-out infinite;
+    }
+    @keyframes driftDownSlow {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(6px); }
+    }
+    .animate-drift-down {
+      animation: driftDownSlow 5.5s ease-in-out infinite;
+    }
+  </style>
+</link></head>
+<body class="w-screen h-screen relative bg-[#0d0e11] overflow-hidden flex flex-col justify-between font-sans">
+<!-- Background Ambient Depth & Core Light Bloom -->
+<div class="absolute inset-0 pointer-events-none z-0 overflow-hidden">
+<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[720px] h-[720px] bg-[#d97736]/10 rounded-full blur-[140px] animate-core-pulse"></div>
+<div class="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[420px] h-[420px] bg-[#ffaa44]/15 rounded-full blur-[90px]"></div>
+<!-- Architectural grid lines -->
+<div class="absolute inset-0 bg-[linear-gradient(to_right,#ffffff05_1px,transparent_1px),linear-gradient(to_bottom,#ffffff05_1px,transparent_1px)] bg-[size:72px_72px] opacity-40"></div>
+</div>
+<!-- Three.js Interactive 3D Monolith Scene (Deconstruction Phase D02) -->
+<!-- STITCH_THREEJS_START:ANIMATION_23 class="absolute inset-0 w-full h-full bg-transparent z-10" -->
+<div class="absolute inset-0 w-full h-full bg-transparent z-10" style="display:block;">
+<script src="https://ajax.googleapis.com/ajax/libs/threejs/r125/three.min.js"></script>
+<div id="threejs-container-ANIMATION_23" style="width:100%;height:100%"></div>
+<script>
+(function() {
+  const container = document.getElementById('threejs-container-ANIMATION_23');
+  const devicePixelRatio = window.devicePixelRatio || 1;
+  // Three.js Scene: "ALGORYXZ / 000 — Keyframe D02: Deconstruction"
+// Cinematic transformation of the XZ Monolith separating into architectural plates along the Z-axis with internal amber core luminescence
+const width = container.clientWidth || window.innerWidth;
+const height = container.clientHeight || window.innerHeight;
+
+const scene = new THREE.Scene();
+scene.fog = new THREE.FogExp2(0x0d0e11, 0.028);
+
+// Camera positioned with dramatic perspective & subtle Dutch angle tilt
+const camera = new THREE.PerspectiveCamera(48, width / height, 0.1, 100);
+camera.position.set(0.6, 0.3, 6.4);
+camera.rotation.z = -0.04; // subtle cinematic tilt
+
+const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true, powerPreference: "high-performance" });
+renderer.setSize(width, height);
+renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+renderer.toneMapping = THREE.ACESFilmicToneMapping;
+renderer.toneMappingExposure = 1.35;
+renderer.shadowMap.enabled = true;
+renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+container.appendChild(renderer.domElement);
+
+// Lighting setup: dramatic internal warm amber core bloom + raking champagne rims
+const ambientLight = new THREE.AmbientLight(0x161514, 1.4);
+scene.add(ambientLight);
+
+// Core internal explosion light: warm fiery amber #d97736 radiating from inside
+const internalCoreLight = new THREE.PointLight(0xd97736, 18.0, 14);
+internalCoreLight.position.set(0, 0, 0);
+scene.add(internalCoreLight);
+
+const secondaryCoreLight = new THREE.PointLight(0xffaa44, 9.0, 10);
+secondaryCoreLight.position.set(0.3, -0.2, 0.4);
+scene.add(secondaryCoreLight);
+
+const rimLight = new THREE.DirectionalLight(0xf5d09b, 5.0);
+rimLight.position.set(5, 4, 3);
+scene.add(rimLight);
+
+const darkFill = new THREE.DirectionalLight(0x20242d, 2.0);
+darkFill.position.set(-6, -3, -2);
+scene.add(darkFill);
+
+// Master Group
+const deconstructionGroup = new THREE.Group();
+scene.add(deconstructionGroup);
+
+// Materials
+const basaltMaterial = new THREE.MeshStandardMaterial({
+  color: 0x141518,
+  roughness: 0.6,
+  metalness: 0.3,
+});
+
+const darkCorePlate = new THREE.MeshStandardMaterial({
+  color: 0x0a0b0e,
+  roughness: 0.75,
+  metalness: 0.2,
+});
+
+// Exposed internal radiant brass
+const exposedBrass = new THREE.MeshStandardMaterial({
+  color: 0xd97736,
+  roughness: 0.22,
+  metalness: 0.92,
+  emissive: 0x5a2305,
+  emissiveIntensity: 0.35,
+});
+
+const brightChampagne = new THREE.MeshStandardMaterial({
+  color: 0xf3d29f,
+  roughness: 0.18,
+  metalness: 0.95,
+});
+
+const wireAmber = new THREE.LineBasicMaterial({
+  color: 0xd97736,
+  transparent: true,
+  opacity: 0.6,
+});
+
+const wireSubtle = new THREE.LineBasicMaterial({
+  color: 0xecd1a4,
+  transparent: true,
+  opacity: 0.35,
+});
+
+// Glowing conduit / wiring material
+const conduitMaterial = new THREE.LineBasicMaterial({
+  color: 0xff9933,
+  linewidth: 2,
+  transparent: true,
+  opacity: 0.85,
+});
+
+// ==========================================
+// 1. DECONSTRUCTED STRATA & EXPANDING PLATES
+// ==========================================
+
+// Core Glowing Heart / Monolith Reactor Nucleus
+const nucleusGeo = new THREE.BoxGeometry(0.7, 1.2, 0.45);
+const nucleusMat = new THREE.MeshStandardMaterial({
+  color: 0xff6600,
+  emissive: 0xd97736,
+  emissiveIntensity: 1.8,
+  roughness: 0.1,
+  metalness: 0.5
+});
+const nucleusMesh = new THREE.Mesh(nucleusGeo, nucleusMat);
+nucleusMesh.position.set(0, 0, 0);
+deconstructionGroup.add(nucleusMesh);
+
+// S1: Foreground Plate (Shifted forward along +Z, deep perspective, slightly occluding)
+const fgGeo = new THREE.BoxGeometry(1.4, 2.2, 0.14);
+const fgMesh = new THREE.Mesh(fgGeo, basaltMaterial);
+fgMesh.position.set(-0.75, 0.35, 1.6);
+fgMesh.rotation.set(-0.18, 0.32, -0.12);
+deconstructionGroup.add(fgMesh);
+
+const fgEdge = new THREE.LineSegments(new THREE.EdgesGeometry(fgGeo), wireAmber);
+fgMesh.add(fgEdge);
+
+// Brass Inlay on Foreground Plate (with etched index notation simulation)
+const fgFin = new THREE.Mesh(new THREE.BoxGeometry(0.04, 1.8, 0.16), exposedBrass);
+fgFin.position.set(0.55, 0, 0.02);
+fgMesh.add(fgFin);
+
+// S2: Upper Cantilever Slab (Elevated +Y and tilted back -Z)
+const topZGeo = new THREE.BoxGeometry(2.8, 0.22, 0.7);
+const topZMesh = new THREE.Mesh(topZGeo, basaltMaterial);
+topZMesh.position.set(0.6, 2.1, -0.4);
+topZMesh.rotation.set(0.25, -0.15, 0.08);
+deconstructionGroup.add(topZMesh);
+
+const topBrass = new THREE.Mesh(new THREE.BoxGeometry(2.82, 0.05, 0.72), brightChampagne);
+topBrass.position.set(0, 0.12, 0);
+topZMesh.add(topBrass);
+
+// S3: Lower Counter-Weight Slab (Depressed -Y, drifted right)
+const botZGeo = new THREE.BoxGeometry(2.7, 0.22, 0.65);
+const botZMesh = new THREE.Mesh(botZGeo, basaltMaterial);
+botZMesh.position.set(-0.5, -2.0, -0.2);
+botZMesh.rotation.set(-0.2, 0.22, -0.06);
+deconstructionGroup.add(botZMesh);
+
+const botBrass = new THREE.Mesh(new THREE.BoxGeometry(2.72, 0.05, 0.67), exposedBrass);
+botBrass.position.set(0, -0.12, 0);
+botZMesh.add(botBrass);
+
+// S4: Diagonal X-Strut 1 (Slid outward along diagonal, pivoted open)
+const strutGeo1 = new THREE.BoxGeometry(0.5, 3.9, 0.38);
+const strut1 = new THREE.Mesh(strutGeo1, darkCorePlate);
+strut1.position.set(-1.25, 0.2, 0.6);
+strut1.rotation.set(-0.15, 0.45, Math.PI / 4.4);
+deconstructionGroup.add(strut1);
+
+const strut1Edge = new THREE.LineSegments(new THREE.EdgesGeometry(strutGeo1), wireSubtle);
+strut1.add(strut1Edge);
+
+// S5: Diagonal X-Strut 2 (Counter diagonal swung deep into background -Z)
+const strutGeo2 = new THREE.BoxGeometry(0.5, 3.9, 0.38);
+const strut2 = new THREE.Mesh(strutGeo2, basaltMaterial);
+strut2.position.set(1.3, -0.1, -0.9);
+strut2.rotation.set(0.28, -0.38, -Math.PI / 4.6);
+deconstructionGroup.add(strut2);
+
+const strut2Edge = new THREE.LineSegments(new THREE.EdgesGeometry(strutGeo2), wireAmber);
+strut2.add(strut2Edge);
+
+// S6: Suspended Index Floating Specimen Plate ("ALGORYXZ / 000")
+const floatPlateGeo = new THREE.BoxGeometry(1.5, 0.7, 0.12);
+const floatPlate = new THREE.Mesh(floatPlateGeo, darkCorePlate);
+floatPlate.position.set(0.85, -0.45, 1.25);
+floatPlate.rotation.set(0.12, -0.22, 0.05);
+deconstructionGroup.add(floatPlate);
+
+const floatEdge = new THREE.LineSegments(new THREE.EdgesGeometry(floatPlateGeo), wireAmber);
+floatPlate.add(floatEdge);
+
+// Internal Exposed Brass Ribs & Wiring Loom (Interconnecting the deconstructed slabs)
+const ribCount = 9;
+for (let i = -4; i <= 4; i++) {
+  const ribGeo = new THREE.BoxGeometry(0.025, 0.6, 0.85);
+  const rib = new THREE.Mesh(ribGeo, exposedBrass);
+  rib.position.set(i * 0.22, Math.sin(i * 0.7) * 0.3, i * 0.15 - 0.1);
+  rib.rotation.y = (i * 0.12);
+  deconstructionGroup.add(rib);
+}
+
+// Glowing internal wiring paths / laser conduits spanning separation voids
+const curvePoints = [
+  new THREE.Vector3(-0.7, 0.3, 1.5),
+  new THREE.Vector3(-0.2, 0.1, 0.6),
+  new THREE.Vector3(0, 0, 0),
+  new THREE.Vector3(0.5, -0.2, 0.7),
+  new THREE.Vector3(0.8, -0.4, 1.2)
+];
+const conduitCurve = new THREE.CatmullRomCurve3(curvePoints);
+const conduitGeo = new THREE.BufferGeometry().setFromPoints(conduitCurve.getPoints(50));
+const conduitLine = new THREE.Line(conduitGeo, conduitMaterial);
+deconstructionGroup.add(conduitLine);
+
+const conduitCurve2 = new THREE.CatmullRomCurve3([
+  new THREE.Vector3(0.6, 2.0, -0.4),
+  new THREE.Vector3(0.3, 1.0, -0.1),
+  new THREE.Vector3(0, 0, 0),
+  new THREE.Vector3(-0.3, -1.0, -0.1),
+  new THREE.Vector3(-0.5, -1.9, -0.2)
+]);
+const conduitLine2 = new THREE.Line(new THREE.BufferGeometry().setFromPoints(conduitCurve2.getPoints(50)), new THREE.LineBasicMaterial({ color: 0xf3d29f, transparent: true, opacity: 0.6 }));
+deconstructionGroup.add(conduitLine2);
+
+// Volumetric Kinetic Dust / Floating Golden Micro-Debris
+const particleCount = 220;
+const particleGeo = new THREE.BufferGeometry();
+const particlePos = new Float32Array(particleCount * 3);
+
+for (let p = 0; p < particleCount; p++) {
+  const rad = 1.2 + Math.random() * 4.2;
+  const th = Math.random() * Math.PI * 2;
+  particlePos[p * 3] = Math.cos(th) * rad;
+  particlePos[p * 3 + 1] = (Math.random() - 0.5) * 4.8;
+  particlePos[p * 3 + 2] = Math.sin(th) * rad + (Math.random() - 0.5) * 3;
+}
+particleGeo.setAttribute('position', new THREE.BufferAttribute(particlePos, 3));
+
+const particleMat = new THREE.PointsMaterial({
+  color: 0xd97736,
+  size: 0.042,
+  transparent: true,
+  opacity: 0.8,
+  blending: THREE.AdditiveBlending
+});
+const particles = new THREE.Points(particleGeo, particleMat);
+scene.add(particles);
+
+// Subdued Deep Background Reference Grid
+const gridHelper = new THREE.GridHelper(18, 26, 0xd97736, 0x181920);
+gridHelper.position.y = -2.9;
+gridHelper.material.opacity = 0.24;
+gridHelper.material.transparent = true;
+scene.add(gridHelper);
+
+// Interactive Pointer Dynamics
+let isDragging = false;
+let previousPointer = { x: 0, y: 0 };
+let targetRotX = 0.22;
+let targetRotY = -0.42;
+let currentRotX = 0.22;
+let currentRotY = -0.42;
+
+const onDown = (e) => {
+  isDragging = true;
+  previousPointer = { x: e.clientX, y: e.clientY };
+};
+
+const onMove = (e) => {
+  const nx = (e.clientX / width) * 2 - 1;
+  const ny = -(e.clientY / height) * 2 + 1;
+  if (isDragging) {
+    const dx = e.clientX - previousPointer.x;
+    const dy = e.clientY - previousPointer.y;
+    targetRotY += dx * 0.007;
+    targetRotX += dy * 0.007;
+    previousPointer = { x: e.clientX, y: e.clientY };
+  } else {
+    targetRotY += (nx * 0.18 - targetRotY) * 0.02;
+    targetRotX += (-ny * 0.14 - targetRotX) * 0.02;
+  }
+};
+
+const onUp = () => { isDragging = false; };
+
+window.addEventListener('pointerdown', onDown);
+window.addEventListener('pointermove', onMove);
+window.addEventListener('pointerup', onUp);
+
+const onResize = () => {
+  const w = container.clientWidth || window.innerWidth;
+  const h = container.clientHeight || window.innerHeight;
+  camera.aspect = w / h;
+  camera.updateProjectionMatrix();
+  renderer.setSize(w, h);
+};
+window.addEventListener('resize', onResize);
+
+// Render loop with kinematic respiration and deep strata vibration
+let clock = new THREE.Clock();
+
+function animate() {
+  requestAnimationFrame(animate);
+  const t = clock.getElapsedTime();
+
+  // Gentle float & breathing oscillation
+  deconstructionGroup.position.y = Math.sin(t * 0.9) * 0.06;
+  deconstructionGroup.position.x = Math.cos(t * 0.7) * 0.04;
+
+  // Relative deconstructive pulsing: plates breathe apart and contract slightly
+  fgMesh.position.z = 1.6 + Math.sin(t * 0.8) * 0.18;
+  fgMesh.position.x = -0.75 - Math.sin(t * 0.6) * 0.08;
+  
+  floatPlate.position.z = 1.25 + Math.cos(t * 1.1) * 0.14;
+  floatPlate.position.y = -0.45 + Math.sin(t * 0.9) * 0.05;
+
+  topZMesh.position.y = 2.1 + Math.sin(t * 0.75) * 0.09;
+  botZMesh.position.y = -2.0 - Math.sin(t * 0.75) * 0.09;
+
+  // Nucleus core light pulsing
+  internalCoreLight.intensity = 16.0 + Math.sin(t * 2.2) * 4.5;
+  nucleusMat.emissiveIntensity = 1.6 + Math.sin(t * 2.2) * 0.6;
+
+  // Lerp overall rotation
+  currentRotX += (targetRotX - currentRotX) * 0.05;
+  currentRotY += (targetRotY - currentRotY) * 0.05;
+
+  deconstructionGroup.rotation.x = currentRotX + Math.sin(t * 0.4) * 0.015;
+  deconstructionGroup.rotation.y = currentRotY + t * 0.035;
+
+  particles.rotation.y = t * 0.018;
+  particles.rotation.x = Math.sin(t * 0.1) * 0.04;
+
+  renderer.render(scene, camera);
+}
+animate();
+
+})();
+</script>
+</div>
+<!-- STITCH_THREEJS_END:ANIMATION_23 -->
+<!-- Foreground Atmospheric Vignette & Occlusion Gradients -->
+<div class="absolute inset-0 pointer-events-none z-15 bg-[radial-gradient(circle_at_center,transparent_45%,#0d0e11_100%)] opacity-85"></div>
+<!-- ================================================================= -->
+<!-- TOP LAYER: D01 CONTINUITY HUD & FLOATING NAV PILL -->
+<!-- ================================================================= -->
+<header class="relative z-30 w-full px-8 pt-6 flex flex-col gap-4 pointer-events-none">
+<!-- Floating Glass Pill Header (Exact Algoryxz D01 Bar with D02 Stage Progress) -->
+<div class="pointer-events-auto mx-auto w-full max-w-5xl rounded-full bg-surface-container-low/75 backdrop-blur-xl border border-white/10 px-6 py-2.5 flex items-center justify-between shadow-[0_16px_40px_-12px_rgba(0,0,0,0.6)]">
+<!-- Studio Monogram / Number -->
+<div class="flex items-center gap-3">
+<a class="font-mono text-xs tracking-widest text-on-surface uppercase font-medium flex items-center gap-2" href="#">
+<span>ALGORY<span class="text-primary font-bold">XZ</span></span>
+<span class="text-white/30">/</span>
+<span class="text-white/60">000</span>
+</a>
+</div>
+<!-- Navigation links -->
+<nav class="hidden md:flex items-center gap-8 font-mono text-xs text-on-surface-variant">
+<a class="text-primary border-b border-primary pb-0.5 tracking-wider font-medium" href="#">Archive</a>
+<a class="hover:text-on-surface transition-colors tracking-wider" href="#">Atelier</a>
+<a class="hover:text-on-surface transition-colors tracking-wider" href="#">Foundry</a>
+<a class="hover:text-on-surface transition-colors tracking-wider" href="#">Colophon</a>
+</nav>
+<!-- Right Action & Availability -->
+<div class="flex items-center gap-5">
+<div class="hidden sm:flex items-center gap-2 font-mono text-[11px] text-white/50 tracking-wider">
+<span class="w-1.5 h-1.5 rounded-full bg-primary animate-ping"></span>
+<span>50–70vh // DECONSTRUCT</span>
+</div>
+<a class="pointer-events-auto group px-4 py-1.5 rounded-full bg-white/[0.06] hover:bg-primary/20 border border-white/10 hover:border-primary/40 font-mono text-xs text-on-surface transition-all flex items-center gap-1.5" href="#">
+<span>Inquire</span>
+<span class="material-symbols-outlined text-[13px] text-primary group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform">north_east</span>
+</a>
+</div>
+</div>
+<!-- Telemetry Subheader (D01 Continuity + Deconstruction Phase Metadata) -->
+<div class="w-full flex items-start justify-between text-[11px] font-mono tracking-wider text-on-surface-variant/75 pt-1">
+<div class="flex flex-col gap-1">
+<div class="flex items-center gap-2 text-white/90">
+<span class="inline-block w-1.5 h-1.5 bg-primary"></span>
+<span class="text-white font-medium">000 // STUDIO ARCHIVE // ODISHA, IN</span>
+</div>
+<div class="text-white/40 pl-3.5">
+          20.2961° N, 85.8245° E · IST [UTC+05:30]
+        </div>
+</div>
+<!-- Stage & Coordinate Indicator -->
+<div class="flex flex-col items-end gap-1 text-right">
+<div class="flex items-center gap-2">
+<span class="text-white/40">SYS.STATE //</span>
+<span class="text-primary font-semibold tracking-widest text-glow-amber">TRANSFORMATION [D02]</span>
+</div>
+<div class="text-white/40">
+          Z-EXPANSION: <span class="text-accent-gold">+1.60m</span> · VOID FLUX: <span class="text-white/70">ACTIVE</span>
+</div>
+</div>
+</div>
+</header>
+<!-- ================================================================= -->
+<!-- MID-STAGE: SPATIAL HUD OVERLAYS & MOVING STRATA NOTATIONS -->
+<!-- ================================================================= -->
+<main class="relative z-20 w-full flex-1 flex flex-col justify-between px-10 pointer-events-none">
+<!-- Floating Stratum Marker 1: Top Right Foreplate -->
+<div class="absolute top-12 right-20 pointer-events-auto flex items-start gap-3 bg-surface-container-lowest/80 backdrop-blur-md p-3.5 rounded-lg border border-primary/20 max-w-xs animate-drift-slow shadow-2xl">
+<div class="w-1.5 h-full min-h-[36px] bg-primary rounded-full"></div>
+<div class="flex flex-col gap-1 font-mono text-[11px]">
+<div class="flex items-center justify-between text-white font-medium">
+<span class="text-primary">STRATA / 01A</span>
+<span class="text-white/40">Z: +1.60</span>
+</div>
+<p class="text-white/60 font-sans text-xs leading-snug">
+          Foreground cantilever plate separating. Basalt strata reveals inner brass conduit.
+        </p>
+<div class="text-[10px] text-accent-gold/80 flex items-center gap-1 mt-0.5">
+<span class="material-symbols-outlined text-[11px]">crop_free</span>
+<span>OCCLUSION INDEX: 0.42</span>
+</div>
+</div>
+</div>
+<!-- Floating Stratum Marker 2: Center-Left Core Specimen Plate -->
+<div class="absolute top-1/2 left-16 -translate-y-1/2 pointer-events-auto flex items-start gap-3 bg-surface-container-lowest/80 backdrop-blur-md p-3.5 rounded-lg border border-white/10 max-w-xs animate-drift-down shadow-2xl">
+<div class="w-1.5 h-full min-h-[44px] bg-accent-gold rounded-full"></div>
+<div class="flex flex-col gap-1 font-mono text-[11px]">
+<div class="flex items-center justify-between text-white font-medium">
+<span class="text-accent-gold">NUCLEUS / 000</span>
+<span class="text-primary text-[10px] px-1.5 py-0.2 rounded bg-primary/10 border border-primary/30">EXPOSED</span>
+</div>
+<p class="text-white/60 font-sans text-xs leading-snug">
+          Chamber luminescence unlocked. Kinetic typography unfolding into dual archives.
+        </p>
+<div class="text-[10px] text-white/40 flex items-center gap-2">
+<span>FREQ: 144Hz</span>
+<span>·</span>
+<span>ROT: +0.22°X / -0.42°Y</span>
+</div>
+</div>
+</div>
+<!-- Central Spatial Crosshairs & Reticle (Tracking the Deconstructed Void) -->
+<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none flex flex-col items-center gap-3">
+<!-- Animated Reticle Rings -->
+<div class="w-24 h-24 rounded-full border border-primary/30 flex items-center justify-center relative">
+<div class="absolute -top-1 w-2 h-0.5 bg-primary"></div>
+<div class="absolute -bottom-1 w-2 h-0.5 bg-primary"></div>
+<div class="absolute -left-1 w-0.5 h-2 bg-primary"></div>
+<div class="absolute -right-1 w-0.5 h-2 bg-primary"></div>
+<div class="w-2 h-2 rounded-full bg-primary/70 animate-ping"></div>
+</div>
+<!-- Spatial State Pill -->
+<div class="pointer-events-auto px-4 py-1 rounded-full bg-surface-container-lowest/80 backdrop-blur-md border border-primary/30 font-mono text-[11px] text-white/80 tracking-wider flex items-center gap-2 shadow-lg">
+<span class="w-1.5 h-1.5 rounded-full bg-primary"></span>
+<span>Z-DECONSTRUCTION // VOID DISCLOSURE</span>
+<span class="text-white/30">|</span>
+<span class="text-accent-gold">ARCHIVE /000 → /002</span>
+</div>
+</div>
+<!-- Floating Coordinate Callouts in Deep Space -->
+<div class="absolute bottom-36 right-24 pointer-events-none text-right font-mono text-[10px] tracking-widest text-white/30 flex flex-col gap-1">
+<div class="text-primary/70">SPECIMEN COORD:</div>
+<div>[+0.85X, -0.45Y, +1.25Z]</div>
+<div class="text-white/50">BRASS STRATA CONDUIT: ACTIVE</div>
+</div>
+</main>
+<!-- ================================================================= -->
+<!-- BOTTOM LAYER: STRATIFIED DYNAMIC TYPOGRAPHY & ARCHIVE REVEAL -->
+<!-- ================================================================= -->
+<footer class="relative z-30 w-full px-10 pb-8 flex flex-col gap-6 pointer-events-none">
+<!-- STRATIFIED SPLIT HERO TYPOGRAPHY: D01 -> D02 DECONSTRUCTION -->
+<div class="w-full flex flex-col gap-1 max-w-6xl">
+<!-- Upper Strata Line (Breaking apart from D01) -->
+<div class="flex items-baseline gap-4 flex-wrap">
+<h1 class="text-5xl md:text-6xl lg:text-7xl font-sans font-bold tracking-tight text-white leading-none">
+          WE MAKE<span class="text-primary">...</span>
+</h1>
+<span class="font-mono text-xs md:text-sm text-primary/80 tracking-widest uppercase bg-primary/10 border border-primary/30 px-3 py-1 rounded-full">
+          [ STRATA DISCONNECTED · 50% DEPTH ]
+        </span>
+</div>
+<!-- Lower Strata Line with Offset Parallax Indentation -->
+<div class="flex items-baseline gap-6 pl-8 md:pl-20">
+<span class="font-mono text-2xl md:text-3xl text-white/30 font-light tracking-tighter">⟶</span>
+<h1 class="text-5xl md:text-6xl lg:text-7xl font-sans font-bold tracking-tight text-white/90 leading-none">
+          ...FOR THE <span class="text-transparent bg-clip-text bg-gradient-to-r from-white via-on-surface to-primary">INTERNET.</span>
+</h1>
+</div>
+<!-- Descriptive Monograph & Evolving Subtext -->
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-4 mt-2 pt-2 border-t border-white/10 max-w-5xl">
+<p class="font-sans text-sm md:text-base text-white/70 max-w-xl font-normal leading-relaxed">
+          The architectural monolith cleaves along its basalt strata, disclosing the living archives within: 
+          <span class="text-white font-medium">Bespoke digital flagships</span> and <span class="text-accent-gold font-medium">intimate keepsakes</span> engineered for permanence.
+        </p>
+<!-- Dynamic Archive Manifest Emerging Tags -->
+<div class="pointer-events-auto flex items-center gap-2 font-mono text-xs">
+<span class="px-2.5 py-1 rounded bg-surface-container-low border border-white/10 text-white/70 hover:border-primary/40 hover:text-white transition-colors cursor-pointer">
+<span class="text-primary">/000</span> STUDIO ENGINE
+          </span>
+<span class="px-2.5 py-1 rounded bg-surface-container-low border border-white/10 text-white/70 hover:border-primary/40 hover:text-white transition-colors cursor-pointer">
+<span class="text-accent-gold">/001</span> MONSOON VOWS
+          </span>
+<span class="px-2.5 py-1 rounded bg-surface-container-low border border-white/10 text-white/70 hover:border-primary/40 hover:text-white transition-colors cursor-pointer">
+<span class="text-primary">/002</span> VERVE &amp; VAPOR
+          </span>
+</div>
+</div>
+</div>
+<!-- Bottom Colophon / Bar Navigation Indicator -->
+<div class="w-full flex items-center justify-between pt-3 border-t border-white/10 font-mono text-xs text-white/50">
+<!-- Dual Canvas Selector Mode -->
+<div class="pointer-events-auto flex items-center gap-3">
+<span class="px-2 py-0.5 rounded bg-white/10 text-white text-[11px] font-medium tracking-wider">
+          KEYFRAME D02
+        </span>
+<span class="text-white/60">SPATIAL PROGRESS: 65vh</span>
+<span class="text-white/20">·</span>
+<span class="text-primary tracking-wider flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-primary animate-pulse"></span>
+          PARALLAX OCCLUSION ENGAGED
+        </span>
+</div>
+<!-- Navigation prompt to continue scrolling or interacting -->
+<div class="pointer-events-auto flex items-center gap-6">
+<div class="hidden sm:flex items-center gap-2 text-[11px] text-white/40">
+<span>DRAG TO ROTATE DECONSTRUCTED STRATA</span>
+<span class="material-symbols-outlined text-[13px]">pan_tool</span>
+</div>
+<a class="group text-white flex items-center gap-2 hover:text-primary transition-colors" href="#">
+<span class="tracking-widest font-medium">PROCEED TO ARCHIVE EXPEDITION</span>
+<span class="material-symbols-outlined text-sm text-primary group-hover:translate-y-0.5 transition-transform">arrow_downward</span>
+</a>
+</div>
+</div>
+</footer>
+</body>
+</html>

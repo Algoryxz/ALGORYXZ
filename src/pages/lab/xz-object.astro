@@ -1,0 +1,1549 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+---
+
+<BaseLayout 
+  title="XZ Object Prototype — Interactive Spatial Study" 
+  description="Algoryxz Signature Spatial Experience Prototype: The XZ Object as the spatial grammar of the internet studio."
+>
+  <div class="lab-container" id="lab-root">
+    <!-- WebGL Fullscreen Canvas -->
+    <div id="webgl-canvas-container" class="webgl-canvas-container" aria-hidden="true"></div>
+
+    <!-- Spatial Scroll Track (400vh to drive physical transformation) -->
+    <div class="spatial-scroll-track" id="spatial-scroll-track">
+      <!-- STAGE 1: D01 — ARRIVAL -->
+      <section class="spatial-viewport-stage" id="stage-d01" data-stage="d01">
+        <div class="stage-content arrival-content">
+          <div class="hero-typography-container">
+            <h1 class="hero-statement">
+              <span class="hero-line hero-line-1" id="line-we-make">WE MAKE</span>
+              <span class="hero-line hero-line-2" id="line-for-internet">THINGS FOR THE INTERNET.</span>
+            </h1>
+            <p class="hero-subtitle">
+              For businesses with something to say, people celebrating something that matters, and ideas that don't fit inside a template.
+            </p>
+          </div>
+
+          <div class="hero-actions">
+            <button type="button" class="btn-spatial" id="btn-explore-scroll">
+              <span>EXPLORE WORK</span>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M19 12l-7 7-7-7"/></svg>
+            </button>
+            <a href="/contact" class="btn-spatial btn-spatial-accent">
+              <span>START SOMETHING</span>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+          </div>
+
+          <div class="scroll-indicator">
+            <span class="scroll-dot"></span>
+            <span class="scroll-text">SCROLL TO UNFOLD SPATIAL CORE</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- STAGE 2: D02 — DECONSTRUCTION / OPENING -->
+      <section class="spatial-viewport-stage" id="stage-d02" data-stage="d02">
+        <div class="stage-content deconstruction-content">
+          <div class="stage-caption">
+            <span class="stage-label">SPATIAL CONTINUITY</span>
+            <p class="stage-desc">The XZ monolith separates along its structural strata, revealing the archive within.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- STAGE 3: D03 — OBJECT ARCHIVE -->
+      <section class="spatial-viewport-stage" id="stage-d03" data-stage="d03">
+        <div class="stage-content archive-content">
+          <div class="archive-header">
+            <span class="archive-index-label">ALGORYXZ ARCHIVE</span>
+            <h2 class="archive-title">Select a spatial fragment to enter.</h2>
+          </div>
+
+          <div class="archive-fragments-dom" role="list">
+            <!-- Fragment 000 -->
+            <button type="button" class="fragment-card" id="card-frag-000" role="listitem" data-fragment="000">
+              <div class="frag-header">
+                <span class="frag-number">ALGORYXZ / 000</span>
+                <span class="frag-tag">INTERNAL</span>
+              </div>
+              <h3 class="frag-title">Studio Archival Engine</h3>
+              <p class="frag-desc">Pure semantic code, zero-bloat architecture, and foundational studio platform.</p>
+              <div class="frag-action">INSPECT CORE →</div>
+            </button>
+
+            <!-- Fragment 001 (Dominant Celebration Heirloom) -->
+            <button type="button" class="fragment-card fragment-card-featured" id="card-frag-001" role="listitem" data-fragment="001" aria-label="Select Algoryxz 001 Celebration Concept">
+              <div class="frag-header">
+                <span class="frag-number">ALGORYXZ / 001</span>
+                <span class="frag-tag frag-tag-accent">CONCEPT HEIRLOOM</span>
+              </div>
+              <h3 class="frag-title">Celebration & Living Memory Archive</h3>
+              <p class="frag-desc">An intimate digital keepsake holding private audio vows, wet-earth soundscapes, and medium-format memories.</p>
+              <div class="frag-action frag-action-glow">ENTER WORLD / 001 →</div>
+            </button>
+
+            <!-- Fragment 002 -->
+            <button type="button" class="fragment-card" id="card-frag-002" role="listitem" data-fragment="002">
+              <div class="frag-header">
+                <span class="frag-number">ALGORYXZ / 002</span>
+                <span class="frag-tag">CONCEPT BRAND</span>
+              </div>
+              <h3 class="frag-title">Culinary & Design Flagship</h3>
+              <p class="frag-desc">Tactile editorial digital storefront for artisanal coffee roasteries and boutique studios.</p>
+              <div class="frag-action">EXPLORE BRAND →</div>
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- STAGE 4: D04 — CLIENT-WORLD THRESHOLD -->
+      <section class="spatial-viewport-stage" id="stage-d04" data-stage="d04">
+        <div class="stage-content threshold-content">
+          <div class="threshold-left">
+            <span class="threshold-kicker">METAMORPHOSIS</span>
+            <h2 class="threshold-title">
+              Algoryxz is the structure.<br/>
+              <em>Client identity becomes the material.</em>
+            </h2>
+            <p class="threshold-desc">
+              The sculptural object cleaves along its Z-axis. Neutral graphite gives way to candlelight, handwriting, and living memory.
+            </p>
+            <div class="threshold-progress-wrap">
+              <span class="progress-label">SURFACE METAMORPHOSIS</span>
+              <div class="progress-bar-track">
+                <div class="progress-bar-fill" id="threshold-bar-fill"></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="threshold-right">
+            <div class="threshold-trigger-card">
+              <span class="threshold-card-label">TRANSITION READY</span>
+              <h3 class="threshold-card-title">The Monsoon Vows</h3>
+              <p class="threshold-card-sub">Celebration Heirloom · Kerala Western Ghats</p>
+              <button type="button" class="btn-spatial btn-spatial-accent btn-large" id="btn-enter-world-direct">
+                <span>CROSS INTO CELEBRATION WORLD / 001</span>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- STAGE 5: D05 — FULL CLIENT WORLD OVERLAY (THE MONSOON VOWS) -->
+    <div class="client-world-overlay" id="client-world-overlay" aria-hidden="true">
+      <div class="world-backdrop">
+        <img 
+          src="/assets/lab/monsoon_vows_memory.jpg" 
+          alt="Fine art chiaroscuro memory of bride and groom in rain" 
+          class="world-bg-image" 
+          id="world-bg-image"
+        />
+        <div class="world-bg-scrim"></div>
+      </div>
+
+      <header class="world-header">
+        <button type="button" class="btn-return-studio" id="btn-return-studio">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+          <span>RETURN TO ALGORYXZ / ARCHIVE</span>
+        </button>
+        <div class="world-badge">
+          <span>ALGORYXZ / 001 · CONCEPT PROJECT</span>
+        </div>
+        <div class="world-coords">
+          <span>KODAGU ESTATE · CHIDAMBARAM HALL</span>
+        </div>
+      </header>
+
+      <main class="world-main-content">
+        <div class="world-hero-column">
+          <span class="world-folio-label">HEIRLOOM FOLIO // VOL. 001</span>
+          <h1 class="world-headline">
+            Moments carved in light.<br/>
+            <em>Love preserved in time.</em>
+          </h1>
+          <p class="world-narrative">
+            An intimate digital sanctuary holding spoken vows, 42 private acoustic reels, petrichor soundscapes, and medium-format Hasselblad memories recorded under October temple downpours.
+          </p>
+          <div class="world-metadata-pills">
+            <span class="meta-pill">432Hz Binaural Audio</span>
+            <span class="meta-pill">Offline First Vault</span>
+            <span class="meta-pill">30-Year Web Custody</span>
+          </div>
+        </div>
+
+        <div class="world-memory-layer">
+          <!-- Translucent Floating Paper Plaque with Handwritten Vows -->
+          <article class="memory-plaque" id="memory-plaque">
+            <div class="plaque-header">
+              <span class="plaque-icon">📜</span>
+              <span class="plaque-label">SPOKEN COVENANT // PASSAGE NO. 04</span>
+            </div>
+            <blockquote class="vow-quote">
+              “I promise to return to this sanctuary whenever the skies break, to listen for your footsteps in the courtyard, and never let the wet embers of our devotion turn cold.”
+            </blockquote>
+            <cite class="vow-author">Amara & Devendra · Dusk Downpour</cite>
+
+            <!-- Audio Waveform Player -->
+            <div class="acoustic-player" id="acoustic-player">
+              <button type="button" class="player-toggle-btn" id="player-toggle-btn" aria-label="Play spoken vow acoustic reel">
+                <svg class="icon-play" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+                <svg class="icon-pause" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" style="display:none;"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>
+              </button>
+              <div class="player-info">
+                <span class="player-title">THE RAIN OATH</span>
+                <span class="player-time" id="player-time-display">03:42 / 12:08</span>
+              </div>
+              <div class="waveform-visualizer" id="waveform-visualizer" aria-hidden="true">
+                <!-- 20 animated bars -->
+                {Array.from({ length: 20 }).map((_, i) => (
+                  <span class="wave-bar" style={`--i: ${i}; height: ${15 + (i * 7) % 30}px;`}></span>
+                ))}
+              </div>
+            </div>
+
+            <!-- Wax Seal Blessing Interaction -->
+            <div class="guestbook-blessing">
+              <button type="button" class="btn-wax-seal" id="btn-wax-seal">
+                <span class="seal-stamp">🕯️</span>
+                <span>INSCRIBE BLESSING (TERRACOTTA WAX SEAL)</span>
+              </button>
+              <p class="seal-status" id="seal-status">48 blessings sealed in timeless archive ledger.</p>
+            </div>
+          </article>
+        </div>
+      </main>
+    </div>
+
+    <!-- DEV-ONLY DEBUG CONTROLLER (?debug=1) -->
+    <div class="dev-debug-hud" id="dev-debug-hud" style="display: none;">
+      <div class="debug-header">
+        <span class="debug-title">XZ OBJECT // DEV HUD</span>
+        <button type="button" class="debug-close" id="btn-close-debug">✕</button>
+      </div>
+      <div class="debug-stages">
+        <button type="button" class="debug-btn" data-target-stage="0">D01: Arrival</button>
+        <button type="button" class="debug-btn" data-target-stage="0.25">D02: Opening</button>
+        <button type="button" class="debug-btn" data-target-stage="0.55">D03: Archive</button>
+        <button type="button" class="debug-btn" data-target-stage="0.80">D04: Threshold</button>
+        <button type="button" class="debug-btn" data-target-stage="1.0">D05: World</button>
+      </div>
+      <div class="debug-slider-row">
+        <label for="debug-scrub">Progress: <span id="debug-prog-val">0%</span></label>
+        <input type="range" id="debug-scrub" min="0" max="100" value="0" />
+      </div>
+      <div class="debug-telemetry">
+        <div>Cam Pos: <span id="dbg-cam-pos">0, 0, 14</span></div>
+        <div>Object Rot: <span id="dbg-obj-rot">0°, 0°</span></div>
+        <div>FPS: <span id="dbg-fps">60</span></div>
+      </div>
+      <div class="debug-toggles">
+        <button type="button" class="debug-btn-sm" id="dbg-toggle-wireframe">Wireframe</button>
+        <button type="button" class="debug-btn-sm" id="dbg-reset-cam">Reset Cam</button>
+      </div>
+    </div>
+  </div>
+</BaseLayout>
+
+<style>
+  /* Base Reset and Layout */
+  :root {
+    --color-studio-sable: #0d0e11;
+    --color-studio-ecru: #f5f2eb;
+    --color-studio-amber: #d97736;
+    --color-studio-charcoal: #16181d;
+    --color-studio-border: rgba(245, 242, 235, 0.12);
+    --font-serif-editorial: 'Playfair Display', Georgia, serif;
+    --font-sans-studio: 'Hanken Grotesk', system-ui, -apple-system, sans-serif;
+    --font-mono-archive: 'JetBrains Mono', monospace;
+  }
+
+  body {
+    background-color: var(--color-studio-sable);
+    color: var(--color-studio-ecru);
+    font-family: var(--font-sans-studio);
+    overflow-x: hidden;
+  }
+
+  .lab-container {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+  }
+
+  /* Fullscreen Fixed WebGL Canvas */
+  .webgl-canvas-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 1;
+    pointer-events: auto;
+    background: radial-gradient(circle at 50% 45%, #181a20 0%, #0d0e11 80%);
+  }
+
+  /* Tall Scroll Track driving progression */
+  .spatial-scroll-track {
+    position: relative;
+    z-index: 2;
+    min-height: 400vh;
+    pointer-events: none;
+  }
+
+  .spatial-viewport-stage {
+    position: relative;
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem 4rem;
+    box-sizing: border-box;
+    pointer-events: none;
+  }
+
+  .stage-content {
+    width: 100%;
+    max-width: 1360px;
+    margin: 0 auto;
+    pointer-events: auto;
+  }
+
+  /* D01: ARRIVAL */
+  .arrival-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 80vh;
+  }
+
+  .hero-typography-container {
+    margin-top: 5vh;
+  }
+
+  .hero-statement {
+    font-family: var(--font-sans-studio);
+    font-size: clamp(3rem, 7.5vw, 6.5rem);
+    font-weight: 800;
+    line-height: 0.95;
+    letter-spacing: -0.04em;
+    margin: 0 0 1.5rem 0;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .hero-line {
+    display: inline-block;
+    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.6s ease;
+  }
+
+  .hero-line-1 {
+    color: var(--color-studio-ecru);
+    text-shadow: 0 10px 30px rgba(0,0,0,0.8);
+  }
+
+  .hero-line-2 {
+    color: rgba(245, 242, 235, 0.65);
+    text-shadow: 0 15px 40px rgba(0,0,0,0.9);
+  }
+
+  .hero-subtitle {
+    font-family: var(--font-serif-editorial);
+    font-style: italic;
+    font-size: clamp(1.1rem, 2vw, 1.4rem);
+    color: rgba(245, 242, 235, 0.85);
+    max-width: 580px;
+    line-height: 1.5;
+    margin: 0;
+    text-shadow: 0 4px 16px rgba(0,0,0,0.9);
+  }
+
+  .hero-actions {
+    display: flex;
+    gap: 1.25rem;
+    margin-top: 2rem;
+  }
+
+  .btn-spatial {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.9rem 1.75rem;
+    border-radius: 9999px;
+    font-family: var(--font-mono-archive);
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    color: var(--color-studio-ecru);
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--color-studio-border);
+    backdrop-filter: blur(12px);
+    cursor: pointer;
+    text-decoration: none;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .btn-spatial:hover {
+    background: rgba(255, 255, 255, 0.12);
+    border-color: rgba(245, 242, 235, 0.3);
+    transform: translateY(-2px);
+  }
+
+  .btn-spatial-accent {
+    background: var(--color-studio-amber);
+    border-color: var(--color-studio-amber);
+    color: #fff;
+    box-shadow: 0 0 25px rgba(217, 119, 54, 0.35);
+  }
+
+  .btn-spatial-accent:hover {
+    background: #e68544;
+    box-shadow: 0 0 35px rgba(217, 119, 54, 0.55);
+  }
+
+  .scroll-indicator {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-family: var(--font-mono-archive);
+    font-size: 0.75rem;
+    letter-spacing: 0.1em;
+    color: rgba(245, 242, 235, 0.45);
+  }
+
+  .scroll-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--color-studio-amber);
+    animation: pulseGlow 2s infinite ease-in-out;
+  }
+
+  @keyframes pulseGlow {
+    0%, 100% { opacity: 0.4; transform: scale(0.8); }
+    50% { opacity: 1; transform: scale(1.3); }
+  }
+
+  /* D02: DECONSTRUCTION */
+  .deconstruction-content {
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    height: 70vh;
+  }
+
+  .stage-caption {
+    background: rgba(13, 14, 17, 0.75);
+    border: 1px solid var(--color-studio-border);
+    backdrop-filter: blur(16px);
+    padding: 1.5rem 2rem;
+    border-radius: 12px;
+    max-width: 360px;
+  }
+
+  .stage-label {
+    font-family: var(--font-mono-archive);
+    font-size: 0.75rem;
+    letter-spacing: 0.12em;
+    color: var(--color-studio-amber);
+    display: block;
+    margin-bottom: 0.5rem;
+  }
+
+  .stage-desc {
+    margin: 0;
+    font-size: 0.95rem;
+    color: rgba(245, 242, 235, 0.85);
+    line-height: 1.4;
+  }
+
+  /* D03: ARCHIVE FRAGMENTS */
+  .archive-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 80vh;
+  }
+
+  .archive-header {
+    margin-bottom: 2rem;
+  }
+
+  .archive-index-label {
+    font-family: var(--font-mono-archive);
+    font-size: 0.8rem;
+    letter-spacing: 0.15em;
+    color: var(--color-studio-amber);
+    display: block;
+    margin-bottom: 0.5rem;
+  }
+
+  .archive-title {
+    font-family: var(--font-serif-editorial);
+    font-size: clamp(2rem, 4vw, 3.2rem);
+    font-weight: 400;
+    margin: 0;
+    color: var(--color-studio-ecru);
+  }
+
+  .archive-fragments-dom {
+    display: grid;
+    grid-template-columns: 1fr 1.3fr 1fr;
+    gap: 1.75rem;
+    align-items: end;
+  }
+
+  .fragment-card {
+    background: rgba(22, 24, 29, 0.65);
+    border: 1px solid var(--color-studio-border);
+    backdrop-filter: blur(14px);
+    border-radius: 16px;
+    padding: 2rem;
+    text-align: left;
+    color: inherit;
+    cursor: pointer;
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .fragment-card:hover, .fragment-card:focus-visible {
+    transform: translateY(-8px) scale(1.02);
+    border-color: rgba(245, 242, 235, 0.35);
+    background: rgba(30, 33, 40, 0.85);
+    outline: none;
+  }
+
+  .fragment-card-featured {
+    border-color: rgba(217, 119, 54, 0.4);
+    background: rgba(26, 22, 20, 0.75);
+    box-shadow: 0 10px 40px rgba(0,0,0,0.5), 0 0 30px rgba(217, 119, 54, 0.15);
+    transform: scale(1.04);
+  }
+
+  .fragment-card-featured:hover {
+    border-color: var(--color-studio-amber);
+    box-shadow: 0 15px 50px rgba(0,0,0,0.6), 0 0 45px rgba(217, 119, 54, 0.3);
+  }
+
+  .frag-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.25rem;
+    font-family: var(--font-mono-archive);
+    font-size: 0.75rem;
+    letter-spacing: 0.08em;
+  }
+
+  .frag-number {
+    color: rgba(245, 242, 235, 0.6);
+  }
+
+  .frag-tag {
+    padding: 0.25rem 0.6rem;
+    background: rgba(255, 255, 255, 0.06);
+    border-radius: 4px;
+    color: rgba(245, 242, 235, 0.8);
+  }
+
+  .frag-tag-accent {
+    background: rgba(217, 119, 54, 0.2);
+    color: var(--color-studio-amber);
+  }
+
+  .frag-title {
+    font-family: var(--font-serif-editorial);
+    font-size: 1.6rem;
+    font-weight: 500;
+    line-height: 1.2;
+    margin: 0 0 0.75rem 0;
+  }
+
+  .frag-desc {
+    font-size: 0.9rem;
+    color: rgba(245, 242, 235, 0.7);
+    line-height: 1.45;
+    margin: 0 0 1.5rem 0;
+  }
+
+  .frag-action {
+    font-family: var(--font-mono-archive);
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    color: var(--color-studio-ecru);
+  }
+
+  .frag-action-glow {
+    color: var(--color-studio-amber);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  /* D04: THRESHOLD */
+  .threshold-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+  }
+
+  .threshold-left {
+    background: rgba(13, 14, 17, 0.85);
+    border: 1px solid var(--color-studio-border);
+    backdrop-filter: blur(18px);
+    padding: 3rem;
+    border-radius: 24px;
+  }
+
+  .threshold-kicker {
+    font-family: var(--font-mono-archive);
+    font-size: 0.8rem;
+    letter-spacing: 0.15em;
+    color: var(--color-studio-amber);
+    display: block;
+    margin-bottom: 1rem;
+  }
+
+  .threshold-title {
+    font-family: var(--font-serif-editorial);
+    font-size: clamp(2rem, 3.5vw, 3rem);
+    font-weight: 400;
+    line-height: 1.15;
+    margin: 0 0 1.5rem 0;
+  }
+
+  .threshold-title em {
+    color: var(--color-studio-amber);
+    font-style: italic;
+  }
+
+  .threshold-desc {
+    font-size: 1rem;
+    color: rgba(245, 242, 235, 0.75);
+    line-height: 1.5;
+    margin: 0 0 2rem 0;
+  }
+
+  .threshold-progress-wrap {
+    margin-top: 1.5rem;
+  }
+
+  .progress-label {
+    font-family: var(--font-mono-archive);
+    font-size: 0.75rem;
+    letter-spacing: 0.1em;
+    color: rgba(245, 242, 235, 0.5);
+    display: block;
+    margin-bottom: 0.5rem;
+  }
+
+  .progress-bar-track {
+    width: 100%;
+    height: 4px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 2px;
+    overflow: hidden;
+  }
+
+  .progress-bar-fill {
+    height: 100%;
+    width: 50%;
+    background: var(--color-studio-amber);
+    transition: width 0.3s ease;
+  }
+
+  .threshold-right {
+    display: flex;
+    justify-content: center;
+  }
+
+  .threshold-trigger-card {
+    background: rgba(26, 20, 18, 0.85);
+    border: 1px solid rgba(217, 119, 54, 0.5);
+    backdrop-filter: blur(20px);
+    border-radius: 24px;
+    padding: 3rem;
+    max-width: 480px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.7), 0 0 50px rgba(217, 119, 54, 0.25);
+  }
+
+  .threshold-card-label {
+    font-family: var(--font-mono-archive);
+    font-size: 0.75rem;
+    letter-spacing: 0.12em;
+    color: var(--color-studio-amber);
+    display: block;
+    margin-bottom: 0.75rem;
+  }
+
+  .threshold-card-title {
+    font-family: var(--font-serif-editorial);
+    font-size: 2.2rem;
+    margin: 0 0 0.5rem 0;
+  }
+
+  .threshold-card-sub {
+    font-size: 0.95rem;
+    color: rgba(245, 242, 235, 0.7);
+    margin: 0 0 2rem 0;
+  }
+
+  .btn-large {
+    width: 100%;
+    justify-content: center;
+    padding: 1.1rem 2rem;
+    font-size: 0.95rem;
+  }
+
+  /* D05: FULL CLIENT WORLD OVERLAY */
+  .client-world-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 50;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 2.5rem 4rem;
+    box-sizing: border-box;
+    overflow-y: auto;
+  }
+
+  .client-world-overlay.active {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .world-backdrop {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    overflow: hidden;
+  }
+
+  .world-bg-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(0.65) contrast(1.1);
+    transform: scale(1.05);
+    transition: transform 12s ease-out;
+  }
+
+  .client-world-overlay.active .world-bg-image {
+    transform: scale(1.0);
+  }
+
+  .world-bg-scrim {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at 75% 50%, rgba(13, 14, 17, 0.4) 0%, rgba(13, 14, 17, 0.88) 85%);
+  }
+
+  .world-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    z-index: 2;
+  }
+
+  .btn-return-studio {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    background: rgba(13, 14, 17, 0.7);
+    border: 1px solid var(--color-studio-border);
+    backdrop-filter: blur(12px);
+    color: var(--color-studio-ecru);
+    padding: 0.6rem 1.2rem;
+    border-radius: 9999px;
+    font-family: var(--font-mono-archive);
+    font-size: 0.8rem;
+    letter-spacing: 0.08em;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+
+  .btn-return-studio:hover {
+    background: rgba(245, 242, 235, 0.15);
+    border-color: rgba(245, 242, 235, 0.4);
+    transform: translateX(-4px);
+  }
+
+  .world-badge, .world-coords {
+    font-family: var(--font-mono-archive);
+    font-size: 0.75rem;
+    letter-spacing: 0.1em;
+    color: rgba(245, 242, 235, 0.6);
+  }
+
+  .world-main-content {
+    display: grid;
+    grid-template-columns: 1.1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+    position: relative;
+    z-index: 2;
+    margin: auto 0;
+  }
+
+  .world-folio-label {
+    font-family: var(--font-mono-archive);
+    font-size: 0.8rem;
+    letter-spacing: 0.15em;
+    color: var(--color-studio-amber);
+    display: block;
+    margin-bottom: 1rem;
+  }
+
+  .world-headline {
+    font-family: var(--font-serif-editorial);
+    font-size: clamp(2.5rem, 5vw, 4.2rem);
+    font-weight: 400;
+    line-height: 1.05;
+    margin: 0 0 1.5rem 0;
+  }
+
+  .world-headline em {
+    font-style: italic;
+    color: #e8d5b5;
+  }
+
+  .world-narrative {
+    font-size: 1.05rem;
+    line-height: 1.6;
+    color: rgba(245, 242, 235, 0.85);
+    max-width: 520px;
+    margin: 0 0 2rem 0;
+  }
+
+  .world-metadata-pills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+  }
+
+  .meta-pill {
+    font-family: var(--font-mono-archive);
+    font-size: 0.75rem;
+    letter-spacing: 0.06em;
+    background: rgba(245, 242, 235, 0.08);
+    border: 1px solid rgba(245, 242, 235, 0.15);
+    padding: 0.4rem 0.8rem;
+    border-radius: 4px;
+    color: rgba(245, 242, 235, 0.9);
+  }
+
+  /* Memory Plaque */
+  .memory-plaque {
+    background: rgba(22, 19, 17, 0.8);
+    border: 1px solid rgba(217, 119, 54, 0.4);
+    backdrop-filter: blur(24px);
+    border-radius: 20px;
+    padding: 2.5rem;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.8), 0 0 40px rgba(217, 119, 54, 0.2);
+  }
+
+  .plaque-header {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-family: var(--font-mono-archive);
+    font-size: 0.75rem;
+    letter-spacing: 0.1em;
+    color: var(--color-studio-amber);
+    margin-bottom: 1.25rem;
+  }
+
+  .vow-quote {
+    font-family: var(--font-serif-editorial);
+    font-style: italic;
+    font-size: 1.4rem;
+    line-height: 1.45;
+    color: var(--color-studio-ecru);
+    margin: 0 0 1rem 0;
+    padding-left: 1rem;
+    border-left: 2px solid var(--color-studio-amber);
+  }
+
+  .vow-author {
+    font-family: var(--font-sans-studio);
+    font-size: 0.85rem;
+    color: rgba(245, 242, 235, 0.6);
+    display: block;
+    margin-bottom: 2rem;
+  }
+
+  /* Acoustic Player */
+  .acoustic-player {
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+    background: rgba(13, 14, 17, 0.7);
+    border: 1px solid rgba(245, 242, 235, 0.1);
+    padding: 1rem 1.5rem;
+    border-radius: 12px;
+    margin-bottom: 1.5rem;
+  }
+
+  .player-toggle-btn {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: var(--color-studio-amber);
+    color: #fff;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: transform 0.2s ease, background 0.2s ease;
+  }
+
+  .player-toggle-btn:hover {
+    transform: scale(1.08);
+    background: #e68544;
+  }
+
+  .player-info {
+    display: flex;
+    flex-direction: column;
+    min-width: 110px;
+  }
+
+  .player-title {
+    font-family: var(--font-mono-archive);
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+  }
+
+  .player-time {
+    font-family: var(--font-mono-archive);
+    font-size: 0.7rem;
+    color: rgba(245, 242, 235, 0.5);
+  }
+
+  .waveform-visualizer {
+    display: flex;
+    align-items: center;
+    gap: 3px;
+    height: 36px;
+    flex: 1;
+  }
+
+  .wave-bar {
+    width: 3px;
+    background: var(--color-studio-amber);
+    border-radius: 2px;
+    opacity: 0.75;
+    transition: height 0.15s ease;
+  }
+
+  .acoustic-player.playing .wave-bar {
+    animation: waveBounce 0.8s infinite alternate ease-in-out;
+    animation-delay: calc(var(--i) * 0.05s);
+  }
+
+  @keyframes waveBounce {
+    0% { transform: scaleY(0.4); opacity: 0.4; }
+    100% { transform: scaleY(1.3); opacity: 1; }
+  }
+
+  /* Wax Seal */
+  .guestbook-blessing {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .btn-wax-seal {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    background: rgba(217, 119, 54, 0.15);
+    border: 1px dashed var(--color-studio-amber);
+    color: var(--color-studio-ecru);
+    padding: 0.8rem 1.25rem;
+    border-radius: 8px;
+    font-family: var(--font-mono-archive);
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+
+  .btn-wax-seal:hover {
+    background: rgba(217, 119, 54, 0.28);
+    border-style: solid;
+  }
+
+  .seal-status {
+    font-family: var(--font-mono-archive);
+    font-size: 0.7rem;
+    color: rgba(245, 242, 235, 0.5);
+    text-align: center;
+    margin: 0;
+  }
+
+  /* DEV DEBUG HUD */
+  .dev-debug-hud {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    z-index: 999;
+    background: rgba(13, 14, 17, 0.92);
+    border: 1px solid var(--color-studio-amber);
+    backdrop-filter: blur(20px);
+    padding: 1.25rem;
+    border-radius: 12px;
+    width: 280px;
+    font-family: var(--font-mono-archive);
+    font-size: 0.75rem;
+    color: var(--color-studio-ecru);
+    box-shadow: 0 10px 40px rgba(0,0,0,0.8);
+  }
+
+  .debug-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.75rem;
+    border-bottom: 1px solid rgba(245, 242, 235, 0.1);
+    padding-bottom: 0.4rem;
+  }
+
+  .debug-title {
+    color: var(--color-studio-amber);
+    font-weight: 700;
+  }
+
+  .debug-close {
+    background: none;
+    border: none;
+    color: rgba(245, 242, 235, 0.5);
+    cursor: pointer;
+  }
+
+  .debug-stages {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.4rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .debug-btn {
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid var(--color-studio-border);
+    color: var(--color-studio-ecru);
+    padding: 0.35rem 0.2rem;
+    border-radius: 4px;
+    font-size: 0.7rem;
+    cursor: pointer;
+  }
+
+  .debug-btn:hover {
+    background: var(--color-studio-amber);
+    color: #fff;
+  }
+
+  .debug-slider-row {
+    margin-bottom: 0.75rem;
+  }
+
+  .debug-slider-row label {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0.25rem;
+  }
+
+  .debug-slider-row input {
+    width: 100%;
+  }
+
+  .debug-telemetry {
+    font-size: 0.65rem;
+    color: rgba(245, 242, 235, 0.6);
+    margin-bottom: 0.75rem;
+    line-height: 1.4;
+  }
+
+  .debug-toggles {
+    display: flex;
+    gap: 0.5rem;
+  }
+
+  .debug-btn-sm {
+    flex: 1;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--color-studio-border);
+    color: rgba(245, 242, 235, 0.8);
+    padding: 0.3rem;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+
+  /* Responsive Adjustments */
+  @media (max-width: 1024px) {
+    .archive-fragments-dom {
+      grid-template-columns: 1fr;
+    }
+    .fragment-card-featured {
+      transform: none;
+    }
+    .threshold-content {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+    .world-main-content {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+    .spatial-viewport-stage {
+      padding: 1.5rem;
+    }
+    .client-world-overlay {
+      padding: 1.5rem;
+    }
+  }
+</style>
+
+<script>
+  import * as THREE from 'three';
+
+  // --- CLIENT RUNTIME INITIALIZATION ---
+  function initXZObjectExperience() {
+    const container = document.getElementById('webgl-canvas-container');
+    if (!container) return;
+
+    // Check query params for debug mode
+    const urlParams = new URLSearchParams(window.location.search);
+    const isDebug = urlParams.get('debug') === '1';
+    const debugHud = document.getElementById('dev-debug-hud');
+    if (isDebug && debugHud) {
+      debugHud.style.display = 'block';
+    }
+
+    // Check prefers-reduced-motion
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    // 1. Scene, Camera, Renderer Setup
+    const scene = new THREE.Scene();
+    scene.fog = new THREE.FogExp2(0x0d0e11, 0.04);
+
+    const camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 0.1, 100);
+    camera.position.set(0, 0, 14);
+
+    const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true, powerPreference: 'high-performance' });
+    renderer.setSize(window.innerWidth, window.innerHeight);
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+    renderer.toneMapping = THREE.ACESFilmicToneMapping;
+    renderer.toneMappingExposure = 1.2;
+    renderer.shadowMap.enabled = true;
+    renderer.shadowMap.type = THREE.PCFShadowMap;
+    container.appendChild(renderer.domElement);
+
+    // 2. Lighting System
+    const ambientLight = new THREE.AmbientLight(0x0d0e11, 1.8);
+    scene.add(ambientLight);
+
+    const keyLight = new THREE.DirectionalLight(0xf09848, 3.2);
+    keyLight.position.set(6, 8, 8);
+    keyLight.castShadow = true;
+    keyLight.shadow.mapSize.width = 1024;
+    keyLight.shadow.mapSize.height = 1024;
+    scene.add(keyLight);
+
+    const coolRimLight = new THREE.DirectionalLight(0x6b8299, 1.8);
+    coolRimLight.position.set(-8, -4, -6);
+    scene.add(coolRimLight);
+
+    const coreLight = new THREE.PointLight(0xd97736, 4.0, 16);
+    coreLight.position.set(0, 0, 0);
+    scene.add(coreLight);
+
+    // 3. Materials
+    const darkCharcoalMat = new THREE.MeshStandardMaterial({
+      color: 0x14161a,
+      roughness: 0.35,
+      metalness: 0.25,
+      side: THREE.DoubleSide
+    });
+
+    const bronzeEdgeMat = new THREE.MeshStandardMaterial({
+      color: 0xd97736,
+      roughness: 0.3,
+      metalness: 0.75,
+      emissive: 0x221105,
+      side: THREE.DoubleSide
+    });
+
+    const translucentResinMat = new THREE.MeshPhysicalMaterial({
+      color: 0x242830,
+      roughness: 0.18,
+      transmission: 0.65,
+      thickness: 1.5,
+      ior: 1.45,
+      transparent: true,
+      opacity: 0.85,
+      side: THREE.DoubleSide
+    });
+
+    // 4. Procedural XZ Sculpture Hierarchy
+    const xzMasterGroup = new THREE.Group();
+    scene.add(xzMasterGroup);
+
+    // Sub-Groups for transformations
+    const fragment000 = new THREE.Group(); // Left plate (Internal)
+    const fragment001 = new THREE.Group(); // Center plate (Celebration Heirloom)
+    const fragment002 = new THREE.Group(); // Right plate (Brand)
+    const outerPlanesGroup = new THREE.Group(); // Outer deconstructing petals
+
+    xzMasterGroup.add(fragment000);
+    xzMasterGroup.add(fragment001);
+    xzMasterGroup.add(fragment002);
+    xzMasterGroup.add(outerPlanesGroup);
+
+    // Helper: Extruded Trajectory Slabs (encoding crossing X & Z diagonals)
+    function createTrapezoidSlab(w1: number, w2: number, h: number, depth: number, material: THREE.Material) {
+      const shape = new THREE.Shape();
+      shape.moveTo(-w1 / 2, -h / 2);
+      shape.lineTo(w1 / 2, -h / 2);
+      shape.lineTo(w2 / 2, h / 2);
+      shape.lineTo(-w2 / 2, h / 2);
+      shape.closePath();
+
+      const extrudeSettings = {
+        depth: depth,
+        bevelEnabled: true,
+        bevelSegments: 3,
+        steps: 1,
+        bevelSize: 0.05,
+        bevelThickness: 0.05
+      };
+      const geom = new THREE.ExtrudeGeometry(shape, extrudeSettings);
+      geom.center();
+      const mesh = new THREE.Mesh(geom, material);
+      mesh.castShadow = true;
+      mesh.receiveShadow = true;
+      return mesh;
+    }
+
+    // Populate Fragment /001 (Center Dominant)
+    const slab001 = createTrapezoidSlab(3.6, 2.8, 4.8, 0.25, translucentResinMat);
+    const trim001 = createTrapezoidSlab(3.65, 2.85, 4.85, 0.05, bronzeEdgeMat);
+    trim001.position.z = -0.15;
+    fragment001.add(slab001);
+    fragment001.add(trim001);
+
+    // Populate Fragment /000 (Left)
+    const slab000 = createTrapezoidSlab(2.8, 2.0, 3.8, 0.2, darkCharcoalMat);
+    slab000.rotation.set(0.1, 0.25, -0.15);
+    fragment000.add(slab000);
+
+    // Populate Fragment /002 (Right)
+    const slab002 = createTrapezoidSlab(2.8, 2.0, 3.8, 0.2, darkCharcoalMat);
+    slab002.rotation.set(-0.1, -0.25, 0.15);
+    fragment002.add(slab002);
+
+    // Outer crossing diagonals encoding X & Z tension
+    const outerPlane1 = createTrapezoidSlab(4.2, 1.2, 2.4, 0.1, darkCharcoalMat);
+    outerPlane1.position.set(-1.2, 1.4, 0.6);
+    outerPlane1.rotation.set(0.3, 0.4, 0.6);
+    outerPlanesGroup.add(outerPlane1);
+
+    const outerPlane2 = createTrapezoidSlab(1.2, 4.2, 2.4, 0.1, darkCharcoalMat);
+    outerPlane2.position.set(1.2, -1.4, -0.6);
+    outerPlane2.rotation.set(-0.3, -0.4, -0.6);
+    outerPlanesGroup.add(outerPlane2);
+
+    // 5. Interaction State Variables
+    let scrollProgress = 0;
+    let targetProgress = 0;
+    let isClientWorldOpen = false;
+
+    let mouseX = 0;
+    let mouseY = 0;
+    let targetRotX = 0;
+    let targetRotY = 0;
+    let isDragging = false;
+    let dragStartX = 0;
+    let dragStartY = 0;
+
+    // 6. DOM Elements
+    const lineWeMake = document.getElementById('line-we-make');
+    const lineForInternet = document.getElementById('line-for-internet');
+    const clientWorldOverlay = document.getElementById('client-world-overlay');
+    const thresholdBarFill = document.getElementById('threshold-bar-fill');
+    const acousticPlayer = document.getElementById('acoustic-player');
+    const playerToggleBtn = document.getElementById('player-toggle-btn');
+    const iconPlay = playerToggleBtn?.querySelector('.icon-play') as HTMLElement;
+    const iconPause = playerToggleBtn?.querySelector('.icon-pause') as HTMLElement;
+
+    // 7. Scroll Listener
+    function updateScrollProgress() {
+      const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
+      if (maxScroll > 0) {
+        targetProgress = Math.min(1, Math.max(0, window.scrollY / maxScroll));
+      }
+    }
+
+    window.addEventListener('scroll', updateScrollProgress, { passive: true });
+    updateScrollProgress();
+
+    // 8. Pointer / Drag Handling
+    window.addEventListener('pointermove', (e) => {
+      const normX = (e.clientX / window.innerWidth) * 2 - 1;
+      const normY = -(e.clientY / window.innerHeight) * 2 + 1;
+      mouseX = normX;
+      mouseY = normY;
+
+      if (isDragging) {
+        const deltaX = e.clientX - dragStartX;
+        const deltaY = e.clientY - dragStartY;
+        targetRotY += deltaX * 0.003;
+        targetRotX += deltaY * 0.003;
+        dragStartX = e.clientX;
+        dragStartY = e.clientY;
+      }
+    });
+
+    window.addEventListener('pointerdown', (e) => {
+      if ((e.target as HTMLElement)?.closest('button, a, input, .client-world-overlay')) return;
+      isDragging = true;
+      dragStartX = e.clientX;
+      dragStartY = e.clientY;
+    });
+
+    window.addEventListener('pointerup', () => {
+      isDragging = false;
+    });
+
+    // 9. Interactive Fragment Triggers & Navigation
+    function openClientWorld() {
+      isClientWorldOpen = true;
+      clientWorldOverlay?.classList.add('active');
+      clientWorldOverlay?.setAttribute('aria-hidden', 'false');
+    }
+
+    function closeClientWorld() {
+      isClientWorldOpen = false;
+      clientWorldOverlay?.classList.remove('active');
+      clientWorldOverlay?.setAttribute('aria-hidden', 'true');
+    }
+
+    document.getElementById('card-frag-001')?.addEventListener('click', () => {
+      openClientWorld();
+    });
+
+    document.getElementById('btn-enter-world-direct')?.addEventListener('click', () => {
+      openClientWorld();
+    });
+
+    document.getElementById('btn-return-studio')?.addEventListener('click', () => {
+      closeClientWorld();
+    });
+
+    document.getElementById('btn-explore-scroll')?.addEventListener('click', () => {
+      window.scrollTo({ top: window.innerHeight * 1.5, behavior: 'smooth' });
+    });
+
+    // Audio Playback Simulation
+    let isPlaying = false;
+    playerToggleBtn?.addEventListener('click', () => {
+      isPlaying = !isPlaying;
+      if (isPlaying) {
+        acousticPlayer?.classList.add('playing');
+        if (iconPlay) iconPlay.style.display = 'none';
+        if (iconPause) iconPause.style.display = 'block';
+      } else {
+        acousticPlayer?.classList.remove('playing');
+        if (iconPlay) iconPlay.style.display = 'block';
+        if (iconPause) iconPause.style.display = 'none';
+      }
+    });
+
+    // Wax Seal Blessing Interaction
+    const btnWaxSeal = document.getElementById('btn-wax-seal');
+    const sealStatus = document.getElementById('seal-status');
+    let blessingCount = 48;
+    btnWaxSeal?.addEventListener('click', () => {
+      blessingCount++;
+      if (sealStatus) {
+        sealStatus.textContent = `✨ Your blessing sealed into archive ledger. (${blessingCount} blessings immortalized)`;
+        sealStatus.style.color = 'var(--color-studio-amber)';
+      }
+    });
+
+    // Keyboard ESC to close
+    window.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && isClientWorldOpen) {
+        closeClientWorld();
+      }
+    });
+
+    // 10. Debug HUD Controls
+    if (isDebug) {
+      const debugScrub = document.getElementById('debug-scrub') as HTMLInputElement;
+      const debugProgVal = document.getElementById('debug-prog-val');
+      const btnCloseDebug = document.getElementById('btn-close-debug');
+      const btnToggleWire = document.getElementById('dbg-toggle-wireframe');
+      const btnResetCam = document.getElementById('dbg-reset-cam');
+
+      btnCloseDebug?.addEventListener('click', () => {
+        if (debugHud) debugHud.style.display = 'none';
+      });
+
+      debugScrub?.addEventListener('input', (e) => {
+        const val = parseFloat((e.target as HTMLInputElement).value) / 100;
+        targetProgress = val;
+        if (debugProgVal) debugProgVal.textContent = `${Math.round(val * 100)}%`;
+      });
+
+      document.querySelectorAll('[data-target-stage]').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+          const stage = parseFloat((e.target as HTMLElement).dataset.targetStage || '0');
+          targetProgress = stage;
+          if (debugScrub) debugScrub.value = `${stage * 100}`;
+          if (debugProgVal) debugProgVal.textContent = `${Math.round(stage * 100)}%`;
+        });
+      });
+
+      let isWireframe = false;
+      btnToggleWire?.addEventListener('click', () => {
+        isWireframe = !isWireframe;
+        darkCharcoalMat.wireframe = isWireframe;
+        bronzeEdgeMat.wireframe = isWireframe;
+        translucentResinMat.wireframe = isWireframe;
+      });
+
+      btnResetCam?.addEventListener('click', () => {
+        targetRotX = 0;
+        targetRotY = 0;
+      });
+    }
+
+    // 11. Main Render & Choreography Loop
+    let lastTime = performance.now();
+    let frameCount = 0;
+    let fps = 60;
+
+    function animate(currentTime: number) {
+      requestAnimationFrame(animate);
+
+      const delta = (currentTime - lastTime) / 1000;
+      lastTime = currentTime;
+      frameCount++;
+      if (frameCount % 30 === 0) {
+        fps = Math.round(1 / delta);
+        const dbgFps = document.getElementById('dbg-fps');
+        if (dbgFps) dbgFps.textContent = `${fps}`;
+      }
+
+      // Smooth progress lerp
+      scrollProgress += (targetProgress - scrollProgress) * (prefersReducedMotion ? 0.3 : 0.08);
+
+      // DOM Parallax on Typography
+      if (lineWeMake && lineForInternet) {
+        const p = scrollProgress;
+        lineWeMake.style.transform = `translate3d(${p * 40}px, ${-p * 60}px, ${p * 120}px)`;
+        lineForInternet.style.transform = `translate3d(${-p * 30}px, ${p * 40}px, ${-p * 100}px)`;
+        lineForInternet.style.opacity = `${Math.max(0.2, 1 - p * 1.4)}`;
+      }
+
+      // Update Threshold Progress Bar
+      if (thresholdBarFill) {
+        const thresholdPercent = Math.min(100, Math.max(0, (scrollProgress - 0.6) * 250));
+        thresholdBarFill.style.width = `${thresholdPercent}%`;
+      }
+
+      // === 3D GEOMETRY & CAMERA CHOREOGRAPHY ===
+      const p = isClientWorldOpen ? 1.0 : scrollProgress;
+
+      // Master rotation & pointer tilt
+      const targetBaseY = p * 1.2 + mouseX * 0.15;
+      const targetBaseX = mouseY * 0.15;
+      xzMasterGroup.rotation.y += (targetBaseY + targetRotY - xzMasterGroup.rotation.y) * 0.06;
+      xzMasterGroup.rotation.x += (targetBaseX + targetRotX - xzMasterGroup.rotation.x) * 0.06;
+
+      // 1. Stage D01 -> D02: Object Opening
+      const openFactor = Math.min(1, Math.max(0, (p - 0.15) / 0.35));
+      outerPlane1.position.x = -1.2 - openFactor * 2.5;
+      outerPlane1.position.z = 0.6 + openFactor * 1.8;
+      outerPlane1.rotation.y = 0.4 + openFactor * 0.8;
+
+      outerPlane2.position.x = 1.2 + openFactor * 2.5;
+      outerPlane2.position.z = -0.6 - openFactor * 1.8;
+      outerPlane2.rotation.y = -0.4 - openFactor * 0.8;
+
+      coreLight.intensity = 2.0 + openFactor * 4.0;
+
+      // 2. Stage D02 -> D03: Fragments align as archive
+      const archiveFactor = Math.min(1, Math.max(0, (p - 0.45) / 0.3));
+      fragment000.position.x = -archiveFactor * 4.2;
+      fragment000.position.z = -archiveFactor * 1.5;
+      fragment000.rotation.y = archiveFactor * 0.35;
+
+      fragment002.position.x = archiveFactor * 4.2;
+      fragment002.position.z = -archiveFactor * 1.8;
+      fragment002.rotation.y = -archiveFactor * 0.35;
+
+      // 3. Stage D03 -> D04 -> D05: Fragment 001 surges toward camera
+      const surgeFactor = Math.min(1, Math.max(0, (p - 0.7) / 0.3));
+      fragment001.position.z = archiveFactor * 1.5 + surgeFactor * 6.5;
+      fragment001.position.x = surgeFactor * 1.8;
+      fragment001.scale.setScalar(1.0 + surgeFactor * 0.6);
+
+      // Camera position interpolation
+      const targetCamZ = 14 - p * 7.5;
+      const targetCamY = -p * 1.5;
+      camera.position.z += (targetCamZ - camera.position.z) * 0.06;
+      camera.position.y += (targetCamY - camera.position.y) * 0.06;
+
+      // Telemetry updates for Dev HUD
+      if (isDebug) {
+        const dbgCamPos = document.getElementById('dbg-cam-pos');
+        const dbgObjRot = document.getElementById('dbg-obj-rot');
+        if (dbgCamPos) dbgCamPos.textContent = `${camera.position.x.toFixed(1)}, ${camera.position.y.toFixed(1)}, ${camera.position.z.toFixed(1)}`;
+        if (dbgObjRot) dbgObjRot.textContent = `${Math.round(xzMasterGroup.rotation.x * 57.3)}°, ${Math.round(xzMasterGroup.rotation.y * 57.3)}°`;
+      }
+
+      renderer.render(scene, camera);
+    }
+
+    requestAnimationFrame(animate);
+
+    // 12. Window Resize Handling
+    window.addEventListener('resize', () => {
+      camera.aspect = window.innerWidth / window.innerHeight;
+      camera.updateProjectionMatrix();
+      renderer.setSize(window.innerWidth, window.innerHeight);
+    });
+  }
+
+  // Execute on DOM Ready
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initXZObjectExperience);
+  } else {
+    initXZObjectExperience();
+  }
+</script>

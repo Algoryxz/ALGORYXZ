@@ -1,0 +1,980 @@
+<!DOCTYPE html>
+
+<html class="dark h-full" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>ALGORYXZ / 000 — KEYFRAME D06: TWO WORLDS</title>
+<!-- Google Fonts: Playfair Display, Hanken Grotesk, JetBrains Mono -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&amp;family=JetBrains+Mono:wght@300;400;500&amp;family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS v3 -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "on-surface-variant": "#dbc1b4",
+            "error": "#ffb4ab",
+            "outline-variant": "#554339",
+            "on-primary-fixed-variant": "#753400",
+            "primary-fixed": "#ffdbc9",
+            "inverse-on-surface": "#303034",
+            "surface-bright": "#38393c",
+            "inverse-primary": "#994703",
+            "on-secondary-fixed-variant": "#52452d",
+            "primary-fixed-dim": "#ffb68c",
+            "primary": "#ffb68c",
+            "on-tertiary": "#5a1c00",
+            "surface-dim": "#121316",
+            "surface": "#121316",
+            "error-container": "#93000a",
+            "outline": "#a38c80",
+            "on-error-container": "#ffdad6",
+            "tertiary-fixed-dim": "#ffb599",
+            "surface-variant": "#343538",
+            "tertiary-container": "#d67851",
+            "tertiary": "#ffb599",
+            "surface-container-lowest": "#0d0e11",
+            "surface-container-highest": "#343538",
+            "on-background": "#e3e2e6",
+            "inverse-surface": "#e3e2e6",
+            "surface-container": "#1f1f23",
+            "on-error": "#690005",
+            "on-surface": "#e3e2e6",
+            "background": "#121316",
+            "tertiary-fixed": "#ffdbce",
+            "surface-container-low": "#1b1b1f",
+            "primary-container": "#d97736",
+            "on-primary-fixed": "#321200",
+            "secondary-fixed": "#f4e0c0",
+            "on-tertiary-fixed": "#370e00",
+            "secondary-fixed-dim": "#d7c4a5",
+            "on-primary-container": "#491d00",
+            "surface-container-high": "#292a2d",
+            "on-secondary-container": "#c5b395",
+            "on-secondary": "#3a2f19",
+            "on-tertiary-fixed-variant": "#79310f",
+            "on-secondary-fixed": "#241a06",
+            "secondary-container": "#52452d",
+            "on-tertiary-container": "#4f1800",
+            "secondary": "#d7c4a5",
+            "on-primary": "#532200",
+            "surface-tint": "#ffb68c"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.125rem",
+            "lg": "0.25rem",
+            "xl": "0.5rem",
+            "full": "0.75rem"
+          },
+          "spacing": {
+            "gutter-mobile": "1rem",
+            "gutter": "1.5rem",
+            "space-xs": "0.25rem",
+            "space-xl": "3rem",
+            "gutter-tablet": "1.25rem",
+            "margin-mobile": "1.25rem",
+            "space-lg": "1.75rem",
+            "space-md": "1rem",
+            "space-sm": "0.5rem",
+            "margin": "4rem",
+            "margin-tablet": "2rem"
+          },
+          "fontFamily": {
+            "display-xl-mobile": ["Playfair Display"],
+            "headline-md-mobile": ["Playfair Display"],
+            "body-sm": ["Hanken Grotesk"],
+            "label-mono": ["JetBrains Mono"],
+            "display-xl": ["Playfair Display"],
+            "label-mono-sm": ["JetBrains Mono"],
+            "headline-md": ["Playfair Display"],
+            "body-lg": ["Hanken Grotesk"],
+            "body-md": ["Hanken Grotesk"],
+            "headline-lg-mobile": ["Playfair Display"],
+            "label-md": ["Hanken Grotesk"],
+            "headline-lg": ["Playfair Display"],
+            "headline-sm": ["Playfair Display"]
+          },
+          "fontSize": {
+            "display-xl-mobile": ["48px", { "lineHeight": "54px", "letterSpacing": "-0.02em", "fontWeight": "400" }],
+            "headline-md-mobile": ["28px", { "lineHeight": "34px", "letterSpacing": "0em", "fontWeight": "500" }],
+            "body-sm": ["13px", { "lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "400" }],
+            "label-mono": ["11px", { "lineHeight": "16px", "letterSpacing": "0.08em", "fontWeight": "400" }],
+            "display-xl": ["84px", { "lineHeight": "92px", "letterSpacing": "-0.03em", "fontWeight": "400" }],
+            "label-mono-sm": ["10px", { "lineHeight": "14px", "letterSpacing": "0.1em", "fontWeight": "400" }],
+            "headline-md": ["36px", { "lineHeight": "44px", "letterSpacing": "-0.01em", "fontWeight": "500" }],
+            "body-lg": ["18px", { "lineHeight": "28px", "letterSpacing": "-0.01em", "fontWeight": "400" }],
+            "body-md": ["15px", { "lineHeight": "24px", "letterSpacing": "0em", "fontWeight": "400" }],
+            "headline-lg-mobile": ["36px", { "lineHeight": "42px", "letterSpacing": "-0.01em", "fontWeight": "400" }],
+            "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.06em", "fontWeight": "600" }],
+            "headline-lg": ["56px", { "lineHeight": "64px", "letterSpacing": "-0.02em", "fontWeight": "400" }],
+            "headline-sm": ["24px", { "lineHeight": "32px", "letterSpacing": "0em", "fontWeight": "500" }]
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 20;
+      font-size: 16px;
+      line-height: 1;
+      display: inline-block;
+      vertical-align: middle;
+    }
+    /* Architectural Hairlines & Atmosphere */
+    .hairline-b { border-bottom: 1px solid rgba(232, 213, 181, 0.12); }
+    .hairline-t { border-top: 1px solid rgba(232, 213, 181, 0.12); }
+    .hairline-r { border-right: 1px solid rgba(232, 213, 181, 0.08); }
+    .hairline-l { border-left: 1px solid rgba(232, 213, 181, 0.08); }
+    .hairline-all { border: 1px solid rgba(232, 213, 181, 0.12); }
+    .glow-terracotta { box-shadow: 0 16px 40px -12px rgba(217, 119, 54, 0.22); }
+    .glow-amber-soft { box-shadow: 0 0 50px -10px rgba(243, 210, 159, 0.12); }
+    
+    /* Subtle Grain Texture Overlay */
+    .bg-grain {
+      background-image: radial-gradient(rgba(245, 242, 235, 0.04) 1px, transparent 0);
+      background-size: 24px 24px;
+    }
+    
+    /* Range Slider Styling */
+    input[type=range]::-webkit-slider-thumb {
+      appearance: none;
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      background: #ffb68c;
+      box-shadow: 0 0 16px rgba(217, 119, 54, 0.8), inset 0 0 0 2px #0d0e11;
+      cursor: ew-resize;
+      border: 1px solid #f4e0c0;
+      transition: transform 0.15s ease, background-color 0.2s ease;
+    }
+    input[type=range]::-webkit-slider-thumb:hover {
+      transform: scale(1.25);
+      background: #d97736;
+    }
+    input[type=range]::-moz-range-thumb {
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      background: #ffb68c;
+      box-shadow: 0 0 16px rgba(217, 119, 54, 0.8), inset 0 0 0 2px #0d0e11;
+      cursor: ew-resize;
+      border: 1px solid #f4e0c0;
+    }
+  </style>
+</head>
+<body class="bg-surface-container-lowest text-on-surface antialiased overflow-hidden h-screen w-screen select-none font-body-md text-body-md flex flex-col justify-between relative bg-grain">
+<!-- ================================================================= -->
+<!-- 1. TOP DOCKED APP BAR (Glass Floating Pill Anchor)               -->
+<!-- ================================================================= -->
+<header class="fixed top-4 inset-x-0 mx-auto max-w-5xl rounded-full border border-outline-variant/30 bg-surface-container-low/80 backdrop-blur-md z-50 shadow-[0_16px_40px_-12px_rgba(217,119,54,0.18)] transition-all duration-300 ease-out hover:scale-[1.01]">
+<div class="flex justify-between items-center px-6 py-2.5 w-full">
+<!-- Brand & Keyframe Identity -->
+<div class="flex items-center gap-3">
+<a class="font-label-mono text-label-mono tracking-widest text-on-surface uppercase flex items-center gap-1.5 group" href="#">
+<span class="text-on-surface font-medium">ALGORY</span><span class="text-primary group-hover:text-primary-container transition-colors">XZ</span>
+<span class="text-outline-variant">/</span>
+<span class="text-secondary-fixed-dim">000</span>
+</a>
+<span class="hidden lg:inline-block w-px h-3 bg-outline-variant/40"></span>
+<div class="hidden lg:flex items-center gap-2 font-label-mono-sm text-label-mono-sm text-on-surface-variant/70">
+<span class="inline-block w-1.5 h-1.5 rounded-full bg-primary-container animate-pulse"></span>
+<span>KEYFRAME D06 // DUALITY THRESHOLD</span>
+<span class="text-outline-variant">·</span>
+<span>20.2961° N, 85.8245° E</span>
+</div>
+</div>
+<!-- Center Navigation Links (Exact Shared Component Anchors) -->
+<nav class="hidden md:flex items-center gap-7">
+<a class="text-on-surface-variant font-label-mono text-label-mono transition-colors hover:text-primary" href="#archive">Archive</a>
+<a class="text-primary font-label-mono text-label-mono border-b border-primary pb-0.5 tracking-wider" href="#two-worlds">Two Worlds</a>
+<a class="text-on-surface-variant font-label-mono text-label-mono transition-colors hover:text-primary" href="#atelier">Atelier</a>
+<a class="text-on-surface-variant font-label-mono text-label-mono transition-colors hover:text-primary" href="#foundry">Foundry</a>
+<a class="text-on-surface-variant font-label-mono text-label-mono transition-colors hover:text-primary" href="#colophon">Colophon</a>
+</nav>
+<!-- Trailing Status & Action (Exact Shared JSON logic) -->
+<div class="flex items-center gap-3">
+<div class="hidden sm:flex items-center gap-1.5 px-2.5 py-1 rounded-full border border-outline-variant/30 bg-surface-container-lowest/60 font-label-mono-sm text-label-mono-sm text-secondary-fixed-dim">
+<span class="material-symbols-outlined text-[13px] text-primary" data-icon="grain">grain</span>
+<span>Available 2025</span>
+</div>
+<a class="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full bg-primary-container text-on-primary-container font-label-md text-label-md hover:bg-primary transition-all duration-200 hover:shadow-[0_0_20px_rgba(217,119,54,0.4)]" href="#inquire">
+<span>Inquire</span>
+<span class="material-symbols-outlined text-[13px]" data-icon="north_east">north_east</span>
+</a>
+</div>
+</div>
+</header>
+<!-- ================================================================= -->
+<!-- 2. FULL-BLEED 3D KINETIC TECTONIC LAYER                           -->
+<!-- ================================================================= -->
+<div class="absolute inset-0 w-full h-full overflow-hidden pointer-events-none z-0">
+<!-- STITCH_THREEJS_START:ANIMATION_32 class="absolute inset-0 w-full h-full bg-transparent" -->
+<div class="absolute inset-0 w-full h-full bg-transparent" style="display:block;">
+<script src="https://ajax.googleapis.com/ajax/libs/threejs/r125/three.min.js"></script>
+<div id="threejs-container-ANIMATION_32" style="width:100%;height:100%"></div>
+<script>
+(function() {
+  const container = document.getElementById('threejs-container-ANIMATION_32');
+  const devicePixelRatio = window.devicePixelRatio || 1;
+  // Three.js Interactive Keyframe D06: "TWO WORLDS. ONE CRAFT."
+// Spatial & Material Duality: World 01 (Business & Brand) vs World 02 (Celebrations & Memories)
+// Divided by an angled kinetic prism/strata threshold with interactive perspective tilt and light dial
+
+const container = document.getElementById('threejs-container-d06') || document.body;
+const width = container.clientWidth || window.innerWidth;
+const height = container.clientHeight || window.innerHeight;
+
+const scene = new THREE.Scene();
+scene.fog = new THREE.FogExp2(0x0e0f12, 0.035);
+
+const camera = new THREE.PerspectiveCamera(42, width / height, 0.1, 100);
+camera.position.set(0, 0, 6.8);
+
+const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true, powerPreference: "high-performance" });
+renderer.setSize(width, height);
+renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+renderer.toneMapping = THREE.ACESFilmicToneMapping;
+renderer.toneMappingExposure = 1.35;
+renderer.shadowMap.enabled = true;
+renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+container.appendChild(renderer.domElement);
+
+// Master groups
+const masterGroup = new THREE.Group();
+scene.add(masterGroup);
+
+const world1Group = new THREE.Group(); // Business & Brand (Left, Basalt & Slate, Crisp, Bronze)
+const world2Group = new THREE.Group(); // Celebrations & Memories (Right, Warm Amber, Candlelit, Luminous)
+const seamGroup = new THREE.Group();   // Dimensional Threshold Prism (Center angled seam)
+
+masterGroup.add(world1Group);
+masterGroup.add(world2Group);
+masterGroup.add(seamGroup);
+
+// Dynamic Lighting setup
+const ambientLight = new THREE.AmbientLight(0x181716, 1.4);
+scene.add(ambientLight);
+
+// World 01 Light: Architectural cool slate & crisp bronze key
+const lightW1 = new THREE.DirectionalLight(0xd97736, 3.8);
+lightW1.position.set(-6, 4, 4);
+scene.add(lightW1);
+
+const fillW1 = new THREE.PointLight(0x404856, 4.0, 12);
+fillW1.position.set(-4, -2, 2);
+scene.add(fillW1);
+
+// World 02 Light: Intimate candlelight & golden-hour amber radiance
+const lightW2 = new THREE.PointLight(0xff9a3c, 16.0, 14);
+lightW2.position.set(4, 2, 3);
+scene.add(lightW2);
+
+const champagneSpot = new THREE.SpotLight(0xffdfa9, 12.0, 16, Math.PI / 4, 0.6);
+champagneSpot.position.set(5, 5, 4);
+champagneSpot.target.position.set(2, 0, 0);
+scene.add(champagneSpot);
+scene.add(champagneSpot.target);
+
+// Materials
+const basaltMat = new THREE.MeshStandardMaterial({
+  color: 0x121316,
+  roughness: 0.65,
+  metalness: 0.25,
+});
+
+const darkPlateMat = new THREE.MeshStandardMaterial({
+  color: 0x090a0d,
+  roughness: 0.8,
+  metalness: 0.15,
+});
+
+const polishedBronze = new THREE.MeshStandardMaterial({
+  color: 0xc87538,
+  roughness: 0.2,
+  metalness: 0.9,
+  emissive: 0x3d1704,
+  emissiveIntensity: 0.4
+});
+
+const warmLinenLuminous = new THREE.MeshStandardMaterial({
+  color: 0x24140d,
+  roughness: 0.35,
+  metalness: 0.1,
+  emissive: 0x6e2808,
+  emissiveIntensity: 0.6
+});
+
+const wireBronze = new THREE.LineBasicMaterial({
+  color: 0xd97736,
+  transparent: true,
+  opacity: 0.65
+});
+
+const wireGold = new THREE.LineBasicMaterial({
+  color: 0xf3d29f,
+  transparent: true,
+  opacity: 0.75
+});
+
+// Canvas Texture Helper for World 01 (Specialty Roastery & Commercial Craft)
+function createWorld1Texture() {
+  const canvas = document.createElement('canvas');
+  canvas.width = 1024;
+  canvas.height = 768;
+  const ctx = canvas.getContext('2d');
+
+  ctx.fillStyle = '#0f1013';
+  ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+  // Architectural hairline grid
+  ctx.strokeStyle = 'rgba(217, 119, 54, 0.12)';
+  ctx.lineWidth = 1;
+  for (let x = 0; x < canvas.width; x += 48) {
+    ctx.beginPath(); ctx.moveTo(x, 0); ctx.lineTo(x, canvas.height); ctx.stroke();
+  }
+  for (let y = 0; y < canvas.height; y += 48) {
+    ctx.beginPath(); ctx.moveTo(0, y); ctx.lineTo(canvas.width, y); ctx.stroke();
+  }
+
+  // Header band
+  ctx.fillStyle = 'rgba(27, 28, 33, 0.9)';
+  ctx.fillRect(40, 40, canvas.width - 80, 44);
+  ctx.strokeStyle = 'rgba(217, 119, 54, 0.35)';
+  ctx.strokeRect(40, 40, canvas.width - 80, 44);
+
+  ctx.fillStyle = '#d97736';
+  ctx.font = 'bold 16px "Courier New", monospace';
+  ctx.fillText('WORLD 01 // COMMERCE & ATELIER — CRAFTED DIGITAL FLAGSHIPS', 60, 68);
+
+  // Body content preview
+  ctx.fillStyle = '#f5f5f7';
+  ctx.font = 'italic bold 44px "Playfair Display", serif';
+  ctx.fillText('Tactile Commercial Presence', 60, 160);
+
+  ctx.fillStyle = '#a0a2aa';
+  ctx.font = '18px "Space Grotesk", sans-serif';
+  ctx.fillText('Bespoke e-commerce, living roast schedules, sensory menus & kinetic typography.', 60, 205);
+
+  // Specimen tabular grid
+  ctx.fillStyle = 'rgba(18, 19, 23, 0.85)';
+  ctx.fillRect(60, 250, canvas.width - 120, 260);
+  ctx.strokeStyle = 'rgba(217, 119, 54, 0.25)';
+  ctx.strokeRect(60, 250, canvas.width - 120, 260);
+
+  ctx.fillStyle = '#d97736';
+  ctx.font = '14px "Courier New", monospace';
+  ctx.fillText('INDEX   SPECIMEN                ROAST TYPE    TRANSACTION SPEED   ZERO-BLAT SCORE', 80, 285);
+  ctx.fillStyle = '#ffffff';
+  ctx.fillText('#001   Yirgacheffe Mountain    Light Honey   <140ms Client Pay   100/100 Perfect', 80, 325);
+  ctx.fillText('#002   Monsoon Malabar Peaberry Washed Basalt <110ms Fast Cart    100/100 Perfect', 80, 365);
+  ctx.fillText('#003   Odo Shakisso Natural    Micro-Ferment <125ms Instant Pay   100/100 Perfect', 80, 405);
+  ctx.fillText('#004   Atelier Ceramic Goblet  Matte Slate   Direct Stripe Flow   Zero Dependencies', 80, 445);
+
+  // Bottom action
+  ctx.fillStyle = 'rgba(217, 119, 54, 0.2)';
+  ctx.fillRect(60, canvas.height - 120, canvas.width - 120, 60);
+  ctx.strokeStyle = '#d97736';
+  ctx.strokeRect(60, canvas.height - 120, canvas.width - 120, 60);
+  ctx.fillStyle = '#fcebd2';
+  ctx.font = 'bold 18px "Space Grotesk", sans-serif';
+  ctx.fillText('DISCOVER COMMERCE ATELIER ARCHITECTURE →', 80, canvas.height - 82);
+
+  const tex = new THREE.CanvasTexture(canvas);
+  tex.anisotropy = 8;
+  return tex;
+}
+
+// Canvas Texture Helper for World 02 (Intimate Vows & Living Keepsakes)
+function createWorld2Texture() {
+  const canvas = document.createElement('canvas');
+  canvas.width = 1024;
+  canvas.height = 768;
+  const ctx = canvas.getContext('2d');
+
+  // Deep warm chiaroscuro background
+  const bgGrad = ctx.createRadialGradient(512, 384, 50, 512, 384, 600);
+  bgGrad.addColorStop(0, '#36170c');
+  bgGrad.addColorStop(0.5, '#1e0e08');
+  bgGrad.addColorStop(1, '#0c0705');
+  ctx.fillStyle = bgGrad;
+  ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+  // Archival delicate grid
+  ctx.strokeStyle = 'rgba(243, 210, 159, 0.12)';
+  ctx.lineWidth = 1;
+  for (let x = 0; x < canvas.width; x += 44) {
+    ctx.beginPath(); ctx.moveTo(x, 0); ctx.lineTo(x, canvas.height); ctx.stroke();
+  }
+  for (let y = 0; y < canvas.height; y += 44) {
+    ctx.beginPath(); ctx.moveTo(0, y); ctx.lineTo(canvas.width, y); ctx.stroke();
+  }
+
+  // Header band
+  ctx.fillStyle = 'rgba(217, 119, 54, 0.25)';
+  ctx.fillRect(40, 40, canvas.width - 80, 44);
+  ctx.strokeStyle = 'rgba(243, 210, 159, 0.4)';
+  ctx.strokeRect(40, 40, canvas.width - 80, 44);
+
+  ctx.fillStyle = '#fcebd2';
+  ctx.font = 'bold 16px "Courier New", monospace';
+  ctx.fillText('WORLD 02 // CELEBRATIONS & LIVING HEIRLOOMS — MONSOON VOWS', 60, 68);
+
+  // Inscribed poetic vow
+  ctx.fillStyle = '#ffffff';
+  ctx.font = 'italic 42px "Playfair Display", Georgia, serif';
+  ctx.fillText('"Two lives spoken under heavy rains."', 60, 160);
+
+  ctx.fillStyle = '#e8a36e';
+  ctx.font = '18px "Space Grotesk", sans-serif';
+  ctx.fillText('Living digital archives holding private voice memos, wet earth soundscapes, & 30-year keepsakes.', 60, 205);
+
+  // Audio wave player frame
+  ctx.fillStyle = 'rgba(40, 18, 10, 0.8)';
+  ctx.fillRect(60, 250, canvas.width - 120, 240);
+  ctx.strokeStyle = 'rgba(243, 210, 159, 0.35)';
+  ctx.strokeRect(60, 250, canvas.width - 120, 240);
+
+  ctx.fillStyle = '#fcebd2';
+  ctx.font = 'bold 18px "Playfair Display", Georgia, serif';
+  ctx.fillText('Spoken Vow Fragment 04: "The Rain Oath at Dusk"', 90, 295);
+
+  // Waveform bars
+  for (let i = 0; i < 48; i++) {
+    const barH = 14 + Math.sin(i * 0.4) * 26 + Math.cos(i * 0.8) * 16;
+    ctx.fillStyle = i < 28 ? '#ffaa44' : 'rgba(243, 210, 159, 0.3)';
+    ctx.fillRect(90 + i * 17, 360 - barH / 2, 7, barH);
+  }
+
+  ctx.fillStyle = '#e8a36e';
+  ctx.font = '13px "Courier New", monospace';
+  ctx.fillText('TRACK: STEREO 24-BIT MASTER  ·  SCRUBBING TIMELINE VERIFIED  ·  OFFLINE VAULT ENABLED', 90, 430);
+
+  // Action CTA
+  ctx.fillStyle = '#d97736';
+  ctx.fillRect(60, canvas.height - 120, canvas.width - 120, 60);
+  ctx.fillStyle = '#ffffff';
+  ctx.font = 'bold 18px "Space Grotesk", sans-serif';
+  ctx.fillText('CROSS INTO CELEBRATION WORLD ARCHIVE →', 80, canvas.height - 82);
+
+  const tex = new THREE.CanvasTexture(canvas);
+  tex.anisotropy = 8;
+  return tex;
+}
+
+// ----------------------------------------------------
+// 1. WORLD 01: LEFT BASALT SLAB & ARCHITECTURAL FINS
+// ----------------------------------------------------
+const texW1 = createWorld1Texture();
+const pW1Geo = new THREE.BoxGeometry(3.6, 2.5, 0.18);
+const pW1FrontMat = new THREE.MeshStandardMaterial({
+  map: texW1,
+  roughness: 0.3,
+  metalness: 0.25,
+});
+
+const pW1Mats = [
+  polishedBronze, polishedBronze, polishedBronze, polishedBronze, pW1FrontMat, basaltMat
+];
+const pW1Mesh = new THREE.Mesh(pW1Geo, pW1Mats);
+pW1Mesh.castShadow = true;
+world1Group.add(pW1Mesh);
+
+const pW1Edge = new THREE.LineSegments(new THREE.EdgesGeometry(pW1Geo), wireBronze);
+world1Group.add(pW1Edge);
+
+// Top Cantilever Spine
+const w1TopFin = new THREE.Mesh(new THREE.BoxGeometry(3.68, 0.05, 0.3), polishedBronze);
+w1TopFin.position.set(0, 1.28, 0.05);
+world1Group.add(w1TopFin);
+
+// Position World 01 to the left, tilted slightly back to create dimensional angled cleft
+world1Group.position.set(-2.0, 0.05, 0.4);
+world1Group.rotation.set(0.04, 0.34, -0.02);
+
+// ----------------------------------------------------
+// 2. WORLD 02: RIGHT LUMINOUS HEIRLOOM SLAB & HALO
+// ----------------------------------------------------
+const texW2 = createWorld2Texture();
+const pW2Geo = new THREE.BoxGeometry(3.6, 2.5, 0.18);
+const pW2FrontMat = new THREE.MeshStandardMaterial({
+  map: texW2,
+  roughness: 0.25,
+  metalness: 0.3,
+  emissive: 0x3d1706,
+  emissiveIntensity: 0.4
+});
+
+const pW2Mats = [
+  polishedBronze, polishedBronze, polishedBronze, polishedBronze, pW2FrontMat, warmLinenLuminous
+];
+const pW2Mesh = new THREE.Mesh(pW2Geo, pW2Mats);
+pW2Mesh.castShadow = true;
+world2Group.add(pW2Mesh);
+
+const pW2Edge = new THREE.LineSegments(new THREE.EdgesGeometry(pW2Geo), wireGold);
+world2Group.add(pW2Edge);
+
+// Warm Candlelight Halo behind World 02
+const haloGeo = new THREE.PlaneGeometry(5.2, 3.8);
+const haloMat = new THREE.MeshBasicMaterial({
+  color: 0xff8822,
+  transparent: true,
+  opacity: 0.18,
+  blending: THREE.AdditiveBlending
+});
+const halo = new THREE.Mesh(haloGeo, haloMat);
+halo.position.set(0, 0, -0.12);
+world2Group.add(halo);
+
+// Position World 02 to the right, angled to meet World 01 along a center kinetic apex
+world2Group.position.set(2.0, 0.05, 0.4);
+world2Group.rotation.set(-0.04, -0.34, 0.02);
+
+// ----------------------------------------------------
+// 3. CENTRAL ANGLED THRESHOLD SEAM / PRISM SPINE
+// ----------------------------------------------------
+// The kinetic seam splitting the two realms: tall, chamfered brass prism with glowing laser conduit
+const seamPrismGeo = new THREE.CylinderGeometry(0.08, 0.12, 3.8, 6);
+const seamPrismMat = new THREE.MeshStandardMaterial({
+  color: 0xf3d29f,
+  roughness: 0.1,
+  metalness: 0.95,
+  emissive: 0xd97736,
+  emissiveIntensity: 0.8
+});
+const seamPrism = new THREE.Mesh(seamPrismGeo, seamPrismMat);
+seamPrism.rotation.z = -0.12; // angled dynamic split
+seamGroup.add(seamPrism);
+
+// Glowing vertical laser seam line
+const seamLineGeo = new THREE.BufferGeometry().setFromPoints([
+  new THREE.Vector3(0.24, 2.3, 0.8),
+  new THREE.Vector3(-0.24, -2.3, 0.8)
+]);
+const seamLine = new THREE.Line(seamLineGeo, new THREE.LineBasicMaterial({
+  color: 0xffbb66,
+  transparent: true,
+  opacity: 0.9,
+  linewidth: 3
+}));
+seamGroup.add(seamLine);
+
+// Floating dial nodes on the central seam
+for (let n = -2; n <= 2; n++) {
+  const nodeGeo = new THREE.BoxGeometry(0.12, 0.12, 0.18);
+  const nodeMesh = new THREE.Mesh(nodeGeo, polishedBronze);
+  nodeMesh.position.set(n * -0.1, n * 0.8, 0.7);
+  nodeMesh.rotation.set(0.1, 0.2, n * 0.3);
+  seamGroup.add(nodeMesh);
+}
+
+// ----------------------------------------------------
+// 4. FLOATING MICRO-PARTICLES & AMBER EMBERS
+// ----------------------------------------------------
+const partCount = 180;
+const partGeo = new THREE.BufferGeometry();
+const partPos = new Float32Array(partCount * 3);
+const partSpeeds = new Float32Array(partCount);
+
+for (let i = 0; i < partCount; i++) {
+  // World 01 has subtle graphite dust (left), World 02 has golden embers (right)
+  const isRight = Math.random() > 0.45;
+  partPos[i * 3] = isRight ? (0.2 + Math.random() * 4.5) : (-0.2 - Math.random() * 4.5);
+  partPos[i * 3 + 1] = (Math.random() - 0.5) * 5.0;
+  partPos[i * 3 + 2] = (Math.random() - 0.5) * 3.5 + 0.5;
+  partSpeeds[i] = 0.2 + Math.random() * 0.8;
+}
+partGeo.setAttribute('position', new THREE.BufferAttribute(partPos, 3));
+
+const partMat = new THREE.PointsMaterial({
+  color: 0xffaa44,
+  size: 0.045,
+  transparent: true,
+  opacity: 0.8,
+  blending: THREE.AdditiveBlending
+});
+const particles = new THREE.Points(partGeo, partMat);
+scene.add(particles);
+
+// Architectural Reference Guide Grid on floor
+const groundGrid = new THREE.GridHelper(22, 30, 0xd97736, 0x161820);
+groundGrid.position.y = -2.6;
+groundGrid.material.opacity = 0.22;
+groundGrid.material.transparent = true;
+scene.add(groundGrid);
+
+// ----------------------------------------------------
+// INTERACTIVE POINTER DYNAMICS & LIGHT DIAL
+// ----------------------------------------------------
+let isDragging = false;
+let previousPointer = { x: 0, y: 0 };
+let targetRotX = 0.0;
+let targetRotY = 0.0;
+let currentRotX = 0.0;
+let currentRotY = 0.0;
+let worldBalance = 0.5; // 0.0 = full World 1, 1.0 = full World 2
+
+// Global hook for HTML dial sync
+window.setAlgoryxzWorldBalance = function(val) {
+  worldBalance = THREE.MathUtils.clamp(val, 0.0, 1.0);
+  // Adjust group rotations and light intensities based on dial
+  const angleShift = (worldBalance - 0.5) * 0.45;
+  targetRotY = angleShift;
+  
+  // Left light dims when dial slides right; right light blooms
+  lightW1.intensity = 3.8 * (1.3 - worldBalance * 0.8);
+  lightW2.intensity = 16.0 * (0.3 + worldBalance * 1.2);
+  champagneSpot.intensity = 12.0 * (0.4 + worldBalance * 1.1);
+};
+
+const onDown = (e) => {
+  if (e.target.closest('button, a, input, select')) return;
+  isDragging = true;
+  previousPointer = { x: e.clientX, y: e.clientY };
+};
+
+const onMove = (e) => {
+  const nx = (e.clientX / width) * 2 - 1;
+  const ny = -(e.clientY / height) * 2 + 1;
+  if (isDragging) {
+    const dx = e.clientX - previousPointer.x;
+    const dy = e.clientY - previousPointer.y;
+    targetRotY += dx * 0.005;
+    targetRotX += dy * 0.005;
+    previousPointer = { x: e.clientX, y: e.clientY };
+  } else {
+    targetRotY = (worldBalance - 0.5) * 0.4 + nx * 0.12;
+    targetRotX = -ny * 0.08;
+  }
+};
+
+const onUp = () => { isDragging = false; };
+
+window.addEventListener('pointerdown', onDown);
+window.addEventListener('pointermove', onMove);
+window.addEventListener('pointerup', onUp);
+
+const onResize = () => {
+  const w = container.clientWidth || window.innerWidth;
+  const h = container.clientHeight || window.innerHeight;
+  camera.aspect = w / h;
+  camera.updateProjectionMatrix();
+  renderer.setSize(w, h);
+};
+window.addEventListener('resize', onResize);
+
+// Kinetic Render Loop
+let clock = new THREE.Clock();
+
+function animate() {
+  requestAnimationFrame(animate);
+  const t = clock.getElapsedTime();
+
+  // Floating breathing oscillation for both realms
+  world1Group.position.y = 0.05 + Math.sin(t * 0.8) * 0.04;
+  world2Group.position.y = 0.05 + Math.cos(t * 0.75) * 0.04;
+
+  // Luminous halo pulse on Celebrations world
+  haloMat.opacity = 0.18 + Math.sin(t * 1.8) * 0.06;
+  seamPrismMat.emissiveIntensity = 0.8 + Math.sin(t * 2.2) * 0.25;
+
+  // Embers drift upwards
+  const posArray = particles.geometry.attributes.position.array;
+  for (let i = 0; i < partCount; i++) {
+    posArray[i * 3 + 1] += partSpeeds[i] * 0.008;
+    posArray[i * 3] += Math.sin(t + i) * 0.002;
+    if (posArray[i * 3 + 1] > 3.0) {
+      posArray[i * 3 + 1] = -2.8;
+    }
+  }
+  particles.geometry.attributes.position.needsUpdate = true;
+
+  // Camera lerp
+  currentRotX += (targetRotX - currentRotX) * 0.05;
+  currentRotY += (targetRotY - currentRotY) * 0.05;
+
+  masterGroup.rotation.x = currentRotX;
+  masterGroup.rotation.y = currentRotY;
+
+  renderer.render(scene, camera);
+}
+animate();
+
+})();
+</script>
+</div>
+<!-- STITCH_THREEJS_END:ANIMATION_32 -->
+<!-- Central Atmospheric Gradient Seam (Responsive to tilt) -->
+<div class="absolute inset-y-0 left-1/2 -translate-x-1/2 w-96 bg-gradient-to-r from-transparent via-primary-container/10 to-transparent blur-3xl pointer-events-none transition-all duration-700" id="central-seam-glow"></div>
+<!-- Architectural Radial Vignette -->
+<div class="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_transparent_40%,_#0d0e11_100%)] opacity-85 pointer-events-none"></div>
+</div>
+<!-- ================================================================= -->
+<!-- 3. DUAL OVERLAY REALMS (Asymmetric Viewport Split)                -->
+<!-- ================================================================= -->
+<main class="relative z-10 w-full h-full flex flex-col justify-between pt-24 pb-14 px-6 md:px-12 lg:px-16 pointer-events-none">
+<!-- Top Spatial Header Lockup: "TWO WORLDS. ONE CRAFT." -->
+<div class="w-full flex items-center justify-between pointer-events-auto border-b border-outline-variant/15 pb-3">
+<div class="flex items-baseline gap-4">
+<h1 class="font-headline-md text-headline-md lg:font-display-xl lg:text-headline-lg text-on-surface tracking-tight leading-none">
+          TWO WORLDS<span class="text-primary">.</span> <span class="font-light italic text-secondary-fixed-dim">ONE CRAFT.</span>
+</h1>
+</div>
+<div class="hidden md:flex flex-col items-end">
+<span class="font-label-mono text-label-mono text-primary uppercase tracking-widest">ARCHITECTURAL TECTONICS</span>
+<span class="font-label-mono-sm text-label-mono-sm text-on-surface-variant/70">SPLIT MONOLITH VIEW // 1440×900 MASTER VIEWPORT</span>
+</div>
+</div>
+<!-- Main Dynamic Split: World 01 (Left) & World 02 (Right) -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-center my-auto w-full relative">
+<!-- ============================================================= -->
+<!-- LEFT REALM: WORLD 01 // COMMERCE & ATELIER                    -->
+<!-- ============================================================= -->
+<section class="lg:col-span-5 flex flex-col justify-center pointer-events-auto transition-all duration-500 transform origin-left" id="realm-commerce">
+<!-- Eyebrow Badge -->
+<div class="flex items-center gap-2 mb-3">
+<span class="px-2.5 py-0.5 rounded border border-outline-variant/40 bg-surface-container-low/70 font-label-mono-sm text-label-mono-sm text-primary tracking-widest uppercase">
+            WORLD 01 // BESPOKE DIGITAL FLAGSHIPS
+          </span>
+<span class="w-1.5 h-1.5 rounded-full bg-primary-container"></span>
+</div>
+<!-- Title -->
+<h2 class="font-headline-lg text-headline-lg text-on-surface tracking-tight mb-3 font-normal">
+          Commerce &amp; Atelier
+        </h2>
+<!-- Editorial Description -->
+<p class="font-body-md text-body-md text-on-surface-variant/90 max-w-md mb-5 leading-relaxed">
+          For artisanal coffee roasteries, design studios, culinary flagships, and creators who need their digital home to feel as tactile, atmospheric, and memorable as a physical space.
+        </p>
+<!-- Tactile Badges -->
+<div class="flex flex-wrap gap-2 mb-6">
+<span class="px-2.5 py-1 rounded bg-surface-container/80 border border-outline-variant/30 font-label-mono-sm text-label-mono-sm text-secondary-fixed-dim flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[12px] text-primary" data-icon="speed">speed</span>
+            Zero-Bloat Speed
+          </span>
+<span class="px-2.5 py-1 rounded bg-surface-container/80 border border-outline-variant/30 font-label-mono-sm text-label-mono-sm text-secondary-fixed-dim flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[12px] text-primary" data-icon="format_letter_spacing">format_letter_spacing</span>
+            Sensory Typography
+          </span>
+<span class="px-2.5 py-1 rounded bg-surface-container/80 border border-outline-variant/30 font-label-mono-sm text-label-mono-sm text-secondary-fixed-dim flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[12px] text-primary" data-icon="pan_tool">pan_tool</span>
+            Tactile Cart Motion
+          </span>
+</div>
+<!-- Specimen Ref Chip: Komorebi Roastery & Bakehouse -->
+<div class="flex items-center gap-4 p-3 rounded-xl bg-surface-container-low/80 border border-outline-variant/30 backdrop-blur-md max-w-md group hover:border-primary/50 transition-all duration-300">
+<div class="w-16 h-16 rounded-lg overflow-hidden flex-shrink-0 relative border border-outline-variant/40">
+<img alt="Komorebi Roastery Specimen" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida/AEtjO1UmTHPJB-2YUXN-JLJGO-eFbEKJM5x9QD3Q7EJQqX4huzAU2SH2SXiB38yuJUcoRPBwsVR9ifYtcVDV1BWxQ0ACcqJD1lPUaTNUC5fTUs0wQ2BLZLaKriF6KwnsaFNyVB9b2GelChRVc53vmHTKV7iHA7vfoOONKZGP2lgt4hWxn6lesV9sOE3hzBzfVenu1bbzNxV9QYnkPjmSp5xSwzIIK3ScMdP0z6ojdEZxOGuQyTA86KZd4Tw32QR9"/>
+<div class="absolute inset-0 bg-surface-container-lowest/20"></div>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex items-center justify-between">
+<span class="font-label-mono-sm text-label-mono-sm text-primary uppercase tracking-wider">SPECIMEN #019</span>
+<span class="font-label-mono-sm text-label-mono-sm text-on-surface-variant/60">OCT 2024</span>
+</div>
+<h4 class="font-headline-sm text-[16px] text-on-surface truncate">Komorebi Roastery &amp; Bakehouse</h4>
+<p class="font-label-mono-sm text-label-mono-sm text-on-surface-variant/80 truncate">Yirgacheffe Pour-over · Slate Tabletop · Tactile UI</p>
+</div>
+<div class="text-primary opacity-60 group-hover:opacity-100 group-hover:translate-x-1 transition-all pr-1">
+<span class="material-symbols-outlined text-sm" data-icon="arrow_forward">arrow_forward</span>
+</div>
+</div>
+<!-- Direct Trigger Link -->
+<div class="mt-5">
+<a class="inline-flex items-center gap-2 font-label-mono text-label-mono text-primary hover:text-primary-container transition-colors duration-200 group" href="#flagships">
+<span class="border-b border-primary/40 group-hover:border-primary pb-0.5">Explore Brand Flagships</span>
+<span class="material-symbols-outlined text-[14px] group-hover:translate-x-1 transition-transform" data-icon="arrow_right_alt">arrow_right_alt</span>
+</a>
+</div>
+</section>
+<!-- Central Kinetic Void / Dial Space -->
+<div class="hidden lg:flex lg:col-span-2 flex-col items-center justify-center relative pointer-events-auto">
+<!-- Subtle Vertical Guideline -->
+<div class="w-px h-48 bg-gradient-to-b from-transparent via-outline-variant/30 to-transparent"></div>
+<div class="w-8 h-8 rounded-full border border-primary/30 flex items-center justify-center bg-surface-container-lowest/80 backdrop-blur-md shadow-lg my-2">
+<span class="material-symbols-outlined text-primary text-[16px]" data-icon="all_inclusive">all_inclusive</span>
+</div>
+<div class="w-px h-48 bg-gradient-to-b from-transparent via-outline-variant/30 to-transparent"></div>
+</div>
+<!-- ============================================================= -->
+<!-- RIGHT REALM: WORLD 02 // CELEBRATIONS & HEIRLOOMS             -->
+<!-- ============================================================= -->
+<section class="lg:col-span-5 flex flex-col justify-center items-start lg:items-end text-left lg:text-right pointer-events-auto transition-all duration-500 transform origin-right" id="realm-celebrations">
+<!-- Eyebrow Badge -->
+<div class="flex items-center gap-2 mb-3">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary-fixed"></span>
+<span class="px-2.5 py-0.5 rounded border border-outline-variant/40 bg-surface-container-low/70 font-label-mono-sm text-label-mono-sm text-secondary-fixed-dim tracking-widest uppercase">
+            WORLD 02 // LIVING DIGITAL HEIRLOOMS
+          </span>
+</div>
+<!-- Title -->
+<h2 class="font-headline-lg text-headline-lg text-on-surface tracking-tight mb-3 font-normal italic">
+          Celebrations &amp; Memories
+        </h2>
+<!-- Editorial Description -->
+<p class="font-body-md text-body-md text-on-surface-variant/90 max-w-md mb-5 leading-relaxed">
+          For weddings, secret proposals, family memoirs, and lifelong milestones. Digital archives holding analog voice notes, wet-earth rain soundscapes, and timeless chiaroscuro keepsakes.
+        </p>
+<!-- Tactile Badges -->
+<div class="flex flex-wrap gap-2 mb-6 justify-start lg:justify-end">
+<span class="px-2.5 py-1 rounded bg-surface-container/80 border border-outline-variant/30 font-label-mono-sm text-label-mono-sm text-secondary-fixed-dim flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[12px] text-secondary-fixed" data-icon="mic">mic</span>
+            Analog Voice Notes
+          </span>
+<span class="px-2.5 py-1 rounded bg-surface-container/80 border border-outline-variant/30 font-label-mono-sm text-label-mono-sm text-secondary-fixed-dim flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[12px] text-secondary-fixed" data-icon="cloud_off">cloud_off</span>
+            Offline First Vaults
+          </span>
+<span class="px-2.5 py-1 rounded bg-surface-container/80 border border-outline-variant/30 font-label-mono-sm text-label-mono-sm text-secondary-fixed-dim flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[12px] text-secondary-fixed" data-icon="nfc">nfc</span>
+            NFC Physical Keys
+          </span>
+</div>
+<!-- Specimen Ref Chip: The Monsoon Vows -->
+<div class="flex items-center gap-4 p-3 rounded-xl bg-surface-container-low/80 border border-outline-variant/30 backdrop-blur-md max-w-md w-full group hover:border-secondary/50 transition-all duration-300 text-left">
+<div class="w-16 h-16 rounded-lg overflow-hidden flex-shrink-0 relative border border-outline-variant/40">
+<img alt="Monsoon Vows Specimen" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida/AEtjO1UOJQOo9t53Jx9bI5KYE3noksJoRXJlgNsLokMnHklo52SH3bX06XgpVeiymjokBJY7W3rAuvBShxGVFh8EnufNHizfkHoZeztevtRK2fjM0ApwiLjJBSZoKSppts7PtbZSknxDCocq20D3P7AqV_nNYQ7oQtHrXbeqzyaPlWbqWS9IhegaC_tzxOyvz2u_bMPhPrn5aGmKaAUpAG34U6ePxuR-7O8KIVtcaIMHqJjynxBd6T-v_qfFaNYl"/>
+<div class="absolute inset-0 bg-surface-container-lowest/20"></div>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex items-center justify-between">
+<span class="font-label-mono-sm text-label-mono-sm text-secondary-fixed-dim uppercase tracking-wider">SPECIMEN #020</span>
+<span class="font-label-mono-sm text-label-mono-sm text-on-surface-variant/60">SEP 2024</span>
+</div>
+<h4 class="font-headline-sm text-[16px] text-on-surface truncate">The Monsoon Vows</h4>
+<p class="font-label-mono-sm text-label-mono-sm text-on-surface-variant/80 truncate">Raindrop Glaze · Candlelight Chiaroscuro · 100-Year Web</p>
+</div>
+<div class="text-secondary-fixed opacity-60 group-hover:opacity-100 group-hover:translate-x-1 transition-all pr-1">
+<span class="material-symbols-outlined text-sm" data-icon="arrow_forward">arrow_forward</span>
+</div>
+</div>
+<!-- Direct Trigger Link -->
+<div class="mt-5">
+<a class="inline-flex items-center gap-2 font-label-mono text-label-mono text-secondary-fixed-dim hover:text-secondary-fixed transition-colors duration-200 group" href="#heirlooms">
+<span class="border-b border-secondary-fixed-dim/40 group-hover:border-secondary-fixed pb-0.5">Enter Celebration Archive</span>
+<span class="material-symbols-outlined text-[14px] group-hover:translate-x-1 transition-transform" data-icon="arrow_right_alt">arrow_right_alt</span>
+</a>
+</div>
+</section>
+</div>
+<!-- ============================================================= -->
+<!-- 4. CENTRAL KINETIC DUALITY DIAL & THRESHOLD CONTROLLER        -->
+<!-- ============================================================= -->
+<div class="w-full flex justify-center items-center pointer-events-auto mb-1">
+<div class="bg-surface-container-low/90 backdrop-blur-xl border border-outline-variant/40 rounded-full px-6 py-2.5 shadow-2xl flex flex-col sm:flex-row items-center gap-4 max-w-xl w-full">
+<!-- Dial Label -->
+<div class="flex items-center gap-2 font-label-mono-sm text-label-mono-sm text-on-surface-variant/80 uppercase whitespace-nowrap">
+<span class="material-symbols-outlined text-primary text-[14px]" data-icon="tune">tune</span>
+<span>SHIFT PERSPECTIVE</span>
+</div>
+<!-- Interactive Slider Track -->
+<div class="flex-1 w-full flex items-center gap-3">
+<button class="font-label-mono-sm text-label-mono-sm hover:text-primary transition-colors text-on-surface-variant/70 uppercase" id="btn-world-1">W01 [30%]</button>
+<input aria-label="Shift Perspective Duality Balance" class="w-full h-1.5 bg-surface-container-highest rounded-lg appearance-none cursor-pointer accent-primary focus:outline-none" id="duality-slider" max="100" min="0" step="1" type="range" value="50"/>
+<button class="font-label-mono-sm text-label-mono-sm hover:text-secondary-fixed transition-colors text-on-surface-variant/70 uppercase" id="btn-world-2">W02 [70%]</button>
+</div>
+<!-- Active Readout -->
+<div class="font-label-mono-sm text-label-mono-sm text-primary tracking-wider font-medium px-2 py-0.5 rounded bg-surface-container-lowest/80 border border-outline-variant/30 min-w-[100px] text-center" id="balance-readout">
+          EQUILIBRIUM: 50%
+        </div>
+</div>
+</div>
+</main>
+<!-- ================================================================= -->
+<!-- 5. BOTTOM STATUS COLOPHON BAR (Editorial Docked Footer)          -->
+<!-- ================================================================= -->
+<footer class="fixed bottom-0 inset-x-0 w-full bg-surface-container-lowest/90 backdrop-blur-md border-t border-outline-variant/20 py-2 px-6 md:px-12 flex justify-between items-center z-40 text-on-surface-variant/80 font-label-mono-sm text-label-mono-sm">
+<!-- Left Status -->
+<div class="flex items-center gap-3">
+<span class="text-on-surface font-medium">KEYFRAME D06</span>
+<span class="text-outline-variant">/</span>
+<span class="hidden sm:inline">DUALITY THRESHOLD</span>
+<span class="inline-block w-1.5 h-1.5 rounded-full bg-emerald-500/80"></span>
+<span class="hidden md:inline text-on-surface-variant/60">INTERACTIVE PERSPECTIVE ROTATION ACTIVE</span>
+</div>
+<!-- Center Master Statement -->
+<div class="hidden lg:block text-center text-on-surface/90 font-label-mono text-[11px] tracking-wide">
+      "Two distinct human territories. One uncompromising architectural standard."
+    </div>
+<!-- Right Coordinates & Interactive Tip -->
+<div class="flex items-center gap-3">
+<span class="hidden sm:inline text-on-surface-variant/60">ODISHA, INDIA [IST]</span>
+<span class="text-outline-variant hidden sm:inline">·</span>
+<span class="text-primary">DRAG SLIDER TO TILT 3D SLABS</span>
+</div>
+</footer>
+<!-- ================================================================= -->
+<!-- INLINE VANILLA MICRO-INTERACTIONS & THREE.JS DIAL BRIDGE          -->
+<!-- ================================================================= -->
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const slider = document.getElementById('duality-slider');
+      const readout = document.getElementById('balance-readout');
+      const realmCommerce = document.getElementById('realm-commerce');
+      const realmCelebrations = document.getElementById('realm-celebrations');
+      const seamGlow = document.getElementById('central-seam-glow');
+      const btnW1 = document.getElementById('btn-world-1');
+      const btnW2 = document.getElementById('btn-world-2');
+
+      function updateWorldBalance(val) {
+        const value = parseInt(val, 10);
+        
+        // Update label readout
+        if (value < 45) {
+          readout.textContent = `COMMERCE: ${100 - value}%`;
+          readout.className = "font-label-mono-sm text-label-mono-sm text-primary tracking-wider font-medium px-2 py-0.5 rounded bg-surface-container-lowest/80 border border-primary/40 min-w-[100px] text-center";
+        } else if (value > 55) {
+          readout.textContent = `HEIRLOOM: ${value}%`;
+          readout.className = "font-label-mono-sm text-label-mono-sm text-secondary-fixed tracking-wider font-medium px-2 py-0.5 rounded bg-surface-container-lowest/80 border border-secondary-fixed/40 min-w-[100px] text-center";
+        } else {
+          readout.textContent = `EQUILIBRIUM: ${value}%`;
+          readout.className = "font-label-mono-sm text-label-mono-sm text-on-surface tracking-wider font-medium px-2 py-0.5 rounded bg-surface-container-lowest/80 border border-outline-variant/30 min-w-[100px] text-center";
+        }
+
+        // Modulate realm scales and opacities subtly for organic weighting
+        const commerceRatio = (100 - value) / 50; // 1.0 at 50%
+        const heirloomRatio = value / 50;
+
+        if (realmCommerce && realmCelebrations) {
+          realmCommerce.style.opacity = Math.max(0.35, Math.min(1.0, 0.4 + (100 - value) / 100));
+          realmCelebrations.style.opacity = Math.max(0.35, Math.min(1.0, 0.4 + value / 100));
+        }
+
+        // Shift central glow gradient position
+        if (seamGlow) {
+          seamGlow.style.left = `${value}%`;
+        }
+
+        // Hook into Three.js canvas controller if exposed by custom tag
+        if (typeof window.setAlgoryxzWorldBalance === 'function') {
+          window.setAlgoryxzWorldBalance(value / 100);
+        }
+      }
+
+      slider.addEventListener('input', (e) => {
+        updateWorldBalance(e.target.value);
+      });
+
+      btnW1.addEventListener('click', () => {
+        slider.value = 30;
+        updateWorldBalance(30);
+      });
+
+      btnW2.addEventListener('click', () => {
+        slider.value = 70;
+        updateWorldBalance(70);
+      });
+
+      // Initial invocation
+      updateWorldBalance(50);
+    });
+  </script>
+</body></html>

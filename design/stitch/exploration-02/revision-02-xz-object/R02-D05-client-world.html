@@ -1,0 +1,718 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>ALGORYXZ / 001 — THE MONSOON VOWS (KEYFRAME R02-D05)</title>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..600;1,400..600&amp;family=Playfair+Display:ital,wght@0,400..700;1,400..700&amp;family=Space+Mono:wght@400;700&amp;family=Cinzel:wght@400;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "primary": "#ffb780",
+            "primary-container": "#e89858",
+            "on-primary": "#4e2600",
+            "on-primary-container": "#643200",
+            "secondary": "#ffb59a",
+            "secondary-container": "#6e3823",
+            "surface": "#17120e",
+            "surface-dim": "#17120e",
+            "surface-bright": "#3f3833",
+            "surface-container-lowest": "#120d09",
+            "surface-container-low": "#201b16",
+            "surface-container": "#241f1a",
+            "surface-container-high": "#2f2924",
+            "surface-container-highest": "#3a342f",
+            "on-surface": "#ece0d9",
+            "on-surface-variant": "#d8c2b5",
+            "outline": "#a08d80",
+            "outline-variant": "#534439",
+            "tertiary": "#d8c3aa",
+            "tertiary-container": "#bba890"
+          },
+          fontFamily: {
+            "vow-quote": ["Playfair Display", "serif"],
+            "headline-lg": ["Playfair Display", "serif"],
+            "headline-md": ["Playfair Display", "serif"],
+            "headline-sm": ["Playfair Display", "serif"],
+            "label-sm": ["Space Mono", "monospace"],
+            "label-md": ["Space Mono", "monospace"],
+            "body-lg": ["EB Garamond", "serif"],
+            "body-md": ["EB Garamond", "serif"],
+            "body-sm": ["EB Garamond", "serif"],
+            "cinzel": ["Cinzel", "serif"]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    /* Atmospheric Chiaroscuro Sheen & Deckled Vellum Textures */
+    .candlelight-glow {
+      box-shadow: 0 24px 80px -16px rgba(232, 152, 88, 0.22), 0 0 140px -20px rgba(217, 119, 54, 0.16);
+    }
+    .deckled-vellum {
+      border: 1px solid rgba(242, 178, 108, 0.22);
+      box-shadow: 0 20px 60px -15px rgba(18, 13, 9, 0.92), inset 0 0 40px rgba(232, 152, 88, 0.04);
+    }
+    .rain-film-grain {
+      background-image: radial-gradient(rgba(242, 178, 108, 0.05) 1px, transparent 0);
+      background-size: 32px 32px;
+    }
+    .waveform-bar {
+      transition: height 0.3s ease, background-color 0.3s ease;
+    }
+    .waveform-bar:hover {
+      height: 100% !important;
+      background-color: #ffd29d !important;
+    }
+    /* Wax seal button tactile hover */
+    .wax-seal-relief {
+      box-shadow: 0 8px 24px -4px rgba(187, 88, 40, 0.5), inset 0 2px 4px rgba(255, 215, 180, 0.3), inset 0 -3px 6px rgba(50, 16, 5, 0.6);
+    }
+  </style>
+</head>
+<body class="bg-surface-container-lowest text-on-surface h-screen w-screen overflow-hidden select-none font-body-md relative antialiased flex flex-col justify-between">
+<!-- 1. FULL-BLEED 3D KINETIC ATMOSPHERE: THREEJS SCENE -->
+<div class="absolute inset-0 w-full h-full z-0 pointer-events-auto">
+<!-- STITCH_THREEJS_START:ANIMATION_51 class="absolute inset-0 w-full h-full bg-transparent" -->
+<div class="absolute inset-0 w-full h-full bg-transparent" style="display:block;">
+<script src="https://ajax.googleapis.com/ajax/libs/threejs/r125/three.min.js"></script>
+<div id="threejs-container-ANIMATION_51" style="width:100%;height:100%"></div>
+<script>
+(function() {
+  const container = document.getElementById('threejs-container-ANIMATION_51');
+  const devicePixelRatio = window.devicePixelRatio || 1;
+  // Three.js Interactive Keyframe R02-D05: "CLIENT WORLD / ENTERED"
+// 1440x900 Single Viewport Immersive Experiential Heirloom
+//
+// The transition from ALGORYXZ / 000 into ALGORYXZ / 001 (The Monsoon Vows) is 100% COMPLETE.
+// Algoryxz's structural Basalt/Pylons have dissolved into the far periphery or translucent memory layers.
+// The visitor is physically INSIDE the memory world:
+// - Atmospheric rain particles drifting down through warm chiaroscuro candlelight
+// - A floating, breathing translucent deckle-edged vellum manuscript leaf suspended in 3D space
+// - Floating golden terracotta wax seal medallion (#d97736 / terracotta gold) with tactile stamp relief
+// - Volumetric candlelight godrays and amber dust motes floating organically
+// - Living acoustic waveform ribbon undulating in depth behind the parchment
+// - Parallax perspective response to cursor movement
+
+const container = document.getElementById('threejs-container-r02-d05') || document.body;
+const width = container.clientWidth || window.innerWidth;
+const height = container.clientHeight || window.innerHeight;
+
+const scene = new THREE.Scene();
+// Deep warm chiaroscuro atmospheric fog: candle-amber dissolving into rainy courtyard dusk
+scene.fog = new THREE.FogExp2(0x130d09, 0.024);
+
+const camera = new THREE.PerspectiveCamera(40, width / height, 0.1, 100);
+camera.position.set(0.0, 0.0, 5.4);
+
+const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true, powerPreference: "high-performance" });
+renderer.setSize(width, height);
+renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+renderer.toneMapping = THREE.ACESFilmicToneMapping;
+renderer.toneMappingExposure = 1.35;
+renderer.shadowMap.enabled = true;
+renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+container.appendChild(renderer.domElement);
+
+const masterGroup = new THREE.Group();
+scene.add(masterGroup);
+
+// Ambient warmth
+const ambientLight = new THREE.AmbientLight(0x281912, 1.8);
+scene.add(ambientLight);
+
+// Primary intimate candlelight point light (warm honey gold)
+const candleLight = new THREE.PointLight(0xf2a154, 22.0, 14.0, 1.2);
+candleLight.position.set(-1.2, 0.8, 2.8);
+masterGroup.add(candleLight);
+
+// Secondary golden-hour rim from right
+const goldenRim = new THREE.DirectionalLight(0xffdfaa, 4.2);
+goldenRim.position.set(5.0, 3.0, 1.5);
+scene.add(goldenRim);
+
+// Cool monsoon rain backlight (deep slate blue from far behind)
+const monsoonRainLight = new THREE.DirectionalLight(0x2a3848, 2.5);
+monsoonRainLight.position.set(0.0, 6.0, -4.0);
+scene.add(monsoonRainLight);
+
+// ==========================================
+// 1. FLOATING VELLUM PARCHMENT STRATA
+// ==========================================
+// Translucent deckle-edge vellum sheet floating gracefully at slight angle
+const vellumGeo = new THREE.PlaneGeometry(3.6, 4.6, 32, 32);
+// Subtle curled corner deformation
+const posAttr = vellumGeo.attributes.position;
+for (let i = 0; i < posAttr.count; i++) {
+  const x = posAttr.getX(i);
+  const y = posAttr.getY(i);
+  // Gentle tactile paper warpage
+  const zWave = Math.sin(x * 1.5) * Math.cos(y * 1.2) * 0.06 + Math.pow((x + 1.8)/3.6, 2) * 0.08;
+  posAttr.setZ(i, zWave);
+}
+vellumGeo.computeVertexNormals();
+
+// Procedural high-res tactile vellum texture
+function createVellumParchmentTexture() {
+  const canvas = document.createElement('canvas');
+  canvas.width = 1024;
+  canvas.height = 1300;
+  const ctx = canvas.getContext('2d');
+
+  // Translucent amber paper tone
+  const grad = ctx.createLinearGradient(0, 0, 1024, 1300);
+  grad.addColorStop(0, '#22150f');
+  grad.addColorStop(0.3, '#2a1a13');
+  grad.addColorStop(0.7, '#1e120b');
+  grad.addColorStop(1, '#150c07');
+  ctx.fillStyle = grad;
+  ctx.fillRect(0, 0, 1024, 1300);
+
+  // Delicate archival deckle border
+  ctx.strokeStyle = 'rgba(232, 152, 88, 0.22)';
+  ctx.lineWidth = 2;
+  ctx.strokeRect(36, 36, 952, 1228);
+
+  // Faint secondary hairline
+  ctx.strokeStyle = 'rgba(255, 223, 170, 0.12)';
+  ctx.lineWidth = 1;
+  ctx.strokeRect(48, 48, 928, 1204);
+
+  // Subtle watermark seal in background
+  ctx.strokeStyle = 'rgba(232, 152, 88, 0.08)';
+  ctx.lineWidth = 1.5;
+  ctx.beginPath();
+  ctx.arc(512, 650, 220, 0, Math.PI * 2);
+  ctx.stroke();
+
+  // Spoken vow inscription header
+  ctx.fillStyle = '#f2a154';
+  ctx.font = '14px "JetBrains Mono", monospace';
+  ctx.fillText('ALGORYXZ / 001 // HEIRLOOM SPECIMEN · FOLIO NO. 04', 72, 96);
+
+  ctx.fillStyle = 'rgba(232, 152, 88, 0.6)';
+  ctx.font = '12px "JetBrains Mono", monospace';
+  ctx.fillText('RECORDED IN KODAGU ESTATE · CHIDAMBARAM HALL · 19:42 IST', 72, 124);
+
+  // Handwritten vow passage
+  ctx.fillStyle = '#ffffff';
+  ctx.font = 'italic 400 40px "Playfair Display", Georgia, serif';
+  ctx.fillText('“I promise to return to this sanctuary', 72, 230);
+  ctx.fillText('whenever the skies break, to listen for', 72, 285);
+  ctx.fillText('your footsteps in the courtyard, and', 72, 340);
+  ctx.fillText('never let the wet embers of our devotion', 72, 395);
+  ctx.fillText('turn cold.”', 72, 450);
+
+  // Provenance footnote
+  ctx.fillStyle = '#e8a36e';
+  ctx.font = 'italic 20px "Playfair Display", Georgia, serif';
+  ctx.fillText('— Ananya to Neil · Whispered at Dusk Downpour', 72, 530);
+
+  // Subtle separator line
+  ctx.strokeStyle = 'rgba(232, 152, 88, 0.25)';
+  ctx.beginPath();
+  ctx.moveTo(72, 580);
+  ctx.lineTo(952, 580);
+  ctx.stroke();
+
+  // Guestbook blessing excerpt
+  ctx.fillStyle = '#ffd29d';
+  ctx.font = '14px "JetBrains Mono", monospace';
+  ctx.fillText('GUESTBOOK LEDGER BLESSING // INSCRIBED IN TERRACOTTA WAX', 72, 630);
+
+  ctx.fillStyle = '#e5d7cb';
+  ctx.font = 'italic 30px "Playfair Display", Georgia, serif';
+  ctx.fillText('“May the fragrance of petrichor forever seal your home,', 72, 690);
+  ctx.fillText('and may your vows remain as unyielding as the granite steps.”', 72, 735);
+
+  ctx.fillStyle = '#f2a154';
+  ctx.font = 'italic 18px "Playfair Display", Georgia, serif';
+  ctx.fillText('— Devaki Amma (Grandmother) · Attested with Ancestral Lacquer', 72, 800);
+
+  // Golden deckle edge highlight on perimeter
+  const goldEdge = ctx.createLinearGradient(0, 0, 60, 0);
+  goldEdge.addColorStop(0, 'rgba(242, 178, 108, 0.5)');
+  goldEdge.addColorStop(1, 'rgba(242, 178, 108, 0)');
+  ctx.fillStyle = goldEdge;
+  ctx.fillRect(0, 0, 60, 1300);
+
+  const tex = new THREE.CanvasTexture(canvas);
+  tex.anisotropy = 8;
+  return tex;
+}
+
+const vellumTex = createVellumParchmentTexture();
+const vellumMat = new THREE.MeshPhysicalMaterial({
+  map: vellumTex,
+  roughness: 0.45,
+  metalness: 0.1,
+  transmission: 0.62,
+  thickness: 0.6,
+  ior: 1.45,
+  transparent: true,
+  opacity: 0.94,
+  emissive: 0x3a2012,
+  emissiveIntensity: 0.45,
+  side: THREE.DoubleSide
+});
+
+const vellumMesh = new THREE.Mesh(vellumGeo, vellumMat);
+vellumMesh.position.set(0.2, 0.05, 0.35);
+vellumMesh.rotation.set(-0.04, -0.12, 0.02);
+vellumMesh.castShadow = true;
+masterGroup.add(vellumMesh);
+
+// Glowing golden wire edge on vellum
+const vellumLine = new THREE.LineSegments(
+  new THREE.EdgesGeometry(new THREE.BoxGeometry(3.6, 4.6, 0.02)),
+  new THREE.LineBasicMaterial({ color: 0xffdfaa, transparent: true, opacity: 0.75 })
+);
+vellumMesh.add(vellumLine);
+
+// ==========================================
+// 2. 3D TERRACOTTA WAX SEAL MEDALLION
+// ==========================================
+// A dimensional physical wax seal stamped at the bottom right of the manuscript
+const sealGroup = new THREE.Group();
+sealGroup.position.set(1.4, -1.8, 0.45);
+sealGroup.rotation.set(-0.05, -0.12, 0.18);
+masterGroup.add(sealGroup);
+
+// Imperfect organic wax disc
+const waxGeo = new THREE.CylinderGeometry(0.38, 0.42, 0.08, 32);
+const waxPos = waxGeo.attributes.position;
+for (let i = 0; i < waxPos.count; i++) {
+  const vx = waxPos.getX(i);
+  const vz = waxPos.getZ(i);
+  const ang = Math.atan2(vz, vx);
+  const rNoise = 1.0 + Math.sin(ang * 7) * 0.08 + Math.cos(ang * 11) * 0.05;
+  waxPos.setX(i, vx * rNoise);
+  waxPos.setZ(i, vz * rNoise);
+}
+waxGeo.computeVertexNormals();
+
+const waxMat = new THREE.MeshStandardMaterial({
+  color: 0xbb5828,
+  roughness: 0.35,
+  metalness: 0.42,
+  emissive: 0x421505,
+  emissiveIntensity: 0.5
+});
+const waxMesh = new THREE.Mesh(waxGeo, waxMat);
+waxMesh.castShadow = true;
+sealGroup.add(waxMesh);
+
+// Inner stamped impression ring & monogram
+const sealRingGeo = new THREE.TorusGeometry(0.25, 0.022, 16, 32);
+const sealRingMat = new THREE.MeshStandardMaterial({
+  color: 0x8e3814,
+  roughness: 0.28,
+  metalness: 0.6
+});
+const sealRing = new THREE.Mesh(sealRingGeo, sealRingMat);
+sealRing.rotation.x = Math.PI / 2;
+sealRing.position.y = 0.045;
+sealGroup.add(sealRing);
+
+// Monogram core pip
+const pipGeo = new THREE.SphereGeometry(0.06, 16, 16);
+const pipMesh = new THREE.Mesh(pipGeo, sealRingMat);
+pipMesh.position.y = 0.045;
+sealGroup.add(pipMesh);
+
+// ==========================================
+// 3. LIVING FLUID ACOUSTIC WAVEFORM RIBBON
+// ==========================================
+// Undulating spatial soundwave ribbon passing directly behind the vellum sheet in depth
+const waveRibbonCount = 80;
+const waveGroup = new THREE.Group();
+waveGroup.position.set(-0.2, -0.8, -0.3);
+masterGroup.add(waveGroup);
+
+const waveBars = [];
+for (let b = 0; b < waveRibbonCount; b++) {
+  const barGeo = new THREE.BoxGeometry(0.038, 1.2, 0.038);
+  const barMat = new THREE.MeshStandardMaterial({
+    color: 0xf2a154,
+    roughness: 0.3,
+    metalness: 0.7,
+    emissive: 0x8a3a14,
+    emissiveIntensity: 0.6,
+    transparent: true,
+    opacity: 0.82
+  });
+  const barMesh = new THREE.Mesh(barGeo, barMat);
+  barMesh.position.set((b - waveRibbonCount / 2) * 0.065, 0, Math.sin(b * 0.15) * 0.25);
+  waveGroup.add(barMesh);
+  waveBars.push({ mesh: barMesh, baseIdx: b });
+}
+
+// ==========================================
+// 4. ATMOSPHERIC MONSOON RAIN & GOLDEN DUST
+// ==========================================
+// Gentle vertical rain streaks drifting in background
+const rainCount = 350;
+const rainGeo = new THREE.BufferGeometry();
+const rainPos = new Float32Array(rainCount * 3);
+const rainVel = new Float32Array(rainCount);
+
+for (let r = 0; r < rainCount; r++) {
+  rainPos[r * 3] = (Math.random() - 0.5) * 12.0;
+  rainPos[r * 3 + 1] = (Math.random() - 0.5) * 8.0;
+  rainPos[r * 3 + 2] = (Math.random() - 0.5) * 6.0 - 1.0;
+  rainVel[r] = 0.04 + Math.random() * 0.06;
+}
+rainGeo.setAttribute('position', new THREE.BufferAttribute(rainPos, 3));
+
+const rainMat = new THREE.PointsMaterial({
+  color: 0x9fb5cc,
+  size: 0.038,
+  transparent: true,
+  opacity: 0.45
+});
+const rainParticles = new THREE.Points(rainGeo, rainMat);
+scene.add(rainParticles);
+
+// Warm glowing candlelight embers floating upward in the foreground
+const emberCount = 160;
+const emberGeo = new THREE.BufferGeometry();
+const emberPos = new Float32Array(emberCount * 3);
+const emberSpeeds = new Float32Array(emberCount);
+
+for (let e = 0; e < emberCount; e++) {
+  emberPos[e * 3] = (Math.random() - 0.5) * 7.5;
+  emberPos[e * 3 + 1] = (Math.random() - 0.5) * 6.5;
+  emberPos[e * 3 + 2] = 0.2 + (Math.random() - 0.5) * 3.5;
+  emberSpeeds[e] = 0.004 + Math.random() * 0.012;
+}
+emberGeo.setAttribute('position', new THREE.BufferAttribute(emberPos, 3));
+
+const emberMat = new THREE.PointsMaterial({
+  color: 0xffb780,
+  size: 0.042,
+  transparent: true,
+  opacity: 0.85,
+  blending: THREE.AdditiveBlending
+});
+const embers = new THREE.Points(emberGeo, emberMat);
+scene.add(embers);
+
+// Subtle warm aura bloom behind manuscript
+const auraGeo = new THREE.PlaneGeometry(6.5, 7.5);
+const auraMat = new THREE.MeshBasicMaterial({
+  color: 0xe89858,
+  transparent: true,
+  opacity: 0.16,
+  blending: THREE.AdditiveBlending
+});
+const auraMesh = new THREE.Mesh(auraGeo, auraMat);
+auraMesh.position.set(0.2, 0.05, -0.2);
+masterGroup.add(auraMesh);
+
+// ==========================================
+// 5. INTERACTIVE PERSPECTIVE PARALLAX
+// ==========================================
+let isPointerDown = false;
+let previousPointer = { x: 0, y: 0 };
+let targetRotX = 0.02;
+let targetRotY = -0.06;
+let currentRotX = 0.02;
+let currentRotY = -0.06;
+
+const onDown = (e) => {
+  if (e.target.closest('button, a, header, nav, footer, .interactive-layer')) return;
+  isPointerDown = true;
+  previousPointer = { x: e.clientX, y: e.clientY };
+};
+
+const onMove = (e) => {
+  const normX = (e.clientX / width) * 2 - 1;
+  const normY = -(e.clientY / height) * 2 + 1;
+  if (isPointerDown) {
+    const dx = e.clientX - previousPointer.x;
+    const dy = e.clientY - previousPointer.y;
+    targetRotY += dx * 0.003;
+    targetRotX += dy * 0.003;
+    previousPointer = { x: e.clientX, y: e.clientY };
+  } else {
+    // Gentle breathing parallax
+    targetRotY = -0.06 + normX * 0.08;
+    targetRotX = 0.02 - normY * 0.05;
+  }
+};
+
+const onUp = () => { isPointerDown = false; };
+
+window.addEventListener('pointerdown', onDown);
+window.addEventListener('pointermove', onMove);
+window.addEventListener('pointerup', onUp);
+
+const onResize = () => {
+  const w = container.clientWidth || window.innerWidth;
+  const h = container.clientHeight || window.innerHeight;
+  camera.aspect = w / h;
+  camera.updateProjectionMatrix();
+  renderer.setSize(w, h);
+};
+window.addEventListener('resize', onResize);
+
+// Kinetic Render Loop
+let clock = new THREE.Clock();
+
+function animate() {
+  requestAnimationFrame(animate);
+  const t = clock.getElapsedTime();
+
+  // Floating respiration of the vellum sheet
+  vellumMesh.position.y = 0.05 + Math.sin(t * 0.75) * 0.035;
+  vellumMesh.position.z = 0.35 + Math.cos(t * 0.6) * 0.02;
+
+  // Candlelight breathing pulse
+  candleLight.intensity = 22.0 + Math.sin(t * 2.4) * 4.0 + Math.cos(t * 4.1) * 1.5;
+  auraMat.opacity = 0.16 + Math.sin(t * 1.9) * 0.04;
+
+  // Waveform bars dynamic audio motion
+  waveBars.forEach(item => {
+    const s = Math.sin(t * 2.5 + item.baseIdx * 0.22) * 0.5 + Math.cos(t * 1.2 + item.baseIdx * 0.45) * 0.4;
+    const barScale = Math.max(0.15, 0.55 + s * 0.45);
+    item.mesh.scale.y = barScale;
+  });
+
+  // Falling rain
+  const rPos = rainParticles.geometry.attributes.position.array;
+  for (let i = 0; i < rainCount; i++) {
+    rPos[i * 3 + 1] -= rainVel[i];
+    if (rPos[i * 3 + 1] < -4.0) {
+      rPos[i * 3 + 1] = 4.0;
+    }
+  }
+  rainParticles.geometry.attributes.position.needsUpdate = true;
+
+  // Rising embers
+  const ePos = embers.geometry.attributes.position.array;
+  for (let j = 0; j < emberCount; j++) {
+    ePos[j * 3 + 1] += emberSpeeds[j];
+    ePos[j * 3] += Math.sin(t * 1.5 + j) * 0.001;
+    if (ePos[j * 3 + 1] > 3.5) {
+      ePos[j * 3 + 1] = -3.5;
+      ePos[j * 3] = (Math.random() - 0.5) * 7.5;
+    }
+  }
+  embers.geometry.attributes.position.needsUpdate = true;
+
+  // Smooth lerp camera rotation
+  currentRotX += (targetRotX - currentRotX) * 0.05;
+  currentRotY += (targetRotY - currentRotY) * 0.05;
+
+  masterGroup.rotation.x = currentRotX;
+  masterGroup.rotation.y = currentRotY;
+
+  renderer.render(scene, camera);
+}
+animate();
+
+})();
+</script>
+</div>
+<!-- STITCH_THREEJS_END:ANIMATION_51 -->
+</div>
+<!-- 2. FULL-BLEED BACKGROUND CINEMATIC PHOTOGRAPH (Chiaroscuro Couple in Rain/Candlelight) -->
+<div class="absolute inset-0 w-full h-full z-0 overflow-hidden pointer-events-none">
+<img alt="The Monsoon Vows" class="w-full h-full object-cover object-center filter brightness-[0.72] contrast-[1.12] saturate-[1.08] scale-105 transform origin-center transition-transform duration-1000 ease-out" src="https://lh3.googleusercontent.com/aida/AEtjO1UOJQOo9t53Jx9bI5KYE3noksJoRXJlgNsLokMnHklo52SH3bX06XgpVeiymjokBJY7W3rAuvBShxGVFh8EnufNHizfkHoZeztevtRK2fjM0ApwiLjJBSZoKSppts7PtbZSknxDCocq20D3P7AqV_nNYQ7oQtHrXbeqzyaPlWbqWS9IhegaC_tzxOyvz2u_bMPhPrn5aGmKaAUpAG34U6ePxuR-7O8KIVtcaIMHqJjynxBd6T-v_qfFaNYl"/>
+<!-- Deep chiaroscuro atmospheric gradients bleeding from the dark perimeter into warm intimate candle glow -->
+<div class="absolute inset-0 bg-gradient-to-r from-surface-container-lowest/95 via-surface-container-lowest/65 to-surface-container-lowest/40"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest/95 via-transparent to-surface-container-lowest/70"></div>
+<div class="absolute inset-0 rain-film-grain opacity-40"></div>
+</div>
+<!-- 3. TOP WHISPER NAVIGATION: ALGORYXZ PRESENCE DISSOLVED -->
+<!-- Algoryxz presence is reduced to a whisper in the top-left anchor: "← ALGORYXZ / 001 · CONCEPT PROJECT" -->
+<header class="relative z-30 w-full px-8 md:px-14 py-4 flex items-center justify-between border-b border-outline-variant/20 bg-surface-container-lowest/70 backdrop-blur-md">
+<!-- Left Whisper Return Link -->
+<a class="flex items-center gap-3 text-on-surface-variant hover:text-primary transition-colors duration-300 group" href="#">
+<span class="material-symbols-outlined text-[17px] transition-transform duration-300 group-hover:-translate-x-1" data-icon="arrow_back">arrow_back</span>
+<div class="flex items-center gap-2 font-label-sm text-[11px] tracking-widest uppercase">
+<span class="text-on-surface font-semibold">ALGORY<span class="text-primary">XZ</span></span>
+<span class="text-outline-variant">/</span>
+<span class="text-primary font-bold">001</span>
+<span class="text-outline-variant hidden sm:inline">·</span>
+<span class="text-on-surface-variant/80 hidden sm:inline">CONCEPT PROJECT</span>
+</div>
+</a>
+<!-- Center Heirloom Title Monogram -->
+<div class="flex items-center gap-2 text-center">
+<span class="font-headline-sm text-headline-sm tracking-wider text-on-surface font-light italic">The Monsoon Vows</span>
+<span class="w-1.5 h-1.5 rounded-full bg-primary-container animate-pulse"></span>
+</div>
+<!-- Right Archival Metadata Badges -->
+<div class="flex items-center gap-4">
+<div class="hidden md:flex items-center gap-2 font-label-sm text-[10px] tracking-widest text-on-surface-variant/70 uppercase">
+<span class="material-symbols-outlined text-[14px] text-primary" data-icon="temple_hindu">temple_hindu</span>
+<span>KODAGU ESTATE · OCT MMXXIV</span>
+</div>
+<div class="h-3 w-px bg-outline-variant/30 hidden md:block"></div>
+<div class="flex items-center gap-2 px-3 py-1 rounded deckled-vellum bg-surface-container-low/70 backdrop-blur-sm">
+<span class="material-symbols-outlined text-[13px] text-primary" data-icon="lock_open">lock_open</span>
+<span class="font-label-sm text-[10px] tracking-widest uppercase text-primary">VAULT UNLOCKED</span>
+</div>
+</div>
+</header>
+<!-- 4. MAIN EXPERIENTIAL VIEWPORT: A MEMORY YOU CAN ENTER -->
+<!-- Non-dashboard spatial layout: Left side provides rich poetic breathing room; Right side floats the tactile vellum manuscript & living audio waveform -->
+<main class="relative z-20 flex-1 w-full px-8 md:px-14 flex items-center justify-between overflow-hidden">
+<!-- LEFT COMPOSITION: POETIC INSCRIPTION & EMOTIONAL ANCHOR -->
+<div class="hidden lg:flex flex-col justify-end max-w-lg mb-12 pointer-events-auto">
+<!-- Archival Specimen Eyebrow -->
+<div class="flex items-center gap-2 mb-4">
+<span class="w-2 h-2 rounded-full bg-primary shadow-[0_0_10px_rgba(232,152,88,0.8)]"></span>
+<span class="font-label-sm text-[10px] tracking-widest uppercase text-primary">
+          HEIRLOOM FOLIO // VOL. 001
+        </span>
+</div>
+<!-- Monumental Memorial Headline -->
+<h1 class="font-headline-lg text-[46px] leading-[54px] text-on-surface tracking-tight mb-4 font-normal">
+        Moments carved in light.<br/>
+<span class="italic font-display-hero text-primary font-light">Love preserved in time.</span>
+</h1>
+<!-- Atmosphere Excerpt -->
+<p class="font-body-lg text-[19px] leading-relaxed text-on-surface-variant/90 mb-6 font-normal">
+        An intimate digital sanctuary holding spoken vows, 42 private acoustic reels, petrichor soundscapes, and medium-format Hasselblad memories recorded under October temple downpours.
+      </p>
+<!-- Provenance Ledger Specs -->
+<div class="flex items-center gap-6 pt-4 border-t border-outline-variant/30 font-label-sm text-[10px] tracking-widest text-on-surface-variant/70 uppercase">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[13px] text-primary" data-icon="graphic_eq">graphic_eq</span>
+<span>432Hz BINAURAL MASTER</span>
+</div>
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[13px] text-primary" data-icon="local_florist">local_florist</span>
+<span>CHIDAMBARAM HALL</span>
+</div>
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[13px] text-primary" data-icon="verified">verified</span>
+<span>30-YR WEB CUSTODY</span>
+</div>
+</div>
+</div>
+<!-- RIGHT SPATIAL LAYER: THE TRANSLUCENT ARCHIVAL VELLUM & LIVING WAVEFORM -->
+<div class="w-full lg:max-w-2xl flex flex-col justify-center items-end pointer-events-auto my-auto">
+<!-- Translucent Deckled Vellum Card Layer -->
+<div class="relative w-full rounded-xl deckled-vellum bg-surface-container-lowest/80 candlelight-glow backdrop-blur-2xl p-6 sm:p-8 border border-primary/25 shadow-2xl transition-all duration-500 hover:border-primary/45">
+<!-- Header Inscription Stamp -->
+<div class="flex items-center justify-between border-b border-outline-variant/30 pb-3 mb-6">
+<div class="flex items-center gap-2 text-primary font-label-sm text-[10px] tracking-widest uppercase">
+<span class="material-symbols-outlined text-[15px]" data-icon="auto_stories">auto_stories</span>
+<span>SPOKEN COVENANT // PASSAGE NO. 04</span>
+</div>
+<div class="flex items-center gap-2 text-on-surface-variant/70 font-label-sm text-[10px] tracking-widest uppercase">
+<span class="w-1.5 h-1.5 rounded-full bg-primary animate-ping"></span>
+<span>WHISPER REEL · 19:42 IST</span>
+</div>
+</div>
+<!-- Handwritten Spoken Vow Inscription -->
+<div class="mb-6">
+<blockquote class="font-vow-quote text-2xl sm:text-[27px] leading-[38px] text-on-surface italic tracking-wide font-normal mb-3">
+            “I promise to return to this sanctuary whenever the skies break, to listen for your footsteps in the courtyard, and never let the wet embers of our devotion turn cold.”
+          </blockquote>
+<div class="flex items-center justify-between pt-2">
+<span class="font-headline-sm italic text-tertiary text-[17px]">Amara &amp; Devendra</span>
+<span class="font-label-sm text-[10px] tracking-widest text-on-surface-variant/60 uppercase">DUSK DOWNPOUR · KERALA WESTERN GHATS</span>
+</div>
+</div>
+<!-- AMBIENT LIVING AUDIO WAVEFORM (Fluid Audio Track Behind Paper Layer) -->
+<div class="p-4 rounded-lg bg-surface-container-lowest/90 deckled-vellum flex flex-col sm:flex-row items-center gap-4 justify-between mb-6">
+<!-- Play Trigger Button & Track Meta -->
+<div class="flex items-center gap-3 w-full sm:w-auto">
+<button aria-label="Pause or Play" class="w-11 h-11 rounded-full bg-primary-container flex items-center justify-center text-on-primary-container hover:bg-primary transition-all duration-200 shadow-[0_0_20px_rgba(232,152,88,0.5)] active:scale-95 group flex-shrink-0">
+<span class="material-symbols-outlined text-[22px] fill-current" data-icon="pause">pause</span>
+</button>
+<div class="flex flex-col min-w-0">
+<div class="flex items-center gap-2">
+<span class="font-label-md text-label-md tracking-wider text-on-surface uppercase font-semibold truncate">03:42 · The Rain Oath</span>
+<span class="text-[9px] px-1.5 py-0.2 rounded bg-surface-container-high text-primary font-label-sm">LIVE</span>
+</div>
+<span class="font-label-sm text-[10px] text-on-surface-variant/70 tracking-widest">STEREO 24-BIT · 432Hz BINAURAL RAIN &amp; SITAR</span>
+</div>
+</div>
+<!-- Living Amber Soundwave Canvas -->
+<div class="flex items-center gap-1 h-9 w-full sm:w-56 px-2 justify-between">
+<div class="waveform-bar w-1 bg-primary/40 rounded-full h-3"></div>
+<div class="waveform-bar w-1 bg-primary/70 rounded-full h-6"></div>
+<div class="waveform-bar w-1 bg-primary-container rounded-full h-8"></div>
+<div class="waveform-bar w-1 bg-primary rounded-full h-5"></div>
+<div class="waveform-bar w-1 bg-primary-container rounded-full h-7"></div>
+<div class="waveform-bar w-1 bg-primary/60 rounded-full h-4"></div>
+<div class="waveform-bar w-1 bg-primary rounded-full h-9"></div>
+<div class="waveform-bar w-1 bg-primary-container rounded-full h-7"></div>
+<div class="waveform-bar w-1 bg-primary/50 rounded-full h-3"></div>
+<div class="waveform-bar w-1 bg-primary rounded-full h-6"></div>
+<div class="waveform-bar w-1 bg-primary-container rounded-full h-9"></div>
+<div class="waveform-bar w-1 bg-primary/80 rounded-full h-7"></div>
+<div class="waveform-bar w-1 bg-primary rounded-full h-5"></div>
+<div class="waveform-bar w-1 bg-primary-container rounded-full h-8"></div>
+<div class="waveform-bar w-1 bg-primary/40 rounded-full h-3"></div>
+</div>
+<!-- Elapsed Counter -->
+<div class="hidden sm:block font-label-sm text-[11px] tracking-widest text-primary font-semibold flex-shrink-0">
+            03:42 / 12:08
+          </div>
+</div>
+<!-- TERRACOTTA WAX SEAL GUESTBOOK LEDGER ENTRY -->
+<div class="pt-2 border-t border-outline-variant/30 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+<!-- Blessing Quotation -->
+<div class="flex items-center gap-3">
+<!-- Physical Wax Seal Medallion Icon -->
+<div class="w-9 h-9 rounded-full bg-[#bb5828] wax-seal-relief flex items-center justify-center text-[#ffdfaa] flex-shrink-0">
+<span class="material-symbols-outlined text-[18px]" data-icon="history_edu">history_edu</span>
+</div>
+<div class="flex flex-col">
+<p class="font-vow-quote text-body-sm italic text-on-surface-variant/90 leading-tight">
+                “May the fragrance of petrichor forever seal your home.”
+              </p>
+<span class="font-label-sm text-[9px] text-primary/80 uppercase tracking-widest mt-0.5">
+                Devaki Amma · Terracotta Seal Attested
+              </span>
+</div>
+</div>
+<!-- Inscribe Blessing Action -->
+<button class="px-4 py-2 rounded-lg bg-surface-container-high/80 hover:bg-surface-container hover:border-primary/50 deckled-vellum text-on-surface font-label-sm text-[10px] tracking-widest uppercase transition-all duration-300 flex items-center gap-2 group flex-shrink-0">
+<span class="text-primary group-hover:text-primary-fixed">Inscribe Blessing</span>
+<span class="text-primary text-[12px] transition-transform duration-300 group-hover:translate-x-0.5">→</span>
+</button>
+</div>
+</div>
+</div>
+</main>
+<!-- 5. BOTTOM MINIMAL STATUS BAR -->
+<footer class="relative z-30 w-full px-8 md:px-14 py-3 border-t border-outline-variant/20 bg-surface-container-lowest/80 backdrop-blur-md flex items-center justify-between font-label-sm text-[10px] text-on-surface-variant/70 tracking-widest uppercase">
+<!-- Left Specimen Status -->
+<div class="flex items-center gap-2">
+<span class="text-primary font-bold">ALGORYXZ / 001</span>
+<span>•</span>
+<span>THE MONSOON VOWS</span>
+<span>•</span>
+<span class="text-on-surface">DIGITAL HEIRLOOM SPECIMEN</span>
+</div>
+<!-- Center Interaction Cue -->
+<div class="hidden md:flex items-center gap-2 text-outline">
+<span class="material-symbols-outlined text-[13px] text-primary" data-icon="touch_app">touch_app</span>
+<span>DRAG TO TILT SCENE IN 3D PERSPECTIVE · ACOUSTIC STREAM RUNNING</span>
+</div>
+<!-- Right Archival Provenance -->
+<div class="flex items-center gap-2 text-primary font-semibold">
+<span class="w-1.5 h-1.5 rounded-full bg-primary"></span>
+<span>KODAGU · CHIDAMBARAM HALL · MMXXIV</span>
+</div>
+</footer>
+</body>
+</html>

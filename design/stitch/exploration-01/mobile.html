@@ -1,0 +1,749 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ALGORYXZ — Independent Digital Studio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Space Grotesk', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
+            mono: ['JetBrains Mono', 'Menlo', 'monospace'],
+          },
+          colors: {
+            primary: '#ff3b00',
+            'primary-hover': '#e03400',
+            surface: '#131314',
+            'surface-dim': '#0e0e0f',
+            'surface-card': '#18181a',
+            'surface-bright': '#222225',
+            'border-subtle': '#27272a',
+            'border-strong': '#3f3f46',
+            'text-muted': '#8e8e93',
+            'text-dim': '#52525b',
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body {
+      background-color: #131314;
+      color: #ededed;
+      font-family: 'Space Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+    ::selection {
+      background-color: #ff3b00;
+      color: #131314;
+    }
+    .technical-grid {
+      background-size: 24px 24px;
+      background-image: linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+                        linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+    }
+    .ticker-bar {
+      border-bottom: 1px solid #27272a;
+    }
+  </style>
+</head>
+<body class="min-h-screen bg-surface text-[#ededed] font-sans antialiased selection:bg-primary selection:text-black">
+
+  <!-- Status Bar / Dispatch Ticker -->
+  <div class="w-full bg-surface-dim border-b border-border-subtle px-4 py-2 flex items-center justify-between text-[10px] font-mono tracking-wider text-text-muted">
+    <div class="flex items-center gap-1.5">
+      <span class="inline-block w-1.5 h-1.5 rounded-full bg-primary animate-pulse"></span>
+      <span class="text-zinc-300 font-medium">DISPATCH // LIVE</span>
+    </div>
+    <div class="text-text-dim">
+      ODISHA, IN [IST] <span class="text-zinc-400">2025</span>
+    </div>
+  </div>
+
+  <!-- Mobile Sticky Header -->
+  <header class="sticky top-0 z-50 w-full bg-surface/95 backdrop-blur-md border-b border-border-subtle px-4 h-14 flex items-center justify-between">
+    <a href="#" class="flex items-center gap-2 group">
+      <span class="font-bold text-lg tracking-tight text-white group-hover:text-primary transition-colors">ALGORYXZ</span>
+      <span class="text-[9px] font-mono uppercase px-1.5 py-0.5 rounded bg-surface-bright text-text-muted border border-border-subtle">EST. 2025</span>
+    </a>
+    
+    <div class="flex items-center gap-2">
+      <a href="#contact" class="text-[11px] font-mono px-2.5 py-1.5 rounded bg-primary text-black font-semibold uppercase tracking-wider hover:bg-white transition-colors">
+        Initiate [ 01 ]
+      </a>
+      <button type="button" aria-label="Toggle navigation menu" class="w-10 h-10 flex flex-col items-center justify-center gap-1 border border-border-subtle rounded bg-surface-card active:scale-95 transition-all text-zinc-300">
+        <span class="w-4 h-[1.5px] bg-zinc-200"></span>
+        <span class="w-4 h-[1.5px] bg-zinc-200"></span>
+      </button>
+    </div>
+  </header>
+
+  <main class="w-full">
+
+    <!-- Hero / Opening Statement -->
+    <section class="px-4 pt-8 pb-10 border-b border-border-subtle relative technical-grid">
+      <div class="flex items-center justify-between mb-4">
+        <div class="inline-flex items-center gap-1.5 text-[11px] font-mono text-primary font-medium tracking-wide">
+          <span class="w-1.5 h-1.5 bg-primary rounded-full"></span>
+          <span>BATCH-01 // OPEN FOR COMMISSIONS</span>
+        </div>
+        <span class="text-[10px] font-mono text-text-dim">INDEX REF: 2025-ARCH</span>
+      </div>
+
+      <h1 class="text-4xl sm:text-5xl font-extrabold tracking-tight text-white leading-[1.08] mb-4">
+        We make things for the internet.
+      </h1>
+
+      <p class="text-zinc-400 text-sm leading-relaxed mb-6 font-normal">
+        Digital experiences for businesses with something to say, and people celebrating something that matters. No bloated templates, no corporate indifference.
+      </p>
+
+      <!-- Provenance / Registry Badge -->
+      <div class="p-3.5 rounded bg-surface-card border border-border-subtle mb-6 space-y-2 text-xs font-mono">
+        <div class="flex justify-between items-center text-text-muted border-b border-border-subtle pb-2">
+          <span>PROVENANCE</span>
+          <span class="text-white font-medium">Bhubaneswar, Odisha, IN</span>
+        </div>
+        <div class="flex justify-between items-center text-text-muted border-b border-border-subtle pb-2">
+          <span>FOUNDING TEAM</span>
+          <span class="text-white font-medium">3 Founders (Zero Middle Managers)</span>
+        </div>
+        <div class="flex justify-between items-center text-text-muted">
+          <span>STACK</span>
+          <span class="text-zinc-300">Vanilla JS · Modern CSS · Clean Runtimes</span>
+        </div>
+      </div>
+
+      <!-- Action Row -->
+      <div class="flex flex-col gap-2.5">
+        <a href="#work" class="w-full h-12 flex items-center justify-between px-4 bg-white text-black font-semibold text-sm rounded hover:bg-zinc-200 transition-colors">
+          <span>EXPLORE SELECTED WORK</span>
+          <span class="font-mono text-base">↓</span>
+        </a>
+        <a href="#contact" class="w-full h-12 flex items-center justify-between px-4 bg-surface-card border border-border-subtle text-white font-medium text-sm rounded hover:border-zinc-500 transition-colors">
+          <span>START A CONVERSATION</span>
+          <span class="font-mono text-primary text-base">↗</span>
+        </a>
+      </div>
+    </section>
+
+    <!-- Audience Routing -->
+    <section class="px-4 py-8 border-b border-border-subtle bg-surface-dim">
+      <div class="text-[11px] font-mono text-text-muted uppercase tracking-wider mb-2">
+        // SPECIFICATION LEDGER
+      </div>
+      <h2 class="text-2xl font-bold tracking-tight text-white mb-2">
+        Who is this studio for?
+      </h2>
+      <p class="text-xs text-text-muted mb-5 leading-relaxed">
+        Three tailored modes of collaboration. We align specifically with ambitious people, not corporate personas.
+      </p>
+
+      <div class="space-y-3">
+        <!-- Route 01 -->
+        <a href="#contact" class="block p-4 rounded bg-surface border border-border-subtle hover:border-primary/60 transition-all active:scale-[0.99] group">
+          <div class="flex items-center justify-between text-[11px] font-mono text-primary mb-1">
+            <span>[ 01 // FOR MY BUSINESS ]</span>
+            <span class="text-zinc-400 group-hover:text-primary transition-colors">↗</span>
+          </div>
+          <h3 class="text-base font-bold text-white mb-1.5 group-hover:text-primary transition-colors">
+            Boutique Brands, Cafés & Independent Creatives
+          </h3>
+          <p class="text-xs text-zinc-400 leading-relaxed mb-3">
+            Specialty roasters, artisanal bakeries, architectural studios, and emerging startups who refuse generic website builders.
+          </p>
+          <div class="text-[10px] font-mono text-text-muted bg-surface-dim px-2.5 py-1.5 rounded border border-border-subtle flex items-center justify-between">
+            <span>DELIVERABLE:</span>
+            <span class="text-zinc-300">Fast tactile web, micro-interactions, zero plugins</span>
+          </div>
+        </a>
+
+        <!-- Route 02 -->
+        <a href="#contact" class="block p-4 rounded bg-surface border border-border-subtle hover:border-primary/60 transition-all active:scale-[0.99] group">
+          <div class="flex items-center justify-between text-[11px] font-mono text-primary mb-1">
+            <span>[ 02 // FOR SOMEONE SPECIAL ]</span>
+            <span class="text-zinc-400 group-hover:text-primary transition-colors">↗</span>
+          </div>
+          <h3 class="text-base font-bold text-white mb-1.5 group-hover:text-primary transition-colors">
+            Digital Heirlooms, Weddings & Lifelong Milestones
+          </h3>
+          <p class="text-xs text-zinc-400 leading-relaxed mb-3">
+            Surprise proposals, interactive wedding archives, family retrospectives, and milestone memoirs built with intimate digital care.
+          </p>
+          <div class="text-[10px] font-mono text-text-muted bg-surface-dim px-2.5 py-1.5 rounded border border-border-subtle flex items-center justify-between">
+            <span>DELIVERABLE:</span>
+            <span class="text-zinc-300">Sound-reactive memories, guestbook vault, permanent</span>
+          </div>
+        </a>
+
+        <!-- Route 03 -->
+        <a href="#contact" class="block p-4 rounded bg-surface border border-border-subtle hover:border-primary/60 transition-all active:scale-[0.99] group">
+          <div class="flex items-center justify-between text-[11px] font-mono text-primary mb-1">
+            <span>[ 03 // SOMETHING ELSE ]</span>
+            <span class="text-zinc-400 group-hover:text-primary transition-colors">↗</span>
+          </div>
+          <h3 class="text-base font-bold text-white mb-1.5 group-hover:text-primary transition-colors">
+            Bespoke Web Applications & Creative Tech
+          </h3>
+          <p class="text-xs text-zinc-400 leading-relaxed mb-3">
+            Undiscovered engineering capability for teams requiring high-performance tools, generative web instruments, or unusual experiments.
+          </p>
+          <div class="text-[10px] font-mono text-text-muted bg-surface-dim px-2.5 py-1.5 rounded border border-border-subtle flex items-center justify-between">
+            <span>DELIVERABLE:</span>
+            <span class="text-zinc-300">Complex reactive state, internal dashboards, WebGL</span>
+          </div>
+        </a>
+      </div>
+    </section>
+
+    <!-- Selected Works Section -->
+    <section id="work" class="px-4 py-8 border-b border-border-subtle">
+      <div class="flex items-center justify-between mb-2">
+        <div class="text-[11px] font-mono text-text-muted uppercase tracking-wider">
+          // ARCHIVE INDEX · 03 ENTRIES
+        </div>
+        <span class="text-[10px] font-mono text-primary font-medium">2024 — 2025</span>
+      </div>
+      <h2 class="text-2xl sm:text-3xl font-bold tracking-tight text-white mb-6">
+        Selected Studio Works
+      </h2>
+
+      <!-- Project Cards List -->
+      <div class="space-y-6">
+
+        <!-- Work 000 -->
+        <article class="rounded border border-border-subtle bg-surface-card overflow-hidden">
+          <div class="px-3.5 py-2.5 border-b border-border-subtle bg-surface-dim flex items-center justify-between text-[10px] font-mono">
+            <span class="text-primary font-semibold">[ ALGORYXZ // 000 ]</span>
+            <span class="text-text-dim">NO. 000-INT · INTERNAL CORE</span>
+          </div>
+          <!-- Card Image Frame -->
+          <div class="relative w-full aspect-[16/10] bg-black overflow-hidden border-b border-border-subtle">
+            <div class="absolute inset-0 p-4 flex flex-col justify-between bg-zinc-950 font-mono text-xs">
+              <div class="flex justify-between items-center text-[10px] text-text-muted pb-2 border-b border-border-subtle">
+                <span class="text-white font-bold tracking-wider">ALGORYXZ // REPO V1.4</span>
+                <span class="text-primary">100/100 LIGHTHOUSE</span>
+              </div>
+              <div class="my-auto space-y-1.5 text-[11px]">
+                <div class="text-zinc-500">// TECHNICAL BENCHMARK</div>
+                <div class="text-zinc-200 font-semibold text-sm">Autonomous Publishing Engine</div>
+                <div class="text-text-muted text-[10px]">Zero dependencies · Native HTML5 / CSS3 · Ledger JS</div>
+              </div>
+              <div class="flex justify-between items-center text-[9px] text-text-dim pt-2 border-t border-border-subtle">
+                <span>RUNTIME: 12MS</span>
+                <span>FIG. 00 · SYSTEM VIEWPORT</span>
+              </div>
+            </div>
+          </div>
+          <!-- Card Details -->
+          <div class="p-4">
+            <div class="flex items-center gap-2 mb-2">
+              <span class="text-[10px] font-mono px-1.5 py-0.5 rounded bg-surface-dim text-zinc-300 border border-border-subtle">INTERNAL CORE</span>
+              <span class="text-[10px] font-mono text-text-dim">DEPLOYED: 2025.Q1</span>
+            </div>
+            <h3 class="text-lg font-bold text-white mb-2 leading-snug">
+              Algoryxz Studio Platform & Archival Engine
+            </h3>
+            <p class="text-xs text-zinc-400 leading-relaxed mb-4">
+              Our self-hosted research repository and publishing engine. Structured like a cold war technical journal blended with Swiss typographic discipline. Zero frameworks, near instant first paint.
+            </p>
+            <div class="grid grid-cols-2 gap-2 text-[10px] font-mono border-t border-border-subtle pt-3 text-text-muted">
+              <div><span class="text-zinc-500">SCOPE:</span> <span class="text-zinc-300">Art Direction, Core Architecture</span></div>
+              <div><span class="text-zinc-500">BENCHMARK:</span> <span class="text-primary">100/100 Lighthouse</span></div>
+            </div>
+          </div>
+        </article>
+
+        <!-- Work 001 -->
+        <article class="rounded border border-border-subtle bg-surface-card overflow-hidden">
+          <div class="px-3.5 py-2.5 border-b border-border-subtle bg-surface-dim flex items-center justify-between text-[10px] font-mono">
+            <span class="text-primary font-semibold">[ ALGORYXZ // 001 ]</span>
+            <span class="text-text-dim">NO. 001-CLB · CELEBRATION ARCHIVE</span>
+          </div>
+          <!-- Card Image Frame -->
+          <div class="relative w-full aspect-[16/10] bg-black overflow-hidden border-b border-border-subtle">
+            <div class="absolute inset-0 p-4 flex flex-col justify-between bg-[#111113] font-mono text-xs">
+              <div class="flex justify-between items-center text-[10px] text-zinc-400 pb-2 border-b border-border-subtle">
+                <span class="text-white font-serif italic tracking-wide">The Golden Hour</span>
+                <span class="text-primary text-[9px] font-mono">[ PASSWORD PROTECTED ]</span>
+              </div>
+              <div class="my-auto text-center space-y-1">
+                <div class="text-[10px] uppercase tracking-widest text-text-muted font-sans">ETHEREAL MOMENTS // AN INTIMATE ARCHIVE</div>
+                <div class="text-zinc-300 text-xs italic font-serif">Eastern Ghats Mountain Sanctuary</div>
+                <div class="text-[9px] text-zinc-500 font-mono">Audio-reactive soundtrack · Guest memory ledger</div>
+              </div>
+              <div class="flex justify-between items-center text-[9px] text-text-dim pt-2 border-t border-border-subtle">
+                <span>EST. LIFESPAN: 30+ YRS</span>
+                <span>FIG. 01 · HEIRLOOM TIMELINE</span>
+              </div>
+            </div>
+          </div>
+          <!-- Card Details -->
+          <div class="p-4">
+            <div class="flex items-center gap-2 mb-2">
+              <span class="text-[10px] font-mono px-1.5 py-0.5 rounded bg-surface-dim text-zinc-300 border border-border-subtle">CELEBRATION ARCHIVE</span>
+              <span class="text-[10px] font-mono text-text-dim">RELEASE: 2024.SPEC</span>
+            </div>
+            <h3 class="text-lg font-bold text-white mb-2 leading-snug">
+              The Golden Hour: An Interactive Wedding & Proposal Archive
+            </h3>
+            <p class="text-xs text-zinc-400 leading-relaxed mb-4">
+              A bespoke digital heirloom built for a couple commemorating an intimate mountaintop proposal in the Eastern Ghats. Features an audio-reactive ambient background score and tactile slide viewer.
+            </p>
+            <div class="grid grid-cols-2 gap-2 text-[10px] font-mono border-t border-border-subtle pt-3 text-text-muted">
+              <div><span class="text-zinc-500">INTERACTION:</span> <span class="text-zinc-300">Web Audio, Gesture Nav</span></div>
+              <div><span class="text-zinc-500">STORAGE:</span> <span class="text-zinc-300">Decentralized / 30+ Yrs</span></div>
+            </div>
+          </div>
+        </article>
+
+        <!-- Work 002 -->
+        <article class="rounded border border-border-subtle bg-surface-card overflow-hidden">
+          <div class="px-3.5 py-2.5 border-b border-border-subtle bg-surface-dim flex items-center justify-between text-[10px] font-mono">
+            <span class="text-primary font-semibold">[ ALGORYXZ // 002 ]</span>
+            <span class="text-text-dim">NO. 002-BIZ · BUSINESS ARCHITECTURE</span>
+          </div>
+          <!-- Card Image Frame -->
+          <div class="relative w-full aspect-[16/10] bg-black overflow-hidden border-b border-border-subtle">
+            <div class="absolute inset-0 p-4 flex flex-col justify-between bg-[#141416] font-mono text-xs">
+              <div class="flex justify-between items-center text-[10px] text-zinc-400 pb-2 border-b border-border-subtle">
+                <span class="text-white font-bold">KOMOREBI ROASTERS</span>
+                <span class="text-emerald-400 text-[9px] font-mono">LIVE // ORDERS OPEN</span>
+              </div>
+              <div class="my-auto space-y-1 text-left">
+                <div class="text-[9px] text-zinc-500">// ROAST ARCHITECTURE</div>
+                <div class="text-xs font-bold text-zinc-200">Single Origin Estate Reserve [Batch 44]</div>
+                <div class="text-[10px] text-text-muted">Sub-second ordering · Zero friction checkout</div>
+              </div>
+              <div class="flex justify-between items-center text-[9px] text-text-dim pt-2 border-t border-border-subtle">
+                <span>LATENCY: 18MS</span>
+                <span>FIG. 02 · ROAST INVENTORY UI</span>
+              </div>
+            </div>
+          </div>
+          <!-- Card Details -->
+          <div class="p-4">
+            <div class="flex items-center gap-2 mb-2">
+              <span class="text-[10px] font-mono px-1.5 py-0.5 rounded bg-surface-dim text-zinc-300 border border-border-subtle">BUSINESS ARCHITECTURE</span>
+              <span class="text-[10px] font-mono text-text-dim">RELEASE: 2025.COMM</span>
+            </div>
+            <h3 class="text-lg font-bold text-white mb-2 leading-snug">
+              Komorebi Roastery & Bakehouse
+            </h3>
+            <p class="text-xs text-zinc-400 leading-relaxed mb-4">
+              Digital home for an artisanal micro-roastery. Built to evoke the tactile sensory experience of unbleached parchment, roast batch cards, and daily morning pastries with zero-tag live bean availability.
+            </p>
+            <div class="grid grid-cols-2 gap-2 text-[10px] font-mono border-t border-border-subtle pt-3 text-text-muted">
+              <div><span class="text-zinc-500">SYSTEM:</span> <span class="text-zinc-300">Headless Ordering, Live Roster</span></div>
+              <div><span class="text-zinc-500">RESULT:</span> <span class="text-primary">+34% Direct Subscriptions</span></div>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- What We Make: Two Worlds, One Rigor -->
+    <section class="px-4 py-8 border-b border-border-subtle bg-surface-dim">
+      <div class="text-[11px] font-mono text-text-muted uppercase tracking-wider mb-2">
+        // DUAL HORIZONS
+      </div>
+      <h2 class="text-2xl sm:text-3xl font-bold tracking-tight text-white mb-2">
+        Two Worlds. One Uncompromising Standard.
+      </h2>
+      <p class="text-xs text-zinc-400 leading-relaxed mb-6">
+        Most creative agencies only talk to B2B giants. We believe the most beautiful things made on the web belong to passionate independent businesses and real human lives.
+      </p>
+
+      <div class="space-y-4">
+        <!-- World A: Business & Brand -->
+        <div class="p-5 rounded bg-surface border border-border-subtle relative overflow-hidden">
+          <div class="flex items-center justify-between text-[10px] font-mono text-primary mb-2">
+            <span>[ WORLD A // COMMERCE & CRAFT ]</span>
+            <span class="text-text-dim">SECTOR: INDIE BIZ</span>
+          </div>
+          <h3 class="text-xl font-bold text-white mb-2">
+            Business & Brand Architecture
+          </h3>
+          <p class="text-xs text-zinc-400 leading-relaxed mb-4">
+            For the café owner who spends hours dialing in an espresso grind, the architect who agonizes over shadow joints, or the startup building real software. You should not have to settle for a bloated WordPress theme that looks like everyone else.
+          </p>
+
+          <div class="border-t border-border-subtle pt-3 space-y-2 text-xs">
+            <div class="text-[10px] font-mono text-text-muted uppercase">What we deliver:</div>
+            <ul class="space-y-1.5 text-zinc-300 text-xs">
+              <li class="flex items-start gap-2">
+                <span class="text-primary font-mono">•</span>
+                <span><strong>Unrivaled Speed:</strong> Clean markup, zero script bloat, instant mobile interactions.</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="text-primary font-mono">•</span>
+                <span><strong>Typographic Dignity:</strong> Editorial layouts that make your brand feel established.</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="text-primary font-mono">•</span>
+                <span><strong>Conversion Logic:</strong> Clear booking paths, tactile ordering, frictionless inquiry funnels.</span>
+              </li>
+            </ul>
+          </div>
+
+          <div class="mt-4 pt-3 border-t border-border-subtle flex items-center justify-between text-[11px] font-mono">
+            <span class="text-text-muted">TURNAROUND: 2–3 WEEKS</span>
+            <a href="#contact" class="text-primary font-semibold hover:underline">Start Business Brief ↗</a>
+          </div>
+        </div>
+
+        <!-- World B: Celebrations & Living Heirlooms -->
+        <div class="p-5 rounded bg-surface border border-border-subtle relative overflow-hidden">
+          <div class="flex items-center justify-between text-[10px] font-mono text-primary mb-2">
+            <span>[ WORLD B // HEIRLOOMS & MEMOIRS ]</span>
+            <span class="text-text-dim">SECTOR: INDIVIDUALS</span>
+          </div>
+          <h3 class="text-xl font-bold text-white mb-2">
+            Celebrations & Living Heirlooms
+          </h3>
+          <p class="text-xs text-zinc-400 leading-relaxed mb-4">
+            For weddings, surprise engagements, milestone anniversaries, and family archives. Paper invitations get discarded in weeks. A bespoke interactive website is a living digital time capsule that stays alive for generations.
+          </p>
+
+          <div class="border-t border-border-subtle pt-3 space-y-2 text-xs">
+            <div class="text-[10px] font-mono text-text-muted uppercase">What we deliver:</div>
+            <ul class="space-y-1.5 text-zinc-300 text-xs">
+              <li class="flex items-start gap-2">
+                <span class="text-primary font-mono">•</span>
+                <span><strong>Audio-Visual Storytelling:</strong> Soundtrack syncing, voice notes from friends, intimate pacing.</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="text-primary font-mono">•</span>
+                <span><strong>Privacy & Vaulting:</strong> Optional password-locked rooms, high-res photo downloads for close family.</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="text-primary font-mono">•</span>
+                <span><strong>Permanent Custody:</strong> Static architecture that won't break when a software subscription expires.</span>
+              </li>
+            </ul>
+          </div>
+
+          <div class="mt-4 pt-3 border-t border-border-subtle flex items-center justify-between text-[11px] font-mono">
+            <span class="text-text-muted">TURNAROUND: 10–14 DAYS</span>
+            <a href="#contact" class="text-primary font-semibold hover:underline">Start Heirloom Brief ↗</a>
+          </div>
+        </div>
+
+        <!-- Unconventional Callout -->
+        <div class="p-4 rounded border border-dashed border-border-strong bg-surface/50 text-xs flex flex-col gap-2">
+          <div class="flex items-center gap-1.5 text-primary font-mono text-[10px]">
+            <span>[ + ]</span>
+            <span>UNCONVENTIONAL PROJECTS</span>
+          </div>
+          <p class="text-zinc-400 text-xs leading-relaxed">
+            Something outside these boxes? We build custom web apps, internal operational tools, and unusual internet artifacts.
+          </p>
+          <a href="#contact" class="text-white font-mono text-xs hover:text-primary transition-colors flex items-center justify-between pt-1">
+            <span>Pitch an Unconventional Project</span>
+            <span>↗</span>
+          </a>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 5-Phase Methodology: Sleek Vertical Timeline -->
+    <section class="px-4 py-8 border-b border-border-subtle">
+      <div class="flex items-center justify-between mb-2">
+        <div class="text-[11px] font-mono text-text-muted uppercase tracking-wider">
+          // EXECUTION PROTOCOL
+        </div>
+        <span class="text-[10px] font-mono text-primary">SHIP: 2 TO 4 WEEKS</span>
+      </div>
+      <h2 class="text-2xl font-bold tracking-tight text-white mb-2">
+        Our 5-Phase Methodology
+      </h2>
+      <p class="text-xs text-text-muted mb-6 leading-relaxed">
+        Rigorous engineering cadence designed for speed, clarity, and zero bureaucratic drag.
+      </p>
+
+      <!-- Vertical Timeline Flow -->
+      <div class="relative pl-6 space-y-6 before:content-[''] before:absolute before:left-2 before:top-2 before:bottom-2 before:w-[1px] before:bg-border-strong">
+        
+        <!-- Step 1 -->
+        <div class="relative">
+          <div class="absolute -left-6 top-0.5 w-4 h-4 rounded-full bg-surface-dim border-2 border-primary flex items-center justify-center">
+            <span class="w-1.5 h-1.5 rounded-full bg-primary"></span>
+          </div>
+          <div class="flex items-center justify-between text-[11px] font-mono text-primary mb-0.5">
+            <span>PHASE // 01</span>
+            <span class="text-text-dim text-[10px]">EST: DAYS 1–3</span>
+          </div>
+          <h3 class="text-base font-bold text-white mb-1">DISCOVER</h3>
+          <p class="text-xs text-zinc-400 leading-relaxed">
+            Raw, candid conversation. We uncover the emotional core of your project, target audience, and must-have mechanics. No 40-page questionnaire decks.
+          </p>
+        </div>
+
+        <!-- Step 2 -->
+        <div class="relative">
+          <div class="absolute -left-6 top-0.5 w-4 h-4 rounded-full bg-surface-dim border-2 border-zinc-500 flex items-center justify-center">
+            <span class="w-1.5 h-1.5 rounded-full bg-zinc-400"></span>
+          </div>
+          <div class="flex items-center justify-between text-[11px] font-mono text-zinc-400 mb-0.5">
+            <span>PHASE // 02</span>
+            <span class="text-text-dim text-[10px]">EST: DAYS 4–9</span>
+          </div>
+          <h3 class="text-base font-bold text-white mb-1">DESIGN</h3>
+          <p class="text-xs text-zinc-400 leading-relaxed">
+            Deeptiman shapes bespoke art direction, typographic rhythm, and tactile micro-interactions. You review a living interactive prototype, not dead PDFs.
+          </p>
+        </div>
+
+        <!-- Step 3 -->
+        <div class="relative">
+          <div class="absolute -left-6 top-0.5 w-4 h-4 rounded-full bg-surface-dim border-2 border-zinc-500 flex items-center justify-center">
+            <span class="w-1.5 h-1.5 rounded-full bg-zinc-400"></span>
+          </div>
+          <div class="flex items-center justify-between text-[11px] font-mono text-zinc-400 mb-0.5">
+            <span>PHASE // 03</span>
+            <span class="text-text-dim text-[10px]">EST: DAYS 10–16</span>
+          </div>
+          <h3 class="text-base font-bold text-white mb-1">BUILD</h3>
+          <p class="text-xs text-zinc-400 leading-relaxed">
+            Smarak translates designs into clean, modern semantic code. Zero bloated dependencies, perfect viewport responsiveness, and high-performance state handling.
+          </p>
+        </div>
+
+        <!-- Step 4 -->
+        <div class="relative">
+          <div class="absolute -left-6 top-0.5 w-4 h-4 rounded-full bg-surface-dim border-2 border-zinc-500 flex items-center justify-center">
+            <span class="w-1.5 h-1.5 rounded-full bg-zinc-400"></span>
+          </div>
+          <div class="flex items-center justify-between text-[11px] font-mono text-zinc-400 mb-0.5">
+            <span>PHASE // 04</span>
+            <span class="text-text-dim text-[10px]">EST: DAYS 17–21</span>
+          </div>
+          <h3 class="text-base font-bold text-white mb-1">LAUNCH</h3>
+          <p class="text-xs text-zinc-400 leading-relaxed">
+            Akriti runs multi-device QA passes, domain routing, DNS SSL verification, and global edge distribution. Zero broken links, zero stress on release day.
+          </p>
+        </div>
+
+        <!-- Step 5 -->
+        <div class="relative">
+          <div class="absolute -left-6 top-0.5 w-4 h-4 rounded-full bg-surface-dim border-2 border-zinc-500 flex items-center justify-center">
+            <span class="w-1.5 h-1.5 rounded-full bg-zinc-400"></span>
+          </div>
+          <div class="flex items-center justify-between text-[11px] font-mono text-zinc-400 mb-0.5">
+            <span>PHASE // 05</span>
+            <span class="text-text-dim text-[10px]">PERPETUAL</span>
+          </div>
+          <h3 class="text-base font-bold text-white mb-1">GROW / CARE</h3>
+          <p class="text-xs text-zinc-400 leading-relaxed">
+            We don't vanish after deployment. Ongoing technical stewardship, archival backups, and direct WhatsApp / Telegram founder access for any updates.
+          </p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- The Builders: Founders Section -->
+    <section class="px-4 py-8 border-b border-border-subtle bg-surface-dim">
+      <div class="text-[11px] font-mono text-text-muted uppercase tracking-wider mb-2">
+        // THE BUILDERS · 3 FOUNDERS
+      </div>
+      <h2 class="text-2xl font-bold tracking-tight text-white mb-2">
+        Three young minds based in Odisha, India.
+      </h2>
+      <p class="text-xs text-zinc-400 leading-relaxed mb-6">
+        We are engineering and design students who turned our obsession with internet culture and software craft into a functioning studio. No middlemen. You speak directly with the people building your product.
+      </p>
+
+      <div class="space-y-4">
+        <!-- Founder 1: Smarak -->
+        <div class="p-4 rounded bg-surface border border-border-subtle">
+          <div class="flex items-center gap-3.5 mb-3">
+            <!-- Monochrome Placeholder Frame -->
+            <div class="w-16 h-16 rounded bg-surface-bright border border-border-strong flex flex-col items-center justify-center text-center p-1 shrink-0">
+              <span class="font-mono text-xs font-bold text-white">SK</span>
+              <span class="font-mono text-[8px] text-primary mt-0.5">01 // ENG</span>
+            </div>
+            <div>
+              <div class="text-[10px] font-mono text-primary">[ 01 // ARCHITECTURE ]</div>
+              <h3 class="text-base font-bold text-white">Smarak</h3>
+              <div class="text-xs text-text-muted">Engineering & Architecture</div>
+            </div>
+          </div>
+          <p class="text-xs text-zinc-400 leading-relaxed mb-3">
+            Obsessed with code performance, zero-runtime frameworks, reactive system design, and rock-solid hosting infrastructure. Ensures every interface responds with zero perceptible delay.
+          </p>
+          <div class="text-[10px] font-mono text-text-muted bg-surface-dim px-2.5 py-1.5 rounded border border-border-subtle flex justify-between">
+            <span>CORE FOCUS:</span>
+            <span class="text-zinc-300">System Architecture / Speed</span>
+          </div>
+        </div>
+
+        <!-- Founder 2: Deeptiman -->
+        <div class="p-4 rounded bg-surface border border-border-subtle">
+          <div class="flex items-center gap-3.5 mb-3">
+            <!-- Monochrome Placeholder Frame -->
+            <div class="w-16 h-16 rounded bg-surface-bright border border-border-strong flex flex-col items-center justify-center text-center p-1 shrink-0">
+              <span class="font-mono text-xs font-bold text-white">DP</span>
+              <span class="font-mono text-[8px] text-primary mt-0.5">02 // ART</span>
+            </div>
+            <div>
+              <div class="text-[10px] font-mono text-primary">[ 02 // CREATIVE ]</div>
+              <h3 class="text-base font-bold text-white">Deeptiman</h3>
+              <div class="text-xs text-text-muted">Creative Direction & Design</div>
+            </div>
+          </div>
+          <p class="text-xs text-zinc-400 leading-relaxed mb-3">
+            Brings high-taste Swiss and Dutch publication rigor into the digital realm. Obsesses over typographic spatial hierarchy, intentional white space, and memorable emotional interaction design.
+          </p>
+          <div class="text-[10px] font-mono text-text-muted bg-surface-dim px-2.5 py-1.5 rounded border border-border-subtle flex justify-between">
+            <span>CORE FOCUS:</span>
+            <span class="text-zinc-300">Art Direction / Typographic Taste</span>
+          </div>
+        </div>
+
+        <!-- Founder 3: Akriti -->
+        <div class="p-4 rounded bg-surface border border-border-subtle">
+          <div class="flex items-center gap-3.5 mb-3">
+            <!-- Monochrome Placeholder Frame -->
+            <div class="w-16 h-16 rounded bg-surface-bright border border-border-strong flex flex-col items-center justify-center text-center p-1 shrink-0">
+              <span class="font-mono text-xs font-bold text-white">AK</span>
+              <span class="font-mono text-[8px] text-primary mt-0.5">03 // OPS</span>
+            </div>
+            <div>
+              <div class="text-[10px] font-mono text-primary">[ 03 // OPERATIONS ]</div>
+              <h3 class="text-base font-bold text-white">Akriti</h3>
+              <div class="text-xs text-text-muted">Operations, Delivery & QA</div>
+            </div>
+          </div>
+          <p class="text-xs text-zinc-400 leading-relaxed mb-3">
+            The relentless anchor of client delivery. Manages timelines, cross-browser QA testing, crystal-clear client updates, and ongoing customer care. Nothing leaves the studio without her rigorous approval.
+          </p>
+          <div class="text-[10px] font-mono text-text-muted bg-surface-dim px-2.5 py-1.5 rounded border border-border-subtle flex justify-between">
+            <span>CORE FOCUS:</span>
+            <span class="text-zinc-300">Delivery Precision / QA Verification</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Founder Covenant -->
+      <div class="mt-4 p-4 rounded bg-surface-card border-l-2 border-primary text-xs space-y-1">
+        <div class="text-[10px] font-mono text-primary uppercase font-medium">// OUR COVENANT WITH CLIENTS</div>
+        <div class="text-white font-semibold">No junior handoffs. No game of telephone.</div>
+        <div class="text-zinc-400 text-[11px] leading-relaxed">
+          When you hire Algoryxz, you get the three founders doing the actual work. We answer our own emails, write every line of CSS, and deploy every byte. Response guarantee: &lt; 12 hours via WhatsApp / Email.
+        </div>
+      </div>
+    </section>
+
+    <!-- Final CTA & Fast Dispatch Transmission Portal -->
+    <section id="contact" class="px-4 py-10 border-b border-border-subtle relative technical-grid">
+      <div class="text-[11px] font-mono text-primary uppercase tracking-wider mb-2">
+        // INITIATE COMMISSION · TRANSMISSION SPEC
+      </div>
+      <h2 class="text-3xl font-extrabold tracking-tight text-white mb-2">
+        Tell us your idea.<br>Let’s make it real.
+      </h2>
+      <p class="text-xs text-zinc-400 leading-relaxed mb-6">
+        Whether you are opening a physical space, creating an unforgettable digital heirloom for someone you love, or seeking bespoke web engineering—we are ready.
+      </p>
+
+      <!-- Fast Mobile Transmission Form -->
+      <form class="space-y-3.5 bg-surface-card p-4 rounded border border-border-subtle" onsubmit="event.preventDefault();">
+        <div class="flex items-center justify-between text-[10px] font-mono text-text-muted pb-2 border-b border-border-subtle">
+          <span>SPECIFICATION // FAST DISPATCH</span>
+          <span class="text-primary">[ 001 // ACTIVE ]</span>
+        </div>
+
+        <div>
+          <label class="block text-[10px] font-mono text-text-muted uppercase mb-1">Your Name / Organization</label>
+          <input type="text" placeholder="e.g. Maya Sen / Roastery 44" class="w-full h-11 px-3 bg-surface border border-border-strong rounded text-sm text-white placeholder-zinc-600 focus:outline-none focus:border-primary font-mono text-xs">
+        </div>
+
+        <div>
+          <label class="block text-[10px] font-mono text-text-muted uppercase mb-1">Direct Contact (Email or WhatsApp)</label>
+          <input type="text" placeholder="e.g. maya@domain.com or +91 98765..." class="w-full h-11 px-3 bg-surface border border-border-strong rounded text-sm text-white placeholder-zinc-600 focus:outline-none focus:border-primary font-mono text-xs">
+        </div>
+
+        <div>
+          <label class="block text-[10px] font-mono text-text-muted uppercase mb-1.5">Project Classification</label>
+          <div class="grid grid-cols-2 gap-2">
+            <label class="flex items-center gap-2 p-2.5 bg-surface border border-border-strong rounded cursor-pointer text-xs text-zinc-300">
+              <input type="radio" name="project_type" checked class="accent-primary">
+              <span>Business / Brand</span>
+            </label>
+            <label class="flex items-center gap-2 p-2.5 bg-surface border border-border-strong rounded cursor-pointer text-xs text-zinc-300">
+              <input type="radio" name="project_type" class="accent-primary">
+              <span>Celebration Heirloom</span>
+            </label>
+          </div>
+        </div>
+
+        <div>
+          <label class="block text-[10px] font-mono text-text-muted uppercase mb-1">Brief Synopsis / Scope</label>
+          <textarea rows="3" placeholder="Tell us about the dream, timeline, and what matters most..." class="w-full p-3 bg-surface border border-border-strong rounded text-sm text-white placeholder-zinc-600 focus:outline-none focus:border-primary font-mono text-xs resize-none"></textarea>
+        </div>
+
+        <button type="submit" class="w-full h-12 flex items-center justify-center gap-2 bg-primary text-black font-bold uppercase tracking-wider text-xs rounded hover:bg-white transition-colors">
+          <span>Dispatch Brief Directly to Founders</span>
+          <span class="font-mono text-sm">→</span>
+        </button>
+
+        <div class="pt-2 text-center text-[10px] font-mono text-text-dim">
+          DIRECT TRANSMISSION GUARANTEE: &lt;12H RESPONSE
+        </div>
+      </form>
+
+      <!-- Direct Email & Office Quick Link -->
+      <div class="mt-4 p-3.5 rounded bg-surface border border-border-subtle flex items-center justify-between text-xs font-mono">
+        <div>
+          <div class="text-[9px] text-text-muted uppercase">DIRECT DISPATCH MAILBOX</div>
+          <div class="text-zinc-200 font-medium">studio@algoryxz.com</div>
+        </div>
+        <a href="mailto:studio@algoryxz.com" class="px-2.5 py-1.5 bg-surface-bright rounded text-[10px] text-primary border border-border-subtle hover:text-white transition-colors">
+          [ COPY / MAIL ]
+        </a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Mobile Minimal Colophon / Footer -->
+  <footer class="w-full bg-surface-dim px-4 py-8 text-xs font-mono text-text-muted space-y-4">
+    <div class="flex items-center justify-between border-b border-border-subtle pb-4">
+      <div>
+        <div class="font-bold text-sm text-white font-sans tracking-tight">ALGORYXZ</div>
+        <div class="text-[10px] text-text-dim">STUDIO // ODISHA, IN [IST]</div>
+      </div>
+      <div class="text-right text-[10px]">
+        <div class="text-zinc-400">INDEX: 884-X</div>
+        <div class="text-primary font-semibold">GLOBAL UTC+05:30</div>
+      </div>
+    </div>
+
+    <div class="grid grid-cols-2 gap-y-2 text-[11px]">
+      <a href="#work" class="hover:text-white transition-colors">→ Selected Work</a>
+      <a href="#contact" class="hover:text-white transition-colors">→ Start a Project</a>
+      <a href="#contact" class="hover:text-white transition-colors">→ What We Make</a>
+      <a href="#contact" class="hover:text-white transition-colors">→ The 3 Founders</a>
+      <a href="#contact" class="hover:text-white transition-colors">→ Process & Cadence</a>
+      <a href="#contact" class="hover:text-white transition-colors">→ Privacy / Ledger</a>
+    </div>
+
+    <div class="pt-4 border-t border-border-subtle text-[10px] text-text-dim space-y-1">
+      <p>© 2025 ALGORYXZ INDEPENDENT RESEARCH LAB & STUDIO. ALL RIGHTS RESERVED.</p>
+      <p class="text-zinc-600">CRAFTED IN WEB STANDARDS & BESPOKE CODE · ZERO MIDDLE MANAGERS</p>
+    </div>
+  </footer>
+
+</body>
+</html>

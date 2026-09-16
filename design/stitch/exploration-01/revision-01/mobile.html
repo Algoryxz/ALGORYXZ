@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+
+<html class="dark scroll-smooth" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>ALGORYXZ — Independent Creative &amp; Engineering Studio</title>
+<!-- Typography: Space Grotesk, Hanken Grotesk, JetBrains Mono -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:ital,wght@0,300;0,400;0,500;0,600;1,400&amp;family=JetBrains+Mono:wght@400;500;600&amp;family=Space+Grotesk:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS v3 -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            surface: "#131314",
+            "surface-subtle": "#0e0e0f",
+            "surface-card": "#18181a",
+            "surface-hover": "#1d1d20",
+            primary: "#ff3b00",
+            "primary-hover": "#e03400",
+            "on-surface": "#f2f0ed",
+            secondary: "#9e9c99",
+            "secondary-muted": "#6a6865",
+            border: "#262626",
+            "border-subtle": "#1d1d1f"
+          },
+          fontFamily: {
+            sans: ["Hanken Grotesk", "-apple-system", "sans-serif"],
+            display: ["Space Grotesk", "sans-serif"],
+            mono: ["JetBrains Mono", "monospace"]
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    .hairline-b { border-bottom: 1px solid #262626; }
+    .hairline-t { border-top: 1px solid #262626; }
+    .hairline-l { border-left: 1px solid #262626; }
+    .hairline-r { border-right: 1px solid #262626; }
+    .hairline-all { border: 1px solid #262626; }
+
+    ::selection {
+      background-color: #ff3b00;
+      color: #0e0e0f;
+    }
+  </style>
+</head>
+<body class="min-h-screen bg-surface text-on-surface font-sans antialiased selection:bg-primary selection:text-surface-subtle">
+<!-- Fixed / Sticky Mobile Header -->
+<header class="sticky top-0 z-50 bg-surface/95 backdrop-blur-md hairline-b w-full px-4 h-14 flex items-center justify-between">
+<a class="text-lg font-display font-semibold tracking-tight uppercase flex items-center group text-on-surface" href="#">
+<span>ALGORY</span><span class="text-primary font-normal">XZ</span>
+</a>
+<div class="flex items-center gap-2.5">
+<a class="text-xs font-medium bg-on-surface text-surface hover:bg-primary hover:text-white px-3 py-1.5 rounded transition-colors inline-flex items-center gap-1" href="#contact">
+<span>Start a Project</span>
+<span class="material-symbols-outlined text-[13px]">arrow_forward</span>
+</a>
+<a aria-label="Explore menu" class="w-8 h-8 rounded hairline-all bg-surface-card flex items-center justify-center text-secondary hover:text-on-surface transition-colors" href="#who-its-for">
+<span class="material-symbols-outlined text-[18px]">menu</span>
+</a>
+</div>
+</header>
+<main class="w-full">
+<!-- Hero Section -->
+<section class="w-full hairline-b bg-surface pt-7 pb-8 px-4">
+<div class="inline-flex items-center gap-2 px-2.5 py-1 rounded hairline-all bg-surface-subtle text-[11px] text-secondary mb-4">
+<span class="w-1.5 h-1.5 rounded-full bg-primary"></span>
+<span>Independent Digital Studio &amp; Craft Lab</span>
+</div>
+<h1 class="text-3xl sm:text-4xl font-display font-semibold tracking-tight text-on-surface leading-[1.12] mb-3">
+        We make things for the internet.
+      </h1>
+<p class="text-sm text-secondary leading-relaxed font-light mb-6">
+        A small studio crafting distinctive websites for independent brands, businesses, and people celebrating moments that matter. No templates, no bloated code, no corporate indifference.
+      </p>
+<!-- Action Buttons -->
+<div class="flex flex-col gap-2.5 mb-7">
+<a class="w-full h-11 bg-primary hover:bg-primary-hover text-white text-xs font-medium px-4 rounded transition-colors inline-flex items-center justify-center gap-2" href="#contact">
+<span>Start a Conversation</span>
+<span class="material-symbols-outlined text-[15px]">arrow_forward</span>
+</a>
+<a class="w-full h-11 hairline-all bg-surface-subtle text-on-surface hover:border-secondary text-xs font-medium px-4 rounded transition-colors inline-flex items-center justify-center gap-2" href="#work">
+<span>View Selected Work</span>
+<span class="material-symbols-outlined text-[15px]">arrow_downward</span>
+</a>
+</div>
+<!-- Studio Provenance Metadata (Stacked rows) -->
+<div class="pt-5 hairline-t space-y-3 text-xs">
+<div class="flex items-center justify-between">
+<span class="text-secondary-muted uppercase tracking-wider font-mono text-[10px]">Provenance</span>
+<span class="text-on-surface font-medium text-[11px]">Bhubaneswar, Odisha, India</span>
+</div>
+<div class="flex items-center justify-between">
+<span class="text-secondary-muted uppercase tracking-wider font-mono text-[10px]">Founders</span>
+<span class="text-on-surface font-medium text-[11px]">3 makers · Zero middle managers</span>
+</div>
+<div class="flex items-center justify-between">
+<span class="text-secondary-muted uppercase tracking-wider font-mono text-[10px]">Stack</span>
+<span class="text-on-surface font-medium text-[11px]">Modern web standards &amp; custom build</span>
+</div>
+</div>
+</section>
+<!-- Who Is This Studio For? (Mobile Stacked Ledger) -->
+<section class="w-full hairline-b bg-surface-subtle py-8 px-4" id="who-its-for">
+<div class="pb-4 hairline-b mb-4">
+<span class="font-mono text-[10px] uppercase tracking-widest text-primary block mb-1">Capabilities &amp; Audience</span>
+<h2 class="text-2xl font-display font-medium text-on-surface tracking-tight mb-1.5">Who is this studio for?</h2>
+<p class="text-xs text-secondary leading-relaxed">
+          We collaborate with businesses, creators, and individuals seeking genuine digital care.
+        </p>
+</div>
+<div class="space-y-3.5">
+<!-- Card 01 -->
+<div class="p-4 rounded hairline-all bg-surface space-y-2.5">
+<div class="font-mono text-[10px] text-secondary-muted flex items-center gap-1.5">
+<span class="w-1.5 h-1.5 rounded-full bg-primary"></span>
+<span class="text-primary font-medium">01 / FOR MY BUSINESS</span>
+</div>
+<h3 class="text-base font-display font-medium text-on-surface">
+            Brands, Cafés, Restaurants, Creators &amp; Portfolios
+          </h3>
+<p class="text-xs text-secondary leading-relaxed">
+            Specialty roasteries, neighborhood dining spots, independent design studios, and thoughtful brands who need an authentic web home. No cookie-cutter templates or heavy SaaS page builders.
+          </p>
+<div class="pt-2.5 hairline-t space-y-1">
+<div class="text-[10px] uppercase font-mono tracking-wider text-secondary-muted">What We Focus On</div>
+<p class="text-[11px] text-secondary leading-relaxed">
+              Tactile brand character, custom typography, lightning-fast mobile speeds, straightforward menus, and clear booking or inquiry paths.
+            </p>
+</div>
+</div>
+<!-- Card 02 -->
+<div class="p-4 rounded hairline-all bg-surface space-y-2.5">
+<div class="font-mono text-[10px] text-secondary-muted flex items-center gap-1.5">
+<span class="w-1.5 h-1.5 rounded-full bg-amber-400"></span>
+<span class="text-amber-400 font-medium">02 / FOR SOMEONE SPECIAL</span>
+</div>
+<h3 class="text-base font-display font-medium text-on-surface">
+            Weddings, Proposals, Anniversaries &amp; Memories
+          </h3>
+<p class="text-xs text-secondary leading-relaxed">
+            Milestone celebrations, secret proposals, family memoirs, and living digital keepsakes. Paper invitations get lost or thrown away; a bespoke web heirloom endures for decades.
+          </p>
+<div class="pt-2.5 hairline-t space-y-1">
+<div class="text-[10px] uppercase font-mono tracking-wider text-secondary-muted">What We Focus On</div>
+<p class="text-[11px] text-secondary leading-relaxed">
+              Intimate audio-visual pacing, private password-protected stories, high-resolution photo galleries, and meaningful guest message ledgers.
+            </p>
+</div>
+</div>
+<!-- Card 03 -->
+<div class="p-4 rounded hairline-all bg-surface space-y-2.5">
+<div class="font-mono text-[10px] text-secondary-muted flex items-center gap-1.5">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+<span class="text-secondary font-medium">03 / SOMETHING ELSE</span>
+</div>
+<h3 class="text-base font-display font-medium text-on-surface">
+            Bespoke Tools, Creative Web Apps &amp; Experiments
+          </h3>
+<p class="text-xs text-secondary leading-relaxed">
+            Understated engineering capability for teams requiring clean web tools, interactive publications, or unconventional internet projects. Tell us what you're imagining.
+          </p>
+<div class="pt-2.5 hairline-t space-y-1">
+<div class="text-[10px] uppercase font-mono tracking-wider text-secondary-muted">What We Focus On</div>
+<p class="text-[11px] text-secondary leading-relaxed">
+              Custom interactive state handling, responsive data presentations, semantic architecture, and reliable performance.
+            </p>
+</div>
+</div>
+</div>
+</section>
+<!-- Selected Studio Works (Mobile Presentation) -->
+<section class="w-full hairline-b bg-surface py-8 px-4" id="work">
+<div class="flex items-end justify-between pb-4 hairline-b mb-6">
+<div>
+<span class="font-mono text-[10px] uppercase tracking-widest text-primary block mb-1">Archive &amp; Releases</span>
+<h2 class="text-2xl font-display font-medium text-on-surface">Selected Studio Works</h2>
+</div>
+<div class="text-[10px] font-mono text-secondary-muted text-right">
+<div>03 ENTRIES</div>
+<div class="text-[9px] text-secondary">RECENT WORK</div>
+</div>
+</div>
+<div class="space-y-6">
+<!-- Project 01: Internal Platform -->
+<article class="hairline-all bg-surface-subtle p-4 rounded-sm space-y-3.5">
+<div class="flex items-center justify-between pb-2.5 hairline-b font-mono text-[11px]">
+<div class="flex items-center gap-2">
+<span class="text-on-surface font-semibold">ALGORYXZ / 000</span>
+<span class="px-1.5 py-0.5 rounded hairline-all bg-surface-card text-[10px] text-secondary">INTERNAL</span>
+</div>
+<span class="text-secondary-muted text-[10px]">2025</span>
+</div>
+<div class="hairline-all bg-surface overflow-hidden rounded">
+<img alt="Screenshot of minimal portfolio interface with Swiss typography and dark monochrome aesthetic" class="w-full h-44 object-cover grayscale contrast-110" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCFh3P-O4NmtOV8FNSyPIMYX6V41ThYCaoj-45JWtvfxu0W1b0JzoYOS800yRnsOUJWXDNTKAIE89v2wZhI1e9bdFA3lpA-Axf2izyf2giefrEMM0nk7JCUf0_CS1n_3WfpXo4KLyy1TN45n24i6XnHC_ErEi1AGVTDDbM6mJOwpDQ9THhEfeCe5XLzlXNSkV33jQPtEjh_h1-aXBYRldXvi5kckKRGgP9OgzIuTjt0VvGtEfvMyMD6dud-Cjk4r6vFCiWQb0Le98ex"/>
+</div>
+<div class="space-y-2">
+<h3 class="text-lg font-display font-medium text-on-surface leading-snug">
+              Algoryxz Studio Platform &amp; Archival Engine
+            </h3>
+<p class="text-xs text-secondary leading-relaxed">
+              A self-hosted, lightweight portfolio platform built on pure semantic standards and Swiss typographic balance. Zero frameworks, near-instant load, and disciplined typography.
+            </p>
+<div class="pt-2 hairline-t text-[11px] text-secondary-muted space-y-0.5 font-mono">
+<div><span class="text-secondary">Focus:</span> Art Direction &amp; Core Architecture</div>
+<div><span class="text-secondary">Build:</span> Semantic HTML, Clean CSS, Minimal JS</div>
+</div>
+</div>
+</article>
+<!-- Project 02: Celebration Archive -->
+<article class="hairline-all bg-surface-subtle p-4 rounded-sm space-y-3.5">
+<div class="flex items-center justify-between pb-2.5 hairline-b font-mono text-[11px]">
+<div class="flex items-center gap-2">
+<span class="text-on-surface font-semibold">ALGORYXZ / 001</span>
+<span class="px-1.5 py-0.5 rounded hairline-all bg-surface-card text-[10px] text-amber-400">CONCEPT PROJECT</span>
+</div>
+<span class="text-secondary-muted text-[10px]">CELEBRATION</span>
+</div>
+<div class="hairline-all bg-surface overflow-hidden rounded">
+<img alt="Monochrome and warm-toned wedding archive layout with elegant typography" class="w-full h-44 object-cover contrast-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAiOznBAnXwkku7oGC1J5yxXBZR1o7qllQxlmF4E0vFaTmKfH44YGDvzKvFPaJbb50qiTgh3Zb4zTHtjCu9aKW9A_xdLDntECTmdW_KcOnr9xFyIRFSP-ARekCgUwooVEJpmlTVWVfTDkQqNHKo6EeAxyfMBfqDGrru_hLeptU8QTgkDPj54XVhhgpZYg7PI79W907cDqaouoax16UyDI_jnyHAtC1XepS2_2s7pctNICeojGqoDV67ugTUvqrZ7J-wKw0xh7tiizxV"/>
+</div>
+<div class="space-y-2">
+<h3 class="text-lg font-display font-medium text-on-surface leading-snug">
+              The Golden Hour: An Intimate Wedding &amp; Proposal Archive
+            </h3>
+<p class="text-xs text-secondary leading-relaxed">
+              A bespoke digital heirloom created for a celebration. Rich, warm photography, gentle pacing, voice note player preview, and guestbook ledger. Warm, human, and deeply personal.
+            </p>
+<div class="pt-2 hairline-t text-[11px] text-secondary-muted space-y-0.5 font-mono">
+<div><span class="text-secondary">Medium:</span> Long-lasting Web Heirloom &amp; Memory Vault</div>
+<div><span class="text-secondary">Key Features:</span> Audio notes, story timeline, family guestbook</div>
+</div>
+</div>
+</article>
+<!-- Project 03: Commerce & Brand -->
+<article class="hairline-all bg-surface-subtle p-4 rounded-sm space-y-3.5">
+<div class="flex items-center justify-between pb-2.5 hairline-b font-mono text-[11px]">
+<div class="flex items-center gap-2">
+<span class="text-on-surface font-semibold">ALGORYXZ / 002</span>
+<span class="px-1.5 py-0.5 rounded hairline-all bg-surface-card text-[10px] text-primary">CONCEPT PROJECT</span>
+</div>
+<span class="text-secondary-muted text-[10px]">COMMERCE</span>
+</div>
+<div class="hairline-all bg-surface overflow-hidden rounded">
+<img alt="Editorial website interface for an independent artisanal coffee roastery" class="w-full h-44 object-cover contrast-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCKIO17M5t0Uh89zkPUPWO2M8ckzGFF0Z9_DX4Hccz4yiPbD-XKaBi_rv9xCSgcdCsk59CZBfsuDgexEh8bILaLzdHJ6O42K8wZZkxbpiN-aLZeeLGF-_Ykbakqth8q3iQuJNv26UVeb2pVT6NWd7tYPQWiVxrU4_Hjd6Q78s4SJj-_t0D7NM6qWGtyg8lOdWFO-HeUNoHorcF8B3GBzBHWLhPUTEY8Y8VcfVe1sYXe_0TfGpmcTxrKLsrrsh4wpk9pJgiZEp1Hw8Ql"/>
+</div>
+<div class="space-y-2">
+<h3 class="text-lg font-display font-medium text-on-surface leading-snug">
+              Komorebi Roastery &amp; Bakehouse
+            </h3>
+<p class="text-xs text-secondary leading-relaxed">
+              Digital home for an artisanal micro-roastery and bakery. Warm paper tone preview, tactile typography, live roast schedule, and seamless morning ordering. Demonstrating how Algoryxz steps back and highlights the client’s distinct identity.
+            </p>
+<div class="pt-2 hairline-t text-[11px] text-secondary-muted space-y-0.5 font-mono">
+<div><span class="text-secondary">Industry:</span> Specialty Coffee &amp; Artisan Food</div>
+<div><span class="text-secondary">Features:</span> Daily batch schedule, mobile checkout, tactile type</div>
+</div>
+</div>
+</article>
+</div>
+</section>
+<!-- What We Make: Two Worlds, One Rigor -->
+<section class="w-full hairline-b bg-surface-subtle py-8 px-4">
+<div class="pb-4 hairline-b mb-4">
+<span class="font-mono text-[10px] uppercase tracking-widest text-primary block mb-1">Dual Horizons</span>
+<h2 class="text-2xl font-display font-medium text-on-surface tracking-tight mb-1.5">
+          Two Worlds. One Uncompromising Standard.
+        </h2>
+<p class="text-xs text-secondary leading-relaxed">
+          Most creative agencies focus solely on enterprise B2B. We believe the most beautiful things on the web belong to passionate independent businesses and real human lives.
+        </p>
+</div>
+<div class="space-y-4">
+<!-- World A -->
+<div class="p-4 rounded hairline-all bg-surface space-y-3">
+<div class="flex items-center justify-between font-mono text-[10px]">
+<span class="text-primary font-medium">[ WORLD A // COMMERCE &amp; CRAFT ]</span>
+<span class="text-secondary-muted">INDIE BIZ</span>
+</div>
+<h3 class="text-base font-display font-medium text-on-surface">
+            Business &amp; Brand Architecture
+          </h3>
+<p class="text-xs text-secondary leading-relaxed">
+            For the café owner who spends hours dialing in an espresso grind, the architect who agonizes over shadow joints, or the startup building real software. You should not have to settle for bloated templates.
+          </p>
+<ul class="pt-2.5 hairline-t space-y-1.5 text-xs text-secondary">
+<li class="flex items-start gap-1.5">
+<span class="text-primary font-mono">•</span>
+<span><strong>Unrivaled Speed:</strong> Clean markup, zero script bloat, instant mobile response.</span>
+</li>
+<li class="flex items-start gap-1.5">
+<span class="text-primary font-mono">•</span>
+<span><strong>Typographic Dignity:</strong> Editorial layouts that make your brand feel established.</span>
+</li>
+<li class="flex items-start gap-1.5">
+<span class="text-primary font-mono">•</span>
+<span><strong>Conversion Logic:</strong> Clear booking paths, tactile ordering, frictionless inquiries.</span>
+</li>
+</ul>
+</div>
+<!-- World B -->
+<div class="p-4 rounded hairline-all bg-surface space-y-3">
+<div class="flex items-center justify-between font-mono text-[10px]">
+<span class="text-amber-400 font-medium">[ WORLD B // HEIRLOOMS &amp; MEMORIES ]</span>
+<span class="text-secondary-muted">INDIVIDUALS</span>
+</div>
+<h3 class="text-base font-display font-medium text-on-surface">
+            Celebrations &amp; Living Heirlooms
+          </h3>
+<p class="text-xs text-secondary leading-relaxed">
+            For weddings, surprise engagements, milestone anniversaries, and family archives. Paper invitations get discarded in weeks. A bespoke interactive website is a living digital time capsule that stays alive for generations.
+          </p>
+<ul class="pt-2.5 hairline-t space-y-1.5 text-xs text-secondary">
+<li class="flex items-start gap-1.5">
+<span class="text-amber-400 font-mono">•</span>
+<span><strong>Audio-Visual Storytelling:</strong> Soundtrack syncing, voice notes, intimate pacing.</span>
+</li>
+<li class="flex items-start gap-1.5">
+<span class="text-amber-400 font-mono">•</span>
+<span><strong>Privacy &amp; Vaulting:</strong> Password-locked rooms, high-res photo downloads for family.</span>
+</li>
+<li class="flex items-start gap-1.5">
+<span class="text-amber-400 font-mono">•</span>
+<span><strong>Permanent Custody:</strong> Static architecture that won't break when subscriptions end.</span>
+</li>
+</ul>
+</div>
+<!-- Unconventional Prompt -->
+<div class="p-3.5 rounded hairline-all bg-surface-card flex items-center justify-between text-xs">
+<div>
+<div class="font-mono text-[10px] text-primary uppercase">Unconventional Project?</div>
+<div class="text-secondary text-[11px]">Web tools, interactive publications &amp; experiments</div>
+</div>
+<a class="text-xs font-mono text-on-surface hover:text-primary transition-colors" href="#contact">Pitch →</a>
+</div>
+</div>
+</section>
+<!-- Process: Our 5-Phase Cadence -->
+<section class="w-full hairline-b bg-surface py-8 px-4" id="process">
+<div class="pb-4 hairline-b mb-5">
+<span class="font-mono text-[10px] uppercase tracking-widest text-primary block mb-1">How We Work</span>
+<h2 class="text-2xl font-display font-medium text-on-surface tracking-tight mb-1.5">Our 5-Phase Cadence</h2>
+<p class="text-xs text-secondary leading-relaxed">
+          A calm, transparent rhythm designed to give confidence to café owners and couples alike.
+        </p>
+</div>
+<div class="divide-y divide-[#262626] hairline-all bg-surface-subtle rounded-sm">
+<!-- Step 01 -->
+<div class="p-3.5 space-y-1">
+<div class="font-mono text-[10px] text-primary">01 / DISCOVER</div>
+<h3 class="text-sm font-display font-medium text-on-surface">Discover</h3>
+<p class="text-xs text-secondary leading-relaxed">
+            We talk through your story, your crowd, and what actually matters. No 40-page questionnaires.
+          </p>
+</div>
+<!-- Step 02 -->
+<div class="p-3.5 space-y-1">
+<div class="font-mono text-[10px] text-primary">02 / DESIGN</div>
+<h3 class="text-sm font-display font-medium text-on-surface">Design</h3>
+<p class="text-xs text-secondary leading-relaxed">
+            Bespoke art direction, custom typography, and tangible interactions you can touch and click.
+          </p>
+</div>
+<!-- Step 03 -->
+<div class="p-3.5 space-y-1">
+<div class="font-mono text-[10px] text-primary">03 / BUILD</div>
+<h3 class="text-sm font-display font-medium text-on-surface">Build</h3>
+<p class="text-xs text-secondary leading-relaxed">
+            Fast, clean, semantic code that loads instantly and stands the test of time.
+          </p>
+</div>
+<!-- Step 04 -->
+<div class="p-3.5 space-y-1">
+<div class="font-mono text-[10px] text-primary">04 / LAUNCH</div>
+<h3 class="text-sm font-display font-medium text-on-surface">Launch</h3>
+<p class="text-xs text-secondary leading-relaxed">
+            Domain setup, testing across devices, zero-stress deployment day.
+          </p>
+</div>
+<!-- Step 05 -->
+<div class="p-3.5 space-y-1">
+<div class="font-mono text-[10px] text-primary">05 / CARE</div>
+<h3 class="text-sm font-display font-medium text-on-surface">Care</h3>
+<p class="text-xs text-secondary leading-relaxed">
+            We don't vanish after release. Direct founder support whenever you need updates.
+          </p>
+</div>
+</div>
+</section>
+<!-- The People: Founders Section -->
+<section class="w-full hairline-b bg-surface-subtle py-8 px-4" id="people">
+<div class="pb-4 hairline-b mb-5">
+<span class="font-mono text-[10px] uppercase tracking-widest text-primary block mb-1">The People</span>
+<h2 class="text-2xl font-display font-medium text-on-surface tracking-tight mb-2">
+          Three young minds based in Odisha, India, making things for the internet.
+        </h2>
+<p class="text-xs text-secondary leading-relaxed">
+          We are engineering and design students who turned our obsession with internet culture into a functioning studio. No middlemen. You speak directly with the people building your product.
+        </p>
+</div>
+<!-- 3 Monogram Graphic Founder Cards -->
+<div class="space-y-3.5">
+<!-- Smarak -->
+<div class="hairline-all bg-surface p-4 rounded-sm space-y-3">
+<div class="flex items-center gap-3">
+<div class="w-11 h-11 rounded hairline-all bg-surface-card flex items-center justify-center font-display text-base font-semibold text-on-surface relative shrink-0">
+<span>S</span>
+<span class="w-1.5 h-1.5 rounded-full bg-primary absolute top-1.5 right-1.5"></span>
+</div>
+<div>
+<h3 class="text-base font-display font-medium text-on-surface">Smarak</h3>
+<div class="font-mono text-[10px] text-primary">Engineering &amp; Architecture</div>
+</div>
+</div>
+<p class="text-xs text-secondary leading-relaxed">
+            Clean code, zero-runtime frameworks, responsive performance, and resilient hosting. Ensuring every project feels crisp and instantaneous.
+          </p>
+<div class="pt-2 hairline-t text-[10px] font-mono text-secondary-muted">
+            Focus: System Performance &amp; Web Standards
+          </div>
+</div>
+<!-- Deeptiman -->
+<div class="hairline-all bg-surface p-4 rounded-sm space-y-3">
+<div class="flex items-center gap-3">
+<div class="w-11 h-11 rounded hairline-all bg-surface-card flex items-center justify-center font-display text-base font-semibold text-on-surface relative shrink-0">
+<span>D</span>
+<span class="w-1.5 h-1.5 rounded-full bg-amber-400 absolute top-1.5 right-1.5"></span>
+</div>
+<div>
+<h3 class="text-base font-display font-medium text-on-surface">Deeptiman</h3>
+<div class="font-mono text-[10px] text-amber-400">Creative Direction &amp; Design</div>
+</div>
+</div>
+<p class="text-xs text-secondary leading-relaxed">
+            Editorial typography, tactile digital spaces, bespoke identity, and human-first interaction design that stands out from generic trends.
+          </p>
+<div class="pt-2 hairline-t text-[10px] font-mono text-secondary-muted">
+            Focus: Visual Taste &amp; Editorial Typography
+          </div>
+</div>
+<!-- Akriti -->
+<div class="hairline-all bg-surface p-4 rounded-sm space-y-3">
+<div class="flex items-center gap-3">
+<div class="w-11 h-11 rounded hairline-all bg-surface-card flex items-center justify-center font-display text-base font-semibold text-on-surface relative shrink-0">
+<span>A</span>
+<span class="w-1.5 h-1.5 rounded-full bg-secondary absolute top-1.5 right-1.5"></span>
+</div>
+<div>
+<h3 class="text-base font-display font-medium text-on-surface">Akriti</h3>
+<div class="font-mono text-[10px] text-secondary">Operations, Delivery &amp; QA</div>
+</div>
+</div>
+<p class="text-xs text-secondary leading-relaxed">
+            Clear communication, timeline precision, client peace of mind, and quality assurance. Making sure the entire experience is joyful and stress-free.
+          </p>
+<div class="pt-2 hairline-t text-[10px] font-mono text-secondary-muted">
+            Focus: Delivery Precision &amp; Client Communication
+          </div>
+</div>
+</div>
+<!-- Direct Founder Collaboration pledge card -->
+<div class="mt-4 p-4 hairline-all bg-surface-card rounded-sm space-y-1.5">
+<span class="font-mono text-[10px] text-primary uppercase block font-medium">Direct Founder Collaboration</span>
+<p class="text-xs text-secondary leading-relaxed">
+          You speak directly with the people designing and writing every line of code. No account managers, no game of telephone.
+        </p>
+<div class="text-[10px] font-mono text-secondary-muted pt-1">
+          Average reply: within 12 hours
+        </div>
+</div>
+</section>
+<!-- Minimal Invitation & CTA (No heavy terminal form!) -->
+<section class="w-full hairline-b bg-surface py-12 px-4 text-center" id="contact">
+<div class="max-w-sm mx-auto space-y-5">
+<span class="font-mono text-[10px] uppercase tracking-widest text-primary block">Have an Idea?</span>
+<h2 class="text-3xl font-display font-medium text-on-surface tracking-tight leading-tight">
+          Tell us about it.<br/>Let’s make it real.
+        </h2>
+<p class="text-xs text-secondary leading-relaxed">
+          Whether you are opening a physical space, creating an unforgettable digital heirloom for someone you love, or building something unconventional.
+        </p>
+<div class="pt-2 flex flex-col gap-2.5">
+<a class="w-full h-11 bg-primary hover:bg-primary-hover text-white text-xs font-medium px-4 rounded transition-colors inline-flex items-center justify-center gap-2" href="mailto:studio@algoryxz.com">
+<span>Start a Conversation</span>
+<span class="material-symbols-outlined text-[15px]">arrow_forward</span>
+</a>
+<a class="w-full h-11 hairline-all bg-surface-subtle hover:border-secondary text-on-surface text-xs font-mono px-4 rounded transition-colors inline-flex items-center justify-center gap-2" href="mailto:studio@algoryxz.com">
+<span class="material-symbols-outlined text-[15px] text-secondary">mail</span>
+<span>studio@algoryxz.com</span>
+</a>
+</div>
+<div class="pt-1 text-[11px] font-mono text-secondary-muted">
+          WhatsApp &amp; Telegram founder access available upon first note
+        </div>
+</div>
+</section>
+</main>
+<!-- Clean Editorial Footer -->
+<footer class="w-full px-4 py-8 bg-surface-subtle text-secondary text-xs">
+<div class="space-y-4">
+<div class="flex items-center justify-between pb-4 hairline-b">
+<a class="text-base font-display font-semibold uppercase tracking-tight text-on-surface" href="#">
+<span>ALGORY</span><span class="text-primary font-normal">XZ</span>
+</a>
+<span class="text-[10px] font-mono text-secondary-muted">Odisha, India</span>
+</div>
+<!-- Navigation Links -->
+<nav class="flex flex-wrap gap-x-5 gap-y-2 text-xs font-medium text-secondary">
+<a class="hover:text-on-surface transition-colors" href="#work">Work</a>
+<a class="hover:text-on-surface transition-colors" href="#who-its-for">Who It’s For</a>
+<a class="hover:text-on-surface transition-colors" href="#process">Process</a>
+<a class="hover:text-on-surface transition-colors" href="#people">People</a>
+<a class="hover:text-on-surface transition-colors" href="#contact">Contact</a>
+</nav>
+<div class="pt-3 text-[11px] text-secondary-muted">
+        © 2025 Algoryxz Independent Studio · Odisha, India
+      </div>
+</div>
+</footer>
+</body></html>

@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>ALGORYXZ / 000 — KEYFRAME D01: ARRIVAL</title>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:ital,wght@0,300..800;1,300..800&amp;family=JetBrains+Mono:ital,wght@0,300..700;1,300..700&amp;family=Playfair+Display:ital,wght@0,400..900;1,400..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "on-primary-container": "#491d00",
+            "surface-container-lowest": "#0d0e11",
+            "secondary-container": "#52452d",
+            "on-surface": "#e3e2e6",
+            "tertiary-fixed": "#ffdbce",
+            "surface-tint": "#ffb68c",
+            "surface-container-highest": "#343538",
+            "secondary-fixed-dim": "#d7c4a5",
+            "inverse-surface": "#e3e2e6",
+            "inverse-on-surface": "#303034",
+            "secondary": "#d7c4a5",
+            "on-tertiary-fixed": "#370e00",
+            "on-error-container": "#ffdad6",
+            "error-container": "#93000a",
+            "surface-dim": "#121316",
+            "secondary-fixed": "#f4e0c0",
+            "on-tertiary": "#5a1c00",
+            "surface-container": "#1f1f23",
+            "surface-container-low": "#1b1b1f",
+            "inverse-primary": "#994703",
+            "surface": "#121316",
+            "on-secondary-container": "#c5b395",
+            "background": "#121316",
+            "on-background": "#e3e2e6",
+            "primary-fixed": "#ffdbc9",
+            "error": "#ffb4ab",
+            "on-primary-fixed-variant": "#753400",
+            "outline": "#a38c80",
+            "on-secondary": "#3a2f19",
+            "surface-variant": "#343538",
+            "tertiary-fixed-dim": "#ffb599",
+            "primary": "#ffb68c",
+            "on-tertiary-container": "#4f1800",
+            "on-error": "#690005",
+            "tertiary-container": "#d67851",
+            "primary-fixed-dim": "#ffb68c",
+            "outline-variant": "#554339",
+            "surface-container-high": "#292a2d",
+            "on-surface-variant": "#dbc1b4",
+            "on-primary": "#532200",
+            "primary-container": "#d97736",
+            "on-secondary-fixed": "#241a06",
+            "tertiary": "#ffb599",
+            "surface-bright": "#38393c",
+            "on-tertiary-fixed-variant": "#79310f",
+            "on-primary-fixed": "#321200",
+            "on-secondary-fixed-variant": "#52452d"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.125rem",
+            "lg": "0.25rem",
+            "xl": "0.5rem",
+            "full": "0.75rem"
+          },
+          "spacing": {
+            "margin-tablet": "2rem",
+            "gutter-tablet": "1.25rem",
+            "space-xl": "3rem",
+            "gutter": "1.5rem",
+            "margin-mobile": "1.25rem",
+            "space-sm": "0.5rem",
+            "margin": "4rem",
+            "space-md": "1rem",
+            "space-lg": "1.75rem",
+            "gutter-mobile": "1rem",
+            "space-xs": "0.25rem"
+          },
+          "fontFamily": {
+            "headline-lg": ["Playfair Display"],
+            "label-mono": ["JetBrains Mono"],
+            "display-xl-mobile": ["Playfair Display"],
+            "label-md": ["Hanken Grotesk"],
+            "headline-sm": ["Playfair Display"],
+            "headline-lg-mobile": ["Playfair Display"],
+            "body-md": ["Hanken Grotesk"],
+            "headline-md": ["Playfair Display"],
+            "label-mono-sm": ["JetBrains Mono"],
+            "headline-md-mobile": ["Playfair Display"],
+            "body-sm": ["Hanken Grotesk"],
+            "body-lg": ["Hanken Grotesk"],
+            "display-xl": ["Playfair Display"]
+          },
+          "fontSize": {
+            "headline-lg": ["56px", { "lineHeight": "64px", "letterSpacing": "-0.02em", "fontWeight": "400" }],
+            "label-mono": ["11px", { "lineHeight": "16px", "letterSpacing": "0.08em", "fontWeight": "400" }],
+            "display-xl-mobile": ["48px", { "lineHeight": "54px", "letterSpacing": "-0.02em", "fontWeight": "400" }],
+            "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.06em", "fontWeight": "600" }],
+            "headline-sm": ["24px", { "lineHeight": "32px", "letterSpacing": "0em", "fontWeight": "500" }],
+            "headline-lg-mobile": ["36px", { "lineHeight": "42px", "letterSpacing": "-0.01em", "fontWeight": "400" }],
+            "body-md": ["15px", { "lineHeight": "24px", "letterSpacing": "0em", "fontWeight": "400" }],
+            "headline-md": ["36px", { "lineHeight": "44px", "letterSpacing": "-0.01em", "fontWeight": "500" }],
+            "label-mono-sm": ["10px", { "lineHeight": "14px", "letterSpacing": "0.1em", "fontWeight": "400" }],
+            "headline-md-mobile": ["28px", { "lineHeight": "34px", "letterSpacing": "0em", "fontWeight": "500" }],
+            "body-sm": ["13px", { "lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "400" }],
+            "body-lg": ["18px", { "lineHeight": "28px", "letterSpacing": "-0.01em", "fontWeight": "400" }],
+            "display-xl": ["84px", { "lineHeight": "92px", "letterSpacing": "-0.03em", "fontWeight": "400" }]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 20;
+      font-size: 14px;
+      line-height: 1;
+    }
+    .mineral-radial {
+      background: radial-gradient(ellipse at 50% 45%, rgba(217, 119, 54, 0.08) 0%, rgba(13, 14, 17, 0.95) 75%);
+    }
+    .fine-grid {
+      background-size: 80px 80px;
+      background-image: 
+        linear-gradient(to right, rgba(232, 213, 181, 0.03) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(232, 213, 181, 0.03) 1px, transparent 1px);
+    }
+  </style>
+</head>
+<body class="bg-surface-container-lowest text-on-surface select-none overflow-hidden m-0 p-0 antialiased selection:bg-primary-container selection:text-on-primary-container">
+<!-- 1. Master Canvas (Locked 100vh / No Scroll) -->
+<div class="w-screen h-screen overflow-hidden relative bg-surface-container-lowest text-on-surface flex flex-col justify-between">
+<!-- Fine Structural Grid & Warm Amber Vignette Atmosphere -->
+<div class="absolute inset-0 fine-grid pointer-events-none z-0"></div>
+<div class="absolute inset-0 mineral-radial pointer-events-none z-0"></div>
+<!-- Architectural Frame Hairlines -->
+<div class="absolute inset-x-8 top-0 h-[1px] bg-outline-variant/20 z-10"></div>
+<div class="absolute inset-x-8 bottom-0 h-[1px] bg-outline-variant/20 z-10"></div>
+<div class="absolute inset-y-0 left-8 w-[1px] bg-outline-variant/20 z-10 hidden md:block"></div>
+<div class="absolute inset-y-0 right-8 w-[1px] bg-outline-variant/20 z-10 hidden md:block"></div>
+<!-- 2. Embedded 3D Spatial Scene (The XZ Kinetic Monolith) -->
+<!-- STITCH_THREEJS_START:ANIMATION_21 class="absolute inset-0 w-full h-full bg-transparent z-0 cursor-grab active:cursor-grabbing" -->
+<div class="absolute inset-0 w-full h-full bg-transparent z-0 cursor-grab active:cursor-grabbing" style="display:block;">
+<script src="https://ajax.googleapis.com/ajax/libs/threejs/r125/three.min.js"></script>
+<div id="threejs-container-ANIMATION_21" style="width:100%;height:100%"></div>
+<script>
+(function() {
+  const container = document.getElementById('threejs-container-ANIMATION_21');
+  const devicePixelRatio = window.devicePixelRatio || 1;
+  // Three.js Scene: "XZ Kinetic Monolith" — Precision-machined basalt, brass strata, and raking warm amber illumination
+const width = container.clientWidth || window.innerWidth;
+const height = container.clientHeight || window.innerHeight;
+
+const scene = new THREE.Scene();
+scene.fog = new THREE.FogExp2(0x0d0e11, 0.035);
+
+const camera = new THREE.PerspectiveCamera(45, width / height, 0.1, 100);
+camera.position.set(0, 0, 7.2);
+
+const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true, powerPreference: "high-performance" });
+renderer.setSize(width, height);
+renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+renderer.toneMapping = THREE.ACESFilmicToneMapping;
+renderer.toneMappingExposure = 1.25;
+renderer.shadowMap.enabled = true;
+renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+container.appendChild(renderer.domElement);
+
+// Lighting setup: dramatic raking rim lights in warm amber (#d97736) and champagne gold
+const ambientLight = new THREE.AmbientLight(0x1a1917, 1.2);
+scene.add(ambientLight);
+
+const amberSpot = new THREE.SpotLight(0xd97736, 12.0);
+amberSpot.position.set(-5, 6, 4);
+amberSpot.angle = Math.PI / 4;
+amberSpot.penumbra = 0.8;
+scene.add(amberSpot);
+
+const goldRim = new THREE.DirectionalLight(0xf5d09b, 4.5);
+goldRim.position.set(6, -3, -2);
+scene.add(goldRim);
+
+const fillLight = new THREE.PointLight(0x28231d, 3.0, 15);
+fillLight.position.set(0, -4, 3);
+scene.add(fillLight);
+
+// Master Monolith Group
+const monolithGroup = new THREE.Group();
+scene.add(monolithGroup);
+
+// Materials
+// Basalt obsidian: dark, matte with subtle sheen
+const basaltMaterial = new THREE.MeshStandardMaterial({
+  color: 0x141518,
+  roughness: 0.65,
+  metalness: 0.25,
+});
+
+// Deep dark strata
+const corePlateMaterial = new THREE.MeshStandardMaterial({
+  color: 0x090a0d,
+  roughness: 0.8,
+  metalness: 0.1,
+});
+
+// Hairline polished bronze/brass strata
+const brassMaterial = new THREE.MeshStandardMaterial({
+  color: 0xd97736,
+  roughness: 0.28,
+  metalness: 0.88,
+});
+
+const champagneMaterial = new THREE.MeshStandardMaterial({
+  color: 0xecd1a4,
+  roughness: 0.2,
+  metalness: 0.95,
+});
+
+// Wireframe accent material for architectural precision
+const wireMaterial = new THREE.LineBasicMaterial({
+  color: 0xd97736,
+  transparent: true,
+  opacity: 0.35,
+});
+
+// 1. Structural Monolith: Tectonic Interlocking Slabs based on X & Z planar intersections
+// Central Vertical Core slab (Index Monolith)
+const coreGeo = new THREE.BoxGeometry(1.6, 3.4, 0.28);
+const coreMesh = new THREE.Mesh(coreGeo, corePlateMaterial);
+monolithGroup.add(coreMesh);
+
+// Hairline bronze frame edges
+const coreEdges = new THREE.EdgesGeometry(coreGeo);
+const coreLine = new THREE.LineSegments(coreEdges, wireMaterial);
+monolithGroup.add(coreLine);
+
+// Diagonal X-Strut 1 (Upper-left to Lower-right angled slab)
+const strutGeo1 = new THREE.BoxGeometry(0.55, 3.8, 0.42);
+const strut1 = new THREE.Mesh(strutGeo1, basaltMaterial);
+strut1.rotation.z = Math.PI / 5.2;
+strut1.position.set(0, 0, 0.12);
+monolithGroup.add(strut1);
+
+const strut1Edges = new THREE.EdgesGeometry(strutGeo1);
+const strut1Line = new THREE.LineSegments(strut1Edges, new THREE.LineBasicMaterial({ color: 0xecd1a4, transparent: true, opacity: 0.5 }));
+strut1.add(strut1Line);
+
+// Diagonal X-Strut 2 (Interlocking counter-diagonal slab)
+const strutGeo2 = new THREE.BoxGeometry(0.55, 3.8, 0.42);
+const strut2 = new THREE.Mesh(strutGeo2, basaltMaterial);
+strut2.rotation.z = -Math.PI / 5.2;
+strut2.position.set(0, 0, -0.12);
+monolithGroup.add(strut2);
+
+const strut2Edges = new THREE.EdgesGeometry(strutGeo2);
+const strut2Line = new THREE.LineSegments(strut2Edges, wireMaterial);
+strut2.add(strut2Line);
+
+// Horizontal Z-Transverse Cantilever Slabs (Z-pattern horizontal brackets)
+// Top Z-bar
+const topZGeo = new THREE.BoxGeometry(2.6, 0.22, 0.6);
+const topZMesh = new THREE.Mesh(topZGeo, basaltMaterial);
+topZMesh.position.set(0.3, 1.45, 0.2);
+monolithGroup.add(topZMesh);
+
+// Top Brass Strata Inlay
+const topBrassGeo = new THREE.BoxGeometry(2.62, 0.04, 0.62);
+const topBrass = new THREE.Mesh(topBrassGeo, brassMaterial);
+topBrass.position.set(0.3, 1.58, 0.2);
+monolithGroup.add(topBrass);
+
+// Bottom Z-bar
+const botZGeo = new THREE.BoxGeometry(2.6, 0.22, 0.6);
+const botZMesh = new THREE.Mesh(botZGeo, basaltMaterial);
+botZMesh.position.set(-0.3, -1.45, -0.2);
+monolithGroup.add(botZMesh);
+
+// Bottom Brass Strata Inlay
+const botBrassGeo = new THREE.BoxGeometry(2.62, 0.04, 0.62);
+const botBrass = new THREE.Mesh(botBrassGeo, champagneMaterial);
+botBrass.position.set(-0.3, -1.58, -0.2);
+monolithGroup.add(botBrass);
+
+// Central Floating Index Plate ("000 / XZ" specimen)
+const plateGeo = new THREE.BoxGeometry(1.2, 0.6, 0.7);
+const centerPlate = new THREE.Mesh(plateGeo, corePlateMaterial);
+centerPlate.position.set(0, 0, 0.15);
+monolithGroup.add(centerPlate);
+
+const plateEdge = new THREE.LineSegments(new THREE.EdgesGeometry(plateGeo), new THREE.LineBasicMaterial({ color: 0xd97736, transparent: true, opacity: 0.85 }));
+centerPlate.add(plateEdge);
+
+// Precision Brass Fin Inlays along the X-axis
+for (let i = -3; i <= 3; i++) {
+  if (i === 0) continue;
+  const finGeo = new THREE.BoxGeometry(0.02, 0.45, 0.55);
+  const fin = new THREE.Mesh(finGeo, brassMaterial);
+  fin.position.set(i * 0.28, i * 0.12, 0.28);
+  monolithGroup.add(fin);
+}
+
+// 2. Spatial Orbiting Dust / Volumetric Micro-Fragments
+const particleCount = 140;
+const particleGeo = new THREE.BufferGeometry();
+const particlePos = new Float32Array(particleCount * 3);
+const particleScale = new Float32Array(particleCount);
+
+for (let p = 0; p < particleCount; p++) {
+  const theta = Math.random() * Math.PI * 2;
+  const radius = 1.8 + Math.random() * 3.5;
+  particlePos[p * 3] = Math.cos(theta) * radius;
+  particlePos[p * 3 + 1] = (Math.random() - 0.5) * 4.5;
+  particlePos[p * 3 + 2] = Math.sin(theta) * radius + (Math.random() - 0.5) * 2;
+}
+
+particleGeo.setAttribute('position', new THREE.BufferAttribute(particlePos, 3));
+
+const particleMat = new THREE.PointsMaterial({
+  color: 0xd97736,
+  size: 0.035,
+  transparent: true,
+  opacity: 0.65,
+  blending: THREE.AdditiveBlending
+});
+const dustParticles = new THREE.Points(particleGeo, particleMat);
+scene.add(dustParticles);
+
+// 3. Faint Architectural Ground Grid / Depth Field
+const gridHelper = new THREE.GridHelper(16, 24, 0xd97736, 0x1f2128);
+gridHelper.position.y = -2.8;
+gridHelper.material.opacity = 0.2;
+gridHelper.material.transparent = true;
+scene.add(gridHelper);
+
+// Mouse interaction & Drag kinematics
+let isDragging = false;
+let previousMousePosition = { x: 0, y: 0 };
+let targetRotationX = 0.15;
+let targetRotationY = -0.35;
+let currentRotationX = 0.15;
+let currentRotationY = -0.35;
+
+const onPointerDown = (e) => {
+  isDragging = true;
+  previousMousePosition = { x: e.clientX, y: e.clientY };
+};
+
+const onPointerMove = (e) => {
+  const normX = (e.clientX / width) * 2 - 1;
+  const normY = -(e.clientY / height) * 2 + 1;
+  
+  if (isDragging) {
+    const deltaX = e.clientX - previousMousePosition.x;
+    const deltaY = e.clientY - previousMousePosition.y;
+    targetRotationY += deltaX * 0.008;
+    targetRotationX += deltaY * 0.008;
+    previousMousePosition = { x: e.clientX, y: e.clientY };
+  } else {
+    // Subtle ambient parallax follow
+    targetRotationY += (normX * 0.15 - targetRotationY) * 0.02;
+    targetRotationX += (-normY * 0.12 - targetRotationX) * 0.02;
+  }
+};
+
+const onPointerUp = () => {
+  isDragging = false;
+};
+
+window.addEventListener('pointerdown', onPointerDown);
+window.addEventListener('pointermove', onPointerMove);
+window.addEventListener('pointerup', onPointerUp);
+
+// Responsive window resize
+const onResize = () => {
+  const w = container.clientWidth || window.innerWidth;
+  const h = container.clientHeight || window.innerHeight;
+  camera.aspect = w / h;
+  camera.updateProjectionMatrix();
+  renderer.setSize(w, h);
+};
+window.addEventListener('resize', onResize);
+
+// Render loop with idle floating oscillation
+let clock = new THREE.Clock();
+
+function animate() {
+  requestAnimationFrame(animate);
+  const elapsedTime = clock.getElapsedTime();
+
+  // Gentle autonomous float and kinetic breathing
+  monolithGroup.position.y = Math.sin(elapsedTime * 0.8) * 0.08;
+  
+  // Smooth lerp rotation towards target
+  currentRotationX += (targetRotationX - currentRotationX) * 0.06;
+  currentRotationY += (targetRotationY - currentRotationY) * 0.06;
+  
+  // Apply rotation with perpetual slight drift
+  monolithGroup.rotation.x = currentRotationX + Math.sin(elapsedTime * 0.4) * 0.02;
+  monolithGroup.rotation.y = currentRotationY + elapsedTime * 0.05;
+
+  // Dust particles drift
+  dustParticles.rotation.y = elapsedTime * 0.02;
+  dustParticles.rotation.x = Math.sin(elapsedTime * 0.1) * 0.05;
+
+  // Dynamic light tracking
+  amberSpot.position.x = -5 + Math.sin(elapsedTime * 0.5) * 1.5;
+
+  renderer.render(scene, camera);
+}
+animate();
+
+})();
+</script>
+</div>
+<!-- STITCH_THREEJS_END:ANIMATION_21 -->
+<!-- 3. Top Floating Navigation Pill (Shared Anchor Executed) -->
+<header class="fixed top-4 inset-x-0 mx-auto max-w-5xl rounded-full border border-outline-variant/30 bg-surface-container-low/80 backdrop-blur-md shadow-[0_16px_40px_-12px_rgba(217,119,54,0.18)] z-30 transition-all duration-300 ease-out hover:scale-[1.01]">
+<div class="flex justify-between items-center px-6 py-3 w-full">
+<!-- Brand Signature -->
+<div class="flex items-center gap-3">
+<span class="font-label-mono text-label-mono tracking-widest text-on-surface uppercase font-medium">
+            ALGORY<span class="text-primary-container font-semibold">XZ</span>
+</span>
+<span class="font-label-mono-sm text-label-mono-sm text-outline tracking-widest border-l border-outline-variant/40 pl-3">
+            000
+          </span>
+</div>
+<!-- Navigation Clusters (Context active: Archive) -->
+<nav class="hidden md:flex items-center gap-8">
+<a class="text-primary font-label-mono text-label-mono border-b border-primary pb-0.5 hover:text-primary transition-all duration-300" href="#archive">
+            Archive
+          </a>
+<a class="text-on-surface-variant font-label-mono text-label-mono transition-colors hover:text-primary transition-all duration-300" href="#atelier">
+            Atelier
+          </a>
+<a class="text-on-surface-variant font-label-mono text-label-mono transition-colors hover:text-primary transition-all duration-300" href="#foundry">
+            Foundry
+          </a>
+<a class="text-on-surface-variant font-label-mono text-label-mono transition-colors hover:text-primary transition-all duration-300" href="#colophon">
+            Colophon
+          </a>
+</nav>
+<!-- Trailing Actions & Meta -->
+<div class="flex items-center gap-4">
+<span class="hidden sm:inline-flex items-center gap-1.5 font-label-mono-sm text-label-mono-sm text-outline">
+<span class="inline-block w-1.5 h-1.5 rounded-full bg-primary-container animate-pulse"></span>
+            Available 2025
+          </span>
+<button class="group flex items-center gap-1.5 px-4 py-1.5 rounded-full bg-surface-container hover:bg-surface-container-high border border-outline-variant/40 hover:border-primary-container/60 transition-all duration-200" type="button">
+<span class="font-label-mono text-label-mono text-on-surface group-hover:text-primary transition-colors">Inquire</span>
+<span class="material-symbols-outlined text-outline group-hover:text-primary transition-colors group-hover:translate-x-0.5 group-hover:-translate-y-0.5 duration-200" data-icon="north_east">north_east</span>
+</button>
+</div>
+</div>
+</header>
+<!-- 4. Upper Editorial Coordinates & Metadata Tier -->
+<div class="relative z-20 pt-24 px-12 md:px-16 flex justify-between items-start pointer-events-none">
+<!-- Left Metadata Block -->
+<div class="flex flex-col gap-1.5">
+<div class="flex items-center gap-2">
+<span class="w-1.5 h-1.5 bg-primary-container rounded-none"></span>
+<p class="font-label-mono text-label-mono tracking-widest text-primary-fixed-dim uppercase">
+            000 // STUDIO ARCHIVE // ODISHA, IN
+          </p>
+</div>
+<p class="font-label-mono-sm text-label-mono-sm text-outline tracking-wider pl-3.5 border-l border-outline-variant/30">
+          20.2961° N, 85.8245° E · IST [UTC+05:30]
+        </p>
+</div>
+<!-- Right Edition Marker -->
+<div class="hidden sm:flex flex-col items-end gap-1">
+<p class="font-label-mono text-label-mono tracking-widest text-on-surface-variant uppercase">
+          SYS.STATE // READY
+        </p>
+<p class="font-label-mono-sm text-label-mono-sm text-outline">
+          MONOLITH / CORE D01
+        </p>
+</div>
+</div>
+<!-- Center Spatial Interactive Affordance (Tactile Drag Indicator) -->
+<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-10 pointer-events-none flex flex-col items-center gap-3">
+<!-- Subtle Floating Crosshair Target -->
+<div class="relative w-16 h-16 rounded-full border border-outline-variant/30 flex items-center justify-center backdrop-blur-[2px]">
+<div class="w-1.5 h-1.5 bg-primary-container rounded-full animate-ping"></div>
+<span class="absolute text-[9px] font-label-mono text-outline-variant -top-2 bg-surface-container-lowest px-1">✛</span>
+<span class="absolute text-[9px] font-label-mono text-outline-variant -bottom-2 bg-surface-container-lowest px-1">✛</span>
+</div>
+<!-- Coordinate Capsule Readout -->
+<div class="pointer-events-auto cursor-grab px-3.5 py-1 rounded-full bg-surface-container-low/70 border border-outline-variant/40 backdrop-blur-md shadow-lg flex items-center gap-2 transition-transform hover:scale-105 duration-200">
+<span class="w-1.5 h-1.5 rounded-full bg-primary-container"></span>
+<span class="font-label-mono-sm text-label-mono-sm tracking-widest text-on-surface-variant uppercase">
+          ROT: <span class="text-on-surface font-semibold" id="rotX">0.15°X</span> / <span class="text-on-surface font-semibold" id="rotY">-0.35°Y</span> · CORE: BASALT/BRASS
+        </span>
+</div>
+</div>
+<!-- 5. Lower Hero Manifesto & Two Worlds Spatial Navigation Tier -->
+<div class="relative z-20 pb-8 px-12 md:px-16 flex flex-col gap-6">
+<!-- Central Cinematic Statement & Thesis -->
+<div class="max-w-3xl flex flex-col gap-3">
+<h1 class="font-body-lg font-semibold text-4xl sm:text-5xl md:text-6xl tracking-tight text-on-surface leading-[1.04]">
+          WE MAKE THINGS FOR THE INTERNET.
+        </h1>
+<p class="font-body-md text-body-md text-on-surface-variant/90 max-w-xl font-light">
+          Bespoke digital flagships for independent brands &amp; living digital archives celebrating moments that endure.
+        </p>
+</div>
+<!-- Hairline Division -->
+<div class="w-full h-[1px] bg-outline-variant/30"></div>
+<!-- Dual Worlds Footer Prompt -->
+<div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+<!-- Dual Axis Label -->
+<div class="flex items-center gap-3">
+<span class="font-label-mono-sm text-label-mono-sm px-2 py-0.5 rounded bg-surface-container-high text-primary border border-outline-variant/40">
+            DUAL CANVASES
+          </span>
+<p class="font-label-mono-sm text-label-mono-sm tracking-wider text-on-surface-variant uppercase">
+            WORLD 01: COMMERCE &amp; ATELIER <span class="text-outline-variant mx-1.5">·</span> WORLD 02: ARCHIVAL MEMOIRS
+          </p>
+</div>
+<!-- Enter Prompt / Down Affordance -->
+<button class="group flex items-center gap-2 text-on-surface hover:text-primary transition-colors focus:outline-none" type="button">
+<span class="font-label-mono text-label-mono tracking-widest uppercase text-on-surface-variant group-hover:text-primary transition-colors">
+            Scroll to Enter Archive
+          </span>
+<span class="material-symbols-outlined text-primary-container group-hover:translate-y-1 transition-transform duration-300" data-icon="south">south</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Micro-interaction: Dynamic Spatial Rotation Readout Simulator -->
+<script>
+    (function initSpatialCoordinates() {
+      const rotX = document.getElementById('rotX');
+      const rotY = document.getElementById('rotY');
+      
+      let targetX = 0.15;
+      let targetY = -0.35;
+      
+      window.addEventListener('mousemove', (e) => {
+        const xPercent = (e.clientX / window.innerWidth) - 0.5;
+        const yPercent = (e.clientY / window.innerHeight) - 0.5;
+        
+        targetX = (yPercent * 2.4).toFixed(2);
+        targetY = (xPercent * 3.6).toFixed(2);
+        
+        if (rotX && rotY) {
+          rotX.textContent = `${targetX > 0 ? '+' : ''}${targetX}°X`;
+          rotY.textContent = `${targetY > 0 ? '+' : ''}${targetY}°Y`;
+        }
+      });
+    })();
+  </script>
+</body></html>
