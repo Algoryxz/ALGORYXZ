@@ -9,32 +9,26 @@
 
 :root {
   /* --------------------------------------------------
-   * TIER 1: PRIMITIVES [DESIGN_PLACEHOLDER]
+   * TIER 1: PRIMITIVES (REVISION 03 PALETTE)
    * -------------------------------------------------- */
   
-  /* Neutral Monochrome Palette */
-  --primitive-color-neutral-0: #ffffff;
-  --primitive-color-neutral-50: #f8fafc;
-  --primitive-color-neutral-100: #f1f5f9;
-  --primitive-color-neutral-200: #e2e8f0;
-  --primitive-color-neutral-300: #cbd5e1;
-  --primitive-color-neutral-400: #94a3b8;
-  --primitive-color-neutral-500: #64748b;
-  --primitive-color-neutral-600: #475569;
-  --primitive-color-neutral-700: #334155;
-  --primitive-color-neutral-800: #1e293b;
-  --primitive-color-neutral-900: #0f172a;
-  --primitive-color-neutral-950: #020617;
+  /* Sable & Graphite Architectural Scale */
+  --primitive-color-sable-void: #08090b;
+  --primitive-color-graphite-dark: #0e1014;
+  --primitive-color-charcoal: #15181f;
+  --primitive-color-slate-stone: #1a1e27;
+  --primitive-color-ecru-base: #f5f2eb;
 
-  /* Accent Placeholder (Neutral Warm Slate / Steel) */
-  --primitive-color-accent-blue: #2563eb;
-  --primitive-color-accent-amber: #d97706;
-  --primitive-color-accent-emerald: #059669;
+  /* Restrained Mineral Light (Warm Amber / Bronze / Gold) */
+  --primitive-color-mineral-amber: #d97736;
+  --primitive-color-mineral-hot: #f09b52;
+  --primitive-color-mineral-bronze: #c26526;
+  --primitive-color-mineral-gold: #d4a359;
 
-  /* Typography Scale [DESIGN_PLACEHOLDER: SYSTEM_FONTS] */
-  --font-family-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-  --font-family-serif: Georgia, Cambria, "Times New Roman", Times, serif;
-  --font-family-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  /* Typography Scale [REVISION 03 EDITORIAL FONTS] */
+  --font-family-sans: 'Hanken Grotesk', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-family-serif: 'Playfair Display', Georgia, "Times New Roman", Times, serif;
+  --font-family-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
 
   --font-size-xs: 0.75rem;    /* 12px */
   --font-size-sm: 0.875rem;   /* 14px */
@@ -71,42 +65,43 @@
   --space-20: 5rem;    /* 80px */
   --space-24: 6rem;    /* 96px */
 
-  /* Structural Radii (Subtle, non-bubbly) */
+  /* Structural Radii (Subtle, architectural, non-bubbly) */
   --radius-none: 0px;
   --radius-sm: 4px;
-  --radius-md: 6px;
-  --radius-lg: 10px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
   --radius-pill: 9999px;
 
   /* --------------------------------------------------
-   * TIER 2: SEMANTIC TOKENS
-   * Default Theme: Dark Editorial Studio Baseline
+   * TIER 2: SEMANTIC TOKENS (REVISION 03 UNIFIED PALETTE)
+   * Pure Sable, Graphite, Ecru, and Mineral Amber
    * -------------------------------------------------- */
-  --color-bg-canvas: #090d16;
-  --color-bg-surface: #0f172a;
-  --color-bg-surface-elevated: #1e293b;
-  --color-bg-surface-subtle: #141d33;
+  --color-bg-canvas: #08090b;
+  --color-bg-surface: #0e1014;
+  --color-bg-surface-elevated: #15181f;
+  --color-bg-surface-subtle: #101217;
 
-  --color-text-primary: #f8fafc;
-  --color-text-secondary: #94a3b8;
-  --color-text-muted: #64748b;
-  --color-text-inverse: #0f172a;
+  --color-text-primary: #f5f2eb;
+  --color-text-secondary: rgba(245, 242, 235, 0.72);
+  --color-text-muted: rgba(245, 242, 235, 0.45);
+  --color-text-inverse: #08090b;
 
-  --color-border-hairline: rgba(255, 255, 255, 0.08);
-  --color-border-subtle: rgba(255, 255, 255, 0.15);
-  --color-border-strong: rgba(255, 255, 255, 0.25);
+  --color-border-hairline: rgba(245, 242, 235, 0.08);
+  --color-border-subtle: rgba(245, 242, 235, 0.14);
+  --color-border-strong: rgba(245, 242, 235, 0.24);
 
-  --color-accent-primary: #38bdf8;
-  --color-accent-secondary: #f43f5e;
-  --color-focus-ring: #38bdf8;
+  --color-accent-primary: #d97736;
+  --color-accent-hover: #f09b52;
+  --color-accent-secondary: #c26526;
+  --color-focus-ring: #f09b52;
 
-  /* Status Colors */
-  --color-status-internal: #94a3b8;
-  --color-status-concept: #38bdf8;
-  --color-status-client: #10b981;
+  /* Status Colors (Atmospheric, Non-SaaS) */
+  --color-status-internal: rgba(245, 242, 235, 0.6);
+  --color-status-concept: #d97736;
+  --color-status-client: #d4a359;
 
   /* Container Constraints */
-  --container-max-width: 1200px;
+  --container-max-width: 1240px;
   --container-padding: var(--space-4);
 }
 

@@ -102,27 +102,30 @@ button {
   display: inline-flex;
   align-items: center;
   padding: var(--space-1) var(--space-3);
-  border-radius: var(--radius-pill);
+  border-radius: var(--radius-sm);
+  font-family: var(--font-family-mono);
   font-size: var(--font-size-xs);
   font-weight: var(--font-weight-medium);
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.08em;
   border: 1px solid currentColor;
 }
 
 .badge-internal {
   color: var(--color-status-internal);
-  background-color: rgba(148, 163, 184, 0.1);
+  background-color: rgba(245, 242, 235, 0.06);
+  border-color: rgba(245, 242, 235, 0.15);
 }
 
 .badge-concept {
-  color: var(--color-status-concept);
-  background-color: rgba(56, 189, 248, 0.1);
+  color: var(--color-accent-hover);
+  background-color: rgba(217, 119, 54, 0.12);
+  border-color: rgba(217, 119, 54, 0.32);
 }
 
 .badge-client {
   color: var(--color-status-client);
-  background-color: rgba(16, 185, 129, 0.1);
+  background-color: rgba(212, 163, 89, 0.12);
+  border-color: rgba(212, 163, 89, 0.3);
 }
 
 /* Base Buttons */
@@ -133,32 +136,38 @@ button {
   gap: var(--space-2);
   padding: var(--space-3) var(--space-6);
   border-radius: var(--radius-sm);
+  font-family: var(--font-family-mono);
   font-size: var(--font-size-sm);
-  font-weight: var(--font-weight-medium);
+  font-weight: var(--font-weight-semibold);
+  letter-spacing: 0.06em;
   transition: var(--transition-interactive);
   text-decoration: none;
   min-height: 44px; /* Touch target minimum */
 }
 
 .btn-primary {
-  background-color: var(--color-text-primary);
-  color: var(--color-text-inverse);
+  background-color: var(--color-accent-primary);
+  color: #ffffff;
+  border: 1px solid var(--color-accent-hover);
+  box-shadow: 0 4px 16px rgba(217, 119, 54, 0.25);
 }
 
 .btn-primary:hover {
-  opacity: 0.9;
+  background-color: var(--color-accent-hover);
+  box-shadow: 0 6px 24px rgba(217, 119, 54, 0.4);
   transform: translateY(-1px);
 }
 
 .btn-secondary {
-  background-color: transparent;
+  background-color: rgba(245, 242, 235, 0.04);
   color: var(--color-text-primary);
   border: 1px solid var(--color-border-subtle);
 }
 
 .btn-secondary:hover {
-  border-color: var(--color-border-strong);
-  background-color: var(--color-bg-surface);
+  border-color: rgba(245, 242, 235, 0.3);
+  background-color: rgba(245, 242, 235, 0.08);
+  transform: translateY(-1px);
 }
 
 /* Sticky Header and Footer */

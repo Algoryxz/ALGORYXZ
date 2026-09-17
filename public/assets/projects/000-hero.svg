@@ -1,7 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" width="100%" height="100%">
-  <rect width="800" height="450" fill="#0f172a"/>
-  <rect x="20" y="20" width="760" height="410" fill="none" stroke="#334155" stroke-dasharray="4 4" stroke-width="1"/>
-  <text x="50%" y="45%" text-anchor="middle" fill="#94a3b8" font-family="monospace" font-size="20" letter-spacing="2">PROJECT 000 : ALGORYXZ STUDIO PLATFORM</text>
-  <text x="50%" y="55%" text-anchor="middle" fill="#64748b" font-family="monospace" font-size="14">[STRUCTURAL_ASSET_PLACEHOLDER : DEEPTIMAN_ART_DIRECTION_PENDING]</text>
-  <circle cx="400" cy="180" r="30" fill="none" stroke="#38bdf8" stroke-width="2"/>
+  <rect width="800" height="450" fill="#0e1014"/>
+  <rect x="20" y="20" width="760" height="410" fill="none" stroke="rgba(245, 242, 235, 0.12)" stroke-dasharray="4 4" stroke-width="1"/>
+  <text x="50%" y="45%" text-anchor="middle" fill="#f5f2eb" font-family="'JetBrains Mono', monospace" font-size="18" letter-spacing="2">PROJECT 000 : ALGORYXZ STUDIO PLATFORM</text>
+  <text x="50%" y="55%" text-anchor="middle" fill="rgba(245, 242, 235, 0.45)" font-family="'JetBrains Mono', monospace" font-size="13">[STRUCTURAL_ASSET_PLACEHOLDER : DEEPTIMAN_ART_DIRECTION_PENDING]</text>
+  <circle cx="400" cy="170" r="28" fill="none" stroke="#d97736" stroke-width="2"/>
 </svg>
