@@ -1,280 +1,652 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import '../styles/experience.css';
+
+const categories = [
+  {
+    id: 'someone',
+    label: 'FOR SOMEONE',
+    sub: 'Invitations · Celebrations · Photo stories · Personal places',
+  },
+  {
+    id: 'business',
+    label: 'FOR A BUSINESS',
+    sub: 'Websites · Digital storefronts · Menus · Brand experiences',
+  },
+  {
+    id: 'stranger',
+    label: 'SOMETHING STRANGER',
+    sub: 'Interactive experiments · Custom systems · Bespoke tools',
+  },
+];
+
+const timelines = [
+  'Next 2–4 weeks',
+  '1–2 months',
+  'Flexible / Exploring possibilities',
+];
+
+const budgets = [
+  'Essential scope (₹15,000 – ₹40,000)',
+  'Expanded brand & build (₹40,000 – ₹1,00,000)',
+  'Bespoke systems & experiments (₹1,00,000+)',
+];
 ---
 
 <BaseLayout
-  title="Start a Project & Inquiries"
-  description="Inquire about a new project with Algoryxz. Reach out directly to the founders to discuss Celebrations, Business & Brand, or Custom Systems."
+  title="Contact — Tell Us The Thing You Want To Make"
+  description="Direct inquiry with the founders of Algoryxz. Tell us what you want to make; we reply directly within 24 to 48 hours."
 >
-  <section class="section">
-    <div class="container">
-      <header class="page-header">
-        <span class="section-eyebrow">Direct Contact</span>
-        <h1 class="page-title">Start a Project</h1>
-        <p class="page-lead">
-          Every inquiry is reviewed directly by our founders. Tell us what you want to build, and we'll reply within 24–48 hours with a clear scope assessment.
+  <div class="experience contact-page" data-material="initial">
+    <!-- AMBIENT MATERIAL BACKDROP -->
+    <div class="material-halo" aria-hidden="true"></div>
+
+    <div class="contact-container">
+      <!-- HERO -->
+      <header class="contact-hero">
+        <p class="eyebrow">DIRECT INQUIRY // NO MIDDLEMEN</p>
+        <h1 class="editorial-title">TELL US<br />THE THING<br />YOU WANT<br /><span>TO MAKE.</span></h1>
+        <p class="contact-hero-note">
+          Every note comes directly to Smarak, Deeptiman, and Akriti. No CRM ticketing queue. No sales reps. Tell us what you have in mind and we will review scope and feasibility within 24–48 hours.
         </p>
       </header>
 
-      <div class="contact-layout">
-        <!-- FORM COLUMN -->
-        <div class="form-card">
-          <form id="contact-form" class="inquiry-form" method="POST" action="/contact">
-            <div class="form-group">
-              <label for="name" class="form-label">Your Name <span class="req">*</span></label>
-              <input type="text" id="name" name="name" required class="form-input" placeholder="e.g. Priya Sharma" />
-            </div>
+      <!-- CONVERSATIONAL FORM -->
+      <form id="invitation-form" class="invitation-form" method="POST" action="/contact">
+        <!-- PRIMARY CONVERSATIONAL ENTRY -->
+        <div class="field-primary">
+          <label for="idea-input" class="conversational-label">I WANT TO MAKE...</label>
+          <textarea
+            id="idea-input"
+            name="idea"
+            rows="3"
+            class="editorial-textarea"
+            placeholder="A living memory for a wedding in December... A quiet digital home for our bakery... A tool that doesn't exist yet..."
+            required
+          ></textarea>
+          <div class="prompt-hint" id="prompt-hint">
+            <span>Type your idea to open details</span>
+            <span class="prompt-arrow">↓</span>
+          </div>
+        </div>
 
-            <div class="form-group">
-              <label for="email" class="form-label">Email Address <span class="req">*</span></label>
-              <input type="email" id="email" name="email" required class="form-input" placeholder="priya@example.com" />
+        <!-- PROGRESSIVELY REVEALED SECONDARY FIELDS -->
+        <div class="progressive-fields" id="progressive-fields">
+          <!-- WHO IS IT FOR? (SERVICES MATERIAL SWITCH) -->
+          <fieldset class="form-section">
+            <legend class="eyebrow">01 // WHO IS THIS FOR?</legend>
+            <div class="category-toggle-group" role="radiogroup" aria-label="Project Type">
+              {categories.map(cat => (
+                <button
+                  type="button"
+                  class="category-chip"
+                  data-category={cat.id}
+                  role="radio"
+                  aria-checked="false"
+                >
+                  <span class="chip-title">{cat.label}</span>
+                  <span class="chip-sub">{cat.sub}</span>
+                </button>
+              ))}
             </div>
+            <input type="hidden" id="selected-category" name="category" value="" />
+          </fieldset>
 
-            <div class="form-group">
-              <label for="phone" class="form-label">WhatsApp / Phone Number</label>
-              <input type="tel" id="phone" name="phone" class="form-input" placeholder="+91 98765 43210" />
-            </div>
-
-            <div class="form-group">
-              <label for="category" class="form-label">Project Type <span class="req">*</span></label>
-              <select id="category" name="category" required class="form-select">
-                <option value="" disabled selected>Select an operational lane</option>
-                <option value="celebrations">Celebrations (Wedding, Occasion, Proposal)</option>
-                <option value="business">Business & Brand (Café, Salon, Storefront, Creator)</option>
-                <option value="custom">Custom System (Booking App, Database, Portal)</option>
-                <option value="other">Other Inquiry / Consultation</option>
-              </select>
-            </div>
-
-            <div class="form-group">
-              <label for="budget" class="form-label">Target Budget Band</label>
-              <select id="budget" name="budget" class="form-select">
-                <option value="" disabled selected>Select estimated budget</option>
-                <option value="tier1">₹2,500 – ₹7,500 (Essential Occasions)</option>
-                <option value="tier2">₹8,000 – ₹18,000 (Weddings / Standard Business)</option>
-                <option value="tier3">₹18,000 – ₹45,000 (Expanded Brand / Storefront)</option>
-                <option value="tier4">₹50,000+ (Custom Systems / Dashboards)</option>
-              </select>
-            </div>
-
-            <div class="form-group">
-              <label for="message" class="form-label">Project Details <span class="req">*</span></label>
-              <textarea
-                id="message"
-                name="message"
+          <!-- FOUNDER CONTACT DETAILS -->
+          <div class="form-section details-grid">
+            <div class="field-block">
+              <label for="name-input" class="eyebrow">02 // YOUR NAME <span class="req">*</span></label>
+              <input
+                type="text"
+                id="name-input"
+                name="name"
+                class="editorial-input"
+                placeholder="e.g. Maya Roy"
                 required
-                rows="5"
-                class="form-textarea"
-                placeholder="Tell us about the project goals, dates, key features, and any inspiration links..."
-              ></textarea>
+              />
             </div>
-
-            <div class="form-submit-row">
-              <button type="submit" class="btn btn-primary form-submit-btn">
-                Send Project Inquiry &rarr;
-              </button>
+            <div class="field-block">
+              <label for="email-input" class="eyebrow">03 // WHERE CAN WE REACH YOU? <span class="req">*</span></label>
+              <input
+                type="email"
+                id="email-input"
+                name="email"
+                class="editorial-input"
+                placeholder="e.g. maya@example.com"
+                required
+              />
             </div>
+          </div>
 
-            <p class="form-disclaimer">
-              [DEVELOPMENT_NOTE: Wave 0 form shell. Backend integration via Cloudflare Worker & Resend scheduled for Wave 2.]
+          <!-- TIMELINE & INVESTMENT ESTIMATES -->
+          <div class="form-section details-grid">
+            <div class="field-block">
+              <label for="timeline-select" class="eyebrow">04 // APPROXIMATE TIMELINE</label>
+              <div class="select-wrapper">
+                <select id="timeline-select" name="timeline" class="editorial-select">
+                  <option value="" disabled selected>Select an approximate window</option>
+                  {timelines.map(t => (
+                    <option value={t}>{t}</option>
+                  ))}
+                </select>
+                <span class="select-caret" aria-hidden="true">↓</span>
+              </div>
+            </div>
+            <div class="field-block">
+              <label for="budget-select" class="eyebrow">05 // ESTIMATED INVESTMENT</label>
+              <div class="select-wrapper">
+                <select id="budget-select" name="budget" class="editorial-select">
+                  <option value="" disabled selected>Select an investment band</option>
+                  {budgets.map(b => (
+                    <option value={b}>{b}</option>
+                  ))}
+                </select>
+                <span class="select-caret" aria-hidden="true">↓</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- ACTION ROW -->
+          <div class="form-action-row">
+            <button type="submit" class="metal-link send-btn" id="submit-btn">
+              SEND THE IDEA <span>→</span>
+            </button>
+            <p class="action-assurance">
+              Sent directly to the three founders. No automated sales funnel.
             </p>
-          </form>
-        </div>
-
-        <!-- DIRECT DETAILS COLUMN -->
-        <div class="direct-info-col">
-          <div class="info-card">
-            <h3>Studio Direct</h3>
-            <p class="info-desc">For quick questions or warm introductions, connect directly:</p>
-            <div class="info-list">
-              <div class="info-item">
-                <span class="info-key">Location</span>
-                <span class="info-val">Bhubaneswar, Odisha, India</span>
-              </div>
-              <div class="info-item">
-                <span class="info-key">General Inquiries</span>
-                <span class="info-val">hello@algoryxz.com</span>
-              </div>
-              <div class="info-item">
-                <span class="info-key">Direct Channel</span>
-                <span class="info-val">[WHATSAPP_LINK_PENDING]</span>
-              </div>
-            </div>
-          </div>
-
-          <div class="info-card rules-card">
-            <h3>What Happens Next?</h3>
-            <ol class="next-list">
-              <li><strong>Review:</strong> We evaluate your requirements against our 8-axis scoping engine.</li>
-              <li><strong>Discovery Call:</strong> 20-minute call with Smarak or Deeptiman to align on deliverables.</li>
-              <li><strong>Fixed SOW:</strong> Transparent quote with 2-revision standard. Work starts upon deposit.</li>
-            </ol>
           </div>
         </div>
+      </form>
+
+      <!-- SUBMISSION CONFIRMATION MESSAGE (ACCESSIBLE) -->
+      <div id="form-success-note" class="form-success-note" hidden aria-live="polite">
+        <p class="eyebrow">IDEA RECEIVED</p>
+        <h2>We have your note.</h2>
+        <p>Smarak, Deeptiman, or Akriti will review it and reply within 24–48 hours.</p>
+        <a href="/" class="text-link">RETURN TO STUDIO <span>↗</span></a>
       </div>
+
+      <!-- DIRECT COLOPHON FOOTER -->
+      <footer class="contact-colophon">
+        <div class="colophon-item">
+          <span class="eyebrow">STUDIO ADDRESS</span>
+          <p>Bhubaneswar, Odisha, India<br />Distributed across the internet</p>
+        </div>
+        <div class="colophon-item">
+          <span class="eyebrow">DIRECT INQUIRY</span>
+          <a href="mailto:hello@algoryxz.com" class="direct-email">HELLO@ALGORYXZ.COM</a>
+        </div>
+        <div class="colophon-item">
+          <span class="eyebrow">FOUNDER COMMITMENT</span>
+          <p>Zero middle layer · Fixed scopes · 100% domain ownership</p>
+        </div>
+      </footer>
     </div>
-  </section>
+  </div>
 </BaseLayout>
 
+<script>
+  function initContactPage() {
+    const page = document.querySelector<HTMLElement>('.contact-page');
+    const form = document.querySelector<HTMLFormElement>('#invitation-form');
+    const ideaInput = document.querySelector<HTMLTextAreaElement>('#idea-input');
+    const hint = document.querySelector<HTMLElement>('#prompt-hint');
+    const progressiveFields = document.querySelector<HTMLElement>('#progressive-fields');
+    const catButtons = document.querySelectorAll<HTMLButtonElement>('.category-chip');
+    const categoryHidden = document.querySelector<HTMLInputElement>('#selected-category');
+    const successNote = document.querySelector<HTMLElement>('#form-success-note');
+
+    if (!page || !form || !ideaInput || !progressiveFields) return;
+
+    let engaged = false;
+
+    function engageForm() {
+      if (engaged) return;
+      engaged = true;
+      form!.dataset.engaged = 'true';
+      if (hint) hint.style.opacity = '0';
+    }
+
+    ideaInput.addEventListener('focus', engageForm);
+    ideaInput.addEventListener('input', () => {
+      engageForm();
+      // Auto-expand textarea height slightly with content
+      ideaInput.style.height = 'auto';
+      ideaInput.style.height = `${Math.min(300, Math.max(90, ideaInput.scrollHeight))}px`;
+    });
+
+    // Category button handling & ambient atmosphere switching
+    catButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const cat = btn.dataset.category!;
+        const isSelected = btn.getAttribute('aria-checked') === 'true';
+
+        catButtons.forEach(b => {
+          b.setAttribute('aria-checked', 'false');
+          b.classList.remove('is-selected');
+        });
+
+        if (!isSelected) {
+          btn.setAttribute('aria-checked', 'true');
+          btn.classList.add('is-selected');
+          if (categoryHidden) categoryHidden.value = cat;
+          page.dataset.material = cat;
+        } else {
+          if (categoryHidden) categoryHidden.value = '';
+          page.dataset.material = 'initial';
+        }
+      });
+    });
+
+    // Parse URL parameter e.g. /contact?type=someone or #someone
+    const params = new URLSearchParams(window.location.search);
+    const initialType = params.get('type') || window.location.hash.slice(1);
+    if (initialType) {
+      const match = Array.from(catButtons).find(b => b.dataset.category === initialType);
+      if (match) {
+        engageForm();
+        match.click();
+      }
+    }
+
+    // Form submission simulation (client-side graceful UX)
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      form.style.display = 'none';
+      if (successNote) successNote.hidden = false;
+      window.scrollTo({ top: successNote!.offsetTop - 80, behavior: 'smooth' });
+    });
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initContactPage);
+  } else {
+    initContactPage();
+  }
+</script>
+
 <style>
-  .page-header {
-    margin-bottom: var(--space-16);
-    max-width: 800px;
+  .contact-page {
+    position: relative;
+    min-height: 100svh;
+    overflow-x: clip;
+    transition: background-color 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
   }
 
-  .section-eyebrow {
+  /* AMBIENT MATERIAL ATMOSPHERE */
+  .material-halo {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    transition: opacity 0.8s, background 0.8s;
+    opacity: 0.5;
+    background: radial-gradient(ellipse at 80% 20%, #3a2b1f35, transparent 60%);
+    z-index: 0;
+  }
+
+  .contact-page[data-material="someone"] {
+    background-color: #17120e;
+  }
+  .contact-page[data-material="someone"] .material-halo {
+    background: radial-gradient(ellipse at 70% 30%, #4b362855, transparent 65%);
+    opacity: 0.8;
+  }
+
+  .contact-page[data-material="business"] {
+    background-color: #121611;
+  }
+  .contact-page[data-material="business"] .material-halo {
+    background: radial-gradient(ellipse at 70% 30%, #303e2840, transparent 65%);
+    opacity: 0.8;
+  }
+
+  .contact-page[data-material="stranger"] {
+    background-color: #11110f;
+  }
+  .contact-page[data-material="stranger"] .material-halo {
+    background: radial-gradient(ellipse at 70% 30%, #29282345, transparent 65%);
+    opacity: 0.8;
+  }
+
+  .contact-container {
+    position: relative;
+    z-index: 2;
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 70px 4vw 90px;
+  }
+
+  /* HERO */
+  .contact-hero {
+    margin-bottom: 60px;
+  }
+
+  .contact-hero .eyebrow {
+    margin-bottom: 28px;
+  }
+
+  .contact-hero h1 {
+    font-size: clamp(52px, 8vw, 130px);
+    font-weight: 500;
+    line-height: 0.92;
+    letter-spacing: -0.065em;
+    margin-bottom: 28px;
+  }
+
+  .contact-hero h1 span {
+    color: var(--studio-ember);
+  }
+
+  .contact-hero-note {
+    font-size: 15px;
+    line-height: 1.65;
+    color: var(--studio-muted);
+    max-width: 620px;
+  }
+
+  /* PRIMARY CONVERSATIONAL FIELD */
+  .field-primary {
+    position: relative;
+    margin-bottom: 50px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid var(--studio-rule);
+  }
+
+  .conversational-label {
     display: block;
-    font-size: var(--font-size-xs);
-    font-family: var(--font-family-mono);
-    color: var(--color-accent-primary);
+    font: 11px var(--font-family-mono);
+    letter-spacing: 0.15em;
     text-transform: uppercase;
+    color: var(--studio-ember);
+    margin-bottom: 18px;
+  }
+
+  .editorial-textarea {
+    width: 100%;
+    background: transparent;
+    border: none;
+    outline: none;
+    color: var(--studio-paper);
+    font-family: Georgia, serif;
+    font-size: clamp(24px, 3.4vw, 48px);
+    line-height: 1.25;
+    letter-spacing: -0.03em;
+    resize: none;
+    min-height: 90px;
+    padding: 0;
+  }
+
+  .editorial-textarea::placeholder {
+    color: #4a453e;
+    font-style: italic;
+  }
+
+  .prompt-hint {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 14px;
+    font: 10px var(--font-family-mono);
     letter-spacing: 0.1em;
-    margin-bottom: var(--space-2);
+    color: #7a7266;
+    transition: opacity 0.3s;
   }
 
-  .page-title {
-    margin-bottom: var(--space-4);
+  .prompt-arrow {
+    color: var(--studio-ember);
   }
 
-  .page-lead {
-    font-size: var(--font-size-lg);
-    color: var(--color-text-secondary);
+  /* PROGRESSIVE FIELDS ACCORDION */
+  .progressive-fields {
+    display: none;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
   }
 
-  .contact-layout {
+  .invitation-form[data-engaged="true"] .progressive-fields {
+    display: block;
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .form-section {
+    border: none;
+    padding: 0;
+    margin: 0 0 50px;
+  }
+
+  .form-section legend {
+    margin-bottom: 20px;
+    padding: 0;
+  }
+
+  /* CATEGORY CHIPS (INHERITING SERVICES MATERIAL TONE) */
+  .category-toggle-group {
     display: grid;
-    grid-template-columns: 1fr;
-    gap: var(--space-12);
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
   }
 
-  .form-card {
-    background-color: var(--color-bg-surface);
-    border: 1px solid var(--color-border-hairline);
-    border-radius: var(--radius-sm);
-    padding: var(--space-8);
-  }
-
-  .inquiry-form {
+  .category-chip {
+    text-align: left;
+    background: #151513;
+    border: 1px solid #ffffff12;
+    padding: 20px 18px;
+    cursor: pointer;
+    transition: border-color 0.25s, background-color 0.25s, color 0.25s;
+    color: var(--studio-paper);
+    min-height: 95px;
     display: flex;
     flex-direction: column;
-    gap: var(--space-6);
+    justify-content: space-between;
   }
 
-  .form-group {
+  .category-chip:hover {
+    border-color: #c7805560;
+  }
+
+  .category-chip.is-selected {
+    background: #211e1a;
+    border-color: var(--studio-ember);
+  }
+
+  .chip-title {
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    display: block;
+  }
+
+  .chip-sub {
+    font-size: 10px;
+    color: var(--studio-muted);
+    line-height: 1.4;
+    display: block;
+  }
+
+  /* EDITORIAL DETAILS GRID */
+  .details-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+  }
+
+  .field-block {
     display: flex;
     flex-direction: column;
-    gap: var(--space-2);
+    gap: 12px;
   }
 
-  .form-label {
-    font-size: var(--font-size-sm);
-    font-weight: var(--font-weight-medium);
-    color: var(--color-text-primary);
+  .editorial-input {
+    width: 100%;
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid var(--studio-rule);
+    color: var(--studio-paper);
+    font-size: 18px;
+    padding: 10px 0;
+    outline: none;
+    transition: border-color 0.2s;
+  }
+
+  .editorial-input:focus {
+    border-bottom-color: var(--studio-ember);
+  }
+
+  .select-wrapper {
+    position: relative;
+    border-bottom: 1px solid var(--studio-rule);
+  }
+
+  .editorial-select {
+    width: 100%;
+    background: transparent;
+    border: none;
+    color: var(--studio-paper);
+    font-size: 14px;
+    padding: 12px 24px 12px 0;
+    outline: none;
+    appearance: none;
+    cursor: pointer;
+  }
+
+  .editorial-select option {
+    background: #191816;
+    color: var(--studio-paper);
+  }
+
+  .select-caret {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    pointer-events: none;
+    font-size: 11px;
+    color: var(--studio-muted);
   }
 
   .req {
-    color: var(--color-accent-secondary);
+    color: var(--studio-ember);
   }
 
-  .form-input,
-  .form-select,
-  .form-textarea {
-    background-color: var(--color-bg-canvas);
-    border: 1px solid var(--color-border-subtle);
-    border-radius: var(--radius-sm);
-    padding: var(--space-3) var(--space-4);
-    color: var(--color-text-primary);
-    font-size: var(--font-size-base);
-    min-height: 44px;
-    transition: var(--transition-interactive);
-  }
-
-  .form-input:focus,
-  .form-select:focus,
-  .form-textarea:focus {
-    border-color: var(--color-focus-ring);
-  }
-
-  .form-submit-btn {
-    width: 100%;
-  }
-
-  .form-disclaimer {
-    font-family: var(--font-family-mono);
-    font-size: var(--font-size-xs);
-    color: var(--color-text-muted);
-    line-height: var(--line-height-normal);
-  }
-
-  .direct-info-col {
+  /* ACTION ROW */
+  .form-action-row {
     display: flex;
-    flex-direction: column;
-    gap: var(--space-6);
+    align-items: center;
+    gap: 30px;
+    margin-top: 60px;
+    padding-top: 30px;
+    border-top: 1px solid var(--studio-rule);
   }
 
-  .info-card {
-    background-color: var(--color-bg-surface);
-    border: 1px solid var(--color-border-hairline);
-    border-radius: var(--radius-sm);
-    padding: var(--space-6);
+  .send-btn {
+    cursor: pointer;
   }
 
-  .info-card h3 {
-    font-size: var(--font-size-lg);
-    margin-bottom: var(--space-3);
+  .action-assurance {
+    font: 10px var(--font-family-mono);
+    color: var(--studio-muted);
+    letter-spacing: 0.05em;
   }
 
-  .info-desc {
-    font-size: var(--font-size-sm);
-    color: var(--color-text-secondary);
-    margin-bottom: var(--space-4);
+  /* SUCCESS NOTE */
+  .form-success-note {
+    padding: 60px 40px;
+    background: #171613;
+    border: 1px solid var(--studio-ember);
+    margin: 40px 0;
   }
 
-  .info-list {
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-3);
+  .form-success-note h2 {
+    font-size: clamp(36px, 5vw, 64px);
+    margin: 16px 0;
+    font-weight: 500;
   }
 
-  .info-item {
-    display: flex;
-    flex-direction: column;
-    gap: 2px;
+  .form-success-note p {
+    color: var(--studio-muted);
+    margin-bottom: 24px;
   }
 
-  .info-key {
-    font-size: var(--font-size-xs);
-    font-family: var(--font-family-mono);
-    color: var(--color-text-muted);
-    text-transform: uppercase;
+  /* COLOPHON */
+  .contact-colophon {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    margin-top: 120px;
+    padding-top: 40px;
+    border-top: 1px solid var(--studio-rule);
   }
 
-  .info-val {
-    font-size: var(--font-size-sm);
-    color: var(--color-text-primary);
+  .colophon-item p {
+    font-size: 13px;
+    color: var(--studio-muted);
+    line-height: 1.6;
+    margin-top: 10px;
   }
 
-  .next-list {
-    padding-left: var(--space-5);
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-3);
-    font-size: var(--font-size-sm);
-    color: var(--color-text-secondary);
+  .direct-email {
+    display: block;
+    font-size: 13px;
+    letter-spacing: 0.08em;
+    color: var(--studio-paper);
+    margin-top: 10px;
   }
 
-  .next-list li strong {
-    color: var(--color-text-primary);
+  .direct-email:hover {
+    color: var(--studio-ember);
   }
 
-  @media (min-width: 768px) {
-    .contact-layout {
-      grid-template-columns: 1.5fr 1fr;
-      gap: var(--space-12);
+  /* RESPONSIVE */
+  @media (max-width: 900px) {
+    .category-toggle-group {
+      grid-template-columns: 1fr;
     }
 
-    .form-submit-btn {
-      width: auto;
+    .details-grid {
+      grid-template-columns: 1fr;
+      gap: 24px;
+    }
+
+    .contact-colophon {
+      grid-template-columns: 1fr;
+      gap: 30px;
+      margin-top: 80px;
+    }
+
+    .form-action-row {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 20px;
+    }
+  }
+
+  @media (max-width: 600px) {
+    .contact-container {
+      padding: 40px 20px 60px;
+    }
+
+    .editorial-textarea {
+      font-size: 24px;
+    }
+
+    .send-btn {
+      width: 100%;
+      justify-content: center;
+    }
+  }
+
+  /* REDUCED MOTION */
+  @media (prefers-reduced-motion: reduce) {
+    .progressive-fields {
+      display: block !important;
+      opacity: 1 !important;
+      transform: none !important;
+    }
+
+    .prompt-hint {
+      display: none;
     }
   }
 </style>

@@ -1,239 +1,842 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import '../styles/experience.css';
+
+const stages = [
+  {
+    num: '01',
+    id: 'discover',
+    name: 'DISCOVER',
+    thesis: 'Find the thing worth making.',
+    desc: 'Scope, constraints, and intent. We peel back everything unnecessary until only the indispensable problem remains.',
+    deliverable: 'Statement of work · Fixed scope · Clear boundary',
+    stateLabel: 'STATE: UNRESOLVED / LOOSE TENSION',
+  },
+  {
+    num: '02',
+    id: 'design',
+    name: 'DESIGN',
+    thesis: 'Give it shape, rhythm, and tension.',
+    desc: 'Typography hierarchies, material weight, and interaction choreography. Tested in interactive prototypes before application code begins.',
+    deliverable: 'Interactive prototype · Visual language · Founder sign-off',
+    stateLabel: 'STATE: ALIGNMENT / AXIS LOCKED',
+  },
+  {
+    num: '03',
+    id: 'build',
+    name: 'BUILD',
+    thesis: 'Construct the real thing.',
+    desc: 'Static-first architecture deployed at the edge. High-framerate CSS and WebGL, zero unnecessary runtime bloat, and sub-millisecond loads.',
+    deliverable: 'Edge-native build · Batched feedback standard · Zero SaaS bloat',
+    stateLabel: 'STATE: SOLID CHASSIS / BEVEL LOCK',
+  },
+  {
+    num: '04',
+    id: 'launch',
+    name: 'LAUNCH',
+    thesis: 'Put it into the world.',
+    desc: 'Real-device audits on physical iOS and Android phones. Custom domain cutover, automated SSL, and encrypted credential transfer.',
+    deliverable: 'Physical hardware sign-off · 100% domain ownership · Clean handover',
+    stateLabel: 'STATE: APERTURE OPEN / ACTIVE SYSTEM',
+  },
+  {
+    num: '05',
+    id: 'grow',
+    name: 'GROW',
+    thesis: 'What comes after the opening.',
+    desc: 'A digital place is a living archive, not a static monument. It holds new memories, absorbs new chapters, and evolves with your business.',
+    deliverable: 'Living archive · 30-day bug warranty · Direct founder line',
+    stateLabel: 'STATE: EXTENDED BOUNDARY / UNBOUNDED',
+  },
+];
+
+const principles = [
+  {
+    title: 'NO HOSTAGE ASSETS',
+    desc: 'You own 100% of your domain, code, repository, and design files outright. We hand over encrypted keys via Bitwarden Send. Zero lock-in, forever.',
+  },
+  {
+    title: 'DIRECT FOUNDER GATES',
+    desc: 'No account executive relay chains. Smarak architects the system, Deeptiman directs the design, and Akriti audits physical delivery.',
+  },
+  {
+    title: 'THE 2-REVISION STANDARD',
+    desc: 'Batched, deeply considered feedback rounds that protect momentum and ensure every iteration is decisive rather than chaotic.',
+  },
+  {
+    title: 'PHYSICAL HARDWARE QA',
+    desc: 'Every project is tested on physical smartphones under direct sunlight, varied screen sizes, and slow 4G network conditions.',
+  },
+  {
+    title: '30-DAY BUG GUARANTEE',
+    desc: 'Free bug remediation for 30 days after launch. If anything falls short of the agreed specification, we fix it immediately.',
+  },
+];
 ---
 
 <BaseLayout
-  title="Our Process & Methodology"
-  description="How Algoryxz delivers agency-grade digital experiences in days with clear boundaries, fixed scopes, and zero hostage assets."
+  title="Process — Continuous Transformation"
+  description="How Algoryxz works. Five stages of physical and digital transformation from first intent to living internet."
 >
-  <section class="section">
-    <div class="container">
-      <header class="page-header">
-        <span class="section-eyebrow">Methodology & Rigor</span>
-        <h1 class="page-title">How We Work</h1>
-        <p class="page-lead">
-          We combine internal AI agent acceleration with strict human founder gates. Transparent stages, fixed scope, and zero ambiguity.
-        </p>
-      </header>
+  <div class="experience process-page">
+    <!-- HERO -->
+    <header class="process-hero">
+      <p class="eyebrow">PROCESS / CONTINUOUS TRANSFORMATION</p>
+      <h1 class="editorial-title">ONE THING<br />BECOMES<br /><span>ANOTHER.</span></h1>
+      <div class="hero-foot">
+        <p>A single unbroken line from first instinct<br />to living internet. No handoff silos.</p>
+        <a href="#transform-room" class="text-link">SCROLL TO TRANSFORM <span>↓</span></a>
+      </div>
+    </header>
 
-      <div class="process-steps-vertical">
-        <!-- STAGE 1 -->
-        <div class="stage-item">
-          <div class="stage-marker">01</div>
-          <div class="stage-content">
-            <span class="stage-owner">Akriti & Client Owner</span>
-            <h2 class="stage-title">Qualification, Discovery & SOW</h2>
-            <p class="stage-desc">
-              We define the exact business problem, score the project complexity, and deliver a fixed-scope Statement of Work (SOW). No hidden fees, no open-ended billing.
-            </p>
-            <div class="stage-rules">
-              <span class="rule-tag">Exit Condition: Deposit cleared in studio account</span>
-              <span class="rule-tag">Scope locked to 2 revision rounds</span>
+    <!-- CONTINUOUS TRANSFORMATION ROOM -->
+    <section id="transform-room" class="transform-track" aria-label="Five stages of continuous transformation">
+      <div class="transform-stage">
+        <!-- BACKGROUND GRID & CALIPER MARKS -->
+        <div class="stage-measure" aria-hidden="true">
+          <div class="measure-axis"></div>
+          <span class="measure-tag top-tag">ALGORYXZ // TRANSFORMATION_ENGINE</span>
+          <span class="measure-tag bottom-tag" id="chassis-state">STATE: UNRESOLVED / LOOSE TENSION</span>
+        </div>
+
+        <!-- THE UNIFYING VISUAL ENTITY (TRANSFORMS VIA PROGRESS) -->
+        <div class="transform-entity-wrap" aria-hidden="true">
+          <div class="transform-entity" id="process-entity">
+            <!-- 5 ARTICULATED PLATES & TENSION CORDS -->
+            <div class="entity-plate plate-1" data-plate="1">
+              <div class="plate-face"></div>
+              <div class="plate-bevel"></div>
+              <span class="plate-id">01 / DISC</span>
             </div>
+            <div class="entity-plate plate-2" data-plate="2">
+              <div class="plate-face"></div>
+              <div class="plate-bevel"></div>
+              <span class="plate-id">02 / DSGN</span>
+            </div>
+            <div class="entity-plate plate-3" data-plate="3">
+              <div class="plate-face"></div>
+              <div class="plate-bevel"></div>
+              <span class="plate-id">03 / BLD</span>
+            </div>
+            <div class="entity-plate plate-4" data-plate="4">
+              <div class="plate-face"></div>
+              <div class="plate-bevel"></div>
+              <span class="plate-id">04 / LNCH</span>
+            </div>
+            <div class="entity-plate plate-5" data-plate="5">
+              <div class="plate-face"></div>
+              <div class="plate-bevel"></div>
+              <span class="plate-id">05 / GROW</span>
+            </div>
+
+            <!-- CENTRAL TENSION CORE & EXPANDING RAILS -->
+            <div class="entity-core" id="entity-core"></div>
+            <div class="entity-rails" id="entity-rails"></div>
           </div>
         </div>
 
-        <!-- STAGE 2 -->
-        <div class="stage-item">
-          <div class="stage-marker">02</div>
-          <div class="stage-content">
-            <span class="stage-owner">Deeptiman (Design Sign-off Gate)</span>
-            <h2 class="stage-title">Art Direction & Design Gate</h2>
-            <p class="stage-desc">
-              Deeptiman shapes the visual identity, typography system, component states, and motion choreography. We present an interactive layout preview for your approval.
-            </p>
-            <div class="stage-rules">
-              <span class="rule-tag">Exit Condition: Deeptiman sign-off + Client milestone approval</span>
-              <span class="rule-tag">Zero code starts until design is locked</span>
-            </div>
-          </div>
+        <!-- STAGE TYPOGRAPHY DISPLAY (SYNCHRONIZED WITH PROGRESS) -->
+        <div class="transform-copy-column" aria-live="polite">
+          {stages.map((stage, idx) => (
+            <article class="stage-card" data-stage-index={idx} id={`process-stage-${stage.id}`}>
+              <div class="stage-top">
+                <span class="stage-num">{stage.num}</span>
+                <span class="eyebrow">{stage.name}</span>
+              </div>
+              <h2 class="stage-thesis">{stage.thesis}</h2>
+              <p class="stage-desc">{stage.desc}</p>
+              <div class="stage-footer">
+                <span class="stage-deliverable">{stage.deliverable}</span>
+              </div>
+            </article>
+          ))}
         </div>
 
-        <!-- STAGE 3 -->
-        <div class="stage-item">
-          <div class="stage-marker">03</div>
-          <div class="stage-content">
-            <span class="stage-owner">Smarak (Engineering Architecture)</span>
-            <h2 class="stage-title">Edge Build & 2-Revision Standard</h2>
-            <p class="stage-desc">
-              We construct the application using static-first architecture on Cloudflare Pages. Interactive preview URLs let you inspect live builds on real staging URLs.
-            </p>
-            <div class="stage-rules">
-              <span class="rule-tag">The 2-Revision Standard: Batched feedback only</span>
-              <span class="rule-tag">Free 30-day bug fix guarantee</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- STAGE 4 -->
-        <div class="stage-item">
-          <div class="stage-marker">04</div>
-          <div class="stage-content">
-            <span class="stage-owner">Akriti (Physical Device QA Gate)</span>
-            <h2 class="stage-title">Real-Device Mobile QA</h2>
-            <p class="stage-desc">
-              Synthetic desktop browser resize is not enough. Akriti runs our comprehensive QA checklist on physical Android and iOS devices, testing touch targets, keyboard insets, and slow 4G network performance.
-            </p>
-            <div class="stage-rules">
-              <span class="rule-tag">Exit Condition: Physical device sign-off</span>
-              <span class="rule-tag">Zero critical bugs or layout breaks</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- STAGE 5 -->
-        <div class="stage-item">
-          <div class="stage-marker">05</div>
-          <div class="stage-content">
-            <span class="stage-owner">Smarak & Client Owner</span>
-            <h2 class="stage-title">Final Balance, DNS Cutover & Handover</h2>
-            <p class="stage-desc">
-              Once staging is approved and final balance clears, we cut over DNS to your custom domain with automated SSL. We deliver an encrypted handover packet via Bitwarden Send.
-            </p>
-            <div class="stage-rules">
-              <span class="rule-tag">Client is always the 100% legal domain registrant</span>
-              <span class="rule-tag">Zero assets held hostage</span>
-            </div>
-          </div>
+        <!-- NAVIGATION CHIP / PROGRESS BAR -->
+        <div class="stage-indicator" aria-hidden="true">
+          <div class="indicator-bar"><div class="indicator-fill" id="process-progress-fill"></div></div>
+          <span class="indicator-label" id="process-progress-label">01 / 05</span>
         </div>
       </div>
+    </section>
 
-      <div class="guarantees-grid">
-        <div class="guarantee-box">
-          <h3>The 2-Revision Rule</h3>
-          <p>
-            Every fixed-price project includes two consolidated revision rounds submitted in batched lists. This keeps velocity high and eliminates endless micro-tweaks.
-          </p>
-        </div>
-        <div class="guarantee-box">
-          <h3>Asset Independence</h3>
-          <p>
-            You own your code, your domain, and your media. If you ever leave our Care plan, we hand over all source code and DNS records unconditionally within 5 business days.
-          </p>
-        </div>
+    <!-- STATIC EDITORIAL PROGRESSION FOR NO-JS & REDUCED MOTION -->
+    <noscript>
+      <section class="process-static-list">
+        {stages.map(stage => (
+          <div class="static-stage-item">
+            <span class="eyebrow">{stage.num} — {stage.name}</span>
+            <h3>{stage.thesis}</h3>
+            <p>{stage.desc}</p>
+            <small>{stage.deliverable}</small>
+          </div>
+        ))}
+      </section>
+    </noscript>
+
+    <!-- THE FOUNDER PRINCIPLES -->
+    <section class="process-principles" aria-labelledby="principles-title">
+      <div class="principles-header">
+        <p class="eyebrow">STANDARDS & TERMS</p>
+        <h2 id="principles-title" class="principles-heading">How we protect<br />the work.</h2>
+        <p class="principles-lead">Direct founder accountability. Fixed boundaries. Zero hostage assets.</p>
       </div>
-    </div>
-  </section>
+
+      <div class="principles-grid">
+        {principles.map((p, i) => (
+          <div class="principle-item">
+            <span class="eyebrow">0{i + 1}</span>
+            <h3>{p.title}</h3>
+            <p>{p.desc}</p>
+          </div>
+        ))}
+      </div>
+
+      <div class="process-cta-banner">
+        <div>
+          <p class="eyebrow">READY TO BEGIN?</p>
+          <p class="cta-phrase">Every project starts with an opening.</p>
+        </div>
+        <a href="/contact" class="metal-link">TALK DIRECTLY TO US <span>↗</span></a>
+      </div>
+    </section>
+  </div>
 </BaseLayout>
 
+<script>
+  function initProcessTransform() {
+    const track = document.querySelector<HTMLElement>('.transform-track');
+    const stage = document.querySelector<HTMLElement>('.transform-stage');
+    const entity = document.querySelector<HTMLElement>('#process-entity');
+    const fill = document.querySelector<HTMLElement>('#process-progress-fill');
+    const label = document.querySelector<HTMLElement>('#process-progress-label');
+    const stateTag = document.querySelector<HTMLElement>('#chassis-state');
+    const cards = Array.from(document.querySelectorAll<HTMLElement>('.stage-card'));
+    const reduced = window.matchMedia('(prefers-reduced-motion: reduce)');
+
+    if (!track || !stage || !entity || cards.length === 0) return;
+    if (reduced.matches) return;
+
+    const stateNames = [
+      'STATE: UNRESOLVED / LOOSE TENSION',
+      'STATE: ALIGNMENT / AXIS LOCKED',
+      'STATE: SOLID CHASSIS / BEVEL LOCK',
+      'STATE: APERTURE OPEN / ACTIVE SYSTEM',
+      'STATE: EXTENDED BOUNDARY / UNBOUNDED',
+    ];
+
+    let targetProgress = 0;
+    let currentProgress = 0;
+    let animFrame = 0;
+
+    const clamp = (n: number, min = 0, max = 1) => Math.max(min, Math.min(max, n));
+
+    function onScroll() {
+      const rect = track!.getBoundingClientRect();
+      const scrollable = track!.offsetHeight - stage!.offsetHeight;
+      if (scrollable <= 0) return;
+      targetProgress = clamp(-rect.top / scrollable);
+      if (!animFrame) animFrame = requestAnimationFrame(render);
+    }
+
+    function render() {
+      animFrame = 0;
+      currentProgress += (targetProgress - currentProgress) * 0.1;
+      const p = currentProgress;
+
+      // Update progress bar & label
+      if (fill) fill.style.width = `${Math.min(100, Math.max(0, p * 100))}%`;
+      const stageIdx = Math.min(4, Math.floor(p * 5));
+      if (label) label.textContent = `0${stageIdx + 1} / 05`;
+      if (stateTag) stateTag.textContent = stateNames[stageIdx];
+
+      // Physical Entity Transformation
+      entity!.style.setProperty('--transform-progress', p.toFixed(4));
+
+      // Synchronize cards opacity & positioning
+      cards.forEach((card, idx) => {
+        const center = (idx + 0.5) / 5;
+        const dist = Math.abs(p - center);
+        const cardOpacity = clamp(1 - dist * 4.2);
+        const cardTranslate = (p - center) * -50;
+        card.style.opacity = cardOpacity.toFixed(3);
+        card.style.transform = `translate3d(0, ${cardTranslate.toFixed(1)}px, 0)`;
+        card.style.visibility = cardOpacity < 0.01 ? 'hidden' : 'visible';
+        card.setAttribute('aria-hidden', cardOpacity > 0.5 ? 'false' : 'true');
+      });
+
+      if (Math.abs(targetProgress - currentProgress) > 0.001) {
+        animFrame = requestAnimationFrame(render);
+      }
+    }
+
+    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', onScroll);
+    onScroll();
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initProcessTransform);
+  } else {
+    initProcessTransform();
+  }
+</script>
+
 <style>
-  .page-header {
-    margin-bottom: var(--space-16);
-    max-width: 800px;
+  .process-page {
+    overflow-x: clip;
+    min-height: 100svh;
   }
 
-  .section-eyebrow {
-    display: block;
-    font-size: var(--font-size-xs);
-    font-family: var(--font-family-mono);
-    color: var(--color-accent-primary);
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    margin-bottom: var(--space-2);
+  /* HERO */
+  .process-hero {
+    padding: 70px 3.4vw 60px;
+    border-bottom: 1px solid var(--studio-rule);
+    position: relative;
+    background: radial-gradient(ellipse at 85% 30%, #3a2b1f35, transparent 55%), var(--studio-ink);
   }
 
-  .page-title {
-    margin-bottom: var(--space-4);
+  .process-hero .eyebrow {
+    margin-bottom: 32px;
   }
 
-  .page-lead {
-    font-size: var(--font-size-lg);
-    color: var(--color-text-secondary);
+  .process-hero h1 {
+    font-size: clamp(60px, 8.5vw, 140px);
+    font-weight: 500;
+    line-height: 0.92;
+    letter-spacing: -0.065em;
   }
 
-  .process-steps-vertical {
+  .process-hero h1 span {
+    color: var(--studio-ember);
+  }
+
+  .hero-foot {
     display: flex;
-    flex-direction: column;
-    gap: var(--space-12);
-    margin-bottom: var(--space-20);
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-top: 48px;
+    gap: 30px;
   }
 
-  .stage-item {
+  .hero-foot p {
+    font-size: 14px;
+    line-height: 1.6;
+    color: var(--studio-muted);
+  }
+
+  /* TRANSFORMATION TRACK & STAGE */
+  .transform-track {
+    position: relative;
+    height: 480vh;
+    background: #0d0d0c;
+  }
+
+  .transform-stage {
+    position: sticky;
+    top: 0;
+    height: 100svh;
+    min-height: 640px;
     display: grid;
-    grid-template-columns: 1fr;
-    gap: var(--space-4);
-    padding-bottom: var(--space-12);
-    border-bottom: 1px solid var(--color-border-hairline);
+    grid-template-columns: 1.15fr 1fr;
+    align-items: center;
+    padding: 0 4vw;
+    overflow: clip;
   }
 
-  .stage-marker {
-    font-family: var(--font-family-mono);
-    font-size: var(--font-size-3xl);
-    font-weight: var(--font-weight-bold);
-    color: var(--color-accent-primary);
+  /* STAGE MEASUREMENTS / ANNOTATIONS */
+  .stage-measure {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    border-left: 1px solid #ffffff08;
+    border-right: 1px solid #ffffff08;
   }
 
-  .stage-owner {
-    display: block;
-    font-size: var(--font-size-xs);
-    font-family: var(--font-family-mono);
-    color: var(--color-text-muted);
-    text-transform: uppercase;
-    margin-bottom: var(--space-2);
+  .measure-axis {
+    position: absolute;
+    left: 45%;
+    top: -10%;
+    bottom: -10%;
+    width: 1px;
+    background: linear-gradient(180deg, transparent, #c7805525 20%, #c7805525 80%, transparent);
+    transform: rotate(35deg);
   }
 
-  .stage-title {
-    font-size: var(--font-size-2xl);
-    margin-bottom: var(--space-3);
+  .measure-tag {
+    position: absolute;
+    font: 9px var(--font-family-mono);
+    letter-spacing: 0.12em;
+    color: #8c8375;
+  }
+
+  .top-tag {
+    top: 24px;
+    left: 4vw;
+  }
+
+  .bottom-tag {
+    bottom: 24px;
+    right: 4vw;
+  }
+
+  /* THE PHYSICAL ARTICULATED ENTITY */
+  .transform-entity-wrap {
+    position: relative;
+    width: 100%;
+    height: 75vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    perspective: 1200px;
+  }
+
+  .transform-entity {
+    position: relative;
+    width: 380px;
+    height: 380px;
+    transform-style: preserve-3d;
+    --transform-progress: 0;
+  }
+
+  /* ARTICULATED PLATES */
+  .entity-plate {
+    position: absolute;
+    border: 1px solid #c7805560;
+    background: linear-gradient(135deg, #2a2825, #191816);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+    transition: transform 0.05s linear;
+  }
+
+  .plate-face {
+    position: absolute;
+    inset: 0;
+    background: #23221f;
+  }
+
+  .plate-bevel {
+    position: absolute;
+    inset: 0;
+    border-right: 2px solid #c78055;
+    border-bottom: 2px solid #8e5434;
+    opacity: 0.85;
+  }
+
+  .plate-id {
+    position: absolute;
+    bottom: 8px;
+    left: 10px;
+    font: 8px var(--font-family-mono);
+    letter-spacing: 0.1em;
+    color: #ba714a;
+  }
+
+  /* CONTINUOUS GEOMETRIC STAGES ON THE PLATES VIA CSS MATH */
+  /* Plate 1: Upper Diagonal Rail */
+  .plate-1 {
+    width: 220px;
+    height: 52px;
+    top: 30px;
+    left: 20px;
+    transform:
+      translate3d(
+        calc((1 - var(--transform-progress) * 2.2) * -70px),
+        calc((1 - var(--transform-progress) * 2.2) * -50px),
+        calc(var(--transform-progress) * 30px)
+      )
+      rotate(calc(-35deg + var(--transform-progress) * 8deg))
+      skewX(-15deg);
+  }
+
+  /* Plate 2: Crossing Arm */
+  .plate-2 {
+    width: 190px;
+    height: 50px;
+    top: 90px;
+    right: 30px;
+    transform:
+      translate3d(
+        calc((1 - var(--transform-progress) * 2.0) * 80px),
+        calc((1 - var(--transform-progress) * 2.0) * -30px),
+        calc(var(--transform-progress) * -20px)
+      )
+      rotate(calc(35deg - var(--transform-progress) * 12deg))
+      skewY(10deg);
+  }
+
+  /* Plate 3: Central Structural Seam */
+  .plate-3 {
+    width: 260px;
+    height: 64px;
+    top: 155px;
+    left: 60px;
+    z-index: 2;
+    transform:
+      translate3d(
+        calc((0.5 - var(--transform-progress)) * 40px),
+        0,
+        calc(var(--transform-progress) * 50px)
+      )
+      rotate(-35deg);
+    border-color: #c78055;
+  }
+
+  /* Plate 4: Lower Anchor Fold */
+  .plate-4 {
+    width: 210px;
+    height: 52px;
+    bottom: 75px;
+    left: 40px;
+    transform:
+      translate3d(
+        calc((1 - var(--transform-progress) * 1.8) * -60px),
+        calc((1 - var(--transform-progress) * 1.8) * 60px),
+        0
+      )
+      rotate(calc(-35deg + var(--transform-progress) * 10deg));
+  }
+
+  /* Plate 5: Projection Rail */
+  .plate-5 {
+    width: 240px;
+    height: 50px;
+    bottom: 25px;
+    right: 20px;
+    transform:
+      translate3d(
+        calc(var(--transform-progress) * 90px),
+        calc(var(--transform-progress) * 50px),
+        calc(var(--transform-progress) * -40px)
+      )
+      rotate(calc(35deg + var(--transform-progress) * 6deg));
+  }
+
+  /* Central Core & Rails */
+  .entity-core {
+    position: absolute;
+    inset: 22%;
+    border: 1px dashed #c7805550;
+    pointer-events: none;
+    transform: rotate(calc(-35deg + var(--transform-progress) * 20deg));
+    transition: border-color 0.3s;
+  }
+
+  .entity-rails {
+    position: absolute;
+    inset: -20%;
+    border-top: 1px solid #c7805520;
+    border-bottom: 1px solid #c7805520;
+    transform: rotate(-35deg);
+    pointer-events: none;
+  }
+
+  /* STAGE TYPOGRAPHY DISPLAY COLUMN */
+  .transform-copy-column {
+    position: relative;
+    height: 480px;
+    display: flex;
+    align-items: center;
+  }
+
+  .stage-card {
+    position: absolute;
+    left: 0;
+    right: 0;
+    max-width: 520px;
+    pointer-events: none;
+    opacity: 0;
+    visibility: hidden;
+  }
+
+  .stage-top {
+    display: flex;
+    align-items: baseline;
+    gap: 16px;
+    margin-bottom: 20px;
+  }
+
+  .stage-num {
+    font-size: clamp(38px, 4.5vw, 64px);
+    font-weight: 400;
+    line-height: 1;
+    letter-spacing: -0.06em;
+    color: var(--studio-ember);
+  }
+
+  .stage-thesis {
+    font-family: Georgia, serif;
+    font-size: clamp(32px, 3.8vw, 56px);
+    font-style: italic;
+    font-weight: 400;
+    line-height: 1.05;
+    letter-spacing: -0.04em;
+    color: var(--studio-paper);
+    margin-bottom: 20px;
   }
 
   .stage-desc {
-    font-size: var(--font-size-base);
-    color: var(--color-text-secondary);
-    line-height: var(--line-height-relaxed);
-    margin-bottom: var(--space-6);
-    max-width: 720px;
+    font-size: 14px;
+    line-height: 1.65;
+    color: var(--studio-muted);
+    margin-bottom: 28px;
   }
 
-  .stage-rules {
+  .stage-footer {
+    padding-top: 18px;
+    border-top: 1px solid var(--studio-rule);
+  }
+
+  .stage-deliverable {
+    font: 10px var(--font-family-mono);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #ba714a;
+  }
+
+  /* PROGRESS INDICATOR CHIP */
+  .stage-indicator {
+    position: absolute;
+    bottom: 28px;
+    left: 4vw;
     display: flex;
-    flex-wrap: wrap;
-    gap: var(--space-3);
+    align-items: center;
+    gap: 16px;
   }
 
-  .rule-tag {
-    font-size: var(--font-size-xs);
-    font-family: var(--font-family-mono);
-    background-color: var(--color-bg-surface);
-    color: var(--color-text-secondary);
-    padding: var(--space-1) var(--space-3);
-    border-radius: var(--radius-sm);
-    border: 1px solid var(--color-border-hairline);
+  .indicator-bar {
+    width: 120px;
+    height: 2px;
+    background: #ffffff18;
+    position: relative;
+    overflow: hidden;
   }
 
-  .guarantees-grid {
+  .indicator-fill {
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 20%;
+    background: var(--studio-ember);
+    transition: width 0.1s linear;
+  }
+
+  .indicator-label {
+    font: 10px var(--font-family-mono);
+    color: var(--studio-muted);
+  }
+
+  /* PRINCIPLES SECTION */
+  .process-principles {
+    padding: 120px 4vw 80px;
+    border-top: 1px solid var(--studio-rule);
+    background: var(--studio-ink);
+  }
+
+  .principles-header {
+    max-width: 680px;
+    margin-bottom: 70px;
+  }
+
+  .principles-heading {
+    font-size: clamp(44px, 5.5vw, 84px);
+    font-weight: 500;
+    line-height: 1;
+    letter-spacing: -0.06em;
+    margin: 20px 0 24px;
+  }
+
+  .principles-lead {
+    font-size: 15px;
+    color: var(--studio-muted);
+    line-height: 1.6;
+  }
+
+  .principles-grid {
     display: grid;
-    grid-template-columns: 1fr;
-    gap: var(--space-6);
-    padding-top: var(--space-12);
-    border-top: 1px solid var(--color-border-subtle);
+    grid-template-columns: repeat(3, 1fr);
+    gap: 3vw;
+    margin-bottom: 90px;
   }
 
-  .guarantee-box {
-    background-color: var(--color-bg-surface);
-    border: 1px solid var(--color-border-hairline);
-    padding: var(--space-8);
-    border-radius: var(--radius-sm);
+  .principle-item {
+    border-top: 1px solid var(--studio-rule);
+    padding-top: 24px;
   }
 
-  .guarantee-box h3 {
-    font-size: var(--font-size-lg);
-    margin-bottom: var(--space-3);
+  .principle-item .eyebrow {
+    color: var(--studio-ember);
+    margin-bottom: 16px;
   }
 
-  .guarantee-box p {
-    font-size: var(--font-size-sm);
-    color: var(--color-text-secondary);
+  .principle-item h3 {
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    margin-bottom: 12px;
+    color: var(--studio-paper);
   }
 
-  @media (min-width: 768px) {
-    .stage-item {
-      grid-template-columns: 80px 1fr;
-      gap: var(--space-8);
+  .principle-item p {
+    font-size: 13px;
+    line-height: 1.6;
+    color: var(--studio-muted);
+  }
+
+  .process-cta-banner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 48px 40px;
+    background: #171614;
+    border: 1px solid var(--studio-rule);
+    gap: 30px;
+  }
+
+  .cta-phrase {
+    font-size: clamp(18px, 2.2vw, 30px);
+    font-weight: 500;
+    letter-spacing: -0.04em;
+    margin-top: 8px;
+  }
+
+  /* NO SCRIPT / REDUCED MOTION STATIC PROGRESSION */
+  .process-static-list {
+    display: none;
+    padding: 60px 4vw;
+  }
+
+  .static-stage-item {
+    padding: 36px 0;
+    border-bottom: 1px solid var(--studio-rule);
+  }
+
+  .static-stage-item h3 {
+    font-size: 28px;
+    margin: 12px 0;
+  }
+
+  .static-stage-item p {
+    color: var(--studio-muted);
+    margin-bottom: 14px;
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 900px) {
+    .transform-stage {
+      grid-template-columns: 1fr;
+      padding: 30px 20px;
     }
 
-    .guarantees-grid {
-      grid-template-columns: repeat(2, 1fr);
+    .transform-entity-wrap {
+      height: 38vh;
+    }
+
+    .transform-entity {
+      width: 280px;
+      height: 280px;
+      transform: scale(0.75);
+    }
+
+    .transform-copy-column {
+      height: 340px;
+    }
+
+    .stage-thesis {
+      font-size: 30px;
+      margin-bottom: 14px;
+    }
+
+    .stage-desc {
+      font-size: 13px;
+      margin-bottom: 18px;
+    }
+
+    .principles-grid {
+      grid-template-columns: 1fr;
+      gap: 32px;
+    }
+
+    .process-cta-banner {
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 32px 20px;
+    }
+  }
+
+  @media (max-width: 600px) {
+    .process-hero {
+      padding: 40px 20px;
+    }
+
+    .hero-foot {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 20px;
+    }
+
+    .transform-track {
+      height: 420vh;
+    }
+
+    .top-tag, .bottom-tag {
+      font-size: 7px;
+    }
+
+    .stage-indicator {
+      bottom: 16px;
+      left: 20px;
+    }
+
+    .indicator-bar {
+      width: 80px;
+    }
+  }
+
+  /* REDUCED MOTION */
+  @media (prefers-reduced-motion: reduce) {
+    .transform-track {
+      height: auto;
+    }
+
+    .transform-stage {
+      position: relative;
+      height: auto;
+      min-height: auto;
+      display: flex;
+      flex-direction: column;
+      padding: 50px 4vw;
+      gap: 40px;
+    }
+
+    .transform-entity-wrap {
+      height: 300px;
+    }
+
+    .transform-entity {
+      transform: none;
+      --transform-progress: 0.5;
+    }
+
+    .transform-copy-column {
+      position: relative;
+      height: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 40px;
+    }
+
+    .stage-card {
+      position: relative;
+      opacity: 1 !important;
+      visibility: visible !important;
+      transform: none !important;
+      padding: 24px 0;
+      border-bottom: 1px solid var(--studio-rule);
+    }
+
+    .stage-indicator, .stage-measure {
+      display: none;
     }
   }
 </style>
