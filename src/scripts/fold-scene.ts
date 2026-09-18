@@ -13,8 +13,9 @@ export async function initFoldScene() {
   track!.dataset.static='true';
  }
  if(reduced.matches) { staticFallback(); return; }
- const THREE = await import('three').catch(()=>null);
- if(!THREE) { staticFallback(); return; }
+ const imported = await import('three').catch(()=>null);
+ if(!imported) { staticFallback(); return; }
+ const THREE = imported;
  let renderer: InstanceType<typeof THREE.WebGLRenderer>;
  try { renderer = new THREE.WebGLRenderer({ alpha:true, antialias:true, powerPreference:'low-power' }); } catch { staticFallback(); return; }
  renderer.setPixelRatio(Math.min(devicePixelRatio, innerWidth < 700 ? 1.25 : 1.5));
@@ -74,7 +75,16 @@ export async function initFoldScene() {
   progress=reduced.matches?0:progress+(target-progress)*.075; sx+=(px-sx)*.06; sy+=(py-sy)*.06;
   assembly.rotation.set(.32+sy,-.55+sx+progress*.45,-.2-progress*.11); assembly.scale.setScalar(innerWidth<700?.87:1.02);
   pieces.forEach(({mesh,center,direction},i)=> { mesh.position.copy(center); mesh.position.x+=direction*progress*(.8+(i%3)*.28); mesh.position.y+=(i%3-1)*progress*.9; mesh.position.z+=progress*(i%3-1)*1.2; mesh.rotation.y=direction*progress*.48; mesh.rotation.x=(i%3-1)*progress*.28; });
-  if(!reduced.matches) { const reveal=clamp((progress-.24)/.27); arrival.style.opacity=String(1-reveal); arrival.style.visibility=reveal>.99?'hidden':'visible'; bottom.style.opacity=String(1-reveal); bottom.style.visibility=reveal>.99?'hidden':'visible'; opening.style.opacity=String(reveal); opening.style.visibility=reveal>.01?'visible':'hidden'; }
+  if(!reduced.matches) {
+   const arrivalFade = clamp((0.26 - progress) / 0.14);
+   arrival.style.opacity = String(arrivalFade);
+   arrival.style.visibility = arrivalFade < 0.01 ? 'hidden' : 'visible';
+   bottom.style.opacity = String(arrivalFade);
+   bottom.style.visibility = arrivalFade < 0.01 ? 'hidden' : 'visible';
+   const openingFade = clamp((progress - 0.38) / 0.16);
+   opening.style.opacity = String(openingFade);
+   opening.style.visibility = openingFade < 0.01 ? 'hidden' : 'visible';
+  }
   renderer.render(scene,camera);
   if(!reduced.matches && (Math.abs(target-progress)>.0002 || Math.abs(px-sx)>.0002 || Math.abs(py-sy)>.0002)) request();
  }
