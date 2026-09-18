@@ -1,188 +1,51 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import { getAllProjects } from '../../data/projects';
-
-const projects = getAllProjects();
+import MaterialArtifact from '../../components/MaterialArtifact.astro';
+import '../../styles/experience.css';
+const projects = [
+ {id:'000', name:'ALGORYXZ', status:'INTERNAL', kind:'structure' as const, title:'A place for possibilities.', copy:'Our own ongoing experiment in structure, material, and the things a website can become.'},
+ {id:'001', name:'FOR SOMEONE', status:'CONCEPT PROJECT', kind:'someone' as const, title:'Some things deserve to stay.', copy:'An exploration of digital invitations and living memories. Photographs, small notes, and a whole day held in one place.'},
+ {id:'002', name:'FOR A BUSINESS', status:'CONCEPT PROJECT', kind:'business' as const, title:'A character of its own.', copy:'An exploration of identity translated from printed matter to the screen. A digital place that feels like the business behind it.'}
+];
 ---
-
-<BaseLayout
-  title="Selected Work & Studio Catalog"
-  description="Explore Algoryxz's portfolio of bespoke digital systems, milestone celebration experiences, and commercial storefronts."
->
-  <section class="section">
-    <div class="container">
-      <div class="page-header">
-        <span class="section-eyebrow">Studio Catalog</span>
-        <h1 class="page-title">Selected Work</h1>
-        <p class="page-lead">
-          Every project we build is engineered for extreme edge performance, bespoke art direction, and client autonomy.
-        </p>
-      </div>
-
-      <div class="work-catalog">
-        {projects.map((proj) => (
-          <article class="work-card">
-            <div class="work-media">
-              <img
-                src={proj.heroAsset}
-                alt={`Hero visual for ${proj.title}`}
-                loading="lazy"
-              />
-            </div>
-            <div class="work-body">
-              <div class="work-meta">
-                <span class="work-num">/{proj.number}</span>
-                <span class:list={['badge', `badge-${proj.status.toLowerCase().replace('_', '-')}`]}>
-                  {proj.status.replace('_', ' ')}
-                </span>
-                <span class="work-year">{proj.year}</span>
-              </div>
-              <h2 class="work-title">
-                <a href={`/work/${proj.slug}`}>{proj.title}</a>
-              </h2>
-              <p class="work-desc">{proj.shortDescription}</p>
-              <div class="work-tags">
-                {proj.tags.map((tag) => (
-                  <span class="tag-pill">{tag}</span>
-                ))}
-              </div>
-              <div class="work-action">
-                <a href={`/work/${proj.slug}`} class="btn btn-secondary">
-                  Case Study &rarr;
-                </a>
-                {proj.liveUrl && (
-                  <a href={proj.liveUrl} target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
-                    Live Demo &nearr;
-                  </a>
-                )}
-              </div>
-            </div>
-          </article>
-        ))}
-      </div>
-    </div>
-  </section>
+<BaseLayout title="Work / Archive" description="The Algoryxz archive. Our studio structure and two concept explorations in personal and business experiences.">
+ <section class="experience archive" aria-labelledby="archive-heading">
+  <header class="archive-heading"><h1 id="archive-heading">WORK <span>/ ARCHIVE</span></h1><p class="eyebrow">THREE ENTRIES.<br/>AN OPEN-ENDED COLLECTION.</p></header>
+  <div class="archive-list">
+   {projects.map(p => <a class="archive-entry" href={`#project-${p.id}`} data-project={p.id} aria-haspopup="dialog"><span class="entry-number">{p.id}</span><span class="entry-name">{p.name}<small>{p.status}</small></span><span class="entry-arrow" aria-hidden="true">↗</span><span class="entry-mobile-art"><MaterialArtifact kind={p.kind}/></span></a>)}
+  </div>
+  <div class="archive-bottom"><p>One structure.<br/>Entirely different worlds.</p><span class="eyebrow">HOVER TO UNCOVER / SELECT TO ENTER</span></div>
+  <div class="cursor-art" aria-hidden="true">{projects.map(p=><div data-preview={p.id} hidden><MaterialArtifact kind={p.kind}/></div>)}</div>
+ </section>
+ {projects.map(p=><dialog id={`project-${p.id}`} class:list={['project-world',`world-${p.kind}`]} aria-labelledby={`title-${p.id}`}>
+  <div class="world-top"><span class="eyebrow">ALGORYXZ / {p.id} — {p.status}</span><button class="world-close" aria-label="Return to archive">CLOSE ×</button></div>
+  <div class="world-layout"><div class="world-copy"><p class="eyebrow">{p.name}</p><h2 id={`title-${p.id}`}>{p.title}</h2><p>{p.copy}</p><a class="text-link" href={p.id==='000'?'/':'/services#'+p.kind}>{p.id==='000'?'EXPLORE THE STRUCTURE':'MAKE SOMETHING LIKE THIS'} <span>↗</span></a></div><div class="world-art"><MaterialArtifact kind={p.kind}/></div></div>
+  <p class="world-foot eyebrow">{p.id==='000'?'THE STUDIO, AS A WORK IN PROGRESS.':'AN ALGORYXZ CONCEPT STUDY. NOT COMMISSIONED CLIENT WORK.'}</p>
+ </dialog>)}
 </BaseLayout>
-
+<script>
+ const preview=document.querySelector<HTMLElement>('.cursor-art')!;
+ const entries=document.querySelectorAll<HTMLAnchorElement>('.archive-entry');
+ const reduced=matchMedia('(prefers-reduced-motion: reduce)');
+ const fine=matchMedia('(hover:hover) and (pointer:fine)');
+ let x=innerWidth*.67,y=innerHeight*.5,tx=x,ty=y,frame=0,active=false;
+ function tick(){frame=0;if(!active||document.hidden)return;x+=(tx-x)*.095;y+=(ty-y)*.095;preview.style.transform=`translate3d(${x}px,${y}px,0) rotate(${Math.max(-7,Math.min(7,(tx-x)*.035))}deg)`;if(Math.abs(tx-x)+Math.abs(ty-y)>.15)frame=requestAnimationFrame(tick);}
+ function move(e:PointerEvent){if(!fine.matches||reduced.matches)return;tx=Math.min(innerWidth-220,Math.max(220,e.clientX));ty=Math.min(innerHeight-195,Math.max(220,e.clientY));if(!frame)frame=requestAnimationFrame(tick);}
+ function show(id:string){preview.querySelectorAll<HTMLElement>('[data-preview]').forEach(p=>p.hidden=p.dataset.preview!==id);active=true;preview.classList.add('is-visible');if(reduced.matches){preview.style.transform=`translate3d(${innerWidth*.68}px,${innerHeight*.5}px,0)`;}else tick();}
+ function hide(){active=false;preview.classList.remove('is-visible');cancelAnimationFrame(frame);frame=0;}
+ entries.forEach(entry=>{
+  entry.addEventListener('pointerenter',()=>{if(fine.matches)show(entry.dataset.project!);});
+  entry.addEventListener('pointermove',move);entry.addEventListener('pointerleave',hide);
+  entry.addEventListener('focus',()=>show(entry.dataset.project!));entry.addEventListener('blur',hide);
+  entry.addEventListener('click',event=>{event.preventDefault();hide();const dialog=document.querySelector<HTMLDialogElement>(entry.hash)!;dialog.showModal();document.documentElement.style.overflow='hidden';dialog.querySelector<HTMLButtonElement>('button')!.focus();});
+ });
+ document.querySelectorAll<HTMLDialogElement>('.project-world').forEach(dialog=>{dialog.querySelector('button')!.addEventListener('click',()=>dialog.close());dialog.addEventListener('close',()=>{document.documentElement.style.overflow='';hide();});});
+ document.addEventListener('visibilitychange',()=>{if(document.hidden)hide();});
+ window.addEventListener('pagehide',()=>cancelAnimationFrame(frame),{once:true});
+</script>
 <style>
-  .page-header {
-    margin-bottom: var(--space-16);
-    max-width: 760px;
-  }
-
-  .section-eyebrow {
-    display: block;
-    font-size: var(--font-size-xs);
-    font-family: var(--font-family-mono);
-    color: var(--color-accent-primary);
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    margin-bottom: var(--space-2);
-  }
-
-  .page-title {
-    margin-bottom: var(--space-4);
-  }
-
-  .page-lead {
-    font-size: var(--font-size-lg);
-    color: var(--color-text-secondary);
-  }
-
-  .work-catalog {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: var(--space-12);
-  }
-
-  .work-card {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: var(--space-6);
-    padding-bottom: var(--space-12);
-    border-bottom: 1px solid var(--color-border-hairline);
-  }
-
-  .work-media {
-    background-color: var(--color-bg-surface);
-    border: 1px solid var(--color-border-hairline);
-    border-radius: var(--radius-sm);
-    overflow: hidden;
-    aspect-ratio: 16 / 9;
-  }
-
-  .work-media img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-
-  .work-body {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-  }
-
-  .work-meta {
-    display: flex;
-    align-items: center;
-    gap: var(--space-3);
-    margin-bottom: var(--space-3);
-  }
-
-  .work-num {
-    font-family: var(--font-family-mono);
-    font-size: var(--font-size-sm);
-    color: var(--color-text-muted);
-  }
-
-  .work-year {
-    font-size: var(--font-size-xs);
-    color: var(--color-text-muted);
-  }
-
-  .work-title {
-    font-size: var(--font-size-2xl);
-    margin-bottom: var(--space-3);
-  }
-
-  .work-title a:hover {
-    color: var(--color-accent-primary);
-  }
-
-  .work-desc {
-    font-size: var(--font-size-base);
-    color: var(--color-text-secondary);
-    margin-bottom: var(--space-4);
-  }
-
-  .work-tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: var(--space-2);
-    margin-bottom: var(--space-6);
-  }
-
-  .tag-pill {
-    font-size: var(--font-size-xs);
-    font-family: var(--font-family-mono);
-    background-color: var(--color-bg-surface);
-    color: var(--color-text-secondary);
-    padding: 2px 8px;
-    border-radius: var(--radius-sm);
-    border: 1px solid var(--color-border-hairline);
-  }
-
-  .work-action {
-    display: flex;
-    gap: var(--space-4);
-  }
-
-  @media (min-width: 768px) {
-    .work-card {
-      grid-template-columns: 1.2fr 1fr;
-      gap: var(--space-8);
-      align-items: center;
-    }
-  }
+.archive{padding:48px 3.4vw 38px;min-height:calc(100svh - 85px);position:relative;overflow:clip}.archive-heading{display:flex;justify-content:space-between;align-items:start;margin-bottom:25px}.archive-heading h1{font-size:16px;font-weight:500;letter-spacing:.04em}.archive-heading h1 span{color:#8f897e;margin-left:14px}.archive-heading p{font-size:9px;line-height:1.8}.archive-entry{position:relative;display:grid;grid-template-columns:36% 1fr 50px;align-items:center;border-bottom:1px solid #eee9df30;min-height:190px;transition:color .2s}.entry-number{font-size:clamp(120px,13vw,205px);line-height:1.05;letter-spacing:-.08em;font-weight:400}.entry-name{font-size:clamp(20px,3vw,45px);letter-spacing:-.035em;line-height:1.1}.entry-name small{display:block;font:9px var(--font-family-mono);letter-spacing:.1em;color:#aaa397;margin-top:15px}.entry-arrow{font-size:35px;color:#938a7b}.archive-entry:hover,.archive-entry:focus-visible{color:#d5a17e}.archive-bottom{display:flex;justify-content:space-between;align-items:end;padding-top:28px}.archive-bottom p{font-size:13px;line-height:1.5}.archive-bottom .eyebrow{font-size:9px}.cursor-art{position:fixed;left:0;top:0;width:340px;height:360px;z-index:35;pointer-events:none;opacity:0;transition:opacity .2s}.cursor-art.is-visible{opacity:1}.cursor-art>div{position:absolute;inset:0;transform:translate(-50%,-50%)}.cursor-art>div[hidden]{display:none}.entry-mobile-art{display:none}
+.project-world{position:fixed;inset:0;max-width:none;max-height:none;width:100%;height:100svh;border:0;padding:32px 4vw;background:#171715;color:#eee9df;overflow:auto}.project-world::backdrop{background:#10100f}.world-top{display:flex;justify-content:space-between;align-items:center}.world-close{min-height:44px;padding:0 12px;font-size:11px}.world-layout{display:grid;grid-template-columns:1fr 1fr;gap:9vw;align-items:center;min-height:76vh;padding:5vw 2vw}.world-copy h2{font-size:clamp(50px,6.5vw,100px);line-height:.95;letter-spacing:-.06em;font-weight:500;margin:25px 0}.world-copy>p:not(.eyebrow){max-width:380px;font-size:15px;color:inherit}.world-copy a{margin-top:25px}.world-art{height:480px}.world-foot{font-size:9px}.world-someone{background:#49392d}.world-someone h2{font-family:Georgia,serif;font-style:italic;font-weight:400}.world-business{background:#414b37}.world-business .eyebrow,.world-someone .eyebrow{color:#d9c9b2}
+@media(max-width:700px){.archive{padding:32px 20px}.archive-heading{margin-bottom:20px}.archive-heading h1{font-size:12px}.archive-heading p{font-size:7px}.archive-entry{min-height:225px;grid-template-columns:1fr 30px;align-content:center;gap:6px}.entry-number{font-size:98px;line-height:1}.entry-name{font-size:23px;grid-row:2}.entry-name small{font-size:8px;margin-top:10px}.entry-arrow{grid-column:2;grid-row:2;font-size:25px}.entry-mobile-art{display:block;position:absolute;right:6%;top:27px;width:125px;height:130px;pointer-events:none;opacity:.85}.archive-bottom{gap:20px}.archive-bottom .eyebrow{font-size:7px;max-width:115px}.cursor-art{display:none}.world-layout{grid-template-columns:1fr;gap:50px;padding:35px 5px}.world-art{height:340px;width:85%;margin:auto}.world-copy h2{font-size:58px}.world-top .eyebrow{font-size:8px}.world-foot{padding:30px 0}}
+@media(prefers-reduced-motion:no-preference){.project-world[open]{animation:world-aperture .65s cubic-bezier(.2,.8,.2,1) both}@keyframes world-aperture{from{clip-path:polygon(44% 0,48% 0,56% 100%,52% 100%)}to{clip-path:polygon(0 0,100% 0,100% 100%,0 100%)}}}
 </style>
