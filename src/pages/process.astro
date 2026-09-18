@@ -225,11 +225,145 @@ const principles = [
       'STATE: EXTENDED BOUNDARY / UNBOUNDED',
     ];
 
+    const STAGE_COUNT = 5;
+    // Four transition boundaries at p = 0.20, 0.40, 0.60, 0.80
+    // Half-width 0.035 gives a total transition width of 0.070 (~27vh of scroll)
+    // leaving 65% pure unmoving HOLD for stages 1, 2, 3, and >80% for stages 0 and 4.
+    const T_HALF = 0.035;
+
     let targetProgress = 0;
     let currentProgress = 0;
     let animFrame = 0;
 
     const clamp = (n: number, min = 0, max = 1) => Math.max(min, Math.min(max, n));
+
+    function computeState(p: number) {
+      let activeStage = 0;
+      let transformProgress = 0;
+      let progressFill = 0;
+      const opacities = [0, 0, 0, 0, 0];
+      const translates = [0, 0, 0, 0, 0];
+
+      // Check if p is inside one of the 4 transitions between stages k and k+1
+      let transitionIndex = -1;
+      let t = 0; // [0, 1] within transition window
+
+      for (let k = 0; k < 4; k++) {
+        const boundary = (k + 1) * 0.20;
+        const start = boundary - T_HALF;
+        const end = boundary + T_HALF;
+        if (p >= start && p <= end) {
+          transitionIndex = k;
+          t = (p - start) / (2 * T_HALF);
+          break;
+        }
+      }
+
+      if (transitionIndex !== -1) {
+        // Transition k -> k+1
+        const k = transitionIndex;
+        // Smoothstep easing for mechanical articulation
+        const tEase = t * t * (3 - 2 * t);
+        const vStart = k / 4;
+        const vEnd = (k + 1) / 4;
+        transformProgress = vStart + (vEnd - vStart) * tEase;
+
+        // Active stage flips at exact midpoint
+        activeStage = t < 0.5 ? k : k + 1;
+
+        // Progress fill glides smoothly across the stage boundary
+        const fillStart = ((k + 1) / STAGE_COUNT) * 100;
+        const fillEnd = ((k + 2) / STAGE_COUNT) * 100;
+        progressFill = fillStart + (fillEnd - fillStart) * tEase;
+
+        // Outgoing stage k (Exit phase):
+        // Remains at full opacity until t=0.10, fades out from 0.10 to 0.55, strictly gone after 0.55
+        if (t <= 0.10) {
+          opacities[k] = 1.0;
+          translates[k] = 0;
+        } else if (t <= 0.55) {
+          const u = (t - 0.10) / 0.45;
+          opacities[k] = 1 - u;
+          translates[k] = -28 * u;
+        } else {
+          opacities[k] = 0;
+          translates[k] = -28;
+        }
+
+        // Incoming stage k+1 (Enter phase):
+        // Strictly invisible until t=0.45, resolves from 0.45 to 0.90, full hold after 0.90
+        if (t < 0.45) {
+          opacities[k + 1] = 0;
+          translates[k + 1] = 28;
+        } else if (t <= 0.90) {
+          const v = (t - 0.45) / 0.45;
+          opacities[k + 1] = v;
+          translates[k + 1] = 28 * (1 - v);
+        } else {
+          opacities[k + 1] = 1.0;
+          translates[k + 1] = 0;
+        }
+      } else {
+        // HOLD phase: exactly one stage is 100% active and settled
+        if (p < 0.20 - T_HALF) {
+          activeStage = 0;
+        } else if (p < 0.40 - T_HALF) {
+          activeStage = 1;
+        } else if (p < 0.60 - T_HALF) {
+          activeStage = 2;
+        } else if (p < 0.80 - T_HALF) {
+          activeStage = 3;
+        } else {
+          activeStage = 4;
+        }
+
+        transformProgress = activeStage / 4;
+        progressFill = ((activeStage + 1) / STAGE_COUNT) * 100;
+        opacities[activeStage] = 1.0;
+        translates[activeStage] = 0;
+      }
+
+      return {
+        activeStage,
+        transformProgress,
+        progressFill,
+        opacities,
+        translates,
+      };
+    }
+
+    function render() {
+      animFrame = 0;
+      const diff = targetProgress - currentProgress;
+      if (Math.abs(diff) > 0.0005) {
+        currentProgress += diff * 0.22;
+        animFrame = requestAnimationFrame(render);
+      } else {
+        currentProgress = targetProgress;
+      }
+
+      const p = currentProgress;
+      const state = computeState(p);
+
+      // Update progress bar & label
+      if (fill) fill.style.width = `${state.progressFill.toFixed(1)}%`;
+      if (label) label.textContent = `0${state.activeStage + 1} / 05`;
+      if (stateTag) stateTag.textContent = stateNames[state.activeStage];
+
+      // Physical Entity Settled Geometry & Active Highlight
+      entity!.style.setProperty('--transform-progress', state.transformProgress.toFixed(4));
+      entity!.dataset.activeStage = (state.activeStage + 1).toString();
+
+      // Synchronize cards opacity & positioning
+      cards.forEach((card, idx) => {
+        const op = state.opacities[idx];
+        const tr = state.translates[idx];
+        card.style.opacity = op.toFixed(3);
+        card.style.transform = `translate3d(0, ${tr.toFixed(1)}px, 0)`;
+        card.style.visibility = op < 0.005 ? 'hidden' : 'visible';
+        card.setAttribute('aria-hidden', op > 0.5 ? 'false' : 'true');
+      });
+    }
 
     function onScroll() {
       const rect = track!.getBoundingClientRect();
@@ -239,40 +373,17 @@ const principles = [
       if (!animFrame) animFrame = requestAnimationFrame(render);
     }
 
-    function render() {
-      animFrame = 0;
-      currentProgress += (targetProgress - currentProgress) * 0.1;
-      const p = currentProgress;
-
-      // Update progress bar & label
-      if (fill) fill.style.width = `${Math.min(100, Math.max(0, p * 100))}%`;
-      const stageIdx = Math.min(4, Math.floor(p * 5));
-      if (label) label.textContent = `0${stageIdx + 1} / 05`;
-      if (stateTag) stateTag.textContent = stateNames[stageIdx];
-
-      // Physical Entity Transformation
-      entity!.style.setProperty('--transform-progress', p.toFixed(4));
-
-      // Synchronize cards opacity & positioning
-      cards.forEach((card, idx) => {
-        const center = (idx + 0.5) / 5;
-        const dist = Math.abs(p - center);
-        const cardOpacity = clamp(1 - dist * 4.2);
-        const cardTranslate = (p - center) * -50;
-        card.style.opacity = cardOpacity.toFixed(3);
-        card.style.transform = `translate3d(0, ${cardTranslate.toFixed(1)}px, 0)`;
-        card.style.visibility = cardOpacity < 0.01 ? 'hidden' : 'visible';
-        card.setAttribute('aria-hidden', cardOpacity > 0.5 ? 'false' : 'true');
-      });
-
-      if (Math.abs(targetProgress - currentProgress) > 0.001) {
-        animFrame = requestAnimationFrame(render);
-      }
+    // Initial synchronized render
+    const rect = track.getBoundingClientRect();
+    const scrollable = track.offsetHeight - stage.offsetHeight;
+    if (scrollable > 0) {
+      targetProgress = clamp(-rect.top / scrollable);
+      currentProgress = targetProgress;
     }
+    render();
 
     window.addEventListener('scroll', onScroll, { passive: true });
     window.addEventListener('resize', onScroll);
-    onScroll();
   }
 
   if (document.readyState === 'loading') {
@@ -431,6 +542,16 @@ const principles = [
     color: #ba714a;
   }
 
+  /* Active Plate Highlight During Settled State */
+  .transform-entity[data-active-stage="1"] .plate-1,
+  .transform-entity[data-active-stage="2"] .plate-2,
+  .transform-entity[data-active-stage="3"] .plate-3,
+  .transform-entity[data-active-stage="4"] .plate-4,
+  .transform-entity[data-active-stage="5"] .plate-5 {
+    border-color: var(--studio-ember);
+    box-shadow: 0 0 30px rgba(199, 128, 85, 0.25), 0 20px 40px rgba(0, 0, 0, 0.6);
+  }
+
   /* CONTINUOUS GEOMETRIC STAGES ON THE PLATES VIA CSS MATH */
   /* Plate 1: Upper Diagonal Rail */
   .plate-1 {
@@ -546,6 +667,7 @@ const principles = [
     pointer-events: none;
     opacity: 0;
     visibility: hidden;
+    will-change: opacity, transform;
   }
 
   .stage-top {
