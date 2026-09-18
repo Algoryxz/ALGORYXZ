@@ -15,7 +15,9 @@ const {
   ogType = 'website',
 } = Astro.props;
 
-const canonicalURL = new URL(Astro.url.pathname, Astro.site || 'https://algoryxz.com');
+const siteUrl = Astro.site ? Astro.site.toString().replace(/\/$/, '') : '';
+const canonicalURL = siteUrl ? new URL(Astro.url.pathname, siteUrl) : null;
+const ogImageURL = siteUrl ? new URL('/og-image.png', siteUrl).toString() : '/og-image.png';
 ---
 
 <!doctype html>
@@ -35,21 +37,21 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site || 'https://algoryxz
     <!-- SEO & Metadata -->
     <title>{title} | Algoryxz</title>
     <meta name="description" content={description} />
-    <link rel="canonical" href={canonicalURL} />
+    {canonicalURL && <link rel="canonical" href={canonicalURL} />}
 
     <!-- Open Graph / Social -->
     <meta property="og:type" content={ogType} />
-    <meta property="og:url" content={canonicalURL} />
+    {canonicalURL && <meta property="og:url" content={canonicalURL} />}
     <meta property="og:title" content={`${title} | Algoryxz`} />
     <meta property="og:description" content={description} />
     <meta property="og:site_name" content="Algoryxz" />
-    <meta property="og:image" content={new URL('/og-image.png', canonicalURL)} />
+    <meta property="og:image" content={ogImageURL} />
 
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={`${title} | Algoryxz`} />
     <meta name="twitter:description" content={description} />
-    <meta name="twitter:image" content={new URL('/og-image.png', canonicalURL)} />
+    <meta name="twitter:image" content={ogImageURL} />
   </head>
   <body>
     <a href="#main-content" class="skip-to-content">Skip to main content</a>

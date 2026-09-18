@@ -22,7 +22,7 @@ const founders = [
   {
     id: 'akriti',
     name: 'AKRITI',
-    role: 'Projects · Delivery · General Enquiries',
+    role: 'Operations · Delivery · QA / General Enquiries',
     number: '917205053185',
     actionLabel: 'WHATSAPP AKRITI',
     msg: "Hi Akriti, I found you through your website and have something I'd like to make.",
@@ -81,7 +81,7 @@ const founders = [
           <div class="general-card card-email">
             <span class="eyebrow">NOT SURE WHO TO TALK TO?</span>
             <h3>teamalgoryxz@gmail.com</h3>
-            <p>Send your note directly to all three founders. We reply within 24–48 hours.</p>
+            <p>Send your note directly to the founders.</p>
             <a
               href="mailto:teamalgoryxz@gmail.com?subject=Project%20Inquiry%20%E2%80%94%20Algoryxz"
               class="text-link general-link"
@@ -167,7 +167,7 @@ const founders = [
         </div>
         <div class="colophon-block">
           <span class="eyebrow">FOUNDER COMMITMENT</span>
-          <p>Zero middle layer · Fixed scopes · 100% domain ownership outright</p>
+          <p>Zero middle layer · Fixed scopes · Your domain stays yours.</p>
         </div>
       </footer>
     </div>
@@ -197,7 +197,7 @@ const founders = [
 
     function updateLinks() {
       const text = buildMessage();
-      // WhatsApp targets Akriti (Projects / Delivery / General Enquiries) by default for new project notes
+      // WhatsApp targets Akriti (Operations · Delivery · QA / General Enquiries) by default for new project notes
       const waUrl = `https://wa.me/917205053185?text=${encodeURIComponent(text)}`;
       waBtn?.setAttribute('data-target-url', waUrl);
 
