@@ -1,0 +1,118 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import '../styles/experience.css';
+---
+
+<BaseLayout
+  title="404 — Coordinate Not Found"
+  description="The requested route does not exist in the Algoryxz studio archive."
+>
+  <div class="experience not-found-page">
+    <section class="not-found-room" aria-labelledby="not-found-title">
+      <div class="not-found-content">
+        <p class="eyebrow">ERROR 404 // UNRESOLVED COORDINATE</p>
+        <h1 id="not-found-title" class="editorial-title">THIS ROOM<br />DOES NOT<br /><span>EXIST.</span></h1>
+        <p class="not-found-lead">
+          The path you requested does not map to any active room or archive in the Algoryxz studio system.
+        </p>
+        <div class="not-found-actions">
+          <a href="/" class="metal-link">RETURN TO STUDIO <span>↗</span></a>
+          <a href="/work" class="text-link">EXPLORE ARCHIVE <span>→</span></a>
+        </div>
+      </div>
+      <div class="not-found-caliper" aria-hidden="true">
+        <span class="caliper-mark">NULL_AXIS // 00.00°</span>
+        <div class="caliper-line"></div>
+      </div>
+    </section>
+  </div>
+</BaseLayout>
+
+<style>
+  .not-found-page {
+    min-height: calc(100svh - 85px);
+    display: flex;
+    align-items: center;
+    background: radial-gradient(ellipse at 75% 35%, #2a1f1635, transparent 55%), #10100f;
+    padding: 80px 4vw;
+  }
+
+  .not-found-room {
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+    position: relative;
+  }
+
+  .not-found-content {
+    position: relative;
+    z-index: 2;
+  }
+
+  .not-found-content .eyebrow {
+    margin-bottom: 28px;
+    color: var(--studio-ember);
+  }
+
+  .editorial-title {
+    font-size: clamp(52px, 7.5vw, 120px);
+    font-weight: 500;
+    line-height: 0.94;
+    letter-spacing: -0.06em;
+    margin-bottom: 32px;
+  }
+
+  .editorial-title span {
+    color: var(--studio-ember);
+  }
+
+  .not-found-lead {
+    font-size: 15px;
+    line-height: 1.65;
+    color: var(--studio-muted);
+    max-width: 520px;
+    margin-bottom: 44px;
+  }
+
+  .not-found-actions {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+  }
+
+  .not-found-caliper {
+    position: absolute;
+    right: 0;
+    top: 20%;
+    pointer-events: none;
+    opacity: 0.3;
+  }
+
+  .caliper-mark {
+    font: 9px var(--font-family-mono);
+    color: #ba714a;
+    letter-spacing: 0.12em;
+    display: block;
+    margin-bottom: 8px;
+  }
+
+  .caliper-line {
+    width: 160px;
+    height: 1px;
+    background: linear-gradient(90deg, #c78055, transparent);
+  }
+
+  @media (max-width: 600px) {
+    .not-found-page {
+      padding: 60px 20px;
+    }
+    .not-found-actions {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 20px;
+    }
+    .not-found-caliper {
+      display: none;
+    }
+  }
+</style>

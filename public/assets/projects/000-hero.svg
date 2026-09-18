@@ -2,6 +2,6 @@
   <rect width="800" height="450" fill="#0e1014"/>
   <rect x="20" y="20" width="760" height="410" fill="none" stroke="rgba(245, 242, 235, 0.12)" stroke-dasharray="4 4" stroke-width="1"/>
   <text x="50%" y="45%" text-anchor="middle" fill="#f5f2eb" font-family="'JetBrains Mono', monospace" font-size="18" letter-spacing="2">PROJECT 000 : ALGORYXZ STUDIO PLATFORM</text>
-  <text x="50%" y="55%" text-anchor="middle" fill="rgba(245, 242, 235, 0.45)" font-family="'JetBrains Mono', monospace" font-size="13">[STRUCTURAL_ASSET_PLACEHOLDER : DEEPTIMAN_ART_DIRECTION_PENDING]</text>
+  <text x="50%" y="55%" text-anchor="middle" fill="rgba(245, 242, 235, 0.45)" font-family="'JetBrains Mono', monospace" font-size="13">[INTERNAL ARCHITECTURE : STUDIO PLATFORM]</text>
   <circle cx="400" cy="170" r="28" fill="none" stroke="#d97736" stroke-width="2"/>
 </svg>

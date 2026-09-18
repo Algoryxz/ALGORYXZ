@@ -1,0 +1,16 @@
+{
+  "name": "Algoryxz",
+  "short_name": "Algoryxz",
+  "description": "Independent design and engineering studio from Bhubaneswar. We make things for the internet.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#10100f",
+  "theme_color": "#10100f",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ]
+}

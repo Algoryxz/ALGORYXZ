@@ -2,183 +2,172 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import '../styles/experience.css';
 
-const categories = [
+const founders = [
   {
-    id: 'someone',
-    label: 'FOR SOMEONE',
-    sub: 'Invitations · Celebrations · Photo stories · Personal places',
+    id: 'smarak',
+    name: 'SMARAK PADHI',
+    role: 'Engineering · Architecture · Custom Systems',
+    number: '918018769496',
+    actionLabel: 'WHATSAPP SMARAK',
+    msg: "Hi Smarak, I found you through your website and have an engineering / systems idea I'd like to make.",
   },
   {
-    id: 'business',
-    label: 'FOR A BUSINESS',
-    sub: 'Websites · Digital storefronts · Menus · Brand experiences',
+    id: 'deeptiman',
+    name: 'DEEPTIMAN',
+    role: 'Creative Direction · Design · Brand Experiences',
+    number: '917684984788',
+    actionLabel: 'WHATSAPP DEEPTIMAN',
+    msg: "Hi Deeptiman, I found you through your website and have a brand / design idea I'd like to make.",
   },
   {
-    id: 'stranger',
-    label: 'SOMETHING STRANGER',
-    sub: 'Interactive experiments · Custom systems · Bespoke tools',
+    id: 'akriti',
+    name: 'AKRITI',
+    role: 'Projects · Delivery · General Enquiries',
+    number: '917205053185',
+    actionLabel: 'WHATSAPP AKRITI',
+    msg: "Hi Akriti, I found you through your website and have something I'd like to make.",
   },
-];
-
-const timelines = [
-  'Next 2–4 weeks',
-  '1–2 months',
-  'Flexible / Exploring possibilities',
-];
-
-const budgets = [
-  'Essential scope (₹15,000 – ₹40,000)',
-  'Expanded brand & build (₹40,000 – ₹1,00,000)',
-  'Bespoke systems & experiments (₹1,00,000+)',
 ];
 ---
 
 <BaseLayout
-  title="Contact — Tell Us The Thing You Want To Make"
-  description="Direct inquiry with the founders of Algoryxz. Tell us what you want to make; we reply directly within 24 to 48 hours."
+  title="Contact — Tell Us What You Want To Make"
+  description="Direct founder access. Talk with Smarak, Deeptiman, or Akriti via WhatsApp or email. Zero account managers, zero middlemen."
 >
-  <div class="experience contact-page" data-material="initial">
-    <!-- AMBIENT MATERIAL BACKDROP -->
+  <div class="experience contact-page">
+    <!-- AMBIENT HALO -->
     <div class="material-halo" aria-hidden="true"></div>
 
-    <div class="contact-container">
+    <div class="contact-shell">
       <!-- HERO -->
       <header class="contact-hero">
-        <p class="eyebrow">DIRECT INQUIRY // NO MIDDLEMEN</p>
-        <h1 class="editorial-title">TELL US<br />THE THING<br />YOU WANT<br /><span>TO MAKE.</span></h1>
-        <p class="contact-hero-note">
-          Every note comes directly to Smarak, Deeptiman, and Akriti. No CRM ticketing queue. No sales reps. Tell us what you have in mind and we will review scope and feasibility within 24–48 hours.
+        <p class="eyebrow">DIRECT INQUIRY // THREE FOUNDERS</p>
+        <h1 class="editorial-title">TELL US<br />WHAT YOU<br /><span>WANT TO MAKE.</span></h1>
+        <p class="hero-manifesto">
+          No account executives. No junior contractor relay chains. When you reach out to Algoryxz, you speak directly with the three people who architect, design, and deliver your project.
         </p>
       </header>
 
-      <!-- CONVERSATIONAL FORM -->
-      <form id="invitation-form" class="invitation-form" method="POST" action="/contact">
-        <!-- PRIMARY CONVERSATIONAL ENTRY -->
-        <div class="field-primary">
-          <label for="idea-input" class="conversational-label">I WANT TO MAKE...</label>
-          <textarea
-            id="idea-input"
-            name="idea"
-            rows="3"
-            class="editorial-textarea"
-            placeholder="A living memory for a wedding in December... A quiet digital home for our bakery... A tool that doesn't exist yet..."
-            required
-          ></textarea>
-          <div class="prompt-hint" id="prompt-hint">
-            <span>Type your idea to open details</span>
-            <span class="prompt-arrow">↓</span>
+      <!-- THREE DIRECT FOUNDER PATHWAYS -->
+      <section class="founder-channels" aria-label="Direct founder channels">
+        <p class="eyebrow section-tag">01 // CHOOSE YOUR DIRECT PATH</p>
+        
+        <div class="channel-list">
+          {founders.map(f => (
+            <div class="channel-row" id={`channel-${f.id}`}>
+              <div class="channel-identity">
+                <h2 class="channel-name">{f.name}</h2>
+                <p class="channel-role">{f.role}</p>
+              </div>
+              <div class="channel-action">
+                <a
+                  href={`https://wa.me/${f.number}?text=${encodeURIComponent(f.msg)}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="metal-link channel-btn"
+                  aria-label={`${f.actionLabel} on WhatsApp`}
+                >
+                  {f.actionLabel} <span aria-hidden="true">→</span>
+                </a>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <!-- GENERAL INQUIRY & STUDIO PRESENCE -->
+      <section class="general-channels" aria-label="General studio contact">
+        <div class="general-grid">
+          <div class="general-card card-email">
+            <span class="eyebrow">NOT SURE WHO TO TALK TO?</span>
+            <h3>teamalgoryxz@gmail.com</h3>
+            <p>Send your note directly to all three founders. We reply within 24–48 hours.</p>
+            <a
+              href="mailto:teamalgoryxz@gmail.com?subject=Project%20Inquiry%20%E2%80%94%20Algoryxz"
+              class="text-link general-link"
+            >
+              EMAIL THE STUDIO <span aria-hidden="true">↗</span>
+            </a>
+          </div>
+
+          <div class="general-card card-social">
+            <span class="eyebrow">FOLLOW THE STUDIO</span>
+            <h3>@algoryxz_ux_</h3>
+            <p>Work in progress, typographic studies, and release dispatches on Instagram.</p>
+            <a
+              href="https://www.instagram.com/algoryxz_ux_/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="text-link general-link"
+            >
+              OPEN INSTAGRAM <span aria-hidden="true">↗</span>
+            </a>
           </div>
         </div>
+      </section>
 
-        <!-- PROGRESSIVELY REVEALED SECONDARY FIELDS -->
-        <div class="progressive-fields" id="progressive-fields">
-          <!-- WHO IS IT FOR? (SERVICES MATERIAL SWITCH) -->
-          <fieldset class="form-section">
-            <legend class="eyebrow">01 // WHO IS THIS FOR?</legend>
-            <div class="category-toggle-group" role="radiogroup" aria-label="Project Type">
-              {categories.map(cat => (
-                <button
-                  type="button"
-                  class="category-chip"
-                  data-category={cat.id}
-                  role="radio"
-                  aria-checked="false"
-                >
-                  <span class="chip-title">{cat.label}</span>
-                  <span class="chip-sub">{cat.sub}</span>
-                </button>
-              ))}
-            </div>
-            <input type="hidden" id="selected-category" name="category" value="" />
-          </fieldset>
+      <!-- FAST IDEA DRAFTER (ZERO-FAKE, PURE FUNCTIONAL BRIDGE) -->
+      <section class="idea-drafter-section" aria-label="Draft your idea">
+        <div class="drafter-header">
+          <p class="eyebrow">02 // HAVE AN IDEA READY?</p>
+          <h2 class="drafter-title">Draft it here. Send it directly.</h2>
+          <p class="drafter-sub">
+            Type your thoughts below. When ready, tap WhatsApp or Email to carry your note directly into a conversation with us.
+          </p>
+        </div>
 
-          <!-- FOUNDER CONTACT DETAILS -->
-          <div class="form-section details-grid">
-            <div class="field-block">
-              <label for="name-input" class="eyebrow">02 // YOUR NAME <span class="req">*</span></label>
+        <div class="drafter-box">
+          <label for="draft-note" class="eyebrow drafter-label">WHAT DO YOU WANT TO MAKE?</label>
+          <textarea
+            id="draft-note"
+            rows="4"
+            class="drafter-textarea"
+            placeholder="A quiet digital home for our bakery... A living memory archive for a wedding in December... A custom tool that doesn't exist yet..."
+          ></textarea>
+
+          <div class="drafter-meta-row">
+            <div class="drafter-author-field">
+              <label for="draft-author" class="eyebrow drafter-label">YOUR NAME OR CONTACT (OPTIONAL)</label>
               <input
                 type="text"
-                id="name-input"
-                name="name"
-                class="editorial-input"
-                placeholder="e.g. Maya Roy"
-                required
-              />
-            </div>
-            <div class="field-block">
-              <label for="email-input" class="eyebrow">03 // WHERE CAN WE REACH YOU? <span class="req">*</span></label>
-              <input
-                type="email"
-                id="email-input"
-                name="email"
-                class="editorial-input"
-                placeholder="e.g. maya@example.com"
-                required
+                id="draft-author"
+                class="drafter-input"
+                placeholder="e.g. Maya Roy / @maya / +91..."
               />
             </div>
           </div>
 
-          <!-- TIMELINE & INVESTMENT ESTIMATES -->
-          <div class="form-section details-grid">
-            <div class="field-block">
-              <label for="timeline-select" class="eyebrow">04 // APPROXIMATE TIMELINE</label>
-              <div class="select-wrapper">
-                <select id="timeline-select" name="timeline" class="editorial-select">
-                  <option value="" disabled selected>Select an approximate window</option>
-                  {timelines.map(t => (
-                    <option value={t}>{t}</option>
-                  ))}
-                </select>
-                <span class="select-caret" aria-hidden="true">↓</span>
-              </div>
-            </div>
-            <div class="field-block">
-              <label for="budget-select" class="eyebrow">05 // ESTIMATED INVESTMENT</label>
-              <div class="select-wrapper">
-                <select id="budget-select" name="budget" class="editorial-select">
-                  <option value="" disabled selected>Select an investment band</option>
-                  {budgets.map(b => (
-                    <option value={b}>{b}</option>
-                  ))}
-                </select>
-                <span class="select-caret" aria-hidden="true">↓</span>
-              </div>
-            </div>
-          </div>
-
-          <!-- ACTION ROW -->
-          <div class="form-action-row">
-            <button type="submit" class="metal-link send-btn" id="submit-btn">
-              SEND THE IDEA <span>→</span>
+          <div class="drafter-actions">
+            <button type="button" id="btn-draft-wa" class="metal-link send-action-btn">
+              SEND VIA WHATSAPP <span aria-hidden="true">→</span>
             </button>
-            <p class="action-assurance">
-              Sent directly to the three founders. No automated sales funnel.
-            </p>
+            <a
+              id="btn-draft-mail"
+              href="mailto:teamalgoryxz@gmail.com?subject=Project%20Idea%20%E2%80%94%20Algoryxz"
+              class="metal-link send-action-btn alt-btn"
+            >
+              SEND VIA EMAIL <span aria-hidden="true">→</span>
+            </a>
           </div>
+          <p class="drafter-assurance">
+            Opens directly in your WhatsApp or email client with your drafted note intact. No fake databases or CRM queues.
+          </p>
         </div>
-      </form>
+      </section>
 
-      <!-- SUBMISSION CONFIRMATION MESSAGE (ACCESSIBLE) -->
-      <div id="form-success-note" class="form-success-note" hidden aria-live="polite">
-        <p class="eyebrow">IDEA RECEIVED</p>
-        <h2>We have your note.</h2>
-        <p>Smarak, Deeptiman, or Akriti will review it and reply within 24–48 hours.</p>
-        <a href="/" class="text-link">RETURN TO STUDIO <span>↗</span></a>
-      </div>
-
-      <!-- DIRECT COLOPHON FOOTER -->
+      <!-- STUDIO COLOPHON FOOTER -->
       <footer class="contact-colophon">
-        <div class="colophon-item">
+        <div class="colophon-block">
           <span class="eyebrow">STUDIO ADDRESS</span>
           <p>Bhubaneswar, Odisha, India<br />Distributed across the internet</p>
         </div>
-        <div class="colophon-item">
-          <span class="eyebrow">DIRECT INQUIRY</span>
-          <a href="mailto:hello@algoryxz.com" class="direct-email">HELLO@ALGORYXZ.COM</a>
+        <div class="colophon-block">
+          <span class="eyebrow">DIRECT INBOX</span>
+          <a href="mailto:teamalgoryxz@gmail.com" class="colophon-mail">teamalgoryxz@gmail.com</a>
         </div>
-        <div class="colophon-item">
+        <div class="colophon-block">
           <span class="eyebrow">FOUNDER COMMITMENT</span>
-          <p>Zero middle layer · Fixed scopes · 100% domain ownership</p>
+          <p>Zero middle layer · Fixed scopes · 100% domain ownership outright</p>
         </div>
       </footer>
     </div>
@@ -186,82 +175,54 @@ const budgets = [
 </BaseLayout>
 
 <script>
-  function initContactPage() {
-    const page = document.querySelector<HTMLElement>('.contact-page');
-    const form = document.querySelector<HTMLFormElement>('#invitation-form');
-    const ideaInput = document.querySelector<HTMLTextAreaElement>('#idea-input');
-    const hint = document.querySelector<HTMLElement>('#prompt-hint');
-    const progressiveFields = document.querySelector<HTMLElement>('#progressive-fields');
-    const catButtons = document.querySelectorAll<HTMLButtonElement>('.category-chip');
-    const categoryHidden = document.querySelector<HTMLInputElement>('#selected-category');
-    const successNote = document.querySelector<HTMLElement>('#form-success-note');
+  function initContactDrafter() {
+    const noteEl = document.querySelector<HTMLTextAreaElement>('#draft-note');
+    const authorEl = document.querySelector<HTMLInputElement>('#draft-author');
+    const waBtn = document.querySelector<HTMLButtonElement>('#btn-draft-wa');
+    const mailBtn = document.querySelector<HTMLAnchorElement>('#btn-draft-mail');
 
-    if (!page || !form || !ideaInput || !progressiveFields) return;
+    if (!noteEl || !waBtn || !mailBtn) return;
 
-    let engaged = false;
-
-    function engageForm() {
-      if (engaged) return;
-      engaged = true;
-      form!.dataset.engaged = 'true';
-      if (hint) hint.style.opacity = '0';
-    }
-
-    ideaInput.addEventListener('focus', engageForm);
-    ideaInput.addEventListener('input', () => {
-      engageForm();
-      // Auto-expand textarea height slightly with content
-      ideaInput.style.height = 'auto';
-      ideaInput.style.height = `${Math.min(300, Math.max(90, ideaInput.scrollHeight))}px`;
-    });
-
-    // Category button handling & ambient atmosphere switching
-    catButtons.forEach(btn => {
-      btn.addEventListener('click', () => {
-        const cat = btn.dataset.category!;
-        const isSelected = btn.getAttribute('aria-checked') === 'true';
-
-        catButtons.forEach(b => {
-          b.setAttribute('aria-checked', 'false');
-          b.classList.remove('is-selected');
-        });
-
-        if (!isSelected) {
-          btn.setAttribute('aria-checked', 'true');
-          btn.classList.add('is-selected');
-          if (categoryHidden) categoryHidden.value = cat;
-          page.dataset.material = cat;
-        } else {
-          if (categoryHidden) categoryHidden.value = '';
-          page.dataset.material = 'initial';
-        }
-      });
-    });
-
-    // Parse URL parameter e.g. /contact?type=someone or #someone
-    const params = new URLSearchParams(window.location.search);
-    const initialType = params.get('type') || window.location.hash.slice(1);
-    if (initialType) {
-      const match = Array.from(catButtons).find(b => b.dataset.category === initialType);
-      if (match) {
-        engageForm();
-        match.click();
+    function buildMessage(): string {
+      const note = noteEl?.value.trim() || '';
+      const author = authorEl?.value.trim() || '';
+      if (!note) {
+        return "Hi Algoryxz, I found you through your website and have something I'd like to make.";
       }
+      if (author) {
+        return `Hi Algoryxz, I'm ${author}. I want to make:\n\n${note}`;
+      }
+      return `Hi Algoryxz, I want to make:\n\n${note}`;
     }
 
-    // Form submission simulation (client-side graceful UX)
-    form.addEventListener('submit', (e) => {
-      e.preventDefault();
-      form.style.display = 'none';
-      if (successNote) successNote.hidden = false;
-      window.scrollTo({ top: successNote!.offsetTop - 80, behavior: 'smooth' });
+    function updateLinks() {
+      const text = buildMessage();
+      // WhatsApp targets Akriti (Projects / Delivery / General Enquiries) by default for new project notes
+      const waUrl = `https://wa.me/917205053185?text=${encodeURIComponent(text)}`;
+      waBtn?.setAttribute('data-target-url', waUrl);
+
+      const mailSubject = encodeURIComponent('Project Inquiry — Algoryxz');
+      const mailBody = encodeURIComponent(text);
+      const mailUrl = `mailto:teamalgoryxz@gmail.com?subject=${mailSubject}&body=${mailBody}`;
+      mailBtn?.setAttribute('href', mailUrl);
+    }
+
+    noteEl.addEventListener('input', updateLinks);
+    if (authorEl) authorEl.addEventListener('input', updateLinks);
+
+    waBtn.addEventListener('click', () => {
+      updateLinks();
+      const targetUrl = waBtn.getAttribute('data-target-url') || 'https://wa.me/917205053185';
+      window.open(targetUrl, '_blank', 'noopener,noreferrer');
     });
+
+    updateLinks();
   }
 
   if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', initContactPage);
+    document.addEventListener('DOMContentLoaded', initContactDrafter);
   } else {
-    initContactPage();
+    initContactDrafter();
   }
 </script>
 
@@ -270,382 +231,391 @@ const budgets = [
     position: relative;
     min-height: 100svh;
     overflow-x: clip;
-    transition: background-color 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+    background: #10100f;
+    color: var(--studio-paper);
   }
 
-  /* AMBIENT MATERIAL ATMOSPHERE */
   .material-halo {
     position: absolute;
     inset: 0;
     pointer-events: none;
-    transition: opacity 0.8s, background 0.8s;
-    opacity: 0.5;
-    background: radial-gradient(ellipse at 80% 20%, #3a2b1f35, transparent 60%);
+    opacity: 0.65;
+    background: radial-gradient(ellipse at 85% 15%, #3e2a1b40, transparent 65%);
     z-index: 0;
   }
 
-  .contact-page[data-material="someone"] {
-    background-color: #17120e;
-  }
-  .contact-page[data-material="someone"] .material-halo {
-    background: radial-gradient(ellipse at 70% 30%, #4b362855, transparent 65%);
-    opacity: 0.8;
-  }
-
-  .contact-page[data-material="business"] {
-    background-color: #121611;
-  }
-  .contact-page[data-material="business"] .material-halo {
-    background: radial-gradient(ellipse at 70% 30%, #303e2840, transparent 65%);
-    opacity: 0.8;
-  }
-
-  .contact-page[data-material="stranger"] {
-    background-color: #11110f;
-  }
-  .contact-page[data-material="stranger"] .material-halo {
-    background: radial-gradient(ellipse at 70% 30%, #29282345, transparent 65%);
-    opacity: 0.8;
-  }
-
-  .contact-container {
+  .contact-shell {
     position: relative;
     z-index: 2;
-    max-width: 960px;
+    max-width: 1280px;
     margin: 0 auto;
-    padding: 70px 4vw 90px;
+    padding: 70px 4vw 100px;
   }
 
   /* HERO */
   .contact-hero {
-    margin-bottom: 60px;
+    margin-bottom: 90px;
+    border-bottom: 1px solid var(--studio-rule);
+    padding-bottom: 60px;
   }
 
   .contact-hero .eyebrow {
-    margin-bottom: 28px;
-  }
-
-  .contact-hero h1 {
-    font-size: clamp(52px, 8vw, 130px);
-    font-weight: 500;
-    line-height: 0.92;
-    letter-spacing: -0.065em;
-    margin-bottom: 28px;
-  }
-
-  .contact-hero h1 span {
+    margin-bottom: 32px;
     color: var(--studio-ember);
   }
 
-  .contact-hero-note {
-    font-size: 15px;
+  .editorial-title {
+    font-size: clamp(56px, 8.5vw, 135px);
+    font-weight: 500;
+    line-height: 0.94;
+    letter-spacing: -0.065em;
+    margin-bottom: 36px;
+  }
+
+  .editorial-title span {
+    color: var(--studio-ember);
+  }
+
+  .hero-manifesto {
+    font-size: clamp(15px, 1.35vw, 18px);
     line-height: 1.65;
     color: var(--studio-muted);
-    max-width: 620px;
+    max-width: 680px;
   }
 
-  /* PRIMARY CONVERSATIONAL FIELD */
-  .field-primary {
-    position: relative;
-    margin-bottom: 50px;
-    padding-bottom: 20px;
-    border-bottom: 1px solid var(--studio-rule);
-  }
-
-  .conversational-label {
-    display: block;
-    font: 11px var(--font-family-mono);
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    color: var(--studio-ember);
-    margin-bottom: 18px;
-  }
-
-  .editorial-textarea {
-    width: 100%;
-    background: transparent;
-    border: none;
-    outline: none;
-    color: var(--studio-paper);
-    font-family: Georgia, serif;
-    font-size: clamp(24px, 3.4vw, 48px);
-    line-height: 1.25;
-    letter-spacing: -0.03em;
-    resize: none;
-    min-height: 90px;
-    padding: 0;
-  }
-
-  .editorial-textarea::placeholder {
-    color: #4a453e;
-    font-style: italic;
-  }
-
-  .prompt-hint {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-top: 14px;
-    font: 10px var(--font-family-mono);
-    letter-spacing: 0.1em;
-    color: #7a7266;
-    transition: opacity 0.3s;
-  }
-
-  .prompt-arrow {
-    color: var(--studio-ember);
-  }
-
-  /* PROGRESSIVE FIELDS ACCORDION */
-  .progressive-fields {
-    display: none;
-    opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 0.5s ease, transform 0.5s ease;
-  }
-
-  .invitation-form[data-engaged="true"] .progressive-fields {
-    display: block;
-    opacity: 1;
-    transform: translateY(0);
-  }
-
-  .form-section {
-    border: none;
-    padding: 0;
-    margin: 0 0 50px;
-  }
-
-  .form-section legend {
-    margin-bottom: 20px;
-    padding: 0;
-  }
-
-  /* CATEGORY CHIPS (INHERITING SERVICES MATERIAL TONE) */
-  .category-toggle-group {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 16px;
-  }
-
-  .category-chip {
-    text-align: left;
-    background: #151513;
-    border: 1px solid #ffffff12;
-    padding: 20px 18px;
-    cursor: pointer;
-    transition: border-color 0.25s, background-color 0.25s, color 0.25s;
-    color: var(--studio-paper);
-    min-height: 95px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-  }
-
-  .category-chip:hover {
-    border-color: #c7805560;
-  }
-
-  .category-chip.is-selected {
-    background: #211e1a;
-    border-color: var(--studio-ember);
-  }
-
-  .chip-title {
-    font-size: 14px;
-    font-weight: 600;
-    letter-spacing: -0.02em;
-    display: block;
-  }
-
-  .chip-sub {
-    font-size: 10px;
-    color: var(--studio-muted);
-    line-height: 1.4;
-    display: block;
-  }
-
-  /* EDITORIAL DETAILS GRID */
-  .details-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 30px;
-  }
-
-  .field-block {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-  }
-
-  .editorial-input {
-    width: 100%;
-    background: transparent;
-    border: none;
-    border-bottom: 1px solid var(--studio-rule);
-    color: var(--studio-paper);
-    font-size: 18px;
-    padding: 10px 0;
-    outline: none;
-    transition: border-color 0.2s;
-  }
-
-  .editorial-input:focus {
-    border-bottom-color: var(--studio-ember);
-  }
-
-  .select-wrapper {
-    position: relative;
-    border-bottom: 1px solid var(--studio-rule);
-  }
-
-  .editorial-select {
-    width: 100%;
-    background: transparent;
-    border: none;
-    color: var(--studio-paper);
-    font-size: 14px;
-    padding: 12px 24px 12px 0;
-    outline: none;
-    appearance: none;
-    cursor: pointer;
-  }
-
-  .editorial-select option {
-    background: #191816;
-    color: var(--studio-paper);
-  }
-
-  .select-caret {
-    position: absolute;
-    right: 0;
-    top: 50%;
-    transform: translateY(-50%);
-    pointer-events: none;
-    font-size: 11px;
+  /* SECTION LABELS */
+  .section-tag {
+    margin-bottom: 24px;
     color: var(--studio-muted);
   }
 
-  .req {
-    color: var(--studio-ember);
+  /* THREE FOUNDER DIRECT CHANNELS */
+  .founder-channels {
+    margin-bottom: 90px;
   }
 
-  /* ACTION ROW */
-  .form-action-row {
+  .channel-list {
     display: flex;
-    align-items: center;
-    gap: 30px;
-    margin-top: 60px;
-    padding-top: 30px;
+    flex-direction: column;
     border-top: 1px solid var(--studio-rule);
   }
 
-  .send-btn {
-    cursor: pointer;
+  .channel-row {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: center;
+    gap: 24px;
+    padding: 40px 0;
+    border-bottom: 1px solid var(--studio-rule);
+    transition: border-color 0.25s ease;
   }
 
-  .action-assurance {
-    font: 10px var(--font-family-mono);
+  .channel-row:hover {
+    border-color: #c7805560;
+  }
+
+  .channel-identity {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .channel-name {
+    font-family: Georgia, serif;
+    font-size: clamp(28px, 3.8vw, 56px);
+    font-weight: 400;
+    line-height: 1.05;
+    letter-spacing: -0.04em;
+    color: var(--studio-paper);
+  }
+
+  .channel-role {
+    font: 12px var(--font-family-mono);
+    letter-spacing: 0.08em;
+    color: #ba714a;
+    text-transform: uppercase;
+  }
+
+  .channel-btn {
+    min-height: 48px;
+    padding: 14px 28px;
+    font-size: 12px;
+    white-space: nowrap;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  /* GENERAL CHANNELS */
+  .general-channels {
+    margin-bottom: 100px;
+  }
+
+  .general-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+  }
+
+  .general-card {
+    padding: 40px 36px;
+    background: #151413;
+    border: 1px solid var(--studio-rule);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 240px;
+    transition: border-color 0.25s ease;
+  }
+
+  .general-card:hover {
+    border-color: #c7805560;
+  }
+
+  .general-card .eyebrow {
+    margin-bottom: 16px;
     color: var(--studio-muted);
-    letter-spacing: 0.05em;
   }
 
-  /* SUCCESS NOTE */
-  .form-success-note {
-    padding: 60px 40px;
-    background: #171613;
-    border: 1px solid var(--studio-ember);
-    margin: 40px 0;
-  }
-
-  .form-success-note h2 {
-    font-size: clamp(36px, 5vw, 64px);
-    margin: 16px 0;
+  .general-card h3 {
+    font-size: clamp(20px, 2.2vw, 30px);
     font-weight: 500;
+    letter-spacing: -0.04em;
+    color: var(--studio-paper);
+    margin-bottom: 12px;
+    word-break: break-all;
   }
 
-  .form-success-note p {
+  .general-card p {
+    font-size: 13px;
+    line-height: 1.6;
     color: var(--studio-muted);
-    margin-bottom: 24px;
+    margin-bottom: 28px;
+  }
+
+  .general-link {
+    font-size: 11px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    min-height: 44px;
+  }
+
+  /* IDEA DRAFTER */
+  .idea-drafter-section {
+    margin-bottom: 100px;
+    border-top: 1px solid var(--studio-rule);
+    padding-top: 80px;
+  }
+
+  .drafter-header {
+    margin-bottom: 40px;
+    max-width: 680px;
+  }
+
+  .drafter-header .eyebrow {
+    margin-bottom: 20px;
+    color: var(--studio-ember);
+  }
+
+  .drafter-title {
+    font-size: clamp(32px, 4vw, 56px);
+    font-weight: 500;
+    line-height: 1.05;
+    letter-spacing: -0.05em;
+    margin-bottom: 16px;
+  }
+
+  .drafter-sub {
+    font-size: 14px;
+    line-height: 1.65;
+    color: var(--studio-muted);
+  }
+
+  .drafter-box {
+    background: #141312;
+    border: 1px solid var(--studio-rule);
+    padding: 44px;
+    position: relative;
+  }
+
+  .drafter-label {
+    display: block;
+    margin-bottom: 16px;
+    color: #ba714a;
+  }
+
+  .drafter-textarea {
+    width: 100%;
+    background: #0d0d0c;
+    border: 1px solid #ffffff18;
+    color: var(--studio-paper);
+    font-family: Georgia, serif;
+    font-size: clamp(17px, 1.8vw, 24px);
+    line-height: 1.5;
+    padding: 24px;
+    resize: vertical;
+    min-height: 150px;
+    box-sizing: border-box;
+    transition: border-color 0.25s ease;
+  }
+
+  .drafter-textarea:focus {
+    outline: none;
+    border-color: var(--studio-ember);
+    box-shadow: 0 0 20px rgba(199, 128, 85, 0.15);
+  }
+
+  .drafter-textarea::placeholder {
+    color: #6a6459;
+    font-style: italic;
+  }
+
+  .drafter-meta-row {
+    margin-top: 24px;
+    margin-bottom: 32px;
+  }
+
+  .drafter-author-field {
+    width: 100%;
+    max-width: 480px;
+  }
+
+  .drafter-input {
+    width: 100%;
+    background: #0d0d0c;
+    border: 1px solid #ffffff18;
+    color: var(--studio-paper);
+    font-family: var(--font-family-mono);
+    font-size: 13px;
+    padding: 14px 18px;
+    box-sizing: border-box;
+    min-height: 48px;
+    transition: border-color 0.25s ease;
+  }
+
+  .drafter-input:focus {
+    outline: none;
+    border-color: var(--studio-ember);
+  }
+
+  .drafter-input::placeholder {
+    color: #6a6459;
+  }
+
+  .drafter-actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 20px;
+  }
+
+  .send-action-btn {
+    min-height: 48px;
+    padding: 14px 32px;
+    font-size: 12px;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .alt-btn {
+    background: #23201d;
+    border-color: #ffffff20;
+  }
+
+  .alt-btn:hover {
+    border-color: var(--studio-ember);
+  }
+
+  .drafter-assurance {
+    font-size: 12px;
+    color: #8c8375;
+    line-height: 1.5;
   }
 
   /* COLOPHON */
   .contact-colophon {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 30px;
-    margin-top: 120px;
-    padding-top: 40px;
+    gap: 32px;
     border-top: 1px solid var(--studio-rule);
+    padding-top: 48px;
   }
 
-  .colophon-item p {
-    font-size: 13px;
-    color: var(--studio-muted);
-    line-height: 1.6;
-    margin-top: 10px;
-  }
-
-  .direct-email {
+  .colophon-block .eyebrow {
     display: block;
-    font-size: 13px;
-    letter-spacing: 0.08em;
-    color: var(--studio-paper);
-    margin-top: 10px;
+    margin-bottom: 12px;
+    color: var(--studio-muted);
   }
 
-  .direct-email:hover {
-    color: var(--studio-ember);
+  .colophon-block p,
+  .colophon-block a {
+    font-size: 13px;
+    line-height: 1.6;
+    color: var(--studio-muted);
+  }
+
+  .colophon-mail {
+    color: var(--studio-paper) !important;
+    text-decoration: underline;
+    text-underline-offset: 4px;
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+  }
+
+  .colophon-mail:hover {
+    color: var(--studio-ember) !important;
   }
 
   /* RESPONSIVE */
   @media (max-width: 900px) {
-    .category-toggle-group {
+    .channel-row {
       grid-template-columns: 1fr;
-    }
-
-    .details-grid {
-      grid-template-columns: 1fr;
-      gap: 24px;
-    }
-
-    .contact-colophon {
-      grid-template-columns: 1fr;
-      gap: 30px;
-      margin-top: 80px;
-    }
-
-    .form-action-row {
-      flex-direction: column;
       align-items: flex-start;
       gap: 20px;
+    }
+    .general-grid {
+      grid-template-columns: 1fr;
+    }
+    .contact-colophon {
+      grid-template-columns: 1fr;
+      gap: 24px;
     }
   }
 
   @media (max-width: 600px) {
-    .contact-container {
-      padding: 40px 20px 60px;
+    .contact-shell {
+      padding: 50px 20px 70px;
     }
-
-    .editorial-textarea {
-      font-size: 24px;
+    .contact-hero {
+      margin-bottom: 60px;
+      padding-bottom: 40px;
     }
-
-    .send-btn {
+    .drafter-box {
+      padding: 24px 18px;
+    }
+    .drafter-actions {
+      flex-direction: column;
+      align-items: stretch;
+    }
+    .send-action-btn {
+      width: 100%;
+      justify-content: center;
+    }
+    .channel-btn {
       width: 100%;
       justify-content: center;
     }
   }
 
-  /* REDUCED MOTION */
   @media (prefers-reduced-motion: reduce) {
-    .progressive-fields {
-      display: block !important;
-      opacity: 1 !important;
-      transform: none !important;
-    }
-
-    .prompt-hint {
+    .material-halo {
       display: none;
     }
   }
