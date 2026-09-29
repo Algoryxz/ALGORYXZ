@@ -1,49 +1,51 @@
 /* -------------------------------------------------------------
- * ALGORYXZ THEATRE — CINEMATIC HYBRID PROOF (GATE 01)
- * Scoped Private Screening Room Design System
+ * ALGORYXZ THEATRE — GATE 02: 2.5D SPATIAL AUDITORIUM
+ * Scoped Private Screening Room & Physical Seat-Back Archive
  * ------------------------------------------------------------- */
 
 :root {
-  --theatre-black: #080706;
+  --theatre-black: #060504;
+  --theatre-void: #0a0908;
   --theatre-charcoal: #141210;
-  --theatre-velvet: #211511;
+  --theatre-velvet: #1c1512;
   --theatre-ivory: #F0E8D8;
   --theatre-parchment: #CFC1A7;
   --theatre-brass: #A88457;
-  --theatre-brass-bright: #c9a473;
+  --theatre-brass-bright: #d4a973;
   --theatre-oxblood: #5D201B;
-  --theatre-oxblood-rich: #782a24;
+  --theatre-oxblood-dark: #3a1310;
   --theatre-glow: #FFE7BC;
   --theatre-amber: #D97736;
-  --theatre-muted: #8a8275;
-  --theatre-hairline: rgba(240, 232, 216, 0.08);
-  --theatre-border: rgba(168, 132, 87, 0.25);
+  --theatre-muted: #7d7568;
+  --theatre-hairline: rgba(240, 232, 216, 0.07);
+  --theatre-border: rgba(168, 132, 87, 0.3);
   
   --font-cinema-display: 'Playfair Display', Georgia, serif;
   --font-cinema-body: 'Hanken Grotesk', system-ui, -apple-system, sans-serif;
   --font-cinema-mono: 'JetBrains Mono', monospace;
+
+  --scroll-p: 0;
 }
 
-/* Global Reset for Theatre Body */
+/* Global Reset */
 html, body {
   width: 100%;
-  height: 100%;
   margin: 0;
   padding: 0;
   background-color: var(--theatre-black);
   color: var(--theatre-ivory);
   font-family: var(--font-cinema-body);
-  overflow: hidden;
+  overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 .theatre-body {
   position: relative;
-  width: 100vw;
-  height: 100svh;
-  overflow: hidden;
-  user-select: none;
+  width: 100%;
+  min-height: 100vh;
+  background: var(--theatre-black);
+  overflow-x: hidden;
 }
 
 /* Accessible Skip Link */
@@ -70,18 +72,18 @@ html, body {
   outline-offset: 3px;
 }
 
-/* Escape Hatch to Approved Work Page */
+/* Minimal Escape Hatch to Approved Work Page */
 .theatre-escape {
   position: fixed;
   top: 24px;
   left: 28px;
-  z-index: 80;
+  z-index: 90;
   display: inline-flex;
   align-items: center;
   gap: 8px;
   min-height: 44px;
   padding: 0 16px;
-  background: rgba(14, 12, 11, 0.85);
+  background: rgba(10, 9, 8, 0.85);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   border: 1px solid var(--theatre-border);
@@ -99,26 +101,20 @@ html, body {
 .theatre-escape:focus-visible {
   color: var(--theatre-ivory);
   border-color: var(--theatre-brass-bright);
-  background: rgba(24, 20, 18, 0.95);
+  background: rgba(22, 19, 17, 0.95);
   outline: 2px solid var(--theatre-brass-bright);
   outline-offset: 2px;
 }
 
-.theatre-escape-arrow {
-  color: var(--theatre-brass);
-  font-size: 14px;
-}
-
-/* Header Metadata Banner */
+/* Marquee Colophon & Programme Toggle */
 .theatre-marquee {
   position: fixed;
-  top: 28px;
+  top: 26px;
   right: 28px;
-  z-index: 80;
+  z-index: 90;
   display: flex;
   align-items: center;
   gap: 16px;
-  pointer-events: none;
 }
 
 .theatre-marquee-badge {
@@ -127,8 +123,8 @@ html, body {
   letter-spacing: 0.14em;
   text-transform: uppercase;
   color: var(--theatre-muted);
-  background: rgba(14, 12, 11, 0.7);
-  padding: 6px 12px;
+  background: rgba(10, 9, 8, 0.7);
+  padding: 6px 14px;
   border: 1px solid var(--theatre-hairline);
   border-radius: 2px;
 }
@@ -138,15 +134,13 @@ html, body {
   font-weight: 500;
 }
 
-/* Programme Trigger Button */
 .theatre-programme-toggle {
-  pointer-events: auto;
   min-height: 44px;
-  padding: 0 16px;
+  padding: 0 18px;
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  background: rgba(14, 12, 11, 0.85);
+  background: rgba(10, 9, 8, 0.85);
   border: 1px solid var(--theatre-border);
   border-radius: 2px;
   color: var(--theatre-parchment);
@@ -167,327 +161,140 @@ html, body {
 }
 
 /* -------------------------------------------------------------
- * ACT I: PHYSICAL ADMISSION TICKET OVERLAY
+ * 2.5D SPATIAL SCROLL SCENE (CONTAINER & DEPTH STAGE)
  * ------------------------------------------------------------- */
-.theatre-ticket-stage {
-  position: fixed;
-  inset: 0;
-  z-index: 150;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: radial-gradient(circle at center, rgba(18, 15, 13, 0.96) 0%, var(--theatre-black) 85%);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  transition: opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.5s;
-}
-
-.theatre-ticket-stage[data-admitted="true"] {
-  opacity: 0;
-  visibility: hidden;
-  pointer-events: none;
-}
-
-.theatre-ticket-card {
+.theatre-scroll-track {
   position: relative;
-  width: 90vw;
-  max-width: 440px;
-  background: linear-gradient(135deg, #1c1916 0%, #12100e 100%);
-  border: 1px solid var(--theatre-brass);
-  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.8), 0 0 40px rgba(168, 132, 87, 0.15);
-  padding: 40px 32px 36px;
-  border-radius: 3px;
-  display: flex;
-  flex-direction: column;
-  gap: 24px;
-}
-
-/* Subtle corner ticket notches */
-.theatre-ticket-card::before,
-.theatre-ticket-card::after {
-  content: '';
-  position: absolute;
-  top: 50%;
-  width: 20px;
-  height: 20px;
-  background-color: var(--theatre-black);
-  border-radius: 50%;
-  transform: translateY(-50%);
-}
-.theatre-ticket-card::before { left: -10px; border-right: 1px solid var(--theatre-brass); }
-.theatre-ticket-card::after { right: -10px; border-left: 1px solid var(--theatre-brass); }
-
-.theatre-ticket-top {
-  display: flex;
-  justify-content: space-between;
-  align-items: baseline;
-  border-bottom: 1px solid rgba(168, 132, 87, 0.3);
-  padding-bottom: 14px;
-}
-
-.theatre-ticket-mark {
-  font-family: var(--font-cinema-mono);
-  font-size: 11px;
-  font-weight: 600;
-  letter-spacing: 0.16em;
-  color: var(--theatre-brass-bright);
-}
-
-.theatre-ticket-house {
-  font-family: var(--font-cinema-mono);
-  font-size: 10px;
-  letter-spacing: 0.12em;
-  color: var(--theatre-muted);
-}
-
-.theatre-ticket-body {
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-}
-
-.theatre-ticket-title {
-  font-family: var(--font-cinema-display);
-  font-size: clamp(26px, 4vw, 32px);
-  font-weight: 400;
-  letter-spacing: -0.01em;
-  line-height: 1.15;
-  color: var(--theatre-ivory);
-}
-
-.theatre-ticket-copy {
-  font-size: 14px;
-  line-height: 1.5;
-  color: var(--theatre-parchment);
-  max-width: 340px;
-  margin: 0 auto;
-}
-
-.theatre-ticket-meta {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 12px;
-  background: rgba(8, 7, 6, 0.4);
-  border: 1px dashed rgba(168, 132, 87, 0.25);
-  padding: 12px 14px;
-  text-align: center;
-  font-family: var(--font-cinema-mono);
-}
-
-.theatre-ticket-col {
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-}
-
-.theatre-ticket-col span {
-  font-size: 9px;
-  letter-spacing: 0.1em;
-  color: var(--theatre-muted);
-}
-
-.theatre-ticket-col strong {
-  font-size: 12px;
-  color: var(--theatre-ivory);
-  font-weight: 500;
-}
-
-.theatre-ticket-actions {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-  margin-top: 6px;
-}
-
-.theatre-ticket-admit {
   width: 100%;
-  min-height: 48px;
-  background: linear-gradient(135deg, var(--theatre-brass-bright) 0%, var(--theatre-brass) 100%);
-  color: var(--theatre-black);
-  border: none;
-  font-family: var(--font-cinema-mono);
-  font-size: 12px;
-  font-weight: 700;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  border-radius: 2px;
-  cursor: pointer;
-  box-shadow: 0 4px 20px rgba(168, 132, 87, 0.35);
-  transition: transform 0.15s ease, box-shadow 0.15s ease;
+  height: 220vh; /* Controlled scroll length for spatial transition */
 }
 
-.theatre-ticket-admit:hover,
-.theatre-ticket-admit:focus-visible {
-  transform: translateY(-1px);
-  box-shadow: 0 6px 26px rgba(168, 132, 87, 0.55);
-  outline: 2px solid var(--theatre-glow);
-  outline-offset: 2px;
-}
-
-.theatre-ticket-bypass {
-  background: none;
-  border: none;
-  color: var(--theatre-muted);
-  font-family: var(--font-cinema-mono);
-  font-size: 11px;
-  letter-spacing: 0.08em;
-  cursor: pointer;
-  padding: 8px;
-  transition: color 0.15s ease;
-}
-
-.theatre-ticket-bypass:hover,
-.theatre-ticket-bypass:focus-visible {
-  color: var(--theatre-parchment);
-  outline: 1px dotted var(--theatre-brass);
+.theatre-stage {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  height: 100svh;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  perspective: 1200px;
+  perspective-origin: 50% 65%;
+  background: 
+    radial-gradient(ellipse at 50% 10%, rgba(35, 26, 20, 0.45) 0%, transparent 65%),
+    radial-gradient(circle at 50% 100%, rgba(20, 15, 12, 0.8) 0%, var(--theatre-black) 75%),
+    var(--theatre-black);
 }
 
 /* -------------------------------------------------------------
- * ACT II: THE SCREENING ROOM ARCHITECTURE (PROSCENIUM)
+ * PROJECTOR LIGHT BEAM (SVG LAYER)
  * ------------------------------------------------------------- */
-.theatre-room {
+.theatre-beam-svg {
   position: absolute;
   inset: 0;
   width: 100%;
   height: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  overflow: hidden;
-  background: 
-    radial-gradient(ellipse at 50% 15%, rgba(40, 30, 24, 0.4) 0%, transparent 60%),
-    radial-gradient(circle at 50% 90%, rgba(33, 21, 17, 0.6) 0%, var(--theatre-black) 70%),
-    var(--theatre-black);
-}
-
-/* Projector Beam Cone Effect */
-.theatre-projector-beam {
-  position: absolute;
-  top: -15%;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 80vw;
-  height: 75vh;
   pointer-events: none;
-  z-index: 10;
-  background: radial-gradient(ellipse at 50% 0%, rgba(255, 231, 188, 0.18) 0%, rgba(255, 231, 188, 0.06) 35%, transparent 70%);
-  clip-path: polygon(44% 0%, 56% 0%, 96% 100%, 4% 100%);
-  opacity: 0.85;
-  transition: opacity 0.4s ease, transform 0.4s ease;
+  z-index: 15;
+  mix-blend-mode: screen;
+  opacity: 0.75;
+  transition: opacity 0.4s ease;
 }
 
-/* Ceiling Architectural Framing */
-.theatre-ceiling {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 60px;
-  z-index: 25;
-  background: linear-gradient(180deg, rgba(8, 7, 6, 0.95) 0%, transparent 100%);
-  border-bottom: 1px solid rgba(168, 132, 87, 0.12);
-  pointer-events: none;
+.theatre-beam-svg.is-pulsing {
+  animation: beamPulse 0.45s ease-out;
 }
 
-/* Left & Right Acoustic Wall Framing */
-.theatre-wall-left,
-.theatre-wall-right {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  width: 7vw;
-  min-width: 32px;
-  z-index: 25;
-  pointer-events: none;
-}
-
-.theatre-wall-left {
-  left: 0;
-  background: linear-gradient(90deg, rgba(8, 7, 6, 0.9) 0%, rgba(20, 18, 16, 0.5) 60%, transparent 100%);
-  border-right: 1px solid rgba(168, 132, 87, 0.08);
-}
-
-.theatre-wall-right {
-  right: 0;
-  background: linear-gradient(-90deg, rgba(8, 7, 6, 0.9) 0%, rgba(20, 18, 16, 0.5) 60%, transparent 100%);
-  border-left: 1px solid rgba(168, 132, 87, 0.08);
+@keyframes beamPulse {
+  0% { opacity: 0.75; }
+  50% { opacity: 0.95; filter: drop-shadow(0 0 25px rgba(255, 231, 188, 0.6)); }
+  100% { opacity: 0.75; }
 }
 
 /* -------------------------------------------------------------
- * ACT III: THE MAIN CINEMA SCREEN (DOMINANT VISUAL ANCHOR)
+ * ARCHITECTURAL PROSCENIUM & MAIN CINEMA SCREEN
  * ------------------------------------------------------------- */
-.theatre-screen-stage {
+.theatre-proscenium {
   position: relative;
-  z-index: 20;
+  z-index: 10;
   width: 100%;
-  max-width: 1080px;
-  margin: 68px auto 0;
+  max-width: 1040px;
+  margin: 54px auto 0;
   padding: 0 4vw;
-  flex: 1;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  transform-origin: 50% 20%;
+  transform: scale(calc(1 + var(--scroll-p) * 0.12)) translateY(calc(var(--scroll-p) * -15px));
+  transition: transform 0.1s linear;
 }
 
-.theatre-screen-housing {
+.theatre-proscenium-arch {
   position: relative;
   width: 100%;
-  max-height: 52vh;
-  aspect-ratio: 16 / 9;
-  background: #0d0c0a;
-  border: 1px solid rgba(168, 132, 87, 0.45);
-  box-shadow: 
-    0 0 60px rgba(255, 231, 188, 0.07),
-    0 30px 90px rgba(0, 0, 0, 0.9),
-    inset 0 0 40px rgba(0, 0, 0, 0.8);
-  border-radius: 2px;
+  aspect-ratio: 16 / 9.2;
+  max-height: 48vh;
+  background: #080706;
+  border-radius: 4px;
+  box-shadow:
+    0 0 70px rgba(255, 231, 188, 0.06),
+    0 35px 90px rgba(0, 0, 0, 0.95);
+  overflow: hidden;
+  border: 1px solid rgba(168, 132, 87, 0.35);
+}
+
+/* Architectural Proscenium Masking Borders */
+.theatre-proscenium-arch::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border: 14px solid #0a0908;
+  box-shadow: inset 0 0 40px rgba(0, 0, 0, 0.95);
+  pointer-events: none;
+  z-index: 20;
+}
+
+/* Projection Surface Cloth */
+.theatre-screen-canvas {
+  position: absolute;
+  inset: 14px;
+  background: radial-gradient(circle at center, #1b1713 0%, #0c0a09 85%);
   overflow: hidden;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-/* Projected Light Glow on Proscenium */
-.theatre-screen-housing::after {
-  content: '';
+/* Projected Slide */
+.theatre-projection-slide {
   position: absolute;
   inset: 0;
-  pointer-events: none;
-  box-shadow: inset 0 0 60px rgba(255, 231, 188, 0.08);
-}
-
-/* Individual Screening Slides */
-.theatre-slide {
-  position: absolute;
-  inset: 0;
-  padding: 32px 42px;
   display: grid;
   grid-template-columns: 1.15fr 0.85fr;
   align-items: center;
-  gap: 36px;
+  padding: 24px 36px;
+  gap: 28px;
   opacity: 0;
   visibility: hidden;
-  transition: opacity 0.35s ease, visibility 0.35s ease;
-  background: radial-gradient(circle at 60% 50%, rgba(28, 24, 21, 0.7) 0%, rgba(13, 12, 10, 0.95) 85%);
+  transition: opacity 0.4s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.4s;
+  background: radial-gradient(ellipse at 65% 50%, rgba(38, 28, 22, 0.6) 0%, rgba(10, 9, 8, 0.92) 80%);
 }
 
-.theatre-slide.is-active {
+.theatre-projection-slide.is-active {
   opacity: 1;
   visibility: visible;
-  z-index: 5;
+  z-index: 10;
 }
 
-.theatre-slide-copy {
+.theatre-slide-info {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: 12px;
+  gap: 10px;
   text-align: left;
 }
 
-.theatre-slide-tag {
+.theatre-screen-colophon {
   display: inline-flex;
   align-items: center;
   gap: 10px;
@@ -498,38 +305,39 @@ html, body {
   color: var(--theatre-brass-bright);
 }
 
-.theatre-slide-status {
+.theatre-screen-status {
   padding: 2px 7px;
   border-radius: 2px;
   border: 1px solid currentColor;
   font-size: 9px;
 }
-.theatre-slide-status.status-INTERNAL { color: #8ed081; }
-.theatre-slide-status.status-CONCEPT { color: var(--theatre-amber); }
-.theatre-slide-status.status-PREMIUM { color: var(--theatre-brass-bright); }
+.theatre-screen-status.status-INTERNAL { color: #8ed081; }
+.theatre-screen-status.status-CONCEPT { color: var(--theatre-amber); }
+.theatre-screen-status.status-PREMIUM { color: var(--theatre-brass-bright); }
 
-.theatre-slide-title {
+.theatre-screen-title {
   font-family: var(--font-cinema-display);
-  font-size: clamp(28px, 4.2vw, 56px);
+  font-size: clamp(26px, 3.8vw, 48px);
   font-weight: 400;
   letter-spacing: -0.02em;
   line-height: 1.05;
   color: var(--theatre-ivory);
-  margin: 2px 0 6px;
+  margin: 2px 0;
 }
 
-.theatre-slide-desc {
-  font-size: 14px;
-  line-height: 1.55;
+.theatre-screen-desc {
+  font-size: 13px;
+  line-height: 1.5;
   color: var(--theatre-parchment);
-  max-width: 440px;
+  max-width: 400px;
+  margin: 0;
 }
 
-.theatre-slide-cta {
-  margin-top: 14px;
+.theatre-screen-cta {
+  margin-top: 10px;
   display: inline-flex;
   align-items: center;
-  gap: 10px;
+  gap: 8px;
   min-height: 44px;
   padding: 0 20px;
   background: var(--theatre-ivory);
@@ -544,21 +352,20 @@ html, body {
   transition: all 0.2s ease;
 }
 
-.theatre-slide-cta:hover,
-.theatre-slide-cta:focus-visible {
+.theatre-screen-cta:hover,
+.theatre-screen-cta:focus-visible {
   background: var(--theatre-brass-bright);
   border-color: var(--theatre-brass-bright);
   color: #000;
-  box-shadow: 0 0 20px rgba(255, 231, 188, 0.4);
+  box-shadow: 0 0 24px rgba(255, 231, 188, 0.45);
   outline: 2px solid var(--theatre-glow);
   outline-offset: 2px;
 }
 
-/* Screening Slide Visual Media Frame */
-.theatre-slide-media {
+.theatre-slide-visual {
   width: 100%;
   height: 100%;
-  max-height: 38vh;
+  max-height: 34vh;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -566,248 +373,374 @@ html, body {
   overflow: hidden;
 }
 
-.theatre-slide-artifact {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+/* Premium Lodge Screen Content */
+.theatre-projection-slide.theatre-slide-lodge {
+  background: radial-gradient(ellipse at 65% 50%, rgba(93, 32, 27, 0.45) 0%, rgba(10, 9, 8, 0.95) 80%);
 }
 
-/* Premium Rear Lodge Slide Styling */
-.theatre-slide-lodge {
-  background: radial-gradient(circle at 60% 50%, rgba(93, 32, 27, 0.35) 0%, rgba(13, 12, 10, 0.95) 85%);
-}
-
-.theatre-slide-lodge .theatre-slide-cta {
-  background: var(--theatre-oxblood-rich);
+.theatre-slide-lodge .theatre-screen-cta {
+  background: var(--theatre-oxblood);
   border-color: var(--theatre-brass);
   color: var(--theatre-ivory);
 }
 
-.theatre-slide-lodge .theatre-slide-cta:hover,
-.theatre-slide-lodge .theatre-slide-cta:focus-visible {
-  background: var(--theatre-oxblood);
+.theatre-slide-lodge .theatre-screen-cta:hover,
+.theatre-slide-lodge .theatre-screen-cta:focus-visible {
+  background: var(--theatre-oxblood-dark);
   border-color: var(--theatre-brass-bright);
-  color: #fff;
-  box-shadow: 0 0 24px rgba(120, 42, 36, 0.6);
+  box-shadow: 0 0 24px rgba(120, 42, 36, 0.7);
 }
 
 /* -------------------------------------------------------------
- * ACT IV: THE PROJECT SEATING ROWS (INTERACTIVE DOM BUTTONS)
+ * 2.5D PHYSICAL AUDITORIUM SEATING (SEAT-BACK ARCHIVE)
  * ------------------------------------------------------------- */
-.theatre-auditorium-floor {
+.theatre-auditorium {
   position: relative;
-  z-index: 30;
+  z-index: 25;
   width: 100%;
-  max-width: 980px;
+  max-width: 1080px;
   margin: 0 auto;
-  padding: 16px 4vw 24px;
+  padding: 0 3vw 20px;
   display: flex;
   flex-direction: column;
   gap: 16px;
+  transform-origin: 50% 80%;
+  transform: translateY(calc(var(--scroll-p) * -30px));
+  transition: transform 0.1s linear;
 }
 
-/* Seating Floor Horizon & Aisle Illumination */
-.theatre-floor-lights {
+/* Central Aisle Lighting Strip */
+.theatre-aisle-guide {
   position: absolute;
-  left: 0;
-  right: 0;
+  top: 0;
   bottom: 0;
-  height: 80px;
-  background: linear-gradient(0deg, rgba(217, 119, 54, 0.08) 0%, transparent 100%);
+  left: 50%;
+  width: 44px;
+  transform: translateX(-50%);
+  background: linear-gradient(180deg, transparent 0%, rgba(217, 119, 54, 0.08) 60%, rgba(217, 119, 54, 0.15) 100%);
   pointer-events: none;
 }
 
-.theatre-rows-container {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-  width: 100%;
-}
-
-.theatre-row {
+/* Distant Background Seating Row (Depth Illusion) */
+.theatre-row-distant {
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 14px;
+  opacity: 0.35;
+  transform: scale(0.72) translateY(6px);
+  filter: blur(0.4px);
+  pointer-events: none;
 }
 
-.theatre-row-label {
-  font-family: var(--font-cinema-mono);
-  font-size: 10px;
-  letter-spacing: 0.12em;
-  color: var(--theatre-muted);
-  width: 48px;
-  text-align: right;
-  flex-shrink: 0;
+.theatre-seat-silhouette {
+  width: 58px;
+  height: 38px;
+  background: linear-gradient(180deg, #1f1c19 0%, #0d0c0a 100%);
+  border-radius: 8px 8px 2px 2px;
+  border-top: 1px solid rgba(168, 132, 87, 0.2);
 }
 
-.theatre-row-seats {
+/* Middle Rows: Active Archive Seat Backs */
+.theatre-seating-bank {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  width: 100%;
+}
+
+.theatre-seat-row {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 12px;
-  flex-wrap: wrap;
+  gap: 18px;
 }
 
-/* Tactile Physical Seat Button */
-.theatre-seat-btn {
+.theatre-seat-row-left,
+.theatre-seat-row-right {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+/* Physical Seat-Back Unit */
+.theatre-seat-unit {
   position: relative;
-  min-height: 48px;
-  min-width: 72px;
-  padding: 6px 12px;
-  background: linear-gradient(180deg, #2b2824 0%, #171513 100%);
-  border: 1px solid var(--theatre-border);
-  border-radius: 4px 4px 2px 2px;
-  color: var(--theatre-ivory);
+  width: 154px;
+  height: 98px;
+  background: linear-gradient(180deg, #2a2520 0%, #151310 100%);
+  border: 1px solid rgba(168, 132, 87, 0.3);
+  border-radius: 12px 12px 3px 3px;
+  box-shadow: 
+    0 10px 24px rgba(0, 0, 0, 0.8),
+    inset 0 1px 0 rgba(240, 232, 216, 0.15);
   cursor: pointer;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  gap: 3px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.6), inset 0 1px 0 rgba(240, 232, 216, 0.15);
-  transition: transform 0.15s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.15s ease, background 0.15s ease, box-shadow 0.15s ease;
+  justify-content: space-between;
+  padding: 8px 10px;
+  text-align: center;
+  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.2s ease, border-color 0.2s ease;
 }
 
-/* Seat Cushion Top Highlight */
-.theatre-seat-btn::before {
+/* Curved Upholstered Top Roll */
+.theatre-seat-unit::before {
   content: '';
   position: absolute;
   top: 0;
-  left: 4px;
-  right: 4px;
-  height: 4px;
-  background: var(--theatre-parchment);
-  opacity: 0.25;
-  border-radius: 2px 2px 0 0;
-  transition: opacity 0.15s ease, background 0.15s ease;
+  left: 10px;
+  right: 10px;
+  height: 5px;
+  background: linear-gradient(90deg, rgba(240, 232, 216, 0.2) 0%, rgba(255, 231, 188, 0.4) 50%, rgba(240, 232, 216, 0.2) 100%);
+  border-radius: 3px 3px 0 0;
+  transition: opacity 0.2s ease, background 0.2s ease;
 }
 
-.theatre-seat-btn:hover,
-.theatre-seat-btn:focus-visible {
-  transform: translateY(-3px);
+.theatre-seat-unit:hover,
+.theatre-seat-unit:focus-visible {
+  transform: translateY(-5px) scale(1.02);
   border-color: var(--theatre-brass-bright);
-  background: linear-gradient(180deg, #3d3731 0%, #201c18 100%);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.8), 0 0 16px rgba(168, 132, 87, 0.4);
+  box-shadow: 
+    0 16px 36px rgba(0, 0, 0, 0.9),
+    0 0 20px rgba(168, 132, 87, 0.35);
   outline: 2px solid var(--theatre-glow);
-  outline-offset: 2px;
+  outline-offset: 3px;
 }
 
-.theatre-seat-btn:hover::before,
-.theatre-seat-btn:focus-visible::before {
-  opacity: 0.85;
+.theatre-seat-unit:hover::before,
+.theatre-seat-unit:focus-visible::before {
   background: var(--theatre-glow);
+  box-shadow: 0 0 8px rgba(255, 231, 188, 0.6);
 }
 
-.theatre-seat-btn.is-selected {
+.theatre-seat-unit.is-active {
   border-color: var(--theatre-brass-bright);
-  background: linear-gradient(180deg, #443c34 0%, #26211c 100%);
-  box-shadow: 0 0 24px rgba(255, 231, 188, 0.3), inset 0 0 10px rgba(168, 132, 87, 0.3);
+  box-shadow: 
+    0 16px 36px rgba(0, 0, 0, 0.9),
+    0 0 24px rgba(255, 231, 188, 0.35);
+  transform: translateY(-4px);
 }
 
-.theatre-seat-btn.is-selected::before {
-  opacity: 1;
+.theatre-seat-unit.is-active::before {
   background: var(--theatre-glow);
+}
+
+/* Stamped Brass Seat & Project Plaque */
+.theatre-seat-plaque {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  font-family: var(--font-cinema-mono);
+  font-size: 9px;
+  letter-spacing: 0.12em;
+  color: var(--theatre-brass-bright);
+  border-bottom: 1px solid rgba(168, 132, 87, 0.2);
+  padding-bottom: 4px;
+}
+
+.theatre-seat-id {
+  font-weight: 700;
 }
 
 .theatre-seat-num {
-  font-family: var(--font-cinema-mono);
+  color: var(--theatre-muted);
+}
+
+/* Embedded Physical Project Panel on Seat-Back */
+.theatre-seat-mount {
+  position: relative;
+  width: 100%;
+  flex: 1;
+  margin-top: 5px;
+  background: rgba(10, 9, 8, 0.7);
+  border: 1px solid rgba(168, 132, 87, 0.15);
+  border-radius: 2px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 4px;
+}
+
+.theatre-seat-label {
   font-size: 11px;
-  font-weight: 600;
-  letter-spacing: 0.08em;
+  font-weight: 500;
+  line-height: 1.2;
   color: var(--theatre-ivory);
 }
 
-.theatre-seat-code {
+.theatre-seat-category {
+  font-size: 8px;
   font-family: var(--font-cinema-mono);
-  font-size: 9px;
-  letter-spacing: 0.1em;
-  color: var(--theatre-brass-bright);
+  color: var(--theatre-muted);
+  letter-spacing: 0.08em;
+  margin-top: 2px;
+  text-transform: uppercase;
 }
 
-/* Reserved Seat State */
-.theatre-seat-btn:disabled,
-.theatre-seat-btn[aria-disabled="true"] {
-  background: #100f0e;
-  border-color: rgba(240, 232, 216, 0.06);
+/* Project-Specific Artwork Embeds on Seat Back */
+.seat-art-structure {
+  background: linear-gradient(135deg, #181715 0%, #0d0c0a 100%);
+  border-color: rgba(168, 132, 87, 0.3);
+}
+
+.seat-art-someone {
+  background: linear-gradient(135deg, #2b1f17 0%, #15100c 100%);
+  border-color: rgba(217, 119, 54, 0.3);
+}
+
+.seat-art-business {
+  background: linear-gradient(135deg, #1e2419 0%, #0e120b 100%);
+  border-color: rgba(142, 208, 129, 0.3);
+}
+
+/* Reserved Seat Backs */
+.theatre-seat-unit:disabled,
+.theatre-seat-unit[aria-disabled="true"] {
+  background: #0f0e0d;
+  border-color: rgba(240, 232, 216, 0.05);
   color: var(--theatre-muted);
   cursor: not-allowed;
   box-shadow: none;
   opacity: 0.45;
 }
 
-.theatre-seat-btn:disabled::before,
-.theatre-seat-btn[aria-disabled="true"]::before {
+.theatre-seat-unit:disabled::before,
+.theatre-seat-unit[aria-disabled="true"]::before {
   display: none;
 }
 
-.theatre-seat-btn:disabled:hover {
+.theatre-seat-unit:disabled:hover {
   transform: none;
   box-shadow: none;
-  border-color: rgba(240, 232, 216, 0.06);
+  border-color: rgba(240, 232, 216, 0.05);
 }
 
-/* Premium Rear Lodge Row */
-.theatre-lodge-row {
-  margin-top: 4px;
-  padding-top: 10px;
-  border-top: 1px solid rgba(168, 132, 87, 0.15);
+.theatre-seat-reserved-text {
+  font-family: var(--font-cinema-mono);
+  font-size: 9px;
+  letter-spacing: 0.14em;
+  color: var(--theatre-muted);
+  text-transform: uppercase;
 }
 
-.theatre-lodge-btn {
-  min-height: 48px;
-  padding: 8px 24px;
-  background: linear-gradient(180deg, var(--theatre-oxblood) 0%, #1f0b09 100%);
-  border: 1px solid var(--theatre-brass);
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.7), inset 0 1px 0 rgba(168, 132, 87, 0.3);
+/* -------------------------------------------------------------
+ * PREMIUM REAR LODGE BANQUETTE (PHYSICAL CONVERSION AREA)
+ * ------------------------------------------------------------- */
+.theatre-lodge-terrace {
+  position: relative;
+  width: 100%;
   display: flex;
-  flex-direction: row;
+  justify-content: center;
+  margin-top: 6px;
+  padding-top: 14px;
+  border-top: 1px solid rgba(168, 132, 87, 0.25);
+}
+
+.theatre-lodge-banquette {
+  position: relative;
+  width: 100%;
+  max-width: 480px;
+  min-height: 64px;
+  background: linear-gradient(180deg, var(--theatre-oxblood) 0%, #200c0a 100%);
+  border: 1px solid var(--theatre-brass);
+  border-radius: 14px 14px 4px 4px;
+  box-shadow: 
+    0 12px 30px rgba(0, 0, 0, 0.85),
+    inset 0 1px 0 rgba(212, 169, 115, 0.4);
+  cursor: pointer;
+  display: flex;
   align-items: center;
-  gap: 16px;
+  justify-content: space-between;
+  padding: 10px 24px;
+  transition: all 0.2s ease;
 }
 
-.theatre-lodge-btn::before {
+.theatre-lodge-banquette::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 20px;
+  right: 20px;
+  height: 6px;
   background: var(--theatre-brass-bright);
-  opacity: 0.4;
+  opacity: 0.5;
+  border-radius: 4px 4px 0 0;
+  transition: opacity 0.2s ease;
 }
 
-.theatre-lodge-btn:hover,
-.theatre-lodge-btn:focus-visible {
-  background: linear-gradient(180deg, var(--theatre-oxblood-rich) 0%, #2e100d 100%);
+.theatre-lodge-banquette:hover,
+.theatre-lodge-banquette:focus-visible {
+  background: linear-gradient(180deg, #782a24 0%, #2e100d 100%);
   border-color: var(--theatre-brass-bright);
-  box-shadow: 0 0 24px rgba(120, 42, 36, 0.5), 0 0 14px rgba(168, 132, 87, 0.4);
+  box-shadow: 
+    0 16px 40px rgba(0, 0, 0, 0.95),
+    0 0 28px rgba(120, 42, 36, 0.6);
+  outline: 2px solid var(--theatre-glow);
+  outline-offset: 3px;
 }
 
-.theatre-lodge-label {
+.theatre-lodge-banquette:hover::before,
+.theatre-lodge-banquette:focus-visible::before {
+  opacity: 1;
+  box-shadow: 0 0 12px rgba(255, 231, 188, 0.8);
+}
+
+.theatre-lodge-banquette.is-active {
+  border-color: var(--theatre-brass-bright);
+  box-shadow: 
+    0 16px 40px rgba(0, 0, 0, 0.95),
+    0 0 28px rgba(120, 42, 36, 0.7);
+}
+
+.theatre-lodge-banquette.is-active::before {
+  opacity: 1;
+}
+
+.theatre-lodge-details {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 3px;
+}
+
+.theatre-lodge-name {
   font-family: var(--font-cinema-mono);
   font-size: 11px;
   font-weight: 600;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
   color: var(--theatre-ivory);
 }
 
-.theatre-lodge-status {
+.theatre-lodge-sub {
+  font-size: 12px;
+  color: var(--theatre-parchment);
+}
+
+.theatre-lodge-badge {
   font-family: var(--font-cinema-mono);
   font-size: 9px;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.12em;
   color: var(--theatre-brass-bright);
   border: 1px solid var(--theatre-brass);
-  padding: 2px 6px;
+  padding: 4px 8px;
   border-radius: 2px;
 }
 
 /* -------------------------------------------------------------
- * ACT V: PRINTED PROGRAMME / DIRECTORY FALLBACK
+ * PRINTED PROGRAMME / DIRECTORY MODAL
  * ------------------------------------------------------------- */
-.theatre-programme-modal {
+.theatre-programme-drawer {
   position: fixed;
   inset: 0;
   z-index: 200;
-  background: rgba(8, 7, 6, 0.85);
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
+  background: rgba(6, 5, 4, 0.88);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
   display: flex;
   justify-content: flex-end;
   opacity: 0;
@@ -815,19 +748,19 @@ html, body {
   transition: opacity 0.3s ease, visibility 0.3s ease;
 }
 
-.theatre-programme-modal.is-open {
+.theatre-programme-drawer.is-open {
   opacity: 1;
   visibility: visible;
 }
 
-.theatre-programme-sheet {
+.theatre-programme-folio {
   width: 100%;
-  max-width: 460px;
+  max-width: 480px;
   height: 100%;
-  background: #141210;
+  background: #12100e;
   border-left: 1px solid var(--theatre-border);
-  box-shadow: -20px 0 60px rgba(0, 0, 0, 0.8);
-  padding: 40px 32px;
+  box-shadow: -20px 0 60px rgba(0, 0, 0, 0.9);
+  padding: 44px 36px;
   overflow-y: auto;
   display: flex;
   flex-direction: column;
@@ -836,11 +769,11 @@ html, body {
   transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.theatre-programme-modal.is-open .theatre-programme-sheet {
+.theatre-programme-drawer.is-open .theatre-programme-folio {
   transform: translateX(0);
 }
 
-.theatre-programme-head {
+.theatre-folio-header {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
@@ -848,7 +781,7 @@ html, body {
   padding-bottom: 16px;
 }
 
-.theatre-programme-eyebrow {
+.theatre-folio-eyebrow {
   font-family: var(--font-cinema-mono);
   font-size: 10px;
   letter-spacing: 0.14em;
@@ -857,14 +790,14 @@ html, body {
   margin-bottom: 4px;
 }
 
-.theatre-programme-title {
+.theatre-folio-title {
   font-family: var(--font-cinema-display);
-  font-size: 24px;
+  font-size: 26px;
   font-weight: 400;
   color: var(--theatre-ivory);
 }
 
-.theatre-programme-close {
+.theatre-folio-close {
   min-height: 44px;
   min-width: 44px;
   background: none;
@@ -872,27 +805,27 @@ html, body {
   border-radius: 2px;
   color: var(--theatre-parchment);
   cursor: pointer;
-  font-size: 18px;
+  font-size: 20px;
   display: flex;
   align-items: center;
   justify-content: center;
   transition: all 0.2s ease;
 }
 
-.theatre-programme-close:hover,
-.theatre-programme-close:focus-visible {
+.theatre-folio-close:hover,
+.theatre-folio-close:focus-visible {
   border-color: var(--theatre-brass-bright);
   color: var(--theatre-ivory);
   outline: 2px solid var(--theatre-brass-bright);
 }
 
-.theatre-programme-section {
+.theatre-folio-section {
   display: flex;
   flex-direction: column;
   gap: 14px;
 }
 
-.theatre-programme-section-title {
+.theatre-folio-section-title {
   font-family: var(--font-cinema-mono);
   font-size: 11px;
   letter-spacing: 0.12em;
@@ -902,18 +835,18 @@ html, body {
   padding-bottom: 6px;
 }
 
-.theatre-programme-list {
+.theatre-folio-list {
   list-style: none;
   display: flex;
   flex-direction: column;
   gap: 10px;
 }
 
-.theatre-programme-item {
+.theatre-folio-card {
   display: flex;
   flex-direction: column;
   gap: 4px;
-  padding: 12px 14px;
+  padding: 12px 16px;
   background: rgba(240, 232, 216, 0.03);
   border: 1px solid var(--theatre-hairline);
   border-radius: 2px;
@@ -922,62 +855,60 @@ html, body {
   transition: all 0.2s ease;
 }
 
-.theatre-programme-item:hover,
-.theatre-programme-item:focus-visible {
+.theatre-folio-card:hover,
+.theatre-folio-card:focus-visible {
   background: rgba(168, 132, 87, 0.08);
   border-color: var(--theatre-border);
   outline: 2px solid var(--theatre-brass-bright);
 }
 
-.theatre-programme-item-top {
+.theatre-folio-card-meta {
   display: flex;
   justify-content: space-between;
-  align-items: baseline;
   font-family: var(--font-cinema-mono);
   font-size: 10px;
 }
 
-.theatre-programme-item-num {
+.theatre-folio-card-num {
   color: var(--theatre-brass-bright);
   font-weight: 600;
 }
 
-.theatre-programme-item-status {
+.theatre-folio-card-status {
   color: var(--theatre-muted);
 }
 
-.theatre-programme-item-name {
+.theatre-folio-card-title {
   font-size: 14px;
   font-weight: 500;
   color: var(--theatre-ivory);
 }
 
-.theatre-programme-item-desc {
+.theatre-folio-card-desc {
   font-size: 12px;
   color: var(--theatre-parchment);
   line-height: 1.4;
 }
 
-.theatre-programme-reserved {
-  opacity: 0.55;
+.theatre-folio-reserved {
+  opacity: 0.5;
   border-style: dashed;
 }
 
-.theatre-programme-marquee-cta {
+.theatre-folio-cta-block {
   margin-top: auto;
   padding-top: 24px;
   border-top: 1px solid var(--theatre-border);
-  text-align: center;
 }
 
-.theatre-programme-marquee-link {
+.theatre-folio-marquee-btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 10px;
   width: 100%;
   min-height: 48px;
-  background: var(--theatre-oxblood-rich);
+  background: var(--theatre-oxblood);
   color: var(--theatre-ivory);
   border: 1px solid var(--theatre-brass);
   border-radius: 2px;
@@ -990,112 +921,121 @@ html, body {
   transition: all 0.2s ease;
 }
 
-.theatre-programme-marquee-link:hover,
-.theatre-programme-marquee-link:focus-visible {
-  background: var(--theatre-oxblood);
+.theatre-folio-marquee-btn:hover,
+.theatre-folio-marquee-btn:focus-visible {
+  background: #782a24;
   border-color: var(--theatre-brass-bright);
-  box-shadow: 0 0 20px rgba(120, 42, 36, 0.6);
+  box-shadow: 0 0 20px rgba(120, 42, 36, 0.7);
   outline: 2px solid var(--theatre-glow);
 }
 
 /* -------------------------------------------------------------
- * RESPONSIVE MOBILE COMPOSITION (390×844 & 320×568)
+ * MOBILE PORTRAIT CINEMA COMPOSITION (390×844 & 320×568)
  * ------------------------------------------------------------- */
 @media (max-width: 768px) {
-  .theatre-body {
-    overflow-y: auto;
+  .theatre-scroll-track {
+    height: auto; /* Natural document flow on mobile */
   }
-  
+
+  .theatre-stage {
+    position: relative;
+    height: auto;
+    min-height: 100vh;
+    overflow-y: visible;
+  }
+
   .theatre-escape {
     top: 16px;
     left: 16px;
     padding: 0 12px;
     font-size: 10px;
   }
-  
+
   .theatre-marquee {
     top: 16px;
     right: 16px;
   }
-  
+
   .theatre-marquee-badge {
     display: none;
   }
-  
-  .theatre-screen-stage {
-    margin-top: 64px;
+
+  .theatre-proscenium {
+    margin-top: 68px;
     padding: 0 16px;
+    transform: none !important;
   }
-  
-  .theatre-screen-housing {
+
+  .theatre-proscenium-arch {
     max-height: none;
     aspect-ratio: auto;
-    min-height: 380px;
+    min-height: 340px;
   }
-  
-  .theatre-slide {
-    padding: 24px 20px;
+
+  .theatre-projection-slide {
     grid-template-columns: 1fr;
-    gap: 20px;
+    padding: 20px 16px;
+    gap: 16px;
   }
-  
-  .theatre-slide-title {
-    font-size: 28px;
+
+  .theatre-screen-title {
+    font-size: 26px;
   }
-  
-  .theatre-slide-desc {
+
+  .theatre-screen-desc {
     font-size: 13px;
   }
-  
-  .theatre-slide-media {
-    max-height: 140px;
+
+  .theatre-slide-visual {
+    max-height: 130px;
   }
-  
-  .theatre-auditorium-floor {
-    padding: 20px 16px 36px;
-    gap: 14px;
+
+  .theatre-auditorium {
+    transform: none !important;
+    padding: 24px 16px 40px;
   }
-  
-  .theatre-row {
+
+  .theatre-row-distant {
+    display: none;
+  }
+
+  .theatre-seating-bank {
+    gap: 12px;
+  }
+
+  .theatre-seat-row {
     flex-direction: column;
-    align-items: flex-start;
-    gap: 6px;
-  }
-  
-  .theatre-row-label {
-    width: auto;
-    font-size: 9px;
-  }
-  
-  .theatre-row-seats {
+    gap: 10px;
     width: 100%;
-    justify-content: flex-start;
   }
-  
-  .theatre-seat-btn {
-    min-width: 60px;
-    min-height: 48px;
-    flex: 1;
-  }
-  
-  .theatre-lodge-btn {
+
+  .theatre-seat-row-left,
+  .theatre-seat-row-right {
     width: 100%;
-    justify-content: space-between;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .theatre-seat-unit {
+    width: 100%;
+    height: auto;
+    min-height: 72px;
+    padding: 10px 16px;
+  }
+
+  .theatre-lodge-banquette {
+    max-width: 100%;
+    padding: 12px 18px;
   }
 }
 
 @media (max-width: 360px) {
-  .theatre-slide-title {
-    font-size: 24px;
+  .theatre-screen-title {
+    font-size: 22px;
   }
-  
-  .theatre-seat-btn {
-    padding: 4px 6px;
-    min-width: 52px;
-  }
-  
-  .theatre-ticket-card {
-    padding: 30px 20px;
+
+  .theatre-seat-unit {
+    padding: 8px 12px;
   }
 }
 
@@ -1108,22 +1048,28 @@ html, body {
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
   }
-  
-  .theatre-projector-beam {
-    opacity: 0.4 !important;
-    transform: translateX(-50%) !important;
+
+  .theatre-scroll-track {
+    height: auto;
   }
-  
-  .theatre-seat-btn:hover,
-  .theatre-seat-btn:focus-visible {
+
+  .theatre-stage,
+  .theatre-proscenium,
+  .theatre-auditorium {
     transform: none !important;
   }
-  
-  .theatre-ticket-stage {
-    transition: none !important;
+
+  .theatre-seat-unit:hover,
+  .theatre-seat-unit:focus-visible {
+    transform: none !important;
   }
-  
-  .theatre-slide {
+
+  .theatre-beam-svg {
+    opacity: 0.4 !important;
+    animation: none !important;
+  }
+
+  .theatre-projection-slide {
     transition: none !important;
   }
 }

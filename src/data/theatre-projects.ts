@@ -4,13 +4,14 @@ export type SeatStatus = 'ACTIVE' | 'CONCEPT' | 'RESERVED' | 'PREMIUM';
 
 export interface TheatreSeatData {
   id: string; // '000', '001', '002', '003', etc., or 'LODGE'
-  row: string; // 'A', 'B', 'C', or 'REAR'
-  seatNumber: string; // 'A1', 'B2', etc.
+  row: 'A' | 'B' | 'C' | 'REAR';
+  seatNumber: string; // 'A2', 'B3', etc.
   status: SeatStatus;
   category: string;
   label: string;
   shortDescription: string;
-  kind?: 'structure' | 'someone' | 'business';
+  seatBackType: 'structure' | 'someone' | 'business' | 'reserved' | 'lodge';
+  screenHeroImage?: string;
   projectHref?: string;
   liveUrl?: string;
   canonicalProject?: Project;
@@ -24,8 +25,9 @@ export const theatreSeats: TheatreSeatData[] = [
     status: 'ACTIVE',
     category: 'Studio Architecture',
     label: 'Algoryxz Studio Platform',
-    shortDescription: 'The foundational public digital studio platform, engineering system, and archive for Algoryxz.',
-    kind: 'structure',
+    shortDescription: 'The foundational digital architecture, engineering system, and archive for Algoryxz.',
+    seatBackType: 'structure',
+    screenHeroImage: '/assets/projects/000-hero.svg',
     projectHref: '/work/000',
     liveUrl: 'https://algoryxz.com',
     canonicalProject: projects.find((p) => p.number === '000')
@@ -37,8 +39,9 @@ export const theatreSeats: TheatreSeatData[] = [
     status: 'CONCEPT',
     category: 'Celebrations',
     label: 'The Courtyard Wedding Portal',
-    shortDescription: 'An editorial multi-day celebration experience with bespoke itinerary and real-time guest RSVP.',
-    kind: 'someone',
+    shortDescription: 'An editorial celebration experience with bespoke itinerary and living memories.',
+    seatBackType: 'someone',
+    screenHeroImage: '/assets/lab/monsoon_vows_memory.jpg',
     projectHref: '/work/001',
     canonicalProject: projects.find((p) => p.number === '001')
   },
@@ -49,8 +52,9 @@ export const theatreSeats: TheatreSeatData[] = [
     status: 'CONCEPT',
     category: 'Business & Brand',
     label: 'Bhubaneswar Artisan Roastery',
-    shortDescription: 'A modern, high-speed digital storefront and interactive menu for a local specialty coffee café.',
-    kind: 'business',
+    shortDescription: 'A high-speed digital storefront and interactive menu for specialty coffee.',
+    seatBackType: 'business',
+    screenHeroImage: '/assets/projects/002-hero.svg',
     projectHref: '/work/002',
     canonicalProject: projects.find((p) => p.number === '002')
   },
@@ -61,7 +65,8 @@ export const theatreSeats: TheatreSeatData[] = [
     status: 'RESERVED',
     category: 'Celebrations',
     label: 'Private Commission Slot',
-    shortDescription: 'Reserved for upcoming matrimonial or celebratory digital archives.'
+    shortDescription: 'Production slot reserved for upcoming celebration portal.',
+    seatBackType: 'reserved'
   },
   {
     id: '004',
@@ -70,7 +75,8 @@ export const theatreSeats: TheatreSeatData[] = [
     status: 'RESERVED',
     category: 'Intimate Keepsakes',
     label: 'Editorial Anniversary Archive',
-    shortDescription: 'Reserved for romantic or anniversary timeline portals.'
+    shortDescription: 'Production slot reserved for romantic timeline portal.',
+    seatBackType: 'reserved'
   },
   {
     id: '005',
@@ -79,7 +85,8 @@ export const theatreSeats: TheatreSeatData[] = [
     status: 'RESERVED',
     category: 'Creators & Culture',
     label: 'Independent Creator Portfolio',
-    shortDescription: 'Reserved for photography or artist monograph experiences.'
+    shortDescription: 'Production slot reserved for photography monograph experience.',
+    seatBackType: 'reserved'
   },
   {
     id: '006',
@@ -88,19 +95,22 @@ export const theatreSeats: TheatreSeatData[] = [
     status: 'RESERVED',
     category: 'Custom Systems',
     label: 'Operational Platform Engine',
-    shortDescription: 'Reserved for booking and enterprise operational interfaces.'
+    shortDescription: 'Production slot reserved for booking and operational interface.',
+    seatBackType: 'reserved'
   }
 ];
 
 export const premiumLodgeData = {
   id: 'LODGE',
-  row: 'REAR',
+  row: 'REAR' as const,
   seatNumber: 'LODGE 01',
   status: 'PREMIUM' as const,
   category: 'Future Client Commission',
+  label: 'Reserved For What\'s Next',
+  seatBackType: 'lodge' as const,
   title: 'YOUR PROJECT COULD SCREEN HERE.',
   subtitle: 'The best seat in the house is still empty.',
-  copy: "Bring the idea; we'll build the world around it. Independent design and digital engineering from Bhubaneswar.",
+  copy: 'Bring the idea; we\'ll build the world around it. Independent design and digital engineering from Bhubaneswar.',
   ctaText: 'START A PROJECT',
   ctaHref: '/contact'
 };
