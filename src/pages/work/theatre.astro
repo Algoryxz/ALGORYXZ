@@ -1,0 +1,464 @@
+---
+import TheatreLayout from '../../layouts/TheatreLayout.astro';
+import MaterialArtifact from '../../components/MaterialArtifact.astro';
+import { theatreSeats, premiumLodgeData } from '../../data/theatre-projects';
+import '../../styles/theatre-cinematic.css';
+
+const activeSeats = theatreSeats.filter((s) => s.status === 'ACTIVE' || s.status === 'CONCEPT');
+const reservedSeats = theatreSeats.filter((s) => s.status === 'RESERVED');
+
+const rowA = activeSeats.filter((s) => s.row === 'A');
+const rowB = activeSeats.filter((s) => s.row === 'B');
+const rowC = reservedSeats;
+---
+
+<TheatreLayout title="Algoryxz Cinema — Private Screening Room & Archive">
+  <!-- ACT I: Physical Admission Ticket Entry Gate -->
+  <div class="theatre-ticket-stage" id="theatre-ticket" data-admitted="false" role="dialog" aria-modal="true" aria-labelledby="ticket-title">
+    <article class="theatre-ticket-card">
+      <header class="theatre-ticket-top">
+        <span class="theatre-ticket-mark">ALGORYXZ PICTURES</span>
+        <span class="theatre-ticket-house">HOUSE 01 · ADMIT ONE</span>
+      </header>
+
+      <div class="theatre-ticket-body">
+        <h1 id="ticket-title" class="theatre-ticket-title">Private Screening</h1>
+        <p class="theatre-ticket-copy">
+          Tonight&rsquo;s programme is still being written. Three screenings are open. Four seats are reserved for what comes next.
+        </p>
+
+        <div class="theatre-ticket-meta">
+          <div class="theatre-ticket-col">
+            <span>HOUSE</span>
+            <strong>01</strong>
+          </div>
+          <div class="theatre-ticket-col">
+            <span>ROW</span>
+            <strong>&infin;</strong>
+          </div>
+          <div class="theatre-ticket-col">
+            <span>SEAT</span>
+            <strong>YOU</strong>
+          </div>
+        </div>
+      </div>
+
+      <div class="theatre-ticket-actions">
+        <button type="button" class="theatre-ticket-admit" id="theatre-enter-btn">
+          ENTER HOUSE 01 &rarr;
+        </button>
+        <button type="button" class="theatre-ticket-bypass" id="theatre-bypass-btn">
+          USE THE PROGRAMME INSTEAD
+        </button>
+      </div>
+    </article>
+  </div>
+
+  <!-- Header Metadata Banner & Programme Toggle -->
+  <header class="theatre-marquee">
+    <div class="theatre-marquee-badge">
+      ALGORYXZ PICTURES &middot; <strong>HOUSE 01 &middot; PRIVATE SCREENING</strong>
+    </div>
+    <button
+      type="button"
+      class="theatre-programme-toggle"
+      id="theatre-programme-btn"
+      aria-controls="theatre-programme-modal"
+      aria-expanded="false"
+      aria-label="Open tonight's printed programme"
+    >
+      <span>&equiv;</span>
+      <span>Programme</span>
+    </button>
+  </header>
+
+  <!-- ACT II: Private Screening Room Architecture (Proscenium & Light Cone) -->
+  <main class="theatre-room" id="theatre-room">
+    <div class="theatre-ceiling" aria-hidden="true"></div>
+    <div class="theatre-wall-left" aria-hidden="true"></div>
+    <div class="theatre-wall-right" aria-hidden="true"></div>
+
+    <!-- Projector Light Beam (subtly shifts focus upon seat selection) -->
+    <div class="theatre-projector-beam" id="theatre-projector-beam" aria-hidden="true"></div>
+
+    <!-- ACT III: Dominant Main Cinema Screen -->
+    <section class="theatre-screen-stage" aria-label="Main screening presentation">
+      <div class="theatre-screen-housing" id="theatre-screen">
+        
+        <!-- Screening Slide: Project 000 -->
+        <article class="theatre-slide is-active" data-slide-id="000" id="slide-000">
+          <div class="theatre-slide-copy">
+            <div class="theatre-slide-tag">
+              <span>NOW SCREENING &middot; 000</span>
+              <span class="theatre-slide-status status-INTERNAL">INTERNAL</span>
+            </div>
+            <h2 class="theatre-slide-title">Algoryxz Studio Platform</h2>
+            <p class="theatre-slide-desc">
+              The foundational public digital studio platform, engineering system, and archive for Algoryxz.
+            </p>
+            <a href="/work/000" class="theatre-slide-cta" id="cta-000">
+              <span>ENTER SCREENING</span>
+              <span>&nearr;</span>
+            </a>
+          </div>
+          <div class="theatre-slide-media" aria-hidden="true">
+            <div class="theatre-slide-artifact">
+              <MaterialArtifact kind="structure" />
+            </div>
+          </div>
+        </article>
+
+        <!-- Screening Slide: Project 001 -->
+        <article class="theatre-slide" data-slide-id="001" id="slide-001">
+          <div class="theatre-slide-copy">
+            <div class="theatre-slide-tag">
+              <span>NOW SCREENING &middot; 001</span>
+              <span class="theatre-slide-status status-CONCEPT">CONCEPT STUDY</span>
+            </div>
+            <h2 class="theatre-slide-title">The Courtyard Wedding Portal</h2>
+            <p class="theatre-slide-desc">
+              An editorial multi-day celebration experience with bespoke itinerary, living memories, and guest navigation.
+            </p>
+            <a href="/work/001" class="theatre-slide-cta" id="cta-001">
+              <span>ENTER SCREENING</span>
+              <span>&nearr;</span>
+            </a>
+          </div>
+          <div class="theatre-slide-media" aria-hidden="true">
+            <div class="theatre-slide-artifact">
+              <MaterialArtifact kind="someone" />
+            </div>
+          </div>
+        </article>
+
+        <!-- Screening Slide: Project 002 -->
+        <article class="theatre-slide" data-slide-id="002" id="slide-002">
+          <div class="theatre-slide-copy">
+            <div class="theatre-slide-tag">
+              <span>NOW SCREENING &middot; 002</span>
+              <span class="theatre-slide-status status-CONCEPT">CONCEPT STUDY</span>
+            </div>
+            <h2 class="theatre-slide-title">Bhubaneswar Artisan Roastery</h2>
+            <p class="theatre-slide-desc">
+              A modern, high-speed digital storefront and interactive menu for a local specialty coffee café.
+            </p>
+            <a href="/work/002" class="theatre-slide-cta" id="cta-002">
+              <span>ENTER SCREENING</span>
+              <span>&nearr;</span>
+            </a>
+          </div>
+          <div class="theatre-slide-media" aria-hidden="true">
+            <div class="theatre-slide-artifact">
+              <MaterialArtifact kind="business" />
+            </div>
+          </div>
+        </article>
+
+        <!-- Screening Slide: Premium Rear Lodge -->
+        <article class="theatre-slide theatre-slide-lodge" data-slide-id="LODGE" id="slide-LODGE">
+          <div class="theatre-slide-copy">
+            <div class="theatre-slide-tag">
+              <span>REAR LODGE &middot; AVAILABLE</span>
+              <span class="theatre-slide-status status-PREMIUM">NEXT COMMISSION</span>
+            </div>
+            <h2 class="theatre-slide-title">{premiumLodgeData.title}</h2>
+            <p class="theatre-slide-desc">
+              {premiumLodgeData.subtitle} {premiumLodgeData.copy}
+            </p>
+            <a href={premiumLodgeData.ctaHref} class="theatre-slide-cta" id="cta-LODGE">
+              <span>{premiumLodgeData.ctaText}</span>
+              <span>&nearr;</span>
+            </a>
+          </div>
+          <div class="theatre-slide-media" aria-hidden="true">
+            <div class="theatre-slide-artifact">
+              <MaterialArtifact kind="structure" />
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- ACT IV: The Project Seating Navigation (Real DOM Buttons) -->
+    <nav class="theatre-auditorium-floor" aria-label="Auditorium project seating navigation">
+      <div class="theatre-floor-lights" aria-hidden="true"></div>
+
+      <div class="theatre-rows-container">
+        <!-- Row A: Concept Screenings (001, 002) -->
+        <div class="theatre-row">
+          <span class="theatre-row-label">ROW A</span>
+          <div class="theatre-row-seats">
+            {rowA.map((s) => (
+              <button
+                type="button"
+                class="theatre-seat-btn"
+                data-seat-id={s.id}
+                data-seat-number={s.seatNumber}
+                aria-controls={`slide-${s.id}`}
+                aria-selected="false"
+                aria-label={`Seat ${s.seatNumber}. Screen project ${s.id}: ${s.label}`}
+              >
+                <span class="theatre-seat-num">{s.seatNumber}</span>
+                <span class="theatre-seat-code">{s.id}</span>
+              </button>
+            ))}
+          </div>
+        </div>
+
+        <!-- Row B: Studio Platform Centerpiece (000) -->
+        <div class="theatre-row">
+          <span class="theatre-row-label">ROW B</span>
+          <div class="theatre-row-seats">
+            {rowB.map((s) => (
+              <button
+                type="button"
+                class="theatre-seat-btn is-selected"
+                data-seat-id={s.id}
+                data-seat-number={s.seatNumber}
+                aria-controls={`slide-${s.id}`}
+                aria-selected="true"
+                aria-label={`Seat ${s.seatNumber}. Screen project ${s.id}: ${s.label}`}
+              >
+                <span class="theatre-seat-num">{s.seatNumber}</span>
+                <span class="theatre-seat-code">{s.id}</span>
+              </button>
+            ))}
+          </div>
+        </div>
+
+        <!-- Row C: Reserved Future Slots (003, 004, 005, 006) -->
+        <div class="theatre-row">
+          <span class="theatre-row-label">ROW C</span>
+          <div class="theatre-row-seats">
+            {rowC.map((s) => (
+              <button
+                type="button"
+                class="theatre-seat-btn theatre-seat-reserved"
+                data-seat-id={s.id}
+                data-seat-number={s.seatNumber}
+                disabled
+                aria-disabled="true"
+                aria-label={`Seat ${s.seatNumber}. Project ${s.id}: Reserved for future screening`}
+              >
+                <span class="theatre-seat-num">{s.seatNumber}</span>
+                <span class="theatre-seat-code">RES</span>
+              </button>
+            ))}
+          </div>
+        </div>
+
+        <!-- Rear Lodge Row: Client Future Commission -->
+        <div class="theatre-row theatre-lodge-row">
+          <button
+            type="button"
+            class="theatre-seat-btn theatre-lodge-btn"
+            data-seat-id="LODGE"
+            data-seat-number="REAR LODGE"
+            aria-controls="slide-LODGE"
+            aria-selected="false"
+            aria-label="Premium Rear Lodge. Commission the next Algoryxz project."
+          >
+            <span class="theatre-lodge-label">REAR LODGE &middot; RESERVED FOR WHAT&rsquo;S NEXT</span>
+            <span class="theatre-lodge-status">CLIENT SEAT</span>
+          </button>
+        </div>
+      </div>
+    </nav>
+  </main>
+
+  <!-- ACT V: Printed Programme & Accessible Directory Fallback -->
+  <aside
+    class="theatre-programme-modal"
+    id="theatre-programme-modal"
+    aria-hidden="true"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="programme-title"
+  >
+    <div class="theatre-programme-sheet">
+      <header class="theatre-programme-head">
+        <div>
+          <div class="theatre-programme-eyebrow">HOUSE 01 DIRECTORY</div>
+          <h2 id="programme-title" class="theatre-programme-title">Tonight&rsquo;s Programme</h2>
+        </div>
+        <button
+          type="button"
+          class="theatre-programme-close"
+          id="theatre-programme-close-btn"
+          aria-label="Close printed programme"
+        >
+          &times;
+        </button>
+      </header>
+
+      <!-- Now Screening List -->
+      <section class="theatre-programme-section">
+        <h3 class="theatre-programme-section-title">Now Screening</h3>
+        <ul class="theatre-programme-list" role="list">
+          {activeSeats.map((s) => (
+            <li>
+              <a href={s.projectHref} class="theatre-programme-item" data-programme-id={s.id}>
+                <div class="theatre-programme-item-top">
+                  <span class="theatre-programme-item-num">SEAT {s.seatNumber} &middot; {s.id}</span>
+                  <span class="theatre-programme-item-status">{s.status}</span>
+                </div>
+                <strong class="theatre-programme-item-name">{s.label}</strong>
+                <p class="theatre-programme-item-desc">{s.shortDescription}</p>
+              </a>
+            </li>
+          ))}
+        </ul>
+      </section>
+
+      <!-- Reserved / Upcoming Slots -->
+      <section class="theatre-programme-section">
+        <h3 class="theatre-programme-section-title">Reserved / Unreleased</h3>
+        <ul class="theatre-programme-list" role="list">
+          {reservedSeats.map((s) => (
+            <li>
+              <div class="theatre-programme-item theatre-programme-reserved">
+                <div class="theatre-programme-item-top">
+                  <span class="theatre-programme-item-num">SEAT {s.seatNumber} &middot; {s.id}</span>
+                  <span class="theatre-programme-item-status">RESERVED</span>
+                </div>
+                <strong class="theatre-programme-item-name">{s.label}</strong>
+                <p class="theatre-programme-item-desc">{s.shortDescription}</p>
+              </div>
+            </li>
+          ))}
+        </ul>
+      </section>
+
+      <!-- Marquee Conversion CTA -->
+      <footer class="theatre-programme-marquee-cta">
+        <a href="/contact" class="theatre-programme-marquee-link">
+          <span>PUT YOUR NAME ON THE NEXT MARQUEE &rarr;</span>
+        </a>
+      </footer>
+    </div>
+  </aside>
+</TheatreLayout>
+
+<script>
+  // -------------------------------------------------------------
+  // CLIENT-SIDE CINEMATIC INTERACTION LOGIC
+  // -------------------------------------------------------------
+  const ticketStage = document.getElementById('theatre-ticket');
+  const enterBtn = document.getElementById('theatre-enter-btn');
+  const bypassBtn = document.getElementById('theatre-bypass-btn');
+  const programmeToggle = document.getElementById('theatre-programme-btn');
+  const programmeModal = document.getElementById('theatre-programme-modal');
+  const programmeCloseBtn = document.getElementById('theatre-programme-close-btn');
+  const seatButtons = document.querySelectorAll<HTMLButtonElement>('.theatre-seat-btn:not(:disabled)');
+  const slides = document.querySelectorAll<HTMLElement>('.theatre-slide');
+  const projectorBeam = document.getElementById('theatre-projector-beam');
+
+  // 1. Session-based Admission Ticket Management
+  const SESSION_KEY = 'algoryxz_cinema_admitted';
+  const hasAdmitted = sessionStorage.getItem(SESSION_KEY) === 'true';
+
+  function admitVisitor() {
+    if (ticketStage) {
+      ticketStage.dataset.admitted = 'true';
+      sessionStorage.setItem(SESSION_KEY, 'true');
+      // Focus on active centerpiece seat for keyboard accessibility
+      const activeSeat = document.querySelector<HTMLButtonElement>('.theatre-seat-btn.is-selected');
+      activeSeat?.focus();
+    }
+  }
+
+  if (hasAdmitted) {
+    if (ticketStage) ticketStage.dataset.admitted = 'true';
+  }
+
+  enterBtn?.addEventListener('click', admitVisitor);
+
+  bypassBtn?.addEventListener('click', () => {
+    admitVisitor();
+    openProgramme();
+  });
+
+  // 2. Project Screening Selection Engine
+  function selectScreening(targetId: string) {
+    // Update active seat buttons
+    seatButtons.forEach((btn) => {
+      const isMatch = btn.dataset.seatId === targetId;
+      btn.classList.toggle('is-selected', isMatch);
+      btn.setAttribute('aria-selected', String(isMatch));
+    });
+
+    // Update screen slides
+    slides.forEach((slide) => {
+      const isMatch = slide.dataset.slideId === targetId;
+      slide.classList.toggle('is-active', isMatch);
+    });
+
+    // Subtly re-orient projector beam based on selected seat position
+    if (projectorBeam) {
+      if (targetId === '001') {
+        projectorBeam.style.transform = 'translateX(-54%) rotate(-1deg)';
+      } else if (targetId === '002') {
+        projectorBeam.style.transform = 'translateX(-46%) rotate(1deg)';
+      } else if (targetId === 'LODGE') {
+        projectorBeam.style.transform = 'translateX(-50%) scale(1.04)';
+      } else {
+        projectorBeam.style.transform = 'translateX(-50%) rotate(0deg)';
+      }
+    }
+  }
+
+  // Bind seat button interactions (hover, focus, click)
+  seatButtons.forEach((btn) => {
+    const seatId = btn.dataset.seatId;
+    if (!seatId) return;
+
+    btn.addEventListener('click', () => selectScreening(seatId));
+    btn.addEventListener('focus', () => selectScreening(seatId));
+    btn.addEventListener('pointerenter', (e) => {
+      if (e.pointerType === 'mouse') {
+        selectScreening(seatId);
+      }
+    });
+  });
+
+  // 3. Programme Slide-out Modal Management
+  function openProgramme() {
+    if (!programmeModal || !programmeToggle) return;
+    programmeModal.classList.add('is-open');
+    programmeModal.setAttribute('aria-hidden', 'false');
+    programmeToggle.setAttribute('aria-expanded', 'true');
+    programmeCloseBtn?.focus();
+  }
+
+  function closeProgramme() {
+    if (!programmeModal || !programmeToggle) return;
+    programmeModal.classList.remove('is-open');
+    programmeModal.setAttribute('aria-hidden', 'true');
+    programmeToggle.setAttribute('aria-expanded', 'false');
+    programmeToggle.focus();
+  }
+
+  programmeToggle?.addEventListener('click', () => {
+    const isOpen = programmeModal?.classList.contains('is-open');
+    if (isOpen) {
+      closeProgramme();
+    } else {
+      openProgramme();
+    }
+  });
+
+  programmeCloseBtn?.addEventListener('click', closeProgramme);
+
+  programmeModal?.addEventListener('click', (e) => {
+    if (e.target === programmeModal) {
+      closeProgramme();
+    }
+  });
+
+  window.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && programmeModal?.classList.contains('is-open')) {
+      closeProgramme();
+    }
+  });
+</script>

@@ -1,0 +1,46 @@
+---
+interface Props {
+  title: string;
+  description?: string;
+}
+
+const {
+  title,
+  description = 'Algoryxz Cinema — Private Screening Room & Portfolio Archive.'
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+    <!-- Google Fonts: Editorial Serif + Sans + Mono -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:ital,wght@0,300..800;1,300..800&family=JetBrains+Mono:ital,wght@0,300..700;1,300..700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap"
+      rel="stylesheet"
+    />
+
+    <meta name="theme-color" content="#080706" />
+    <meta name="robots" content="noindex, nofollow" />
+
+    <title>{title} | Algoryxz</title>
+    <meta name="description" content={description} />
+  </head>
+  <body class="theatre-body">
+    <!-- Accessible Skip Link -->
+    <a href="#theatre-programme-btn" class="theatre-skip">Skip to programme & directory</a>
+
+    <!-- Minimal Escape Hatch to Approved Work Page -->
+    <a href="/work" class="theatre-escape" aria-label="Return to approved work archive">
+      <span class="theatre-escape-arrow">&larr;</span>
+      <span>Work / Archive</span>
+    </a>
+
+    <slot />
+  </body>
+</html>
