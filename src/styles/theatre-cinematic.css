@@ -1,24 +1,30 @@
 /* -------------------------------------------------------------
- * ALGORYXZ THEATRE — GATE 02: 2.5D SPATIAL AUDITORIUM
- * Scoped Private Screening Room & Physical Seat-Back Archive
+ * ALGORYXZ THEATRE — GATE 03: PHYSICAL CINEMA ARCHIVE
+ * 2.5D Physical Seat Silhouettes, Project-Material Mounts,
+ * Cinematic Living Posters, & Physical Premium Lounge
  * ------------------------------------------------------------- */
 
 :root {
   --theatre-black: #060504;
   --theatre-void: #0a0908;
   --theatre-charcoal: #141210;
+  --theatre-graphite: #1f1c19;
   --theatre-velvet: #1c1512;
   --theatre-ivory: #F0E8D8;
   --theatre-parchment: #CFC1A7;
   --theatre-brass: #A88457;
   --theatre-brass-bright: #d4a973;
-  --theatre-oxblood: #5D201B;
-  --theatre-oxblood-dark: #3a1310;
+  --theatre-brass-dim: #7a603e;
+  --theatre-oxblood: #4A1512;
+  --theatre-oxblood-bright: #6e201b;
+  --theatre-oxblood-dark: #240b09;
   --theatre-glow: #FFE7BC;
   --theatre-amber: #D97736;
+  --theatre-olive: #242b1d;
+  --theatre-olive-light: #38422e;
   --theatre-muted: #7d7568;
   --theatre-hairline: rgba(240, 232, 216, 0.07);
-  --theatre-border: rgba(168, 132, 87, 0.3);
+  --theatre-border: rgba(168, 132, 87, 0.28);
   
   --font-cinema-display: 'Playfair Display', Georgia, serif;
   --font-cinema-body: 'Hanken Grotesk', system-ui, -apple-system, sans-serif;
@@ -27,25 +33,32 @@
   --scroll-p: 0;
 }
 
-/* Global Reset */
+/* Global Reset & Strict Overflow Guard */
 html, body {
   width: 100%;
+  max-width: 100%;
   margin: 0;
   padding: 0;
   background-color: var(--theatre-black);
   color: var(--theatre-ivory);
   font-family: var(--font-cinema-body);
-  overflow-x: hidden;
+  overflow-x: clip;
+  box-sizing: border-box;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
 }
 
 .theatre-body {
   position: relative;
   width: 100%;
+  max-width: 100%;
   min-height: 100vh;
   background: var(--theatre-black);
-  overflow-x: hidden;
+  overflow-x: clip;
 }
 
 /* Accessible Skip Link */
@@ -123,7 +136,7 @@ html, body {
   letter-spacing: 0.14em;
   text-transform: uppercase;
   color: var(--theatre-muted);
-  background: rgba(10, 9, 8, 0.7);
+  background: rgba(10, 9, 8, 0.75);
   padding: 6px 14px;
   border: 1px solid var(--theatre-hairline);
   border-radius: 2px;
@@ -161,11 +174,12 @@ html, body {
 }
 
 /* -------------------------------------------------------------
- * 2.5D SPATIAL SCROLL SCENE (CONTAINER & DEPTH STAGE)
+ * 2.5D SPATIAL SCROLL TRACK & STAGE
  * ------------------------------------------------------------- */
 .theatre-scroll-track {
   position: relative;
   width: 100%;
+  max-width: 100%;
   height: 220vh; /* Controlled scroll length for spatial transition */
 }
 
@@ -173,16 +187,25 @@ html, body {
   position: sticky;
   top: 0;
   width: 100%;
+  max-width: 100%;
   height: 100svh;
   overflow: hidden;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  perspective: 1200px;
-  perspective-origin: 50% 65%;
+  perspective: 1100px;
+  perspective-origin: 50% 70%;
   background: 
-    radial-gradient(ellipse at 50% 10%, rgba(35, 26, 20, 0.45) 0%, transparent 65%),
-    radial-gradient(circle at 50% 100%, rgba(20, 15, 12, 0.8) 0%, var(--theatre-black) 75%),
+    radial-gradient(ellipse at 50% 12%, rgba(35, 26, 20, 0.5) 0%, transparent 65%),
+    radial-gradient(circle at 50% 100%, rgba(20, 15, 12, 0.85) 0%, var(--theatre-black) 75%),
+    var(--theatre-black);
+  transition: background 0.4s ease;
+}
+
+.theatre-stage.lodge-focused {
+  background: 
+    radial-gradient(ellipse at 50% 12%, rgba(20, 14, 11, 0.3) 0%, transparent 65%),
+    radial-gradient(circle at 50% 100%, rgba(38, 14, 12, 0.9) 0%, var(--theatre-black) 80%),
     var(--theatre-black);
 }
 
@@ -197,7 +220,7 @@ html, body {
   pointer-events: none;
   z-index: 15;
   mix-blend-mode: screen;
-  opacity: 0.75;
+  opacity: 0.65;
   transition: opacity 0.4s ease;
 }
 
@@ -206,78 +229,76 @@ html, body {
 }
 
 @keyframes beamPulse {
-  0% { opacity: 0.75; }
-  50% { opacity: 0.95; filter: drop-shadow(0 0 25px rgba(255, 231, 188, 0.6)); }
-  100% { opacity: 0.75; }
+  0% { opacity: 0.65; }
+  50% { opacity: 0.95; filter: drop-shadow(0 0 30px rgba(255, 231, 188, 0.7)); }
+  100% { opacity: 0.65; }
 }
 
 /* -------------------------------------------------------------
- * ARCHITECTURAL PROSCENIUM & MAIN CINEMA SCREEN
+ * PROSCENIUM ARCH & LIVING POSTER PROJECTION SCREEN
  * ------------------------------------------------------------- */
 .theatre-proscenium {
   position: relative;
   z-index: 10;
   width: 100%;
-  max-width: 1040px;
-  margin: 54px auto 0;
-  padding: 0 4vw;
+  max-width: 980px;
+  margin: 44px auto 0;
+  padding: 0 24px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  transform-origin: 50% 20%;
-  transform: scale(calc(1 + var(--scroll-p) * 0.12)) translateY(calc(var(--scroll-p) * -15px));
+  transform-origin: 50% 15%;
+  transform: scale(calc(1 + var(--scroll-p) * 0.08)) translateY(calc(var(--scroll-p) * -16px));
   transition: transform 0.1s linear;
 }
 
 .theatre-proscenium-arch {
   position: relative;
   width: 100%;
-  aspect-ratio: 16 / 9.2;
-  max-height: 48vh;
+  aspect-ratio: 16 / 9;
+  max-height: 44vh;
   background: #080706;
   border-radius: 4px;
   box-shadow:
-    0 0 70px rgba(255, 231, 188, 0.06),
-    0 35px 90px rgba(0, 0, 0, 0.95);
+    0 0 80px rgba(255, 231, 188, 0.06),
+    0 30px 90px rgba(0, 0, 0, 0.98);
   overflow: hidden;
   border: 1px solid rgba(168, 132, 87, 0.35);
 }
 
-/* Architectural Proscenium Masking Borders */
+/* Outer Velvet Proscenium Shadow Frame */
 .theatre-proscenium-arch::before {
   content: '';
   position: absolute;
   inset: 0;
-  border: 14px solid #0a0908;
-  box-shadow: inset 0 0 40px rgba(0, 0, 0, 0.95);
+  border: 12px solid #090807;
+  box-shadow: inset 0 0 35px rgba(0, 0, 0, 0.95);
   pointer-events: none;
   z-index: 20;
 }
 
-/* Projection Surface Cloth */
+/* Projected Screen Cloth */
 .theatre-screen-canvas {
   position: absolute;
-  inset: 14px;
-  background: radial-gradient(circle at center, #1b1713 0%, #0c0a09 85%);
+  inset: 12px;
+  background: #0d0b09;
   overflow: hidden;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-/* Projected Slide */
+/* Living Poster Slide Container */
 .theatre-projection-slide {
   position: absolute;
   inset: 0;
-  display: grid;
-  grid-template-columns: 1.15fr 0.85fr;
-  align-items: center;
-  padding: 24px 36px;
-  gap: 28px;
   opacity: 0;
   visibility: hidden;
-  transition: opacity 0.4s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.4s;
-  background: radial-gradient(ellipse at 65% 50%, rgba(38, 28, 22, 0.6) 0%, rgba(10, 9, 8, 0.92) 80%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.45s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.45s;
+  background: #0d0b09;
 }
 
 .theatre-projection-slide.is-active {
@@ -286,126 +307,274 @@ html, body {
   z-index: 10;
 }
 
-.theatre-slide-info {
+/* LIVING POSTER: 000 — STUDIO PLATFORM */
+.poster-000 {
+  position: relative;
+  width: 100%;
+  height: 100%;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  gap: 10px;
-  text-align: left;
+  justify-content: space-between;
+  padding: 24px 32px;
+  background: 
+    radial-gradient(circle at 65% 50%, rgba(45, 34, 25, 0.7) 0%, rgba(10, 9, 8, 0.95) 75%),
+    #0c0a09;
+  overflow: hidden;
 }
 
-.theatre-screen-colophon {
-  display: inline-flex;
+.poster-000-visual {
+  position: absolute;
+  right: 6%;
+  top: 8%;
+  bottom: 8%;
+  width: 52%;
+  display: flex;
   align-items: center;
-  gap: 10px;
+  justify-content: center;
+}
+
+.poster-000-visual img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  filter: drop-shadow(0 20px 30px rgba(0, 0, 0, 0.8)) brightness(1.05);
+}
+
+.poster-000-grid-lines {
+  position: absolute;
+  inset: 16px;
+  border: 1px dashed rgba(168, 132, 87, 0.15);
+  pointer-events: none;
+}
+
+.poster-colophon {
+  position: relative;
+  z-index: 5;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.poster-tag {
   font-family: var(--font-cinema-mono);
   font-size: 10px;
-  letter-spacing: 0.14em;
+  letter-spacing: 0.16em;
   text-transform: uppercase;
   color: var(--theatre-brass-bright);
 }
 
-.theatre-screen-status {
-  padding: 2px 7px;
-  border-radius: 2px;
-  border: 1px solid currentColor;
-  font-size: 9px;
-}
-.theatre-screen-status.status-INTERNAL { color: #8ed081; }
-.theatre-screen-status.status-CONCEPT { color: var(--theatre-amber); }
-.theatre-screen-status.status-PREMIUM { color: var(--theatre-brass-bright); }
-
-.theatre-screen-title {
+.poster-title {
   font-family: var(--font-cinema-display);
-  font-size: clamp(26px, 3.8vw, 48px);
+  font-size: clamp(28px, 3.8vw, 46px);
   font-weight: 400;
   letter-spacing: -0.02em;
   line-height: 1.05;
   color: var(--theatre-ivory);
-  margin: 2px 0;
-}
-
-.theatre-screen-desc {
-  font-size: 13px;
-  line-height: 1.5;
-  color: var(--theatre-parchment);
-  max-width: 400px;
   margin: 0;
 }
 
-.theatre-screen-cta {
-  margin-top: 10px;
+.poster-meta {
+  font-family: var(--font-cinema-mono);
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  color: var(--theatre-muted);
+}
+
+.poster-cta-row {
+  position: relative;
+  z-index: 5;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.poster-cta {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  min-height: 44px;
-  padding: 0 20px;
+  min-height: 40px;
+  padding: 0 18px;
   background: var(--theatre-ivory);
   color: var(--theatre-black);
   border: 1px solid var(--theatre-ivory);
   border-radius: 2px;
   font-family: var(--font-cinema-mono);
-  font-size: 11px;
+  font-size: 10px;
   font-weight: 600;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.14em;
   text-decoration: none;
   transition: all 0.2s ease;
 }
 
-.theatre-screen-cta:hover,
-.theatre-screen-cta:focus-visible {
+.poster-cta:hover,
+.poster-cta:focus-visible {
   background: var(--theatre-brass-bright);
   border-color: var(--theatre-brass-bright);
   color: #000;
-  box-shadow: 0 0 24px rgba(255, 231, 188, 0.45);
+  box-shadow: 0 0 20px rgba(255, 231, 188, 0.5);
   outline: 2px solid var(--theatre-glow);
   outline-offset: 2px;
 }
 
-.theatre-slide-visual {
+/* LIVING POSTER: 001 — COURTYARD WEDDING (PHOTOGRAPHIC DOMINANCE) */
+.poster-001 {
+  position: relative;
   width: 100%;
   height: 100%;
-  max-height: 34vh;
   display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 24px 32px;
   overflow: hidden;
 }
 
-/* Premium Lodge Screen Content */
-.theatre-projection-slide.theatre-slide-lodge {
-  background: radial-gradient(ellipse at 65% 50%, rgba(93, 32, 27, 0.45) 0%, rgba(10, 9, 8, 0.95) 80%);
+.poster-001-bg-photo {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: sepia(0.4) saturate(0.7) brightness(0.65) contrast(1.1);
 }
 
-.theatre-slide-lodge .theatre-screen-cta {
-  background: var(--theatre-oxblood);
-  border-color: var(--theatre-brass);
+.poster-001-vignette {
+  position: absolute;
+  inset: 0;
+  background: 
+    radial-gradient(circle at 35% 50%, rgba(10, 9, 8, 0.4) 0%, rgba(10, 9, 8, 0.92) 85%),
+    linear-gradient(180deg, rgba(10, 9, 8, 0.6) 0%, transparent 40%, rgba(10, 9, 8, 0.85) 100%);
+  pointer-events: none;
+}
+
+.poster-001-caption {
+  font-family: var(--font-cinema-display);
+  font-style: italic;
+  font-size: clamp(14px, 1.8vw, 20px);
+  color: var(--theatre-parchment);
+  margin-top: 4px;
+}
+
+/* LIVING POSTER: 002 — ARTISAN ROASTERY (GRAPHIC & TYPOGRAPHIC DOMINANCE) */
+.poster-002 {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 24px 32px;
+  background: 
+    radial-gradient(circle at 60% 45%, #2a3321 0%, #11150e 75%),
+    #0e120b;
+  overflow: hidden;
+}
+
+.poster-002-graphic {
+  position: absolute;
+  right: 5%;
+  top: 10%;
+  bottom: 10%;
+  width: 48%;
+  background: #3b4730;
+  border: 1px solid rgba(217, 119, 54, 0.3);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.8);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 20px;
+  transform: rotate(2deg);
+}
+
+.poster-002-bigtype {
+  font-family: var(--font-cinema-display);
+  font-size: clamp(24px, 3.2vw, 42px);
+  line-height: 0.92;
+  letter-spacing: -0.04em;
+  color: #f2ede4;
+  margin: 0;
+}
+
+.poster-002-bigtype em {
+  font-style: italic;
+  color: var(--theatre-amber);
+}
+
+.poster-002-spine-accent {
+  position: absolute;
+  left: -12px;
+  top: 10%;
+  bottom: 10%;
+  width: 14px;
+  background: var(--theatre-amber);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+}
+
+/* LIVING POSTER: LODGE — NEXT COMMISSION SCREENING */
+.poster-lodge {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 28px 36px;
+  background: 
+    radial-gradient(circle at 50% 50%, rgba(93, 21, 18, 0.75) 0%, rgba(20, 8, 7, 0.98) 80%),
+    #140807;
+  overflow: hidden;
+  text-align: left;
+}
+
+.poster-lodge-body {
+  position: relative;
+  z-index: 5;
+  max-width: 580px;
+}
+
+.poster-lodge-title {
+  font-family: var(--font-cinema-display);
+  font-size: clamp(26px, 3.8vw, 46px);
+  font-weight: 400;
+  line-height: 1.05;
+  color: var(--theatre-ivory);
+  margin: 4px 0 10px;
+}
+
+.poster-lodge-copy {
+  font-size: 13px;
+  line-height: 1.5;
+  color: var(--theatre-parchment);
+  margin: 0;
+}
+
+.poster-cta-lodge {
+  background: var(--theatre-oxblood-bright);
+  border-color: var(--theatre-brass-bright);
   color: var(--theatre-ivory);
 }
 
-.theatre-slide-lodge .theatre-screen-cta:hover,
-.theatre-slide-lodge .theatre-screen-cta:focus-visible {
-  background: var(--theatre-oxblood-dark);
-  border-color: var(--theatre-brass-bright);
-  box-shadow: 0 0 24px rgba(120, 42, 36, 0.7);
+.poster-cta-lodge:hover,
+.poster-cta-lodge:focus-visible {
+  background: #8b2822;
+  border-color: var(--theatre-glow);
+  box-shadow: 0 0 25px rgba(217, 119, 54, 0.6);
 }
 
 /* -------------------------------------------------------------
- * 2.5D PHYSICAL AUDITORIUM SEATING (SEAT-BACK ARCHIVE)
+ * 2.5D PHYSICAL AUDITORIUM & SEATING LAYERS
  * ------------------------------------------------------------- */
 .theatre-auditorium {
   position: relative;
   z-index: 25;
   width: 100%;
-  max-width: 1080px;
+  max-width: 1020px;
   margin: 0 auto;
-  padding: 0 3vw 20px;
+  padding: 0 20px 16px;
   display: flex;
   flex-direction: column;
   gap: 16px;
-  transform-origin: 50% 80%;
-  transform: translateY(calc(var(--scroll-p) * -30px));
+  transform-origin: 50% 85%;
+  transform: translateY(calc(var(--scroll-p) * -34px));
   transition: transform 0.1s linear;
 }
 
@@ -415,33 +584,34 @@ html, body {
   top: 0;
   bottom: 0;
   left: 50%;
-  width: 44px;
+  width: 40px;
   transform: translateX(-50%);
-  background: linear-gradient(180deg, transparent 0%, rgba(217, 119, 54, 0.08) 60%, rgba(217, 119, 54, 0.15) 100%);
+  background: linear-gradient(180deg, transparent 0%, rgba(217, 119, 54, 0.06) 50%, rgba(217, 119, 54, 0.14) 100%);
   pointer-events: none;
 }
 
-/* Distant Background Seating Row (Depth Illusion) */
+/* PLANE 1: Distant Background Row (Perspective depth) */
 .theatre-row-distant {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 14px;
-  opacity: 0.35;
-  transform: scale(0.72) translateY(6px);
-  filter: blur(0.4px);
+  gap: 16px;
+  opacity: 0.3;
+  transform: scale(0.68) translateY(8px);
+  filter: blur(0.5px);
   pointer-events: none;
 }
 
-.theatre-seat-silhouette {
-  width: 58px;
-  height: 38px;
+.theatre-distant-chair {
+  width: 52px;
+  height: 36px;
   background: linear-gradient(180deg, #1f1c19 0%, #0d0c0a 100%);
-  border-radius: 8px 8px 2px 2px;
-  border-top: 1px solid rgba(168, 132, 87, 0.2);
+  border-radius: 12px 12px 4px 4px;
+  border-top: 1px solid rgba(168, 132, 87, 0.25);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.9);
 }
 
-/* Middle Rows: Active Archive Seat Backs */
+/* PLANE 2: Active Seating Archive Bank */
 .theatre-seating-bank {
   display: flex;
   flex-direction: column;
@@ -453,286 +623,491 @@ html, body {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 18px;
+  gap: 16px;
 }
 
 .theatre-seat-row-left,
 .theatre-seat-row-right {
   display: flex;
   align-items: center;
-  gap: 16px;
+  gap: 14px;
 }
 
-/* Physical Seat-Back Unit */
-.theatre-seat-unit {
+/* -------------------------------------------------------------
+ * PHYSICAL CINEMA CHAIR SILHOUETTE (.theatre-cinema-chair)
+ * True chair construction: curved top roll, wing bolsters,
+ * channel tufting, lower taper, underside shadow, brass plaque
+ * ------------------------------------------------------------- */
+.theatre-cinema-chair {
   position: relative;
-  width: 154px;
-  height: 98px;
-  background: linear-gradient(180deg, #2a2520 0%, #151310 100%);
-  border: 1px solid rgba(168, 132, 87, 0.3);
-  border-radius: 12px 12px 3px 3px;
+  width: 164px;
+  height: 114px;
+  /* Genuine Cinema Chair Contour */
+  border-radius: 20px 20px 6px 6px;
+  background: 
+    radial-gradient(ellipse at 50% 0%, rgba(240, 232, 216, 0.12) 0%, transparent 55%),
+    linear-gradient(180deg, #25211c 0%, #181512 45%, #0e0c0a 100%);
+  border: 1px solid rgba(168, 132, 87, 0.28);
   box-shadow: 
-    0 10px 24px rgba(0, 0, 0, 0.8),
-    inset 0 1px 0 rgba(240, 232, 216, 0.15);
+    0 18px 32px rgba(0, 0, 0, 0.95),
+    0 4px 10px rgba(0, 0, 0, 0.7),
+    inset 0 1px 0 rgba(240, 232, 216, 0.25),
+    inset 0 -3px 8px rgba(0, 0, 0, 0.85);
   cursor: pointer;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
-  padding: 8px 10px;
-  text-align: center;
-  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.2s ease, border-color 0.2s ease;
+  padding: 6px 8px 8px;
+  transition: transform 0.22s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.22s ease, border-color 0.22s ease;
+  outline: none;
 }
 
-/* Curved Upholstered Top Roll */
-.theatre-seat-unit::before {
+/* Upholstered Curved Headrest / Top Roll */
+.chair-top-roll {
+  position: relative;
+  width: 100%;
+  height: 20px;
+  background: linear-gradient(180deg, #332d27 0%, #1f1b17 100%);
+  border-radius: 14px 14px 4px 4px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.7);
+  box-shadow: 
+    inset 0 1px 0 rgba(240, 232, 216, 0.3),
+    0 2px 4px rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 8px;
+}
+
+/* Stamped Antique Brass Seat Plaque */
+.chair-brass-plaque {
+  font-family: var(--font-cinema-mono);
+  font-size: 8.5px;
+  letter-spacing: 0.14em;
+  color: var(--theatre-brass-bright);
+  font-weight: 600;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.9);
+}
+
+.chair-seat-number {
+  font-family: var(--font-cinema-mono);
+  font-size: 8px;
+  color: var(--theatre-muted);
+  letter-spacing: 0.08em;
+}
+
+/* Recessed Central Material Slot */
+.chair-material-slot {
+  position: relative;
+  width: 100%;
+  flex: 1;
+  margin-top: 4px;
+  border-radius: 3px;
+  overflow: hidden;
+  box-shadow: 
+    inset 0 2px 6px rgba(0, 0, 0, 0.85),
+    0 1px 0 rgba(240, 232, 216, 0.05);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Bottom Cast Iron Mounting Base / Floor Shadow Stanchion */
+.theatre-cinema-chair::after {
   content: '';
   position: absolute;
-  top: 0;
-  left: 10px;
-  right: 10px;
-  height: 5px;
-  background: linear-gradient(90deg, rgba(240, 232, 216, 0.2) 0%, rgba(255, 231, 188, 0.4) 50%, rgba(240, 232, 216, 0.2) 100%);
-  border-radius: 3px 3px 0 0;
-  transition: opacity 0.2s ease, background 0.2s ease;
+  bottom: -6px;
+  left: 20%;
+  right: 20%;
+  height: 6px;
+  background: #060504;
+  border-radius: 0 0 4px 4px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.95);
+  pointer-events: none;
+  z-index: -1;
 }
 
-.theatre-seat-unit:hover,
-.theatre-seat-unit:focus-visible {
-  transform: translateY(-5px) scale(1.02);
+/* Chair Hover & Focus States */
+.theatre-cinema-chair:hover,
+.theatre-cinema-chair:focus-visible {
+  transform: translateY(-4px) scale(1.02);
   border-color: var(--theatre-brass-bright);
   box-shadow: 
-    0 16px 36px rgba(0, 0, 0, 0.9),
-    0 0 20px rgba(168, 132, 87, 0.35);
+    0 22px 40px rgba(0, 0, 0, 0.98),
+    0 0 22px rgba(168, 132, 87, 0.35);
   outline: 2px solid var(--theatre-glow);
   outline-offset: 3px;
 }
 
-.theatre-seat-unit:hover::before,
-.theatre-seat-unit:focus-visible::before {
-  background: var(--theatre-glow);
-  box-shadow: 0 0 8px rgba(255, 231, 188, 0.6);
+.theatre-cinema-chair:hover .chair-top-roll,
+.theatre-cinema-chair:focus-visible .chair-top-roll {
+  background: linear-gradient(180deg, #443c34 0%, #2a2520 100%);
+  box-shadow: 
+    inset 0 1px 0 rgba(255, 231, 188, 0.6),
+    0 2px 6px rgba(0, 0, 0, 0.7);
 }
 
-.theatre-seat-unit.is-active {
+.theatre-cinema-chair.is-active {
   border-color: var(--theatre-brass-bright);
   box-shadow: 
-    0 16px 36px rgba(0, 0, 0, 0.9),
-    0 0 24px rgba(255, 231, 188, 0.35);
+    0 22px 42px rgba(0, 0, 0, 0.98),
+    0 0 26px rgba(255, 231, 188, 0.35);
   transform: translateY(-4px);
 }
 
-.theatre-seat-unit.is-active::before {
-  background: var(--theatre-glow);
-}
-
-/* Stamped Brass Seat & Project Plaque */
-.theatre-seat-plaque {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  width: 100%;
-  font-family: var(--font-cinema-mono);
-  font-size: 9px;
-  letter-spacing: 0.12em;
-  color: var(--theatre-brass-bright);
-  border-bottom: 1px solid rgba(168, 132, 87, 0.2);
-  padding-bottom: 4px;
-}
-
-.theatre-seat-id {
-  font-weight: 700;
-}
-
-.theatre-seat-num {
-  color: var(--theatre-muted);
-}
-
-/* Embedded Physical Project Panel on Seat-Back */
-.theatre-seat-mount {
-  position: relative;
-  width: 100%;
-  flex: 1;
-  margin-top: 5px;
-  background: rgba(10, 9, 8, 0.7);
-  border: 1px solid rgba(168, 132, 87, 0.15);
-  border-radius: 2px;
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  padding: 4px;
-}
-
-.theatre-seat-label {
-  font-size: 11px;
-  font-weight: 500;
-  line-height: 1.2;
-  color: var(--theatre-ivory);
-}
-
-.theatre-seat-category {
-  font-size: 8px;
-  font-family: var(--font-cinema-mono);
-  color: var(--theatre-muted);
-  letter-spacing: 0.08em;
-  margin-top: 2px;
-  text-transform: uppercase;
-}
-
-/* Project-Specific Artwork Embeds on Seat Back */
-.seat-art-structure {
-  background: linear-gradient(135deg, #181715 0%, #0d0c0a 100%);
-  border-color: rgba(168, 132, 87, 0.3);
-}
-
-.seat-art-someone {
-  background: linear-gradient(135deg, #2b1f17 0%, #15100c 100%);
-  border-color: rgba(217, 119, 54, 0.3);
-}
-
-.seat-art-business {
-  background: linear-gradient(135deg, #1e2419 0%, #0e120b 100%);
-  border-color: rgba(142, 208, 129, 0.3);
-}
-
-/* Reserved Seat Backs */
-.theatre-seat-unit:disabled,
-.theatre-seat-unit[aria-disabled="true"] {
-  background: #0f0e0d;
-  border-color: rgba(240, 232, 216, 0.05);
-  color: var(--theatre-muted);
-  cursor: not-allowed;
-  box-shadow: none;
-  opacity: 0.45;
-}
-
-.theatre-seat-unit:disabled::before,
-.theatre-seat-unit[aria-disabled="true"]::before {
-  display: none;
-}
-
-.theatre-seat-unit:disabled:hover {
-  transform: none;
-  box-shadow: none;
-  border-color: rgba(240, 232, 216, 0.05);
-}
-
-.theatre-seat-reserved-text {
-  font-family: var(--font-cinema-mono);
-  font-size: 9px;
-  letter-spacing: 0.14em;
-  color: var(--theatre-muted);
-  text-transform: uppercase;
+.theatre-cinema-chair.is-active .chair-top-roll {
+  background: linear-gradient(180deg, #4d443a 0%, #2a2520 100%);
+  box-shadow: 
+    inset 0 1px 0 rgba(255, 231, 188, 0.7),
+    0 0 10px rgba(255, 231, 188, 0.3);
 }
 
 /* -------------------------------------------------------------
- * PREMIUM REAR LODGE BANQUETTE (PHYSICAL CONVERSION AREA)
+ * MOUNTED PROJECT MATERIAL ARTIFACTS ON CHAIR BACKS
+ * ------------------------------------------------------------- */
+
+/* 000 MOUNT: Dark graphite architectural plate with XZ geometric fold */
+.mount-000 {
+  background: linear-gradient(135deg, #181614 0%, #0c0b0a 100%);
+  border: 1px solid rgba(168, 132, 87, 0.2);
+  padding: 4px 6px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.mount-000-svg {
+  width: 44px;
+  height: 44px;
+  object-fit: contain;
+  filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.8)) brightness(1.1);
+}
+
+.mount-000-text {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  gap: 2px;
+}
+
+.mount-title {
+  font-family: var(--font-cinema-body);
+  font-size: 10.5px;
+  font-weight: 500;
+  line-height: 1.15;
+  color: var(--theatre-ivory);
+}
+
+.mount-sub {
+  font-family: var(--font-cinema-mono);
+  font-size: 7.5px;
+  letter-spacing: 0.1em;
+  color: var(--theatre-muted);
+  text-transform: uppercase;
+}
+
+/* 001 MOUNT: Archival photographic wedding folio fragment */
+.mount-001 {
+  background: #2a2019;
+  border: 1px solid rgba(217, 119, 54, 0.25);
+  padding: 4px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.mount-001-photo-frame {
+  position: relative;
+  width: 44px;
+  height: 44px;
+  background: #dfd4bf;
+  padding: 2px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.7);
+  transform: rotate(-3deg);
+  flex-shrink: 0;
+}
+
+.mount-001-photo-frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: sepia(0.5) saturate(0.65) contrast(1.1);
+}
+
+.mount-001-brass-pin {
+  position: absolute;
+  top: 1px;
+  left: 1px;
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  background: var(--theatre-brass-bright);
+}
+
+/* 002 MOUNT: Pressed olive paper specimen with FORM FOLLOWS FEELING */
+.mount-002 {
+  background: #1e2518;
+  border: 1px solid rgba(142, 208, 129, 0.25);
+  padding: 4px 6px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.mount-002-paper {
+  position: relative;
+  flex: 1;
+  background: #36422b;
+  border: 1px solid rgba(240, 232, 216, 0.15);
+  padding: 3px 6px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.6);
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  text-align: left;
+}
+
+.mount-002-quote {
+  font-family: var(--font-cinema-display);
+  font-size: 8.5px;
+  line-height: 1;
+  color: #f0ebd8;
+  letter-spacing: -0.02em;
+}
+
+.mount-002-spine {
+  width: 5px;
+  height: 38px;
+  background: var(--theatre-amber);
+  margin-left: 6px;
+  border-radius: 1px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+/* RESERVED CHAIR MOUNTS (Dark charcoal fabric, stamped brass plaque) */
+.theatre-cinema-chair:disabled,
+.theatre-cinema-chair[aria-disabled="true"] {
+  background: linear-gradient(180deg, #181614 0%, #0d0c0a 100%);
+  border-color: rgba(240, 232, 216, 0.06);
+  cursor: not-allowed;
+  opacity: 0.55;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.8);
+}
+
+.theatre-cinema-chair:disabled:hover {
+  transform: none;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.8);
+  border-color: rgba(240, 232, 216, 0.06);
+}
+
+.mount-reserved {
+  background: #0a0908;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.mount-reserved-plaque {
+  font-family: var(--font-cinema-mono);
+  font-size: 8px;
+  letter-spacing: 0.18em;
+  color: var(--theatre-brass-dim);
+  text-transform: uppercase;
+  border: 1px dashed rgba(168, 132, 87, 0.2);
+  padding: 3px 8px;
+  border-radius: 2px;
+}
+
+/* -------------------------------------------------------------
+ * PLANE 3: FOREGROUND FRAMING OCCLUSION ROW
+ * Authentic raked auditorium feeling: oversized foreground chair backs
+ * that flank the aisle and partially occlude the scene on scroll
+ * ------------------------------------------------------------- */
+.theatre-row-foreground {
+  position: absolute;
+  bottom: -10px;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 4vw;
+  pointer-events: none;
+  z-index: 30;
+  transform: translateY(calc(var(--scroll-p) * -20px));
+}
+
+.foreground-chair-flank {
+  width: 90px;
+  height: 60px;
+  background: linear-gradient(180deg, #161311 0%, #070605 100%);
+  border-radius: 24px 24px 0 0;
+  border-top: 1px solid rgba(168, 132, 87, 0.15);
+  box-shadow: 
+    0 -10px 30px rgba(0, 0, 0, 0.95),
+    inset 0 1px 0 rgba(240, 232, 216, 0.1);
+  opacity: 0.75;
+}
+
+/* -------------------------------------------------------------
+ * PLANE 4: PHYSICAL PREMIUM REAR LODGE ARMCHAIRS
+ * (NO CTA BANNER — TWO PHYSICAL OVERSIZED OXBLOOD CHAIRS)
  * ------------------------------------------------------------- */
 .theatre-lodge-terrace {
   position: relative;
   width: 100%;
   display: flex;
-  justify-content: center;
-  margin-top: 6px;
-  padding-top: 14px;
-  border-top: 1px solid rgba(168, 132, 87, 0.25);
-}
-
-.theatre-lodge-banquette {
-  position: relative;
-  width: 100%;
-  max-width: 480px;
-  min-height: 64px;
-  background: linear-gradient(180deg, var(--theatre-oxblood) 0%, #200c0a 100%);
-  border: 1px solid var(--theatre-brass);
-  border-radius: 14px 14px 4px 4px;
-  box-shadow: 
-    0 12px 30px rgba(0, 0, 0, 0.85),
-    inset 0 1px 0 rgba(212, 169, 115, 0.4);
-  cursor: pointer;
-  display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: space-between;
-  padding: 10px 24px;
-  transition: all 0.2s ease;
+  margin-top: 4px;
+  padding-top: 14px;
+  border-top: 1px solid rgba(168, 132, 87, 0.22);
 }
 
-.theatre-lodge-banquette::before {
-  content: '';
+.theatre-lodge-railing {
   position: absolute;
   top: 0;
-  left: 20px;
-  right: 20px;
-  height: 6px;
-  background: var(--theatre-brass-bright);
-  opacity: 0.5;
-  border-radius: 4px 4px 0 0;
-  transition: opacity 0.2s ease;
+  left: 15%;
+  right: 15%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--theatre-brass), transparent);
 }
 
-.theatre-lodge-banquette:hover,
-.theatre-lodge-banquette:focus-visible {
-  background: linear-gradient(180deg, #782a24 0%, #2e100d 100%);
+.theatre-lodge-chairs-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 28px;
+  width: 100%;
+}
+
+/* Physical Oversized Oxblood Velvet Armchair */
+.theatre-lodge-armchair {
+  position: relative;
+  width: 210px;
+  min-height: 88px;
+  background: 
+    radial-gradient(ellipse at 50% 0%, rgba(217, 119, 54, 0.15) 0%, transparent 60%),
+    linear-gradient(180deg, var(--theatre-oxblood-bright) 0%, var(--theatre-oxblood) 50%, var(--theatre-oxblood-dark) 100%);
+  border: 1px solid var(--theatre-brass);
+  border-radius: 20px 20px 8px 8px;
+  box-shadow: 
+    0 16px 36px rgba(0, 0, 0, 0.95),
+    0 4px 12px rgba(0, 0, 0, 0.8),
+    inset 0 1px 0 rgba(255, 231, 188, 0.4),
+    inset 0 -3px 8px rgba(0, 0, 0, 0.9);
+  padding: 8px 12px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* Static Patron Armchair (Occupied/Reserved) */
+.lodge-armchair-patron {
+  opacity: 0.55;
+  filter: brightness(0.85);
+}
+
+/* THE EMPTY COMMISSION ARMCHAIR (INTERACTIVE CLIENT CTA ANCHOR) */
+.lodge-armchair-interactive {
+  cursor: pointer;
+  outline: none;
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+.lodge-armchair-interactive:hover,
+.lodge-armchair-interactive:focus-visible {
+  transform: translateY(-5px) scale(1.03);
   border-color: var(--theatre-brass-bright);
   box-shadow: 
-    0 16px 40px rgba(0, 0, 0, 0.95),
-    0 0 28px rgba(120, 42, 36, 0.6);
+    0 24px 45px rgba(0, 0, 0, 0.98),
+    0 0 30px rgba(186, 80, 49, 0.6);
   outline: 2px solid var(--theatre-glow);
   outline-offset: 3px;
 }
 
-.theatre-lodge-banquette:hover::before,
-.theatre-lodge-banquette:focus-visible::before {
-  opacity: 1;
-  box-shadow: 0 0 12px rgba(255, 231, 188, 0.8);
-}
-
-.theatre-lodge-banquette.is-active {
+.lodge-armchair-interactive.is-active {
   border-color: var(--theatre-brass-bright);
   box-shadow: 
-    0 16px 40px rgba(0, 0, 0, 0.95),
-    0 0 28px rgba(120, 42, 36, 0.7);
+    0 24px 45px rgba(0, 0, 0, 0.98),
+    0 0 32px rgba(217, 119, 54, 0.7);
+  transform: translateY(-4px);
 }
 
-.theatre-lodge-banquette.is-active::before {
-  opacity: 1;
+/* Brass Reading Sconce Lamp beside the empty seat */
+.lodge-sconce-lamp {
+  position: absolute;
+  top: -12px;
+  right: -10px;
+  width: 14px;
+  height: 14px;
+  background: radial-gradient(circle, var(--theatre-glow) 20%, var(--theatre-amber) 70%, transparent 100%);
+  border-radius: 50%;
+  box-shadow: 0 0 14px var(--theatre-amber);
+  pointer-events: none;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.theatre-lodge-details {
+.lodge-armchair-interactive:hover .lodge-sconce-lamp,
+.lodge-armchair-interactive:focus-visible .lodge-sconce-lamp,
+.lodge-armchair-interactive.is-active .lodge-sconce-lamp {
+  transform: scale(1.3);
+  box-shadow: 0 0 22px var(--theatre-glow), 0 0 35px var(--theatre-amber);
+}
+
+/* Stitched Velvet Headrest Cushion on Armchair */
+.lodge-armchair-headrest {
+  width: 100%;
+  height: 22px;
+  background: linear-gradient(180deg, rgba(240, 232, 216, 0.2) 0%, transparent 100%);
+  border-radius: 12px 12px 3px 3px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 8px;
+}
+
+/* Physical Card Resting on the Empty Seat */
+.lodge-empty-card {
+  position: relative;
+  width: 100%;
+  margin-top: 4px;
+  background: #1c0907;
+  border: 1px dashed var(--theatre-brass);
+  border-radius: 3px;
+  padding: 6px 10px;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  gap: 3px;
+  gap: 2px;
+  text-align: left;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.8);
 }
 
-.theatre-lodge-name {
+.lodge-card-eyebrow {
   font-family: var(--font-cinema-mono);
-  font-size: 11px;
-  font-weight: 600;
-  letter-spacing: 0.14em;
+  font-size: 8px;
+  letter-spacing: 0.16em;
+  color: var(--theatre-brass-bright);
   text-transform: uppercase;
-  color: var(--theatre-ivory);
 }
 
-.theatre-lodge-sub {
-  font-size: 12px;
+.lodge-card-title {
+  font-family: var(--font-cinema-display);
+  font-size: 11.5px;
+  font-weight: 500;
+  color: var(--theatre-ivory);
+  letter-spacing: -0.01em;
+}
+
+.lodge-card-sub {
+  font-family: var(--font-cinema-body);
+  font-size: 9px;
   color: var(--theatre-parchment);
 }
 
-.theatre-lodge-badge {
-  font-family: var(--font-cinema-mono);
-  font-size: 9px;
-  letter-spacing: 0.12em;
-  color: var(--theatre-brass-bright);
-  border: 1px solid var(--theatre-brass);
-  padding: 4px 8px;
-  border-radius: 2px;
-}
-
 /* -------------------------------------------------------------
- * PRINTED PROGRAMME / DIRECTORY MODAL
+ * PRINTED PROGRAMME DRAWER (ACCESSIBLE DIRECTORY)
  * ------------------------------------------------------------- */
 .theatre-programme-drawer {
   position: fixed;
@@ -764,7 +1139,7 @@ html, body {
   overflow-y: auto;
   display: flex;
   flex-direction: column;
-  gap: 32px;
+  gap: 28px;
   transform: translateX(100%);
   transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
 }
@@ -795,6 +1170,7 @@ html, body {
   font-size: 26px;
   font-weight: 400;
   color: var(--theatre-ivory);
+  margin: 0;
 }
 
 .theatre-folio-close {
@@ -822,7 +1198,7 @@ html, body {
 .theatre-folio-section {
   display: flex;
   flex-direction: column;
-  gap: 14px;
+  gap: 12px;
 }
 
 .theatre-folio-section-title {
@@ -833,10 +1209,13 @@ html, body {
   color: var(--theatre-muted);
   border-bottom: 1px dashed var(--theatre-hairline);
   padding-bottom: 6px;
+  margin: 0;
 }
 
 .theatre-folio-list {
   list-style: none;
+  padding: 0;
+  margin: 0;
   display: flex;
   flex-direction: column;
   gap: 10px;
@@ -888,6 +1267,7 @@ html, body {
   font-size: 12px;
   color: var(--theatre-parchment);
   line-height: 1.4;
+  margin: 0;
 }
 
 .theatre-folio-reserved {
@@ -897,7 +1277,7 @@ html, body {
 
 .theatre-folio-cta-block {
   margin-top: auto;
-  padding-top: 24px;
+  padding-top: 20px;
   border-top: 1px solid var(--theatre-border);
 }
 
@@ -908,7 +1288,7 @@ html, body {
   gap: 10px;
   width: 100%;
   min-height: 48px;
-  background: var(--theatre-oxblood);
+  background: var(--theatre-oxblood-bright);
   color: var(--theatre-ivory);
   border: 1px solid var(--theatre-brass);
   border-radius: 2px;
@@ -923,18 +1303,20 @@ html, body {
 
 .theatre-folio-marquee-btn:hover,
 .theatre-folio-marquee-btn:focus-visible {
-  background: #782a24;
+  background: #8b2822;
   border-color: var(--theatre-brass-bright);
-  box-shadow: 0 0 20px rgba(120, 42, 36, 0.7);
+  box-shadow: 0 0 20px rgba(186, 80, 49, 0.7);
   outline: 2px solid var(--theatre-glow);
 }
 
 /* -------------------------------------------------------------
- * MOBILE PORTRAIT CINEMA COMPOSITION (390×844 & 320×568)
+ * MOBILE FIRST-PERSON AISLE COMPOSITION (390×844 & 320×568)
+ * One dominant physical chair at a time approaching the viewer
  * ------------------------------------------------------------- */
 @media (max-width: 768px) {
   .theatre-scroll-track {
-    height: auto; /* Natural document flow on mobile */
+    height: auto; /* Natural first-person aisle flow */
+    overflow-x: hidden;
   }
 
   .theatre-stage {
@@ -969,43 +1351,60 @@ html, body {
   .theatre-proscenium-arch {
     max-height: none;
     aspect-ratio: auto;
-    min-height: 340px;
+    min-height: 310px;
   }
 
-  .theatre-projection-slide {
-    grid-template-columns: 1fr;
+  .poster-000,
+  .poster-001,
+  .poster-002,
+  .poster-lodge {
     padding: 20px 16px;
-    gap: 16px;
   }
 
-  .theatre-screen-title {
+  .poster-title,
+  .poster-lodge-title {
     font-size: 26px;
   }
 
-  .theatre-screen-desc {
-    font-size: 13px;
+  .poster-000-visual {
+    position: relative;
+    width: 100%;
+    height: 120px;
+    right: auto;
+    top: auto;
+    bottom: auto;
+    margin: 10px 0;
   }
 
-  .theatre-slide-visual {
-    max-height: 130px;
+  .poster-002-graphic {
+    position: relative;
+    width: 100%;
+    right: auto;
+    top: auto;
+    bottom: auto;
+    margin: 10px 0;
+    transform: none;
   }
 
+  /* First-Person Aisle Chair Progression */
   .theatre-auditorium {
     transform: none !important;
-    padding: 24px 16px 40px;
+    padding: 24px 16px 48px;
+    gap: 20px;
   }
 
-  .theatre-row-distant {
+  .theatre-row-distant,
+  .theatre-row-foreground {
     display: none;
   }
 
   .theatre-seating-bank {
-    gap: 12px;
+    gap: 16px;
   }
 
   .theatre-seat-row {
     flex-direction: column;
-    gap: 10px;
+    gap: 14px;
     width: 100%;
   }
 
@@ -1013,29 +1412,36 @@ html, body {
   .theatre-seat-row-right {
     width: 100%;
     flex-direction: column;
-    gap: 10px;
+    gap: 14px;
   }
 
-  .theatre-seat-unit {
+  /* Dominant full-width cinema chair silhouette on mobile */
+  .theatre-cinema-chair {
     width: 100%;
     height: auto;
-    min-height: 72px;
-    padding: 10px 16px;
+    min-height: 96px;
+    padding: 8px 12px 10px;
   }
 
-  .theatre-lodge-banquette {
-    max-width: 100%;
-    padding: 12px 18px;
+  .theatre-lodge-chairs-row {
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  .theatre-lodge-armchair {
+    width: 100%;
+    min-height: 80px;
   }
 }
 
 @media (max-width: 360px) {
-  .theatre-screen-title {
+  .poster-title,
+  .poster-lodge-title {
     font-size: 22px;
   }
 
-  .theatre-seat-unit {
-    padding: 8px 12px;
+  .theatre-cinema-chair {
+    padding: 6px 10px 8px;
   }
 }
 
@@ -1055,17 +1461,20 @@ html, body {
 
   .theatre-stage,
   .theatre-proscenium,
-  .theatre-auditorium {
+  .theatre-auditorium,
+  .theatre-row-foreground {
     transform: none !important;
   }
 
-  .theatre-seat-unit:hover,
-  .theatre-seat-unit:focus-visible {
+  .theatre-cinema-chair:hover,
+  .theatre-cinema-chair:focus-visible,
+  .lodge-armchair-interactive:hover,
+  .lodge-armchair-interactive:focus-visible {
     transform: none !important;
   }
 
   .theatre-beam-svg {
-    opacity: 0.4 !important;
+    opacity: 0.35 !important;
     animation: none !important;
   }
 

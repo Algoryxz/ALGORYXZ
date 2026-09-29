@@ -1,6 +1,5 @@
 ---
 import TheatreLayout from '../../layouts/TheatreLayout.astro';
-import MaterialArtifact from '../../components/MaterialArtifact.astro';
 import { theatreSeats, premiumLodgeData } from '../../data/theatre-projects';
 import '../../styles/theatre-cinematic.css';
 
@@ -11,12 +10,6 @@ const reservedSeats = theatreSeats.filter((s) => s.status === 'RESERVED');
 ---
 
 <TheatreLayout title="Algoryxz Cinema — 2.5D Private Screening Room & Archive">
-  <!-- Minimal Escape Hatch to Approved Work Page -->
-  <a href="/work" class="theatre-escape" aria-label="Return to approved work archive">
-    <span class="theatre-escape-arrow">&larr;</span>
-    <span>Work / Archive</span>
-  </a>
-
   <!-- Header Marquee & Printed Programme Trigger -->
   <header class="theatre-marquee">
     <div class="theatre-marquee-badge">
@@ -56,7 +49,7 @@ const reservedSeats = theatreSeats.filter((s) => s.status === 'RESERVED');
         <polygon points="460,600 540,600 920,100 80,100" fill="url(#beamGradient)" />
         <ellipse cx="500" cy="160" rx="420" ry="140" fill="url(#bloomGradient)" />
         
-        <!-- Static Dust Particle Motes -->
+        <!-- Atmospheric Dust Particles -->
         <circle cx="480" cy="380" r="1.5" fill="#FFE7BC" opacity="0.45" />
         <circle cx="525" cy="310" r="1.2" fill="#FFE7BC" opacity="0.35" />
         <circle cx="440" cy="240" r="1.8" fill="#FFE7BC" opacity="0.5" />
@@ -64,84 +57,104 @@ const reservedSeats = theatreSeats.filter((s) => s.status === 'RESERVED');
         <circle cx="505" cy="210" r="1.4" fill="#FFE7BC" opacity="0.3" />
       </svg>
 
-      <!-- PLANE 0: Proscenium Arch & Main Cinema Projection Screen -->
+      <!-- PLANE 0: Proscenium Arch & Main Living Poster Projection Screen -->
       <section class="theatre-proscenium" aria-label="Main projected screening">
         <div class="theatre-proscenium-arch">
           <div class="theatre-screen-canvas" id="theatre-screen">
 
-            <!-- Screening 000: Studio Architecture -->
+            <!-- Screening 000: Studio Architecture Living Poster -->
             <article class="theatre-projection-slide is-active" data-slide-id="000" id="slide-000">
-              <div class="theatre-slide-info">
-                <div class="theatre-screen-colophon">
-                  <span>NOW SCREENING &middot; 000</span>
-                  <span class="theatre-screen-status status-INTERNAL">INTERNAL</span>
+              <div class="poster-000">
+                <div class="poster-000-grid-lines" aria-hidden="true"></div>
+                <div class="poster-000-visual" aria-hidden="true">
+                  <img src="/assets/structure.svg" alt="Algoryxz XZ architectural fold structure" />
                 </div>
-                <h1 class="theatre-screen-title">{seat000.label}</h1>
-                <p class="theatre-screen-desc">{seat000.shortDescription}</p>
-                <a href={seat000.projectHref} class="theatre-screen-cta" id="cta-000">
-                  <span>ENTER PROJECT</span>
-                  <span>&nearr;</span>
-                </a>
-              </div>
-              <div class="theatre-slide-visual" aria-hidden="true">
-                <MaterialArtifact kind="structure" />
+                <div class="poster-colophon">
+                  <span class="poster-tag">NOW SCREENING &middot; 000</span>
+                  <h1 class="poster-title">{seat000.label}</h1>
+                  <span class="poster-meta">XZ / STUDY OF A FOLD &middot; COORD: 20.2961&deg; N, 85.8245&deg; E</span>
+                </div>
+                <div class="poster-cta-row">
+                  <span class="poster-meta">DIGITAL ARCHITECTURE &middot; FOUNDATIONAL ENGINE</span>
+                  <a href={seat000.projectHref} class="poster-cta" id="cta-000">
+                    <span>ENTER PROJECT</span>
+                    <span>&nearr;</span>
+                  </a>
+                </div>
               </div>
             </article>
 
-            <!-- Screening 001: Celebrations -->
+            <!-- Screening 001: Celebrations Living Poster (Full-Bleed Photographic Dominance) -->
             <article class="theatre-projection-slide" data-slide-id="001" id="slide-001">
-              <div class="theatre-slide-info">
-                <div class="theatre-screen-colophon">
-                  <span>NOW SCREENING &middot; 001</span>
-                  <span class="theatre-screen-status status-CONCEPT">CONCEPT STUDY</span>
+              <div class="poster-001">
+                <img
+                  src="/assets/lab/monsoon_vows_memory.jpg"
+                  alt="Courtyard celebration under monsoon rain"
+                  class="poster-001-bg-photo"
+                />
+                <div class="poster-001-vignette" aria-hidden="true"></div>
+                <div class="poster-colophon">
+                  <span class="poster-tag">NOW SCREENING &middot; 001</span>
+                  <h2 class="poster-title">{seat001.label}</h2>
+                  <span class="poster-001-caption">after the rain &mdash; a day. a lifetime.</span>
                 </div>
-                <h2 class="theatre-screen-title">{seat001.label}</h2>
-                <p class="theatre-screen-desc">{seat001.shortDescription}</p>
-                <a href={seat001.projectHref} class="theatre-screen-cta" id="cta-001">
-                  <span>ENTER PROJECT</span>
-                  <span>&nearr;</span>
-                </a>
-              </div>
-              <div class="theatre-slide-visual" aria-hidden="true">
-                <MaterialArtifact kind="someone" />
+                <div class="poster-cta-row">
+                  <span class="poster-meta">EDITORIAL WEDDING FOLIO &middot; LIVING MEMORIES</span>
+                  <a href={seat001.projectHref} class="poster-cta" id="cta-001">
+                    <span>ENTER PROJECT</span>
+                    <span>&nearr;</span>
+                  </a>
+                </div>
               </div>
             </article>
 
-            <!-- Screening 002: Business & Brand -->
+            <!-- Screening 002: Business & Brand Living Poster (Graphic & Typographic Dominance) -->
             <article class="theatre-projection-slide" data-slide-id="002" id="slide-002">
-              <div class="theatre-slide-info">
-                <div class="theatre-screen-colophon">
-                  <span>NOW SCREENING &middot; 002</span>
-                  <span class="theatre-screen-status status-CONCEPT">CONCEPT STUDY</span>
+              <div class="poster-002">
+                <div class="poster-002-graphic" aria-hidden="true">
+                  <div class="poster-002-spine-accent"></div>
+                  <span class="poster-meta">SPECIALTY COFFEE &middot; ROASTERY SPECIMEN</span>
+                  <p class="poster-002-bigtype">
+                    FORM<br />
+                    FOLLOWS<br />
+                    <em>FEELING.</em>
+                  </p>
+                  <span class="poster-meta">TYPE &middot; MATTER &middot; 0123456789</span>
                 </div>
-                <h2 class="theatre-screen-title">{seat002.label}</h2>
-                <p class="theatre-screen-desc">{seat002.shortDescription}</p>
-                <a href={seat002.projectHref} class="theatre-screen-cta" id="cta-002">
-                  <span>ENTER PROJECT</span>
-                  <span>&nearr;</span>
-                </a>
-              </div>
-              <div class="theatre-slide-visual" aria-hidden="true">
-                <MaterialArtifact kind="business" />
+                <div class="poster-colophon">
+                  <span class="poster-tag">NOW SCREENING &middot; 002</span>
+                  <h2 class="poster-title">{seat002.label}</h2>
+                  <span class="poster-meta">HIGH-SPEED COMMERCE &middot; BRAND SYSTEM</span>
+                </div>
+                <div class="poster-cta-row">
+                  <span class="poster-meta">DIGITAL STOREFRONT &middot; INTERACTIVE MENU</span>
+                  <a href={seat002.projectHref} class="poster-cta" id="cta-002">
+                    <span>ENTER PROJECT</span>
+                    <span>&nearr;</span>
+                  </a>
+                </div>
               </div>
             </article>
 
-            <!-- Screening: Premium Rear Lodge -->
-            <article class="theatre-projection-slide theatre-slide-lodge" data-slide-id="LODGE" id="slide-LODGE">
-              <div class="theatre-slide-info">
-                <div class="theatre-screen-colophon">
-                  <span>REAR LODGE &middot; AVAILABLE</span>
-                  <span class="theatre-screen-status status-PREMIUM">NEXT COMMISSION</span>
+            <!-- Screening LODGE: Next Commission Living Poster (Direct Projector Response) -->
+            <article class="theatre-projection-slide" data-slide-id="LODGE" id="slide-LODGE">
+              <div class="poster-lodge">
+                <div class="poster-colophon">
+                  <span class="poster-tag">NOW SCREENING &middot; NEXT COMMISSION</span>
                 </div>
-                <h2 class="theatre-screen-title">{premiumLodgeData.title}</h2>
-                <p class="theatre-screen-desc">{premiumLodgeData.subtitle} {premiumLodgeData.copy}</p>
-                <a href={premiumLodgeData.ctaHref} class="theatre-screen-cta" id="cta-LODGE">
-                  <span>{premiumLodgeData.ctaText}</span>
-                  <span>&nearr;</span>
-                </a>
-              </div>
-              <div class="theatre-slide-visual" aria-hidden="true">
-                <MaterialArtifact kind="structure" />
+                <div class="poster-lodge-body">
+                  <h2 class="poster-lodge-title">YOUR PROJECT COULD SCREEN HERE.</h2>
+                  <p class="poster-lodge-copy">
+                    The best seat in the house is still empty. Bring the idea. We&rsquo;ll build the world around it.
+                  </p>
+                </div>
+                <div class="poster-cta-row">
+                  <span class="poster-meta">RESERVED FOR WHAT&rsquo;S NEXT &middot; CLIENT PREMIERE</span>
+                  <a href={premiumLodgeData.ctaHref} class="poster-cta poster-cta-lodge" id="cta-LODGE">
+                    <span>START A PROJECT</span>
+                    <span>&nearr;</span>
+                  </a>
+                </div>
               </div>
             </article>
 
@@ -153,141 +166,181 @@ const reservedSeats = theatreSeats.filter((s) => s.status === 'RESERVED');
       <nav class="theatre-auditorium" aria-label="Physical auditorium seat-back project archive">
         <div class="theatre-aisle-guide" aria-hidden="true"></div>
 
-        <!-- PLANE 1: Distant Background Seating Row (Silhouette / Perspective Compression) -->
+        <!-- PLANE 1: Distant Background Seating Row (Perspective Silhouette) -->
         <div class="theatre-row-distant" aria-hidden="true">
-          <div class="theatre-seat-silhouette"></div>
-          <div class="theatre-seat-silhouette"></div>
-          <div class="theatre-seat-silhouette"></div>
-          <div class="theatre-seat-silhouette"></div>
-          <div class="theatre-seat-silhouette"></div>
-          <div class="theatre-seat-silhouette"></div>
+          <div class="theatre-distant-chair"></div>
+          <div class="theatre-distant-chair"></div>
+          <div class="theatre-distant-chair"></div>
+          <div class="theatre-distant-chair"></div>
+          <div class="theatre-distant-chair"></div>
+          <div class="theatre-distant-chair"></div>
         </div>
 
-        <!-- PLANE 2 & 3: Active Archive Seat-Back Bank -->
+        <!-- PLANE 2: Active Seating Archive Bank -->
         <div class="theatre-seating-bank">
           
-          <!-- Row A & Row B Integrated Archive Bank -->
           <div class="theatre-seat-row">
             
-            <!-- Left Flank: Concept 001 & Reserved C1 -->
+            <!-- Left Flank: Reserved C1 & Wedding 001 -->
             <div class="theatre-seat-row-left">
               <!-- Seat C1: Reserved -->
               <button
                 type="button"
-                class="theatre-seat-unit"
+                class="theatre-cinema-chair"
                 disabled
                 aria-disabled="true"
                 aria-label="Seat C1. Project 003: Reserved for future screening"
               >
-                <div class="theatre-seat-plaque">
-                  <span class="theatre-seat-id">003</span>
-                  <span class="theatre-seat-num">C1</span>
+                <div class="chair-top-roll">
+                  <span class="chair-brass-plaque">003</span>
+                  <span class="chair-seat-number">C1</span>
                 </div>
-                <div class="theatre-seat-mount">
-                  <span class="theatre-seat-reserved-text">RESERVED</span>
+                <div class="chair-material-slot mount-reserved">
+                  <span class="mount-reserved-plaque">RESERVED</span>
                 </div>
               </button>
 
-              <!-- Seat A2: Project 001 (Wedding Portal) -->
+              <!-- Seat A2: Project 001 (Wedding Photo Folio Fragment) -->
               <button
                 type="button"
-                class="theatre-seat-unit seat-art-someone"
+                class="theatre-cinema-chair"
                 data-seat-id={seat001.id}
                 aria-controls={`slide-${seat001.id}`}
                 aria-selected="false"
                 aria-label={`Seat ${seat001.seatNumber}. Screen project ${seat001.id}: ${seat001.label}`}
               >
-                <div class="theatre-seat-plaque">
-                  <span class="theatre-seat-id">{seat001.id}</span>
-                  <span class="theatre-seat-num">{seat001.seatNumber}</span>
+                <div class="chair-top-roll">
+                  <span class="chair-brass-plaque">{seat001.id}</span>
+                  <span class="chair-seat-number">{seat001.seatNumber}</span>
                 </div>
-                <div class="theatre-seat-mount">
-                  <span class="theatre-seat-label">Courtyard Wedding</span>
-                  <span class="theatre-seat-category">Memories</span>
+                <div class="chair-material-slot mount-001">
+                  <div class="mount-001-photo-frame" aria-hidden="true">
+                    <div class="mount-001-brass-pin"></div>
+                    <img src="/assets/lab/monsoon_vows_memory.jpg" alt="Wedding artifact" loading="lazy" />
+                  </div>
+                  <div class="mount-000-text">
+                    <span class="mount-title">Courtyard Wedding</span>
+                    <span class="mount-sub">Photo Folio</span>
+                  </div>
                 </div>
               </button>
             </div>
 
-            <!-- Central Prominence: Centerpiece Seat B3 (Project 000: Studio Architecture) -->
+            <!-- Central Prominence: Centerpiece Seat B3 (Project 000: Studio Architecture Fold Plate) -->
             <button
               type="button"
-              class="theatre-seat-unit seat-art-structure is-active"
+              class="theatre-cinema-chair is-active"
               data-seat-id={seat000.id}
               aria-controls={`slide-${seat000.id}`}
               aria-selected="true"
               aria-label={`Seat ${seat000.seatNumber}. Screen project ${seat000.id}: ${seat000.label}`}
             >
-              <div class="theatre-seat-plaque">
-                <span class="theatre-seat-id">{seat000.id}</span>
-                <span class="theatre-seat-num">{seat000.seatNumber}</span>
+              <div class="chair-top-roll">
+                <span class="chair-brass-plaque">{seat000.id}</span>
+                <span class="chair-seat-number">{seat000.seatNumber}</span>
               </div>
-              <div class="theatre-seat-mount">
-                <span class="theatre-seat-label">Algoryxz Studio</span>
-                <span class="theatre-seat-category">Architecture</span>
+              <div class="chair-material-slot mount-000">
+                <img src="/assets/structure.svg" alt="XZ fold" class="mount-000-svg" aria-hidden="true" />
+                <div class="mount-000-text">
+                  <span class="mount-title">Algoryxz Studio</span>
+                  <span class="mount-sub">Fold Plate</span>
+                </div>
               </div>
             </button>
 
-            <!-- Right Flank: Concept 002 & Reserved C4 -->
+            <!-- Right Flank: Roastery 002 & Reserved C4 -->
             <div class="theatre-seat-row-right">
-              <!-- Seat A4: Project 002 (Artisan Roastery) -->
+              <!-- Seat A4: Project 002 (Roastery Pressed Olive Paper Specimen) -->
               <button
                 type="button"
-                class="theatre-seat-unit seat-art-business"
+                class="theatre-cinema-chair"
                 data-seat-id={seat002.id}
                 aria-controls={`slide-${seat002.id}`}
                 aria-selected="false"
                 aria-label={`Seat ${seat002.seatNumber}. Screen project ${seat002.id}: ${seat002.label}`}
               >
-                <div class="theatre-seat-plaque">
-                  <span class="theatre-seat-id">{seat002.id}</span>
-                  <span class="theatre-seat-num">{seat002.seatNumber}</span>
+                <div class="chair-top-roll">
+                  <span class="chair-brass-plaque">{seat002.id}</span>
+                  <span class="chair-seat-number">{seat002.seatNumber}</span>
                 </div>
-                <div class="theatre-seat-mount">
-                  <span class="theatre-seat-label">Artisan Roastery</span>
-                  <span class="theatre-seat-category">Specimen</span>
+                <div class="chair-material-slot mount-002">
+                  <div class="mount-002-paper">
+                    <span class="mount-002-quote">FORM FOLLOWS FEELING</span>
+                    <span class="mount-sub">Artisan Roastery</span>
+                  </div>
+                  <div class="mount-002-spine" aria-hidden="true"></div>
                 </div>
               </button>
 
               <!-- Seat C4: Reserved -->
               <button
                 type="button"
-                class="theatre-seat-unit"
+                class="theatre-cinema-chair"
                 disabled
                 aria-disabled="true"
                 aria-label="Seat C4. Project 005: Reserved for future screening"
               >
-                <div class="theatre-seat-plaque">
-                  <span class="theatre-seat-id">005</span>
-                  <span class="theatre-seat-num">C4</span>
+                <div class="chair-top-roll">
+                  <span class="chair-brass-plaque">005</span>
+                  <span class="chair-seat-number">C4</span>
                 </div>
-                <div class="theatre-seat-mount">
-                  <span class="theatre-seat-reserved-text">RESERVED</span>
+                <div class="chair-material-slot mount-reserved">
+                  <span class="mount-reserved-plaque">RESERVED</span>
                 </div>
               </button>
             </div>
 
           </div>
 
-          <!-- PLANE 4: Premium Rear Lodge Banquette (Conversion Anchor) -->
+          <!-- PLANE 4: Physical Premium Rear Lodge Armchairs -->
           <div class="theatre-lodge-terrace">
-            <button
-              type="button"
-              class="theatre-lodge-banquette"
-              data-seat-id="LODGE"
-              aria-controls="slide-LODGE"
-              aria-selected="false"
-              aria-label="Premium Rear Lodge. Commission the next Algoryxz project."
-            >
-              <div class="theatre-lodge-details">
-                <span class="theatre-lodge-name">REAR LODGE &middot; RESERVED FOR WHAT&rsquo;S NEXT</span>
-                <span class="theatre-lodge-sub">The best seat in the house is still empty.</span>
+            <div class="theatre-lodge-railing" aria-hidden="true"></div>
+            
+            <div class="theatre-lodge-chairs-row">
+              <!-- Chair 1: Static Patron Lounge Armchair -->
+              <div class="theatre-lodge-armchair lodge-armchair-patron" aria-hidden="true">
+                <div class="lodge-armchair-headrest">
+                  <span class="chair-brass-plaque">PATRON LODGE</span>
+                  <span class="chair-seat-number">RESERVED</span>
+                </div>
+                <div class="lodge-empty-card" style="border-style: solid; opacity: 0.7;">
+                  <span class="lodge-card-eyebrow">PATRON SEAT</span>
+                  <span class="lodge-card-title">House Commission 00</span>
+                </div>
               </div>
-              <span class="theatre-lodge-badge">CLIENT SEAT</span>
-            </button>
+
+              <!-- Chair 2: THE EMPTY COMMISSION SEAT (INTERACTIVE CLIENT CTA) -->
+              <button
+                type="button"
+                class="theatre-lodge-armchair lodge-armchair-interactive"
+                data-seat-id="LODGE"
+                id="seat-lodge-trigger"
+                aria-controls="slide-LODGE"
+                aria-selected="false"
+                aria-label="Start a project — reserved premium seat"
+              >
+                <div class="lodge-sconce-lamp" aria-hidden="true"></div>
+                <div class="lodge-armchair-headrest">
+                  <span class="chair-brass-plaque">PREMIUM LODGE</span>
+                  <span class="chair-seat-number">CLIENT SEAT</span>
+                </div>
+                <div class="lodge-empty-card">
+                  <span class="lodge-card-eyebrow">RESERVED FOR WHAT&rsquo;S NEXT</span>
+                  <span class="lodge-card-title">Your Project Could Screen Here</span>
+                  <span class="lodge-card-sub">Select to illuminate the screen &rarr;</span>
+                </div>
+              </button>
+            </div>
           </div>
 
         </div>
       </nav>
+
+      <!-- PLANE 3: Foreground Framing Occlusion Row -->
+      <div class="theatre-row-foreground" aria-hidden="true">
+        <div class="foreground-chair-flank"></div>
+        <div class="foreground-chair-flank"></div>
+      </div>
 
     </main>
   </div>
@@ -367,12 +420,12 @@ const reservedSeats = theatreSeats.filter((s) => s.status === 'RESERVED');
 
 <script>
   // -------------------------------------------------------------
-  // GATE 02: 2.5D SPATIAL CHOREOGRAPHY & SEAT-BACK ENGINE
+  // GATE 03: PHYSICAL CINEMA ARCHIVE & LIVING PROJECTION ENGINE
   // -------------------------------------------------------------
   const track = document.getElementById('theatre-track');
   const stage = document.getElementById('theatre-stage');
   const beamSvg = document.getElementById('theatre-beam');
-  const seatUnits = document.querySelectorAll<HTMLButtonElement>('.theatre-seat-unit:not(:disabled), .theatre-lodge-banquette');
+  const interactiveSeats = document.querySelectorAll<HTMLButtonElement>('.theatre-cinema-chair:not(:disabled), .lodge-armchair-interactive');
   const slides = document.querySelectorAll<HTMLElement>('.theatre-projection-slide');
   const programmeToggle = document.getElementById('theatre-programme-btn');
   const programmeDrawer = document.getElementById('theatre-programme-drawer');
@@ -404,18 +457,23 @@ const reservedSeats = theatreSeats.filter((s) => s.status === 'RESERVED');
 
   // 2. Physical Seat Selection Engine
   function selectScreening(targetId: string) {
-    // Synchronize active seat units
-    seatUnits.forEach((unit) => {
-      const isMatch = unit.dataset.seatId === targetId;
-      unit.classList.toggle('is-active', isMatch);
-      unit.setAttribute('aria-selected', String(isMatch));
+    // Synchronize active seat elements
+    interactiveSeats.forEach((seat) => {
+      const isMatch = seat.dataset.seatId === targetId;
+      seat.classList.toggle('is-active', isMatch);
+      seat.setAttribute('aria-selected', String(isMatch));
     });
 
-    // Synchronize projected screen slides
+    // Synchronize projected living poster slides
     slides.forEach((slide) => {
       const isMatch = slide.dataset.slideId === targetId;
       slide.classList.toggle('is-active', isMatch);
     });
+
+    // Dim hall when lodge is active
+    if (stage) {
+      stage.classList.toggle('lodge-focused', targetId === 'LODGE');
+    }
 
     // Trigger subtle projector beam brightness pulse
     if (beamSvg) {
@@ -426,13 +484,13 @@ const reservedSeats = theatreSeats.filter((s) => s.status === 'RESERVED');
   }
 
   // Bind tactile seat-back interactions (hover, focus, click)
-  seatUnits.forEach((unit) => {
-    const seatId = unit.dataset.seatId;
+  interactiveSeats.forEach((seat) => {
+    const seatId = seat.dataset.seatId;
     if (!seatId) return;
 
-    unit.addEventListener('click', () => selectScreening(seatId));
-    unit.addEventListener('focus', () => selectScreening(seatId));
-    unit.addEventListener('pointerenter', (e) => {
+    seat.addEventListener('click', () => selectScreening(seatId));
+    seat.addEventListener('focus', () => selectScreening(seatId));
+    seat.addEventListener('pointerenter', (e) => {
       if (e.pointerType === 'mouse') {
         selectScreening(seatId);
       }
