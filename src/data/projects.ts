@@ -36,7 +36,7 @@ export const projects: Project[] = [
     shortDescription: 'The foundational public digital studio platform, engineering system, and catalog for Algoryxz.',
     year: 2026,
     heroAsset: '/assets/projects/000-hero.svg',
-    liveUrl: 'https://algoryxz.com',
+    liveUrl: 'https://algoryxz.pages.dev',
     tags: ['Astro 5', 'Cloudflare Pages', 'Design Systems', 'Static Engine'],
     caseStudy: {
       summary: 'Project 000 establishes the technical baseline, aesthetic standards, and operational infrastructure of Algoryxz.',

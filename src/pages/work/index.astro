@@ -1,51 +1,861 @@
 ---
-import BaseLayout from '../../layouts/BaseLayout.astro';
-import MaterialArtifact from '../../components/MaterialArtifact.astro';
-import '../../styles/experience.css';
-const projects = [
- {id:'000', name:'ALGORYXZ', status:'INTERNAL', kind:'structure' as const, title:'A place for possibilities.', copy:'Our own ongoing experiment in structure, material, and the things a website can become.'},
- {id:'001', name:'FOR SOMEONE', status:'CONCEPT PROJECT', kind:'someone' as const, title:'Some things deserve to stay.', copy:'An exploration of digital invitations and living memories. Photographs, small notes, and a whole day held in one place.'},
- {id:'002', name:'FOR A BUSINESS', status:'CONCEPT PROJECT', kind:'business' as const, title:'A character of its own.', copy:'An exploration of identity translated from printed matter to the screen. A digital place that feels like the business behind it.'}
-];
+import TheatreLayout from '../../layouts/TheatreLayout.astro';
+import { theatreSeats, premiumLodgeData } from '../../data/theatre-projects';
+import '../../styles/theatre-cinematic.css';
+
+const seat000 = theatreSeats.find((s) => s.id === '000')!;
+const seat001 = theatreSeats.find((s) => s.id === '001')!;
+const seat002 = theatreSeats.find((s) => s.id === '002')!;
+const reservedSeats = theatreSeats.filter((s) => s.status === 'RESERVED');
 ---
-<BaseLayout title="Work / Archive" description="The Algoryxz archive. Our studio structure and two concept explorations in personal and business experiences.">
- <section class="experience archive" aria-labelledby="archive-heading">
-  <header class="archive-heading"><h1 id="archive-heading">WORK <span>/ ARCHIVE</span></h1><p class="eyebrow">THREE ENTRIES.<br/>AN OPEN-ENDED COLLECTION.</p></header>
-  <div class="archive-list">
-   {projects.map(p => <a class="archive-entry" href={`#project-${p.id}`} data-project={p.id} aria-haspopup="dialog"><span class="entry-number">{p.id}</span><span class="entry-name">{p.name}<small>{p.status}</small></span><span class="entry-arrow" aria-hidden="true">↗</span><span class="entry-mobile-art"><MaterialArtifact kind={p.kind}/></span></a>)}
+
+<TheatreLayout title="Work / Archive" description="Algoryxz Cinema — Private screening room and portfolio archive. Editorial digital architecture, concept studies, and bespoke systems.">
+  <!-- GATE 04.1: Admission precedes the already-established auditorium. -->
+  <section class="theatre-entry is-ticket" id="theatre-entry" aria-label="Admission to House 01">
+    <div class="theatre-entry-vestibule" aria-hidden="true">
+      <div class="entry-wall entry-wall-left"></div>
+      <div class="entry-wall entry-wall-right"></div>
+      <div class="entry-floor"></div>
+      <div class="entry-signage">HOUSE 01 <span>PRIVATE SCREENING</span></div>
+      <div class="entry-curtain" aria-hidden="true">
+          <div class="entry-curtain-half entry-curtain-left">
+            <span class="entry-curtain-fold" aria-hidden="true"></span>
+          </div>
+          <div class="entry-curtain-half entry-curtain-right">
+            <span class="entry-curtain-fold" aria-hidden="true"></span>
+          </div>
+          <span class="entry-curtain-light" aria-hidden="true"></span>
+        </div>
+    </div>
+    <div class="theatre-entry-ticket-wrap">
+      <div class="theatre-entry-ticket" aria-label="Algoryxz Pictures admission ticket">
+        <div class="entry-ticket-stub">ADMIT<br />ONE</div>
+        <div class="entry-ticket-body">
+          <span class="entry-ticket-eyebrow">ALGORYXZ PICTURES</span>
+          <strong>HOUSE 01</strong>
+          <span>ARCHIVE / PRIVATE SCREENING</span>
+          <small>BHUBANESWAR &middot; INDIA</small>
+        </div>
+        <span class="entry-ticket-perforation" aria-hidden="true"></span>
+      </div>
+      <button type="button" class="theatre-entry-admit" id="theatre-entry-admit">
+        ENTER THE HOUSE <span aria-hidden="true">&rarr;</span>
+      </button>
+      <p class="entry-ticket-note">WE MAKE THINGS FOR THE INTERNET.</p>
+    </div>
+    <button type="button" class="theatre-entry-skip" id="theatre-entry-skip">SKIP TO AUDITORIUM</button>
+  </section>
+
+  <!-- Header Marquee & Printed Programme Trigger -->
+  <header class="theatre-marquee" id="theatre-chrome">
+    <div class="theatre-marquee-badge">
+      <span class="marquee-brand">ALGORYXZ PICTURES &middot; </span><strong>HOUSE 01</strong><span class="marquee-sub"> &middot; PRIVATE SCREENING</span>
+    </div>
+    <button
+      type="button"
+      class="theatre-programme-toggle"
+      id="theatre-programme-btn"
+      aria-controls="theatre-programme-drawer"
+      aria-expanded="false"
+      aria-label="Open tonight's printed programme"
+    >
+      <span>&equiv;</span>
+      <span>Programme</span>
+    </button>
+  </header>
+
+  <!-- 2.5D Spatial Scroll Track (Desktop Spatial Movement) -->
+  <div class="theatre-scroll-track" id="theatre-track">
+    <main class="theatre-stage" id="theatre-stage">
+      
+      <!-- SVG Projector Beam & Atmospheric Dust -->
+      <svg class="theatre-beam-svg" id="theatre-beam" viewBox="0 0 1000 600" preserveAspectRatio="none" aria-hidden="true">
+        <defs>
+          <linearGradient id="beamGradient" x1="50%" y1="100%" x2="50%" y2="0%">
+            <stop offset="0%" stop-color="#FFE7BC" stop-opacity="0.22" />
+            <stop offset="45%" stop-color="#FFE7BC" stop-opacity="0.08" />
+            <stop offset="100%" stop-color="#FFE7BC" stop-opacity="0" />
+          </linearGradient>
+          <radialGradient id="bloomGradient" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" stop-color="#FFE7BC" stop-opacity="0.14" />
+            <stop offset="100%" stop-color="#FFE7BC" stop-opacity="0" />
+          </radialGradient>
+        </defs>
+        <!-- Projected Cone -->
+        <polygon points="460,600 540,600 920,100 80,100" fill="url(#beamGradient)" />
+        <ellipse cx="500" cy="160" rx="420" ry="140" fill="url(#bloomGradient)" />
+        
+        <!-- Atmospheric Dust Particles -->
+        <circle class="theatre-beam-mote" cx="480" cy="380" r="1.5" fill="#FFE7BC" />
+        <circle class="theatre-beam-mote" cx="525" cy="310" r="1.2" fill="#FFE7BC" />
+        <circle class="theatre-beam-mote" cx="440" cy="240" r="1.8" fill="#FFE7BC" />
+        <circle class="theatre-beam-mote" cx="565" cy="420" r="1.1" fill="#FFE7BC" />
+        <circle class="theatre-beam-mote" cx="505" cy="210" r="1.4" fill="#FFE7BC" />
+      </svg>
+
+      <!-- PLANE 0: Proscenium Arch & Main Living Poster Projection Screen -->
+      <section class="theatre-proscenium" aria-label="Main projected screening">
+        <div class="theatre-proscenium-arch">
+          <div class="theatre-screen-canvas" id="theatre-screen">
+            <!-- Optical Aperture & Shutter Mechanism (Gate 04.2) -->
+            <div class="theatre-screen-aperture" aria-hidden="true"></div>
+
+            <!-- Screening 000: Studio Architecture Living Poster -->
+            <article class="theatre-projection-slide is-active" data-slide-id="000" id="slide-000">
+              <div class="poster-000">
+                <div class="poster-000-grid-lines" aria-hidden="true"></div>
+                <div class="poster-000-visual" aria-hidden="true">
+                  <img src="/assets/structure.svg" alt="Algoryxz XZ architectural fold structure" />
+                </div>
+                <div class="poster-colophon">
+                  <span class="poster-tag">NOW SCREENING &middot; 000</span>
+                  <h1 class="poster-title">{seat000.label}</h1>
+                  <span class="poster-meta">XZ / STUDY OF A FOLD &middot; COORD: 20.2961&deg; N, 85.8245&deg; E</span>
+                </div>
+                <div class="poster-cta-row">
+                  <span class="poster-meta">DIGITAL ARCHITECTURE &middot; FOUNDATIONAL ENGINE</span>
+                  <a href={seat000.projectHref} class="poster-cta" id="cta-000">
+                    <span>ENTER PROJECT</span>
+                    <span class="poster-cta-arrow">&nearr;</span>
+                  </a>
+                </div>
+              </div>
+            </article>
+
+            <!-- Screening 001: Celebrations Living Poster (Full-Bleed Photographic Dominance) -->
+            <article class="theatre-projection-slide" data-slide-id="001" id="slide-001">
+              <div class="poster-001">
+                <img
+                  src="/assets/lab/monsoon_vows_memory.jpg"
+                  alt="Courtyard celebration under monsoon rain"
+                  class="poster-001-bg-photo"
+                />
+                <div class="poster-001-vignette" aria-hidden="true"></div>
+                <div class="poster-colophon">
+                  <span class="poster-tag">NOW SCREENING &middot; 001</span>
+                  <h2 class="poster-title">{seat001.label}</h2>
+                  <span class="poster-001-caption">after the rain &mdash; a day. a lifetime.</span>
+                </div>
+                <div class="poster-cta-row">
+                  <span class="poster-meta">EDITORIAL WEDDING FOLIO &middot; LIVING MEMORIES</span>
+                  <a href={seat001.projectHref} class="poster-cta" id="cta-001">
+                    <span>ENTER PROJECT</span>
+                    <span class="poster-cta-arrow">&nearr;</span>
+                  </a>
+                </div>
+              </div>
+            </article>
+
+            <!-- Screening 002: Business & Brand Living Poster (Graphic & Typographic Dominance) -->
+            <article class="theatre-projection-slide" data-slide-id="002" id="slide-002">
+              <div class="poster-002">
+                <div class="poster-002-graphic" aria-hidden="true">
+                  <div class="poster-002-spine-accent"></div>
+                  <span class="poster-meta">SPECIALTY COFFEE &middot; ROASTERY SPECIMEN</span>
+                  <p class="poster-002-bigtype">
+                    FORM<br />
+                    FOLLOWS<br />
+                    <em>FEELING.</em>
+                  </p>
+                  <span class="poster-meta">TYPE &middot; MATTER &middot; 0123456789</span>
+                </div>
+                <div class="poster-colophon">
+                  <span class="poster-tag">NOW SCREENING &middot; 002</span>
+                  <h2 class="poster-title">{seat002.label}</h2>
+                  <span class="poster-meta">HIGH-SPEED COMMERCE &middot; BRAND SYSTEM</span>
+                </div>
+                <div class="poster-cta-row">
+                  <span class="poster-meta">DIGITAL STOREFRONT &middot; INTERACTIVE MENU</span>
+                  <a href={seat002.projectHref} class="poster-cta" id="cta-002">
+                    <span>ENTER PROJECT</span>
+                    <span class="poster-cta-arrow">&nearr;</span>
+                  </a>
+                </div>
+              </div>
+            </article>
+
+            <!-- Screening LODGE: Next Commission Living Poster (Direct Projector Response) -->
+            <article class="theatre-projection-slide" data-slide-id="LODGE" id="slide-LODGE">
+              <div class="poster-lodge">
+                <div class="poster-colophon">
+                  <span class="poster-tag">NOW SCREENING &middot; NEXT COMMISSION</span>
+                </div>
+                <div class="poster-lodge-body">
+                  <h2 class="poster-lodge-title">YOUR PROJECT COULD SCREEN HERE.</h2>
+                  <p class="poster-lodge-copy">
+                    The best seat in the house is still empty. Bring the idea. We&rsquo;ll build the world around it.
+                  </p>
+                </div>
+                <div class="poster-cta-row">
+                  <span class="poster-meta">RESERVED FOR WHAT&rsquo;S NEXT &middot; CLIENT PREMIERE</span>
+                  <a href={premiumLodgeData.ctaHref} class="poster-cta poster-cta-lodge" id="cta-LODGE">
+                    <span>START A PROJECT</span>
+                    <span class="poster-cta-arrow">&nearr;</span>
+                  </a>
+                </div>
+              </div>
+            </article>
+
+          </div>
+        </div>
+      </section>
+
+      <!-- PLANE 1, 2, 3, 4: Physical 2.5D Auditorium & Seat-Back Archive -->
+      <nav class="theatre-auditorium" aria-label="Physical auditorium seat-back project archive">
+        <!-- Architectural layers: a raked room, not a horizontal card rail. -->
+        <div class="theatre-side-wall theatre-side-wall-left" aria-hidden="true"></div>
+        <div class="theatre-side-wall theatre-side-wall-right" aria-hidden="true"></div>
+        <div class="theatre-floor-plane" aria-hidden="true">
+          <span class="theatre-floor-riser theatre-floor-riser-distant"></span>
+          <span class="theatre-floor-riser theatre-floor-riser-mid"></span>
+          <span class="theatre-floor-riser theatre-floor-riser-front"></span>
+        </div>
+        <div class="theatre-aisle-guide" aria-hidden="true"></div>
+
+        <!-- PLANE 1: Distant Background Seating Row (Perspective Silhouette) -->
+        <div class="theatre-row-distant" aria-hidden="true">
+          <div class="theatre-distant-chair"></div>
+          <div class="theatre-distant-chair"></div>
+          <div class="theatre-distant-chair"></div>
+          <div class="theatre-distant-chair"></div>
+          <div class="theatre-distant-chair"></div>
+          <div class="theatre-distant-chair"></div>
+        </div>
+
+        <!-- PLANE 2: Active Seating Archive Bank -->
+        <div class="theatre-seating-bank">
+          
+          <div class="theatre-seat-row">
+            
+            <!-- Left Flank: Reserved C1 & Wedding 001 -->
+            <div class="theatre-seat-row-left">
+              <!-- Seat C1: Reserved -->
+              <button
+                type="button"
+                class="theatre-cinema-chair seat-pos-outer"
+                disabled
+                aria-disabled="true"
+                aria-label="Seat C1. Project 003: Reserved for future screening"
+              >
+                <div class="chair-top-roll">
+                  <span class="chair-brass-plaque">003</span>
+                  <span class="chair-seat-number">C1</span>
+                </div>
+                <div class="chair-material-slot mount-reserved">
+                  <span class="mount-reserved-plaque">RESERVED</span>
+                </div>
+                <span class="chair-seat-pan" aria-hidden="true"></span>
+              </button>
+
+              <!-- Seat A2: Project 001 (Wedding Photo Folio Fragment) -->
+              <button
+                type="button"
+                class="theatre-cinema-chair seat-pos-mid"
+                data-seat-id={seat001.id}
+                aria-controls={`slide-${seat001.id}`}
+                aria-selected="false"
+                aria-label={`Seat ${seat001.seatNumber}. Screen project ${seat001.id}: ${seat001.label}`}
+              >
+                <div class="chair-top-roll">
+                  <span class="chair-brass-plaque">{seat001.id}</span>
+                  <span class="chair-seat-number">{seat001.seatNumber}</span>
+                </div>
+                <div class="chair-material-slot mount-001">
+                  <div class="mount-001-photo-frame" aria-hidden="true">
+                    <div class="mount-001-brass-pin"></div>
+                    <img src="/assets/lab/monsoon_vows_memory.jpg" alt="Wedding artifact" loading="lazy" />
+                  </div>
+                  <div class="mount-000-text">
+                    <span class="mount-title">Courtyard Wedding</span>
+                    <span class="mount-sub">Photo Folio</span>
+                  </div>
+                </div>
+                <span class="chair-seat-pan" aria-hidden="true"></span>
+              </button>
+            </div>
+
+            <!-- Central Prominence: Centerpiece Seat B3 (Project 000: Studio Architecture Fold Plate) -->
+            <button
+              type="button"
+              class="theatre-cinema-chair is-active seat-pos-center"
+              data-seat-id={seat000.id}
+              aria-controls={`slide-${seat000.id}`}
+              aria-selected="true"
+              aria-label={`Seat ${seat000.seatNumber}. Screen project ${seat000.id}: ${seat000.label}`}
+            >
+              <div class="chair-top-roll">
+                <span class="chair-brass-plaque">{seat000.id}</span>
+                <span class="chair-seat-number">{seat000.seatNumber}</span>
+              </div>
+              <div class="chair-material-slot mount-000">
+                <img src="/assets/structure.svg" alt="XZ fold" class="mount-000-svg" aria-hidden="true" />
+                <div class="mount-000-text">
+                  <span class="mount-title">Algoryxz Studio</span>
+                  <span class="mount-sub">Fold Plate</span>
+                </div>
+              </div>
+              <span class="chair-seat-pan" aria-hidden="true"></span>
+            </button>
+
+            <!-- Right Flank: Roastery 002 & Reserved C4 -->
+            <div class="theatre-seat-row-right">
+              <!-- Seat A4: Project 002 (Roastery Pressed Olive Paper Specimen) -->
+              <button
+                type="button"
+                class="theatre-cinema-chair seat-pos-mid"
+                data-seat-id={seat002.id}
+                aria-controls={`slide-${seat002.id}`}
+                aria-selected="false"
+                aria-label={`Seat ${seat002.seatNumber}. Screen project ${seat002.id}: ${seat002.label}`}
+              >
+                <div class="chair-top-roll">
+                  <span class="chair-brass-plaque">{seat002.id}</span>
+                  <span class="chair-seat-number">{seat002.seatNumber}</span>
+                </div>
+                <div class="chair-material-slot mount-002">
+                  <div class="mount-002-paper">
+                    <span class="mount-002-quote">FORM FOLLOWS FEELING</span>
+                    <span class="mount-sub">Artisan Roastery</span>
+                  </div>
+                  <div class="mount-002-spine" aria-hidden="true"></div>
+                </div>
+                <span class="chair-seat-pan" aria-hidden="true"></span>
+              </button>
+
+              <!-- Seat C4: Reserved -->
+              <button
+                type="button"
+                class="theatre-cinema-chair seat-pos-outer"
+                disabled
+                aria-disabled="true"
+                aria-label="Seat C4. Project 005: Reserved for future screening"
+              >
+                <div class="chair-top-roll">
+                  <span class="chair-brass-plaque">005</span>
+                  <span class="chair-seat-number">C4</span>
+                </div>
+                <div class="chair-material-slot mount-reserved">
+                  <span class="mount-reserved-plaque">RESERVED</span>
+                </div>
+                <span class="chair-seat-pan" aria-hidden="true"></span>
+              </button>
+            </div>
+
+          </div>
+
+          <!-- PLANE 4: Physical Premium Rear Lodge Armchairs -->
+          <div class="theatre-lodge-terrace">
+            <div class="theatre-lodge-railing" aria-hidden="true"></div>
+            
+            <div class="theatre-lodge-chairs-row">
+              <!-- Chair 1: Static Patron Lounge Armchair -->
+              <div class="theatre-lodge-armchair lodge-armchair-patron" aria-hidden="true">
+                <div class="lodge-armchair-headrest">
+                  <span class="chair-brass-plaque">PATRON LODGE</span>
+                  <span class="chair-seat-number">RESERVED</span>
+                </div>
+                <div class="lodge-patron-plaque">
+                  <span class="lodge-card-eyebrow">PATRON SEAT</span>
+                  <span class="lodge-card-title">Reserved Patron Seat</span>
+                </div>
+                <span class="lodge-seat-pan" aria-hidden="true"></span>
+              </div>
+
+              <!-- Chair 2: THE EMPTY COMMISSION SEAT (INTERACTIVE CLIENT CTA) -->
+              <button
+                type="button"
+                class="theatre-lodge-armchair lodge-armchair-interactive"
+                data-seat-id="LODGE"
+                id="seat-lodge-trigger"
+                aria-controls="slide-LODGE"
+                aria-selected="false"
+                aria-label="Start a project — reserved premium seat"
+              >
+                <div class="lodge-sconce-lamp" aria-hidden="true"></div>
+                <div class="lodge-armchair-headrest">
+                  <span class="chair-brass-plaque">PREMIUM LODGE</span>
+                  <span class="chair-seat-number">CLIENT SEAT</span>
+                </div>
+                <div class="lodge-reservation-folio">
+                  <span class="lodge-folio-corner" aria-hidden="true"></span>
+                  <span class="lodge-card-eyebrow">RESERVED FOR WHAT&rsquo;S NEXT</span>
+                  <span class="lodge-card-title">Your Project Could Screen Here</span>
+                  <span class="lodge-card-sub">House 01 &middot; Client Premiere</span>
+                  <span class="lodge-folio-slip">ADMIT: THE NEXT IDEA</span>
+                </div>
+                <span class="lodge-seat-pan" aria-hidden="true"></span>
+              </button>
+              <div class="theatre-lodge-service" aria-hidden="true">
+                <span class="lodge-service-stem"></span>
+                <span class="lodge-service-top"><span></span></span>
+                <span class="lodge-service-programme"></span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </nav>
+
+      <!-- PLANE 3: Foreground Framing Occlusion Row -->
+      <div class="theatre-row-foreground" aria-hidden="true">
+        <div class="foreground-chair-flank"></div>
+        <div class="foreground-chair-flank"></div>
+      </div>
+
+    </main>
   </div>
-  <div class="archive-bottom"><p>One structure.<br/>Entirely different worlds.</p><span class="eyebrow">HOVER TO UNCOVER / SELECT TO ENTER</span></div>
-  <div class="cursor-art" aria-hidden="true">{projects.map(p=><div data-preview={p.id} hidden><MaterialArtifact kind={p.kind}/></div>)}</div>
- </section>
- {projects.map(p=><dialog id={`project-${p.id}`} class:list={['project-world',`world-${p.kind}`]} aria-labelledby={`title-${p.id}`}>
-  <div class="world-top"><span class="eyebrow">ALGORYXZ / {p.id} — {p.status}</span><button class="world-close" aria-label="Return to archive">CLOSE ×</button></div>
-  <div class="world-layout"><div class="world-copy"><p class="eyebrow">{p.name}</p><h2 id={`title-${p.id}`}>{p.title}</h2><p>{p.copy}</p><a class="text-link" href={p.id==='000'?'/':'/services#'+p.kind}>{p.id==='000'?'EXPLORE THE STRUCTURE':'MAKE SOMETHING LIKE THIS'} <span>↗</span></a></div><div class="world-art"><MaterialArtifact kind={p.kind}/></div></div>
-  <p class="world-foot eyebrow">{p.id==='000'?'THE STUDIO, AS A WORK IN PROGRESS.':'AN ALGORYXZ CONCEPT STUDY. NOT COMMISSIONED CLIENT WORK.'}</p>
- </dialog>)}
-</BaseLayout>
+
+  <div class="theatre-ticket-stub" id="theatre-ticket-stub" aria-hidden="true">
+    <span>ADMIT ONE</span><span>HOUSE 01</span>
+  </div>
+
+  <!-- ACT V: Printed Programme & Accessible Directory Drawer -->
+  <aside
+    class="theatre-programme-drawer"
+    id="theatre-programme-drawer"
+    aria-hidden="true"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="programme-title"
+  >
+    <div class="theatre-programme-folio">
+      <header class="theatre-folio-header">
+        <div>
+          <div class="theatre-folio-eyebrow">HOUSE 01 ARCHIVE</div>
+          <h2 id="programme-title" class="theatre-folio-title">Tonight&rsquo;s Programme</h2>
+        </div>
+        <button
+          type="button"
+          class="theatre-folio-close"
+          id="theatre-programme-close-btn"
+          aria-label="Close printed programme"
+        >
+          &times;
+        </button>
+      </header>
+
+      <!-- Active Screenings -->
+      <section class="theatre-folio-section">
+        <h3 class="theatre-folio-section-title">Now Screening</h3>
+        <ul class="theatre-folio-list" role="list">
+          {theatreSeats.filter(s => s.status !== 'RESERVED').map((s) => (
+            <li>
+              <a href={s.projectHref} class="theatre-folio-card" data-programme-id={s.id}>
+                <div class="theatre-folio-card-meta">
+                  <span class="theatre-folio-card-num">SEAT {s.seatNumber} &middot; {s.id}</span>
+                  <span class="theatre-folio-card-status">{s.status}</span>
+                </div>
+                <strong class="theatre-folio-card-title">{s.label}</strong>
+                <p class="theatre-folio-card-desc">{s.shortDescription}</p>
+              </a>
+            </li>
+          ))}
+        </ul>
+      </section>
+
+      <!-- Reserved Upcoming Work -->
+      <section class="theatre-folio-section">
+        <h3 class="theatre-folio-section-title">Reserved / Unreleased</h3>
+        <ul class="theatre-folio-list" role="list">
+          {reservedSeats.map((s) => (
+            <li>
+              <div class="theatre-folio-card theatre-folio-reserved">
+                <div class="theatre-folio-card-meta">
+                  <span class="theatre-folio-card-num">SEAT {s.seatNumber} &middot; {s.id}</span>
+                  <span class="theatre-folio-card-status">RESERVED</span>
+                </div>
+                <strong class="theatre-folio-card-title">{s.label}</strong>
+                <p class="theatre-folio-card-desc">{s.shortDescription}</p>
+              </div>
+            </li>
+          ))}
+        </ul>
+      </section>
+
+      <!-- Rear Lodge Marquee Conversion -->
+      <footer class="theatre-folio-cta-block">
+        <a href="/contact" class="theatre-folio-marquee-btn">
+          <span>PUT YOUR NAME ON THE NEXT MARQUEE &rarr;</span>
+        </a>
+      </footer>
+    </div>
+  </aside>
+</TheatreLayout>
+
 <script>
- const preview=document.querySelector<HTMLElement>('.cursor-art')!;
- const entries=document.querySelectorAll<HTMLAnchorElement>('.archive-entry');
- const reduced=matchMedia('(prefers-reduced-motion: reduce)');
- const fine=matchMedia('(hover:hover) and (pointer:fine)');
- let x=innerWidth*.67,y=innerHeight*.5,tx=x,ty=y,frame=0,active=false;
- function tick(){frame=0;if(!active||document.hidden)return;x+=(tx-x)*.095;y+=(ty-y)*.095;preview.style.transform=`translate3d(${x}px,${y}px,0) rotate(${Math.max(-7,Math.min(7,(tx-x)*.035))}deg)`;if(Math.abs(tx-x)+Math.abs(ty-y)>.15)frame=requestAnimationFrame(tick);}
- function move(e:PointerEvent){if(!fine.matches||reduced.matches)return;tx=Math.min(innerWidth-220,Math.max(220,e.clientX));ty=Math.min(innerHeight-195,Math.max(220,e.clientY));if(!frame)frame=requestAnimationFrame(tick);}
- function show(id:string){preview.querySelectorAll<HTMLElement>('[data-preview]').forEach(p=>p.hidden=p.dataset.preview!==id);active=true;preview.classList.add('is-visible');if(reduced.matches){preview.style.transform=`translate3d(${innerWidth*.68}px,${innerHeight*.5}px,0)`;}else tick();}
- function hide(){active=false;preview.classList.remove('is-visible');cancelAnimationFrame(frame);frame=0;}
- entries.forEach(entry=>{
-  entry.addEventListener('pointerenter',()=>{if(fine.matches)show(entry.dataset.project!);});
-  entry.addEventListener('pointermove',move);entry.addEventListener('pointerleave',hide);
-  entry.addEventListener('focus',()=>show(entry.dataset.project!));entry.addEventListener('blur',hide);
-  entry.addEventListener('click',event=>{event.preventDefault();hide();const dialog=document.querySelector<HTMLDialogElement>(entry.hash)!;dialog.showModal();document.documentElement.style.overflow='hidden';dialog.querySelector<HTMLButtonElement>('button')!.focus();});
- });
- document.querySelectorAll<HTMLDialogElement>('.project-world').forEach(dialog=>{dialog.querySelector('button')!.addEventListener('click',()=>dialog.close());dialog.addEventListener('close',()=>{document.documentElement.style.overflow='';hide();});});
- document.addEventListener('visibilitychange',()=>{if(document.hidden)hide();});
- window.addEventListener('pagehide',()=>cancelAnimationFrame(frame),{once:true});
+  // -------------------------------------------------------------
+  // GATE 03: PHYSICAL CINEMA ARCHIVE & LIVING PROJECTION ENGINE
+  // -------------------------------------------------------------
+  const track = document.getElementById('theatre-track');
+  const stage = document.getElementById('theatre-stage');
+  const beamSvg = document.getElementById('theatre-beam');
+  const theatreScreen = document.getElementById('theatre-screen');
+  const interactiveSeats = document.querySelectorAll<HTMLButtonElement>('.theatre-cinema-chair:not(:disabled), .lodge-armchair-interactive');
+  const slides = document.querySelectorAll<HTMLElement>('.theatre-projection-slide');
+  const programmeToggle = document.getElementById('theatre-programme-btn');
+  const programmeDrawer = document.getElementById('theatre-programme-drawer');
+  const programmeCloseBtn = document.getElementById('theatre-programme-close-btn');
+  const programmeCards = document.querySelectorAll<HTMLAnchorElement>('.theatre-folio-card[data-programme-id]');
+  const entry = document.getElementById('theatre-entry');
+  const entryAdmit = document.getElementById('theatre-entry-admit') as HTMLButtonElement | null;
+  const entrySkip = document.getElementById('theatre-entry-skip') as HTMLButtonElement | null;
+  const theatreChrome = document.getElementById('theatre-chrome');
+  const ticketStub = document.getElementById('theatre-ticket-stub');
+  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+  const admissionKey = 'algoryxz-house-01-admitted';
+  let admissionTimer: ReturnType<typeof setTimeout> | null = null;
+
+  // 1. Passive Scroll Progress Mapping (Desktop Depth Movement)
+  let ticking = false;
+  function updateScrollProgress() {
+    if (!track || !stage) return;
+    const maxScroll = track.offsetHeight - window.innerHeight;
+    if (maxScroll <= 0) return;
+
+    const currentScroll = window.scrollY;
+    const progress = Math.min(Math.max(currentScroll / maxScroll, 0), 1);
+    stage.style.setProperty('--scroll-p', progress.toFixed(3));
+    ticking = false;
+  }
+
+  window.addEventListener(
+    'scroll',
+    () => {
+      if (!ticking) {
+        window.requestAnimationFrame(updateScrollProgress);
+        ticking = true;
+      }
+    },
+    { passive: true }
+  );
+
+  // 0. Admission choreography. It gates focus as well as the visual threshold.
+  function setAuditoriumInert(inert: boolean) {
+    [
+      theatreChrome,
+      track,
+      programmeDrawer,
+      document.querySelector('.theatre-skip'),
+      document.querySelector('.theatre-escape'),
+    ].forEach((element) => {
+      if (element) element.toggleAttribute('inert', inert);
+    });
+  }
+
+  const seatRow = document.querySelector('.theatre-seat-row') as HTMLElement | null;
+
+  function centerSeatInRow(seatElement?: HTMLElement | null) {
+    if (window.innerWidth > 768) return;
+    const target = seatElement || (document.querySelector('.theatre-cinema-chair.is-active') as HTMLElement | null);
+    if (!target || !seatRow) return;
+    const seatLeft = target.offsetLeft;
+    const seatWidth = target.offsetWidth;
+    const rowWidth = seatRow.clientWidth;
+    const targetScrollLeft = seatLeft - (rowWidth / 2) + (seatWidth / 2);
+    seatRow.scrollTo({ left: targetScrollLeft, behavior: 'smooth' });
+  }
+
+  function revealAuditorium({ persist = true, focus = true } = {}) {
+    if (admissionTimer) clearTimeout(admissionTimer);
+    entry?.classList.remove('is-ticket', 'is-admitting', 'is-threshold', 'is-opening', 'is-igniting');
+    entry?.classList.add('is-complete');
+    stage?.classList.remove('entry-dim', 'entry-igniting');
+    stage?.classList.add('entry-arrived');
+    setAuditoriumInert(false);
+    ticketStub?.classList.add('is-visible');
+    if (persist) sessionStorage.setItem(admissionKey, 'true');
+    window.setTimeout(() => centerSeatInRow(), 120);
+    if (focus) window.setTimeout(() => document.getElementById('cta-000')?.focus(), 40);
+  }
+
+  function beginAdmission() {
+    if (!entry || entry.classList.contains('is-complete')) return;
+    entry.className = 'theatre-entry is-admitting';
+    entryAdmit?.setAttribute('disabled', 'true');
+
+    if (prefersReducedMotion.matches) {
+      admissionTimer = setTimeout(() => revealAuditorium(), 180);
+      return;
+    }
+
+    admissionTimer = setTimeout(() => {
+      entry.className = 'theatre-entry is-threshold';
+      admissionTimer = setTimeout(() => {
+        entry.className = 'theatre-entry is-opening';
+        admissionTimer = setTimeout(() => {
+          entry.className = 'theatre-entry is-igniting';
+          stage?.classList.remove('entry-dim');
+          stage?.classList.add('entry-igniting');
+          beamSvg?.classList.add('is-lit');
+          admissionTimer = setTimeout(() => revealAuditorium(), 900);
+        }, 950);
+      }, 650);
+    }, 540);
+  }
+
+
+  entryAdmit?.addEventListener('click', beginAdmission);
+  entrySkip?.addEventListener('click', () => revealAuditorium());
+
+  window.addEventListener('keydown', (event) => {
+    const isTransitioning = entry && !entry.classList.contains('is-ticket') && !entry.classList.contains('is-complete');
+    if (event.key === 'Escape' && isTransitioning) {
+      event.preventDefault();
+      revealAuditorium();
+    }
+  });
+
+  // 2. Physical Projectionist Selection Engine (Gate 04.2)
+  let currentScreeningId = '000';
+  let changeoverTimerA: ReturnType<typeof setTimeout> | null = null;
+  let changeoverTimerB: ReturnType<typeof setTimeout> | null = null;
+  let changeoverTimerC: ReturnType<typeof setTimeout> | null = null;
+  let changeoverTimerLodgeA: ReturnType<typeof setTimeout> | null = null;
+  let selectingChairTimer: ReturnType<typeof setTimeout> | null = null;
+
+  function clearChangeoverTimers() {
+    if (changeoverTimerA) clearTimeout(changeoverTimerA);
+    if (changeoverTimerB) clearTimeout(changeoverTimerB);
+    if (changeoverTimerC) clearTimeout(changeoverTimerC);
+    if (changeoverTimerLodgeA) clearTimeout(changeoverTimerLodgeA);
+    if (selectingChairTimer) clearTimeout(selectingChairTimer);
+    changeoverTimerA = null;
+    changeoverTimerB = null;
+    changeoverTimerC = null;
+    changeoverTimerLodgeA = null;
+    selectingChairTimer = null;
+  }
+
+  function resetScreenChangeoverClasses() {
+    theatreScreen?.classList.remove('is-shuttering', 'is-changeover', 'is-catching', 'is-settled');
+    beamSvg?.classList.remove('is-shuttering', 'is-catching');
+  }
+
+  function selectScreening(targetId: string, options: { immediate?: boolean } = {}) {
+    // Avoid redundant changeover if already settled on target
+    if (
+      targetId === currentScreeningId &&
+      !theatreScreen?.classList.contains('is-shuttering') &&
+      !theatreScreen?.classList.contains('is-changeover')
+    ) {
+      return;
+    }
+
+    clearChangeoverTimers();
+    currentScreeningId = targetId;
+    sessionStorage.setItem('algoryxz-theatre-selected-seat', targetId);
+
+    // Stage 1: Tactile Chair Acknowledgment & Canonical State Update
+    interactiveSeats.forEach((seat) => {
+      const isMatch = seat.dataset.seatId === targetId;
+      seat.classList.toggle('is-active', isMatch);
+      seat.setAttribute('aria-selected', String(isMatch));
+      if (isMatch) {
+        seat.classList.add('is-selecting');
+      } else {
+        seat.classList.remove('is-selecting');
+      }
+    });
+
+    selectingChairTimer = setTimeout(() => {
+      interactiveSeats.forEach((s) => s.classList.remove('is-selecting'));
+    }, 200);
+
+    // Clean up lodge state if switching back to a regular film
+    if (targetId !== 'LODGE') {
+      stage?.classList.remove('lodge-reserved', 'lodge-reserving', 'lodge-focused');
+      const activeSeatEl = document.querySelector(`.theatre-cinema-chair[data-seat-id="${targetId}"]`) as HTMLElement | null;
+      if (activeSeatEl) {
+        centerSeatInRow(activeSeatEl);
+      }
+    }
+
+    // Accessibility Reduced-Motion or Immediate Override: rapid clean crossfade (~150ms)
+    if (options.immediate || prefersReducedMotion.matches) {
+      resetScreenChangeoverClasses();
+      slides.forEach((slide) => {
+        slide.classList.toggle('is-active', slide.dataset.slideId === targetId);
+      });
+      if (targetId === 'LODGE') {
+        stage?.classList.remove('lodge-reserving');
+        stage?.classList.add('lodge-reserved', 'lodge-focused');
+      } else {
+        stage?.classList.remove('lodge-reserved', 'lodge-reserving', 'lodge-focused');
+      }
+      theatreScreen?.classList.add('is-settled');
+      igniteBeam();
+      return;
+    }
+
+    // PREMIUM LODGE / NEXT COMMISSION RITUAL (Gate 04.3)
+    if (targetId === 'LODGE') {
+      // Phase 2A: The theatre environment acknowledges the choice physically:
+      // Reading lamp warms, folio lifts/presents, regular seating softens
+      stage?.classList.remove('lodge-reserved');
+      stage?.classList.add('lodge-reserving', 'lodge-focused');
+
+      // Phase 2B: Optical projector changeover initiates after physical acknowledgement (360ms)
+      changeoverTimerLodgeA = setTimeout(() => {
+        resetScreenChangeoverClasses();
+        theatreScreen?.classList.add('is-shuttering');
+        beamSvg?.classList.add('is-shuttering');
+
+        // Stage 3: Deep warm-black changeover threshold (260ms)
+        changeoverTimerA = setTimeout(() => {
+          theatreScreen?.classList.remove('is-shuttering');
+          beamSvg?.classList.remove('is-shuttering');
+          theatreScreen?.classList.add('is-changeover');
+
+          // Unstage previous slide and stage commission slide in darkness
+          slides.forEach((slide) => {
+            slide.classList.toggle('is-active', slide.dataset.slideId === targetId);
+          });
+
+          // Stage 4: Film catches on screen & projector arc blooms (after 180ms warm-black = 800ms mark)
+          changeoverTimerB = setTimeout(() => {
+            theatreScreen?.classList.remove('is-changeover');
+            theatreScreen?.classList.add('is-catching');
+            beamSvg?.classList.add('is-catching');
+            igniteBeam();
+
+            // Stage 5: Settle into stable projection (after 420ms bloom = 1220ms total duration)
+            changeoverTimerC = setTimeout(() => {
+              resetScreenChangeoverClasses();
+              theatreScreen?.classList.add('is-settled');
+              stage?.classList.remove('lodge-reserving');
+              stage?.classList.add('lodge-reserved');
+            }, 420);
+          }, 180);
+        }, 260);
+      }, 360);
+      return;
+    }
+
+    // STANDARD FILM SCREENING CHANGEOVER (000, 001, 002)
+    // Stage 2: Shutter closure & optical collapse (starts immediately on activation)
+    resetScreenChangeoverClasses();
+    theatreScreen?.classList.add('is-shuttering');
+    beamSvg?.classList.add('is-shuttering');
+
+    // Stage 3: Deep warm-black changeover threshold (260ms)
+    changeoverTimerA = setTimeout(() => {
+      theatreScreen?.classList.remove('is-shuttering');
+      beamSvg?.classList.remove('is-shuttering');
+      theatreScreen?.classList.add('is-changeover');
+
+      // Unstage previous slide and stage incoming slide in darkness
+      slides.forEach((slide) => {
+        slide.classList.toggle('is-active', slide.dataset.slideId === targetId);
+      });
+
+      // Stage 4: Film catches on screen & projector arc blooms (after 180ms warm-black = 440ms mark)
+      changeoverTimerB = setTimeout(() => {
+        theatreScreen?.classList.remove('is-changeover');
+        theatreScreen?.classList.add('is-catching');
+        beamSvg?.classList.add('is-catching');
+        igniteBeam();
+
+        // Stage 5: Settle into stable projection (after 420ms bloom = 860ms total duration)
+        changeoverTimerC = setTimeout(() => {
+          resetScreenChangeoverClasses();
+          theatreScreen?.classList.add('is-settled');
+        }, 420);
+      }, 180);
+    }, 260);
+  }
+
+  // Dynamic Projector Beam Lighting (Entrance & Projection Catch)
+  function igniteBeam() {
+    beamSvg?.classList.add('is-lit');
+  }
+
+  // Bind tactile seat-back interactions:
+  // - Click / Enter: commits selection and triggers physical projection changeover
+  // - Hover / Focus: purely local house practical light handled via CSS (zero beam/screen disruption)
+  interactiveSeats.forEach((seat) => {
+    const seatId = seat.dataset.seatId;
+    if (!seatId) return;
+
+    seat.addEventListener('click', () => {
+      selectScreening(seatId);
+    });
+
+    seat.addEventListener('focus', () => {
+      if (window.innerWidth <= 768 && !seat.classList.contains('lodge-armchair-interactive')) {
+        centerSeatInRow(seat);
+      }
+    });
+  });
+
+  // Bind Programme Drawer cards to canonical seat selection
+  programmeCards.forEach((card) => {
+    card.addEventListener('click', (e) => {
+      const pid = card.dataset.programmeId;
+      if (pid) {
+        e.preventDefault();
+        closeProgramme();
+        selectScreening(pid);
+      }
+    });
+  });
+
+  // 3. Printed Programme Drawer Controls
+  function openProgramme() {
+    if (!programmeDrawer || !programmeToggle) return;
+    programmeDrawer.classList.add('is-open');
+    programmeDrawer.setAttribute('aria-hidden', 'false');
+    programmeToggle.setAttribute('aria-expanded', 'true');
+    document.body.classList.add('drawer-locked');
+    programmeCloseBtn?.focus();
+  }
+
+  function closeProgramme() {
+    if (!programmeDrawer || !programmeToggle) return;
+    programmeDrawer.classList.remove('is-open');
+    programmeDrawer.setAttribute('aria-hidden', 'true');
+    programmeToggle.setAttribute('aria-expanded', 'false');
+    document.body.classList.remove('drawer-locked');
+    programmeToggle.focus();
+  }
+
+  programmeToggle?.addEventListener('click', () => {
+    const isOpen = programmeDrawer?.classList.contains('is-open');
+    if (isOpen) closeProgramme();
+    else openProgramme();
+  });
+
+  programmeCloseBtn?.addEventListener('click', closeProgramme);
+
+  programmeDrawer?.addEventListener('click', (e) => {
+    if (e.target === programmeDrawer) closeProgramme();
+  });
+
+  window.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && programmeDrawer?.classList.contains('is-open')) {
+      closeProgramme();
+    }
+  });
+
+  // 4. Session Admission & Selected Screening Initialization
+  const previouslyAdmitted = sessionStorage.getItem(admissionKey) === 'true';
+  const selectedSeatKey = 'algoryxz-theatre-selected-seat';
+  const urlParams = new URLSearchParams(window.location.search);
+  const paramSeat = urlParams.get('seat') || window.location.hash.replace('#seat-', '').replace('#', '');
+  const storedSeat = sessionStorage.getItem(selectedSeatKey);
+  const initialSeat = (paramSeat && ['000', '001', '002', 'LODGE'].includes(paramSeat))
+    ? paramSeat
+    : (storedSeat && ['000', '001', '002', 'LODGE'].includes(storedSeat) ? storedSeat : '000');
+
+  if (previouslyAdmitted) {
+    revealAuditorium({ persist: false, focus: false });
+    if (initialSeat !== '000') {
+      selectScreening(initialSeat, { immediate: true });
+    }
+  } else {
+    if (initialSeat !== '000') {
+      selectScreening(initialSeat, { immediate: true });
+    }
+    setAuditoriumInert(true);
+    stage?.classList.add('entry-dim');
+  }
 </script>
-<style>
-.archive{padding:48px 3.4vw 38px;min-height:calc(100svh - 85px);position:relative;overflow:clip}.archive-heading{display:flex;justify-content:space-between;align-items:start;margin-bottom:25px}.archive-heading h1{font-size:16px;font-weight:500;letter-spacing:.04em}.archive-heading h1 span{color:#8f897e;margin-left:14px}.archive-heading p{font-size:9px;line-height:1.8}.archive-entry{position:relative;display:grid;grid-template-columns:36% 1fr 50px;align-items:center;border-bottom:1px solid #eee9df30;min-height:190px;transition:color .2s}.entry-number{font-size:clamp(120px,13vw,205px);line-height:1.05;letter-spacing:-.08em;font-weight:400}.entry-name{font-size:clamp(20px,3vw,45px);letter-spacing:-.035em;line-height:1.1}.entry-name small{display:block;font:9px var(--font-family-mono);letter-spacing:.1em;color:#aaa397;margin-top:15px}.entry-arrow{font-size:35px;color:#938a7b}.archive-entry:hover,.archive-entry:focus-visible{color:#d5a17e}.archive-bottom{display:flex;justify-content:space-between;align-items:end;padding-top:28px}.archive-bottom p{font-size:13px;line-height:1.5}.archive-bottom .eyebrow{font-size:9px}.cursor-art{position:fixed;left:0;top:0;width:340px;height:360px;z-index:35;pointer-events:none;opacity:0;transition:opacity .2s}.cursor-art.is-visible{opacity:1}.cursor-art>div{position:absolute;inset:0;transform:translate(-50%,-50%)}.cursor-art>div[hidden]{display:none}.entry-mobile-art{display:none}
-.project-world{position:fixed;inset:0;max-width:none;max-height:none;width:100%;height:100svh;border:0;padding:32px 4vw;background:#171715;color:#eee9df;overflow:auto}.project-world::backdrop{background:#10100f}.world-top{display:flex;justify-content:space-between;align-items:center}.world-close{min-height:44px;padding:0 12px;font-size:11px}.world-layout{display:grid;grid-template-columns:1fr 1fr;gap:9vw;align-items:center;min-height:76vh;padding:5vw 2vw}.world-copy h2{font-size:clamp(50px,6.5vw,100px);line-height:.95;letter-spacing:-.06em;font-weight:500;margin:25px 0}.world-copy>p:not(.eyebrow){max-width:380px;font-size:15px;color:inherit}.world-copy a{margin-top:25px}.world-art{height:480px}.world-foot{font-size:9px}.world-someone{background:#49392d}.world-someone h2{font-family:Georgia,serif;font-style:italic;font-weight:400}.world-business{background:#414b37}.world-business .eyebrow,.world-someone .eyebrow{color:#d9c9b2}
-@media(max-width:700px){.archive{padding:32px 20px}.archive-heading{margin-bottom:20px}.archive-heading h1{font-size:12px}.archive-heading p{font-size:7px}.archive-entry{min-height:225px;grid-template-columns:1fr 30px;align-content:center;gap:6px}.entry-number{font-size:98px;line-height:1}.entry-name{font-size:23px;grid-row:2}.entry-name small{font-size:8px;margin-top:10px}.entry-arrow{grid-column:2;grid-row:2;font-size:25px}.entry-mobile-art{display:block;position:absolute;right:6%;top:27px;width:125px;height:130px;pointer-events:none;opacity:.85}.archive-bottom{gap:20px}.archive-bottom .eyebrow{font-size:7px;max-width:115px}.cursor-art{display:none}.world-layout{grid-template-columns:1fr;gap:50px;padding:35px 5px}.world-art{height:340px;width:85%;margin:auto}.world-copy h2{font-size:58px}.world-top .eyebrow{font-size:8px}.world-foot{padding:30px 0}}
-@media(prefers-reduced-motion:no-preference){.project-world[open]{animation:world-aperture .65s cubic-bezier(.2,.8,.2,1) both}@keyframes world-aperture{from{clip-path:polygon(44% 0,48% 0,56% 100%,52% 100%)}to{clip-path:polygon(0 0,100% 0,100% 100%,0 100%)}}}
-</style>

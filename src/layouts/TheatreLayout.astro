@@ -2,12 +2,18 @@
 interface Props {
   title: string;
   description?: string;
+  ogType?: string;
 }
 
 const {
   title,
-  description = 'Algoryxz Cinema — Private Screening Room & Portfolio Archive.'
+  description = 'Algoryxz Cinema — Private Screening Room & Portfolio Archive. Editorial digital architecture, concept studies, and bespoke systems.',
+  ogType = 'website'
 } = Astro.props;
+
+const siteUrl = Astro.site ? Astro.site.toString().replace(/\/$/, '') : 'https://algoryxz.pages.dev';
+const canonicalURL = siteUrl ? new URL(Astro.url.pathname, siteUrl) : null;
+const ogImageURL = siteUrl ? new URL('/og-image.png', siteUrl).toString() : '/og-image.png';
 ---
 
 <!doctype html>
@@ -26,19 +32,34 @@ const {
     />
 
     <meta name="theme-color" content="#080706" />
-    <meta name="robots" content="noindex, nofollow" />
 
+    <!-- SEO & Canonical Metadata -->
     <title>{title} | Algoryxz</title>
     <meta name="description" content={description} />
+    {canonicalURL && <link rel="canonical" href={canonicalURL} />}
+
+    <!-- Open Graph / Social -->
+    <meta property="og:type" content={ogType} />
+    {canonicalURL && <meta property="og:url" content={canonicalURL} />}
+    <meta property="og:title" content={`${title} | Algoryxz`} />
+    <meta property="og:description" content={description} />
+    <meta property="og:site_name" content="Algoryxz" />
+    <meta property="og:image" content={ogImageURL} />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={`${title} | Algoryxz`} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImageURL} />
   </head>
   <body class="theatre-body">
     <!-- Accessible Skip Link -->
     <a href="#theatre-programme-btn" class="theatre-skip">Skip to programme & directory</a>
 
-    <!-- Minimal Escape Hatch to Approved Work Page -->
-    <a href="/work" class="theatre-escape" aria-label="Return to approved work archive">
+    <!-- Minimal Escape Hatch to Algoryxz Home -->
+    <a href="/" class="theatre-escape" aria-label="Return to Algoryxz home">
       <span class="theatre-escape-arrow">&larr;</span>
-      <span>Work / Archive</span>
+      <span class="theatre-escape-label">Algoryxz</span>
     </a>
 
     <slot />

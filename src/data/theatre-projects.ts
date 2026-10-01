@@ -29,7 +29,7 @@ export const theatreSeats: TheatreSeatData[] = [
     seatBackType: 'structure',
     screenHeroImage: '/assets/projects/000-hero.svg',
     projectHref: '/work/000',
-    liveUrl: 'https://algoryxz.com',
+    liveUrl: 'https://algoryxz.pages.dev',
     canonicalProject: projects.find((p) => p.number === '000')
   },
   {
@@ -64,8 +64,8 @@ export const theatreSeats: TheatreSeatData[] = [
     seatNumber: 'C1',
     status: 'RESERVED',
     category: 'Celebrations',
-    label: 'Private Commission Slot',
-    shortDescription: 'Production slot reserved for upcoming celebration portal.',
+    label: 'Reserved Production Slot',
+    shortDescription: 'Unreleased slot reserved for upcoming celebration portal.',
     seatBackType: 'reserved'
   },
   {
@@ -74,8 +74,8 @@ export const theatreSeats: TheatreSeatData[] = [
     seatNumber: 'C2',
     status: 'RESERVED',
     category: 'Intimate Keepsakes',
-    label: 'Editorial Anniversary Archive',
-    shortDescription: 'Production slot reserved for romantic timeline portal.',
+    label: 'Reserved Production Slot',
+    shortDescription: 'Unreleased slot reserved for upcoming romantic timeline portal.',
     seatBackType: 'reserved'
   },
   {
@@ -84,8 +84,8 @@ export const theatreSeats: TheatreSeatData[] = [
     seatNumber: 'C4',
     status: 'RESERVED',
     category: 'Creators & Culture',
-    label: 'Independent Creator Portfolio',
-    shortDescription: 'Production slot reserved for photography monograph experience.',
+    label: 'Reserved Production Slot',
+    shortDescription: 'Unreleased slot reserved for upcoming creator monograph experience.',
     seatBackType: 'reserved'
   },
   {
@@ -94,8 +94,8 @@ export const theatreSeats: TheatreSeatData[] = [
     seatNumber: 'C5',
     status: 'RESERVED',
     category: 'Custom Systems',
-    label: 'Operational Platform Engine',
-    shortDescription: 'Production slot reserved for booking and operational interface.',
+    label: 'Reserved Production Slot',
+    shortDescription: 'Unreleased slot reserved for upcoming operational interface.',
     seatBackType: 'reserved'
   }
 ];
